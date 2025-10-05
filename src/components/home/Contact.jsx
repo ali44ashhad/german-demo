@@ -37,10 +37,10 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      info: "hello@profitberator.com",
+      info: "hello@eduberator.com",
       description: "We reply within 2 hours",
       color: "from-blue-500 to-cyan-500",
-      link: "mailto:hello@profitberator.com"
+      link: "mailto:hello@eduberator.com"
     },
     {
       icon: MapPin,
@@ -540,10 +540,10 @@ export default Contact;
 //     {
 //       icon: Mail,
 //       title: "Email Us",
-//       info: "hello@profitberator.com",
+//       info: "hello@Eduberator.com",
 //       description: "We reply within 2 hours",
 //       color: "from-blue-500 to-cyan-500",
-//       link: "mailto:hello@profitberator.com",
+//       link: "mailto:hello@Eduberator.com",
 //       image: "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&w=200&h=150&fit=crop"
 //     },
 //     {

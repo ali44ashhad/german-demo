@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import logo from "../../assets/logo.png"
 import { 
   Menu, 
   X, 
@@ -69,12 +70,9 @@ const Header = () => {
               className="flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-cyan-400 rounded-xl flex items-center justify-center">
-                <span className="text-gray-900 font-bold text-lg">P</span>
-              </div>
+              
               <div>
-                <h1 className="text-xl font-bold text-white">Profitberator</h1>
-                <p className="text-cyan-400 text-xs">Germany Education Experts</p>
+               <img src={logo} alt="" className='h-full w-35' />
               </div>
             </motion.div>
 
@@ -194,7 +192,7 @@ const Header = () => {
                         <span className="text-gray-900 font-bold text-lg">P</span>
                       </div>
                       <div>
-                        <h1 className="text-xl font-bold text-white">Profitberator</h1>
+                        <h1 className="text-xl font-bold text-white">Eduberator</h1>
                         <p className="text-cyan-400 text-xs">Germany Experts</p>
                       </div>
                     </div>

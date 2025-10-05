@@ -15,7 +15,7 @@
 //     },
 //     {
 //       icon: Zap,
-//       title: "The Profitberator Strategy",
+//       title: "The Eduberator Strategy",
 //       description: "We analyze your profile for maximum career ROI, not just eligibility. Your success is our business model.",
 //       color: "from-yellow-500 to-orange-500"
 //     },
@@ -123,7 +123,7 @@
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.6, delay: 0.4 }}
 //           >
-//             The name <span className="text-yellow-400 font-semibold">Profitberator</span> comes from a simple belief: your education should be a strategic investment that pays lifelong dividends. We architect personalized roadmaps to turn your German dream into a profitable reality.
+//             The name <span className="text-yellow-400 font-semibold">Eduberator</span> comes from a simple belief: your education should be a strategic investment that pays lifelong dividends. We architect personalized roadmaps to turn your German dream into a profitable reality.
 //           </motion.p>
 //         </motion.div>
 
@@ -206,7 +206,7 @@
 //                 Ready to Generate Your Future in Germany?
 //               </h3>
 //               <p className="text-gray-300">
-//                 Let's build your personalized Profitberator roadmap today.
+//                 Let's build your personalized Eduberator roadmap today.
 //               </p>
 //             </div>
 //             <motion.button
@@ -243,7 +243,7 @@ const WhyChooseUs = () => {
     },
     {
       icon: Zap,
-      title: "The Profitberator Strategy",
+      title: "The Eduberator Strategy",
       description: "We analyze your profile for maximum career ROI, not just eligibility. Your success is our business model.",
       color: "from-yellow-500 to-orange-500",
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
@@ -366,7 +366,7 @@ const WhyChooseUs = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            The name <span className="text-yellow-400 font-semibold">Profitberator</span> comes from a simple belief: your education should be a strategic investment that pays lifelong dividends. We architect personalized roadmaps to turn your German dream into a profitable reality.
+            The name <span className="text-yellow-400 font-semibold">Eduberator</span> comes from a simple belief: your education should be a strategic investment that pays lifelong dividends. We architect personalized roadmaps to turn your German dream into a profitable reality.
           </motion.p>
         </motion.div>
 
@@ -469,7 +469,7 @@ const WhyChooseUs = () => {
                 Ready to Generate Your Future in Germany?
               </h3>
               <p className="text-gray-300">
-                Let's build your personalized Profitberator roadmap today.
+                Let's build your personalized Eduberator roadmap today.
               </p>
             </div>
             <motion.button

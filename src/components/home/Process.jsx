@@ -20,7 +20,7 @@
 //       step: 1,
 //       icon: UserCheck,
 //       title: "Profile Analysis & Strategy",
-//       description: "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Profitberator roadmap.",
+//       description: "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.",
 //       color: "from-blue-500 to-cyan-500",
 //       features: ["Academic Evaluation", "Career Goal Mapping", "ROI Analysis", "Timeline Planning"],
 //       svg: (
@@ -186,7 +186,7 @@
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.6, delay: 0.3 }}
 //           >
-//             The Profitberator{' '}
+//             The Eduberator{' '}
 //             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
 //               Roadmap to Germany
 //             </span>
@@ -392,7 +392,7 @@ const Process = () => {
       step: 1,
       icon: UserCheck,
       title: "Profile Analysis & Strategy",
-      description: "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Profitberator roadmap.",
+      description: "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.",
       color: "from-blue-500 to-cyan-500",
       features: ["Academic Evaluation", "Career Goal Mapping", "ROI Analysis", "Timeline Planning"],
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
@@ -517,7 +517,7 @@ const Process = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            The Profitberator{' '}
+            The Eduberator{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Roadmap to Germany
             </span>

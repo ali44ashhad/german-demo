@@ -138,7 +138,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-cyan-400 rounded-xl flex items-center justify-center">
                 <Globe className="w-6 h-6 text-gray-900" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Profitberator</h3>
+              <h3 className="text-2xl font-bold text-white">Eduberator</h3>
             </motion.div>
             
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -249,7 +249,7 @@ const Footer = () => {
               </motion.a>
 
               <motion.a 
-                href="mailto:hello@profitberator.com"
+                href="mailto:hello@Eduberator.com"
                 className="flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors duration-300 group"
                 whileHover={{ x: 5 }}
               >
@@ -257,7 +257,7 @@ const Footer = () => {
                   <Mail className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <div className="font-medium">hello@profitberator.com</div>
+                  <div className="font-medium">hello@Eduberator.com</div>
                   <div className="text-sm text-gray-400">We reply within 2 hours</div>
                 </div>
               </motion.a>
@@ -330,7 +330,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-gray-400 text-sm text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
-              <span>© 2025 Profitberator. Made with</span>
+              <span>© 2025 Eduberator. Made with</span>
               <motion.div
                 animate={{ 
                   scale: [1, 1.2, 1],
@@ -386,7 +386,7 @@ const Footer = () => {
 
       {/* Floating WhatsApp CTA */}
       <motion.a
-        href="https://wa.me/919876543210"
+        href="https://wa.me"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 transition-all duration-300"

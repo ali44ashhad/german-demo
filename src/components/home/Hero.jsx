@@ -94,7 +94,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          Profitberator is your exclusive expert partner for admission to Germany's world-class universities.
+          Eduberator is your exclusive expert partner for admission to Germany's world-class universities.
           We specialize in guiding students to Bachelor's, Master's, and STEM programs.
         </motion.p>
 

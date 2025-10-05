@@ -26,7 +26,7 @@
 //       destination: "Munich, Germany",
 //       duration: "2023 Admission",
 //       score: "IELTS 7.5 | TestAS 94%",
-//       story: "Profitberator's strategic approach helped me secure admission to my dream university. Their guidance on German-style SOPs and TestAS preparation was invaluable. The ROI-focused counseling showed me exactly how this degree would benefit my career.",
+//       story: "Eduberator's strategic approach helped me secure admission to my dream university. Their guidance on German-style SOPs and TestAS preparation was invaluable. The ROI-focused counseling showed me exactly how this degree would benefit my career.",
 //       video: "/api/placeholder/1920/1080",
 //       achievements: ["TU9 University", "€15,000 Scholarship", "Research Assistant Position"],
 //       rating: 5
@@ -40,7 +40,7 @@
 //       destination: "Aachen, Germany",
 //       duration: "2023 Admission",
 //       score: "TestAS 89% | 85% in 12th",
-//       story: "As a bachelor's student, I was unsure about the German education system. Profitberator not only got me into RWTH Aachen but also helped me understand the cultural aspects. Their end-to-end support made the journey smooth.",
+//       story: "As a bachelor's student, I was unsure about the German education system. Eduberator not only got me into RWTH Aachen but also helped me understand the cultural aspects. Their end-to-end support made the journey smooth.",
 //       video: "/api/placeholder/1920/1080",
 //       achievements: ["Top 1% University", "Internship at Bosch", "German B2 Level"],
 //       rating: 5
@@ -54,7 +54,7 @@
 //       destination: "Stuttgart, Germany",
 //       duration: "2024 Admission",
 //       score: "GRE 320 | IELTS 8.0",
-//       story: "The Profitberator team's expertise in STEM admissions was exceptional. They helped me showcase my technical projects in a way that German universities appreciate. Now I'm studying at one of Germany's top tech universities!",
+//       story: "The Eduberator team's expertise in STEM admissions was exceptional. They helped me showcase my technical projects in a way that German universities appreciate. Now I'm studying at one of Germany's top tech universities!",
 //       video: "/api/placeholder/1920/1080",
 //       achievements: ["STEM Program", "DAAD Scholarship", "Industry Partnerships"],
 //       rating: 5
@@ -68,7 +68,7 @@
 //       destination: "Berlin, Germany",
 //       duration: "2023 Admission",
 //       score: "IELTS 7.0 | 8.2 CGPA",
-//       story: "From blocked account setup to visa interview preparation, Profitberator handled everything professionally. Their network with German universities gave me an edge in the admission process.",
+//       story: "From blocked account setup to visa interview preparation, Eduberator handled everything professionally. Their network with German universities gave me an edge in the admission process.",
 //       video: "/api/placeholder/1920/1080",
 //       achievements: ["Auto Industry Hub", "Mercedes Internship", "German Government Funded"],
 //       rating: 5
@@ -206,7 +206,7 @@
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.6, delay: 0.4 }}
 //           >
-//             Real stories from students who transformed their dreams into reality with Profitberator's strategic guidance.
+//             Real stories from students who transformed their dreams into reality with Eduberator's strategic guidance.
 //           </motion.p>
 //         </motion.div>
 
@@ -456,7 +456,7 @@ const SuccessStories = () => {
       destination: "Munich, Germany",
       duration: "2023 Admission",
       score: "IELTS 7.5 | TestAS 94%",
-      story: "Profitberator's strategic approach helped me secure admission to my dream university. Their guidance on German-style SOPs and TestAS preparation was invaluable. The ROI-focused counseling showed me exactly how this degree would benefit my career.",
+      story: "Eduberator's strategic approach helped me secure admission to my dream university. Their guidance on German-style SOPs and TestAS preparation was invaluable. The ROI-focused counseling showed me exactly how this degree would benefit my career.",
       video: "https://assets.mixkit.co/videos/preview/mixkit-students-walking-on-a-university-campus-34557-large.mp4",
       achievements: ["TU9 University", "€15,000 Scholarship", "Research Assistant Position"],
       rating: 5
@@ -470,7 +470,7 @@ const SuccessStories = () => {
       destination: "Aachen, Germany",
       duration: "2023 Admission",
       score: "TestAS 89% | 85% in 12th",
-      story: "As a bachelor's student, I was unsure about the German education system. Profitberator not only got me into RWTH Aachen but also helped me understand the cultural aspects. Their end-to-end support made the journey smooth.",
+      story: "As a bachelor's student, I was unsure about the German education system. Eduberator not only got me into RWTH Aachen but also helped me understand the cultural aspects. Their end-to-end support made the journey smooth.",
       video: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-university-campus-34580-large.mp4",
       achievements: ["Top 1% University", "Internship at Bosch", "German B2 Level"],
       rating: 5
@@ -484,7 +484,7 @@ const SuccessStories = () => {
       destination: "Stuttgart, Germany",
       duration: "2024 Admission",
       score: "GRE 320 | IELTS 8.0",
-      story: "The Profitberator team's expertise in STEM admissions was exceptional. They helped me showcase my technical projects in a way that German universities appreciate. Now I'm studying at one of Germany's top tech universities!",
+      story: "The Eduberator team's expertise in STEM admissions was exceptional. They helped me showcase my technical projects in a way that German universities appreciate. Now I'm studying at one of Germany's top tech universities!",
       video: "https://assets.mixkit.co/videos/preview/mixkit-empty-university-auditorium-34558-large.mp4",
       achievements: ["STEM Program", "DAAD Scholarship", "Industry Partnerships"],
       rating: 5
@@ -498,7 +498,7 @@ const SuccessStories = () => {
       destination: "Berlin, Germany",
       duration: "2023 Admission",
       score: "IELTS 7.0 | 8.2 CGPA",
-      story: "From blocked account setup to visa interview preparation, Profitberator handled everything professionally. Their network with German universities gave me an edge in the admission process.",
+      story: "From blocked account setup to visa interview preparation, Eduberator handled everything professionally. Their network with German universities gave me an edge in the admission process.",
       video: "https://cdn.pixabay.com/vimeo/764221975/students-140267.mp4?width=1280&hash=abc123456",
       achievements: ["Auto Industry Hub", "Mercedes Internship", "German Government Funded"],
       rating: 5
@@ -616,7 +616,7 @@ const SuccessStories = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Real stories from students who transformed their dreams into reality with Profitberator's strategic guidance.
+            Real stories from students who transformed their dreams into reality with Eduberator's strategic guidance.
           </motion.p>
         </motion.div>
 
