@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 import logo from "../../assets/logo.png"
 import { 
   Menu, 
@@ -13,6 +14,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,45 +25,37 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Navigation: Services dropdown items are objects with name + to (route)
   const navigation = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
     { 
       name: 'Services', 
-      href: '#services',
+      href: '/services',
       dropdown: [
-        'University Selection',
-        'Application Assistance',
-        'Visa Guidance',
-        'Test Preparation',
-        'Blocked Account Help',
-        'Pre-Departure Briefing'
+        { name: 'Forex Card & Remittances', to: '/services/forex-card-remittances' },
+        { name: 'Accommodation', to: '/services/accommodation' },
+        { name: 'Medical Insurance', to: '/services/medical-insurance' },
+        { name: 'Education Loan', to: '/services/education-loan' },
       ]
     },
-    { name: 'Success Stories', href: '#success' },
-    { name: 'Process', href: '#process' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Coaching', href: '/coaching' }, 
+    { name: 'Contact', href: '/contact' },
   ]
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+  const isActiveLink = (href) => {
+    if (!href) return false
+    if (href === '/') {
+      return location.pathname === '/'
     }
-    setIsMobileMenuOpen(false)
-    setActiveDropdown(null)
+    return location.pathname === href || location.pathname.startsWith(href + '/')
   }
 
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-gray-900 border-b border-gray-700'
-            : 'bg-gray-900'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 bg-gray-800 transition-all duration-500 `}
+       
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-5">
@@ -70,10 +64,9 @@ const Header = () => {
               className="flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
             >
-              
-              <div>
-               <img src={logo} alt="" className='h-full w-35' />
-              </div>
+              <Link to="/">
+                <img src={logo} alt="Profiberater" className='h-full w-35' />
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -86,7 +79,11 @@ const Header = () => {
                       onMouseLeave={() => setActiveDropdown(null)}
                       className="relative"
                     >
-                      <button className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium group">
+                      <button className={`flex items-center gap-1 transition-colors duration-300 font-medium group ${
+                        isActiveLink(item.href) 
+                          ? 'text-cyan-400' 
+                          : 'text-gray-300 hover:text-cyan-400'
+                      }`}>
                         {item.name}
                         <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
                       </button>
@@ -102,17 +99,19 @@ const Header = () => {
                           >
                             <div className="p-2">
                               {item.dropdown.map((dropdownItem, index) => (
-                                <motion.a
-                                  key={dropdownItem}
-                                  href="#services"
-                                  className="block px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-gray-800 rounded-xl transition-all duration-300 text-sm"
-                                  whileHover={{ x: 5 }}
+                                <motion.div
+                                  key={dropdownItem.to}
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: index * 0.05 }}
                                 >
-                                  {dropdownItem}
-                                </motion.a>
+                                  <Link
+                                    to={dropdownItem.to}
+                                    className="block px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-gray-800 rounded-xl transition-all duration-300 text-sm"
+                                  >
+                                    {dropdownItem.name}
+                                  </Link>
+                                </motion.div>
                               ))}
                             </div>
                           </motion.div>
@@ -120,37 +119,41 @@ const Header = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
+                    <Link
+                      to={item.href}
+                      className={`transition-colors duration-300 font-medium relative group ${
+                        isActiveLink(item.href) 
+                          ? 'text-cyan-400' 
+                          : 'text-gray-300 hover:text-cyan-400'
+                      }`}
                     >
                       {item.name}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-                    </button>
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-400 transition-all duration-300 ${
+                        isActiveLink(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                    </Link>
                   )}
                 </div>
               ))}
             </nav>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
-              <motion.a
-                href="tel:+919876543210"
-                className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Phone className="w-4 h-4" />
-                <span className="font-medium">Call Us</span>
-              </motion.a>
-              
+            <div className="hidden lg:flex items-center gap-2">
               <motion.button
-                onClick={() => scrollToSection('#contact')}
-                className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="px-5 py-2 rounded-lg border border-cyan-400 text-cyan-400 font-medium hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300"
               >
-                Free Consultation
+                Login
+              </motion.button>
+
+              <motion.button
+                onClick={() => window.location.href = '/contact'}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-5 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300"
+              >
+                Sign Up
               </motion.button>
             </div>
 
@@ -187,15 +190,11 @@ const Header = () => {
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-cyan-400 rounded-xl flex items-center justify-center">
-                        <span className="text-gray-900 font-bold text-lg">P</span>
+                    <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                      <div className="flex items-center gap-3">
+                        <img src={logo} alt="Profiberater" className='h-10 w-auto' />
                       </div>
-                      <div>
-                        <h1 className="text-xl font-bold text-white">Eduberator</h1>
-                        <p className="text-cyan-400 text-xs">Germany Experts</p>
-                      </div>
-                    </div>
+                    </Link>
                     <button
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-cyan-400"
@@ -213,7 +212,7 @@ const Header = () => {
                               onClick={() => setActiveDropdown(
                                 activeDropdown === item.name ? null : item.name
                               )}
-                              className="flex items-center justify-between w-full text-left text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium py-3"
+                              className="flex items-center justify-between w-full text-left transition-colors duration-300 font-medium py-3 text-gray-300 hover:text-cyan-400"
                             >
                               {item.name}
                               <ChevronDown 
@@ -232,25 +231,34 @@ const Header = () => {
                                   exit={{ opacity: 0, height: 0 }}
                                 >
                                   {item.dropdown.map((dropdownItem) => (
-                                    <button
-                                      key={dropdownItem}
-                                      onClick={() => scrollToSection('#services')}
+                                    <Link
+                                      key={dropdownItem.to}
+                                      to={dropdownItem.to}
+                                      onClick={() => {
+                                        setIsMobileMenuOpen(false)
+                                        setActiveDropdown(null)
+                                      }}
                                       className="block w-full text-left text-gray-400 hover:text-cyan-400 transition-colors duration-300 py-2 text-sm"
                                     >
-                                      {dropdownItem}
-                                    </button>
+                                      {dropdownItem.name}
+                                    </Link>
                                   ))}
                                 </motion.div>
                               )}
                             </AnimatePresence>
                           </div>
                         ) : (
-                          <button
-                            onClick={() => scrollToSection(item.href)}
-                            className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium py-3"
+                          <Link
+                            to={item.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`block w-full text-left transition-colors duration-300 font-medium py-3 ${
+                              isActiveLink(item.href) 
+                                ? 'text-cyan-400' 
+                                : 'text-gray-300 hover:text-cyan-400'
+                            }`}
                           >
                             {item.name}
-                          </button>
+                          </Link>
                         )}
                       </div>
                     ))}
@@ -280,7 +288,10 @@ const Header = () => {
                     </motion.a>
 
                     <motion.button
-                      onClick={() => scrollToSection('#contact')}
+                      onClick={() => {
+                        window.location.href = '/contact'
+                        setIsMobileMenuOpen(false)
+                      }}
                       className="w-full px-4 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

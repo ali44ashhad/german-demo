@@ -1,4 +1,3 @@
- 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { 
@@ -17,6 +16,7 @@ import {
   Globe,
   MessageCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const ref = useRef(null);
@@ -27,29 +27,25 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Success Stories", href: "#success" },
-    { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" }
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" }, 
+    { name: "Contact", href: "/contact" },
+    { name: "Services", href: "/services" }
   ];
 
-  const services = [
-    "University Selection",
-    "Application Assistance", 
-    "Visa Guidance",
-    "Test Preparation",
-    "Blocked Account Help",
-    "Pre-Departure Briefing"
-  ];
+  // Updated to only 4 specific services as per your requirement
+const services = [
+  { name: "Forex Card & Remittances", to: "/services/forex-card-remittances" },
+  { name: "Accommodation", to: "/services/accommodation" },
+  { name: "Medical Insurance", to: "/services/medical-insurance" },
+  { name: "Education Loan", to: "/services/education-loan" }
+];
 
-  const germanUniversities = [
-    "TU9 Universities",
-    "U15 Universities", 
-    "Applied Sciences",
-    "Public Universities",
-    "Private Universities",
-    "STEM Programs"
+  const importantLinks = [
+    { name: "Disclaimer & Policy", href: "/disclaimer" },
+    { name: "Reviews", href: "/reviews" },
+    { name: "Team", href: "/team" },
+    { name: "Coaching", href: "/coaching" }
   ];
 
   const socialLinks = [
@@ -138,7 +134,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-cyan-400 rounded-xl flex items-center justify-center">
                 <Globe className="w-6 h-6 text-gray-900" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Eduberator</h3>
+              <h3 className="text-2xl font-bold text-white">Profiberater</h3>
             </motion.div>
             
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -170,53 +166,53 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <div className="w-1 h-1 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Our Services */}
+          {/* Our Services - Updated to only 4 specific services */}
           <motion.div
             variants={itemVariants}
           >
             <h4 className="text-lg font-semibold text-white mb-6">Our Services</h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <motion.li key={index} whileHover={{ x: 5 }}>
-                  <a 
-                    href="#services"
-                    className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <div className="w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {service}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
+          <ul className="space-y-3">
+  {services.map((service, index) => (
+    <motion.li key={index} whileHover={{ x: 5 }}>
+      <Link
+        to={service.to}
+        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group"
+      >
+        <div className="w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {service.name}
+      </Link>
+    </motion.li>
+  ))}
+</ul>
           </motion.div>
 
-          {/* German Universities */}
+          {/* Important Links */}
           <motion.div
             variants={itemVariants}
           >
-            <h4 className="text-lg font-semibold text-white mb-6">German Universities</h4>
+            <h4 className="text-lg font-semibold text-white mb-6">Important Links</h4>
             <ul className="space-y-3">
-              {germanUniversities.map((university, index) => (
+              {importantLinks.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <a 
-                    href="#services"
+                  <Link 
+                    to={link.href}
                     className="text-gray-300 hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <div className="w-1 h-1 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {university}
-                  </a>
+                    {link.name}
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -249,7 +245,7 @@ const Footer = () => {
               </motion.a>
 
               <motion.a 
-                href="mailto:hello@Eduberator.com"
+                href="mailto:hello@profiberater.com"
                 className="flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors duration-300 group"
                 whileHover={{ x: 5 }}
               >
@@ -257,7 +253,7 @@ const Footer = () => {
                   <Mail className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <div className="font-medium">hello@Eduberator.com</div>
+                  <div className="font-medium">hello@profiberater.com</div>
                   <div className="text-sm text-gray-400">We reply within 2 hours</div>
                 </div>
               </motion.a>
@@ -330,7 +326,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-gray-400 text-sm text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
-              <span>© 2025 Eduberator. Made with</span>
+              <span>© 2025 Profiberater. Made with</span>
               <motion.div
                 animate={{ 
                   scale: [1, 1.2, 1],
@@ -349,16 +345,16 @@ const Footer = () => {
 
           {/* Legal Links */}
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-1">
+            <Link to="/privacy" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-1">
               <Shield className="w-4 h-4" />
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+            </Link>
+            <Link to="/terms" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">
               Terms of Service
-            </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+            </Link>
+            <Link to="/cookies" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">
               Cookies
-            </a>
+            </Link>
           </div>
 
           {/* Scroll to Top */}
@@ -386,7 +382,7 @@ const Footer = () => {
 
       {/* Floating WhatsApp CTA */}
       <motion.a
-        href="https://wa.me"
+        href="https://wa.me/919876543210"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 transition-all duration-300"

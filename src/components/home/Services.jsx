@@ -320,16 +320,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { 
-  Search, 
-  FileText, 
-  BookOpen, 
-  Shield, 
-  Plane, 
-  Users,
+  CreditCard, 
+  Home, 
+  Heart, 
+  TrendingUp,
   ArrowRight,
   Star,
   CheckCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const ref = useRef(null);
@@ -337,58 +336,44 @@ const Services = () => {
 
   const services = [
     {
-      icon: Search,
-      title: "University & Program Shortlisting",
-      description: "Strategic selection from TU9, U15, and Universities of Applied Sciences based on your profile and career goals.",
-      features: ["TU9 University Matching", "Career ROI Analysis", "Program Fit Assessment", "Future Job Market Trends"],
+      icon: CreditCard,
+      title: "Forex Card & Remittances",
+      description: "Multi-currency forex cards and international money transfer services with best exchange rates for students going to Germany.",
+      features: ["Multi-Currency Cards", "Zero Forex Markup", "Instant Reload", "24/7 Support"],
       color: "from-blue-500 to-cyan-500",
       delay: 0.1,
-      image: "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=400&h=300&fit=crop",
+      link: "/services/forex-card-remittances"
     },
     {
-      icon: FileText,
-      title: "Application & Documentation Mastery",
-      description: "Expert handling of VPD from Uni-Assist, German-style SOPs, LORs, and Europass CV preparation.",
-      features: ["Uni-Assist VPD Processing", "German SOP Writing", "LOR Optimization", "Document Verification"],
+      icon: Home,
+      title: "Accommodation",
+      description: "Find your perfect home in Germany with our comprehensive accommodation services near universities.",
+      features: ["Student Hostels", "Shared Apartments", "Studio Flats", "Homestay Options"],
       color: "from-purple-500 to-pink-500",
       delay: 0.2,
-      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=400&h=300&fit=crop",
+      link: "/services/accommodation"
     },
     {
-      icon: BookOpen,
-      title: "Admission Test Guidance",
-      description: "Comprehensive preparation support for TestAS, GRE, GMAT and other required entrance examinations.",
-      features: ["TestAS Preparation", "Study Material", "Mock Tests", "Strategy Sessions"],
+      icon: Heart,
+      title: "Medical Insurance",
+      description: "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+      features: ["Visa Compliance", "Full Coverage", "EU-Wide Validity", "Multilingual Support"],
       color: "from-green-500 to-emerald-500",
       delay: 0.3,
-      image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=400&h=300&fit=crop",
+      link: "/services/medical-insurance"
     },
     {
-      icon: Shield,
-      title: "Blocked Account & Financial Proof",
-      description: "Complete guidance on setting up your Sperrkonto and preparing financial documentation for visa.",
-      features: ["Blocked Account Setup", "Financial Planning", "Document Preparation", "Bank Coordination"],
-      color: "from-yellow-500 to-orange-500",
+      icon: TrendingUp,
+      title: "Education Loan",
+      description: "Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.",
+      features: ["Collateral-Free", "Low Interest", "Flexible Tenure", "Quick Processing"],
+      color: "from-orange-500 to-red-500",
       delay: 0.4,
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
-    },
-    {
-      icon: Plane,
-      title: "German Student Visa Support",
-      description: "End-to-end visa application support including appointment booking, document checklist, and mock interviews.",
-      features: ["Visa Appointment", "Document Checklist", "Mock Interviews", "Application Tracking"],
-      color: "from-red-500 to-rose-500",
-      delay: 0.5,
-      image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
-    },
-    {
-      icon: Users,
-      title: "Pre-Departure & Cultural Integration",
-      description: "Complete preparation for life in Germany - from accommodation search to understanding German culture.",
-      features: ["Accommodation Support", "Health Insurance", "Cultural Training", "Airport Pickup Coordination"],
-      color: "from-indigo-500 to-blue-500",
-      delay: 0.6,
-      image: "https://images.unsplash.com/photo-1506905925340-14faa3c85743?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=400&h=300&fit=crop",
+      link: "/services/education-loan"
     }
   ];
 
@@ -474,7 +459,7 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Star className="w-5 h-5 text-yellow-400" />
-            <span className="text-yellow-400 font-semibold">Germany-Specific Expertise</span>
+            <span className="text-yellow-400 font-semibold">Essential Services for Germany</span>
           </motion.div>
 
           <motion.h2
@@ -483,9 +468,9 @@ const Services = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Our Comprehensive{' '}
+            Our Core{' '}
             <span className="bg-gradient-to-r from-yellow-400 to-cyan-400 bg-clip-text text-transparent">
-              Germany Services
+              Services
             </span>
           </motion.h2>
           
@@ -495,13 +480,13 @@ const Services = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            From university selection to your first day in Germany - we handle every step with German precision and expertise.
+            Complete support services for Indian students - from financial solutions to accommodation and insurance, we've got you covered for your German journey.
           </motion.p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Now 2x2 layout for 4 services */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -523,97 +508,100 @@ const Services = () => {
                 }}
               />
 
-              {/* Main Card */}
-              <motion.div
-                className="relative bg-gray-800/40 backdrop-blur-xl rounded-3xl p-8 border border-gray-700 hover:border-cyan-400/50 h-full flex flex-col"
-                whileHover={{ 
-                  y: -15,
-                  scale: 1.02,
-                  rotateY: 5,
-                  transition: { type: "spring", stiffness: 300 }
-                }}
-                style={{
-                  transformStyle: "preserve-3d"
-                }}
-              >
-                {/* Gradient Glow Effect */}
-                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                
-                {/* Service Icon */}
+              {/* Make whole card clickable by wrapping the card in Link (avoid nested Link inside) */}
+              <Link to={service.link} className="block relative z-10" aria-label={`${service.title} — Learn more`}>
                 <motion.div
-                  className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} p-5 mb-6 flex items-center justify-center relative overflow-hidden`}
+                  className="relative bg-gray-800/40 backdrop-blur-xl rounded-3xl p-8 border border-gray-700 hover:border-cyan-400/50 h-full flex flex-col"
                   whileHover={{ 
-                    scale: 1.1,
-                    rotate: [0, -5, 5, 0]
+                    y: -15,
+                    scale: 1.02,
+                    rotateY: 5,
+                    transition: { type: "spring", stiffness: 300 }
                   }}
-                  transition={{ duration: 0.5 }}
+                  style={{
+                    transformStyle: "preserve-3d"
+                  }}
                 >
-                  <service.icon className="w-10 h-10 text-white" />
+                  {/* Gradient Glow Effect */}
+                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   
-                  {/* Shine Effect */}
+                  {/* Service Icon */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: -100 }}
-                    whileHover={{ x: 200 }}
-                    transition={{ duration: 0.8 }}
+                    className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} p-5 mb-6 flex items-center justify-center relative overflow-hidden`}
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: [0, -5, 5, 0]
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <service.icon className="w-10 h-10 text-white" />
+                    
+                    {/* Shine Effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: -100 }}
+                      whileHover={{ x: 200 }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  </motion.div>
+
+                  {/* Service Content */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    {/* Features List */}
+                    <div className="space-y-3 mb-6">
+                      {service.features.map((feature, featureIndex) => (
+                        <motion.div
+                          key={featureIndex}
+                          className="flex items-center gap-3"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                          transition={{ duration: 0.5, delay: service.delay + featureIndex * 0.1 }}
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                          <span className="text-gray-300 text-sm">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA Button (visual only) */}
+                  <div className="mt-2">
+                    <motion.div
+                      className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-semibold transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <span>Learn More</span>
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ArrowRight className="w-5 h-5" />
+                      </motion.div>
+                    </motion.div>
+                  </div>
+
+                  {/* Hover Border Animation */}
+                  <motion.div
+                    className={`absolute inset-0 rounded-3xl border-2 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 -z-10`}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
                   />
                 </motion.div>
-
-                {/* Service Content */}
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="space-y-3 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <motion.div
-                        key={featureIndex}
-                        className="flex items-center gap-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                        transition={{ duration: 0.5, delay: service.delay + featureIndex * 0.1 }}
-                      >
-                        <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <motion.button
-                  className="w-full mt-auto flex items-center justify-center gap-2 py-4 px-6 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-semibold transition-all duration-300 group/btn"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>Learn More</span>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.div>
-                </motion.button>
-
-                {/* Hover Border Animation */}
-                <motion.div
-                  className={`absolute inset-0 rounded-3xl border-2 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 -z-10`}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileHover={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Bottom Process Indicator */}
+        {/* View All Services CTA */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 50 }}
@@ -647,19 +635,21 @@ const Services = () => {
             </motion.div>
             <div className="text-left relative z-10">
               <h3 className="text-xl font-bold text-white">
-                Ready to Start Your German Journey?
+                Need Comprehensive Support?
               </h3>
               <p className="text-gray-300">
-                Let's discuss which services are perfect for your profile.
+                Explore all our services in detail and get personalized assistance.
               </p>
             </div>
-            <motion.button
-              className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 relative z-10"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started
-            </motion.button>
+            <Link to="/services">
+              <motion.button
+                className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 relative z-10"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View All Services
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>
