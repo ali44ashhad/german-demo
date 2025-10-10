@@ -105,29 +105,23 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            🚀 Book Free Consultation
+            🚀 Register yourself and book your consultation by our professional experts.
           </motion.button>
-
-          <motion.button
-            className="px-5 sm:px-6 py-2 sm:py-3 border-2 border-blue-200 text-white font-semibold rounded-lg text-base sm:text-lg hover:bg-white/10 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            📚 Explore Programs
-          </motion.button>
+ 
         </motion.div>
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 max-w-xs sm:max-w-2xl"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 max-w-xs sm:max-w-2xl"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
         >
           {[
-            { number: "99%", text: "Admission Success" },
-            { number: "500+", text: "Students Guided" },
-            { number: "50+", text: "German Universities" },
+           { number: "99%", text: "Admission Success" },
+  { number: "500+", text: "Students Guided" },
+  { number: "50+", text: "German Universities" },
+  { number: "10+", text: "Years Experience" }
           ].map((stat, index) => (
             <motion.div
               key={index}

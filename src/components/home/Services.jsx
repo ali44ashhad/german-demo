@@ -227,33 +227,40 @@ const Services = () => {
         </motion.div>
 
         {/* View All Services CTA */}
-        <motion.div
-          className="text-center mt-14"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-4 bg-white/60 rounded-2xl p-6 border border-gray-100 shadow-sm relative">
-            <div 
-              className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold"
-            >
-              <CheckCircle className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <h3 className="text-lg font-bold text-gray-900">Need Comprehensive Support?</h3>
-              <p className="text-gray-700">Explore all our services in detail and get personalized assistance.</p>
-            </div>
-            <Link to="/services" className="ml-4">
-              <motion.button
-                className="px-6 py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                View All Services
-              </motion.button>
-            </Link>
-          </div>
-        </motion.div>
+       <motion.div
+  className="text-center mt-14 px-4 sm:px-6 lg:px-0"
+  initial={{ opacity: 0, y: 30 }}
+  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+  transition={{ duration: 0.7, delay: 0.6 }}
+>
+  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-white/60 rounded-2xl p-4 sm:p-6 border border-gray-100 shadow-sm relative">
+    
+    <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold">
+      <CheckCircle className="w-6 h-6" />
+    </div>
+    
+    <div className="text-center sm:text-left flex-1">
+      <h3 className="text-base sm:text-lg font-bold text-gray-900">
+        Need Comprehensive Support?
+      </h3>
+      <p className="text-sm sm:text-gray-700 mt-1 sm:mt-2">
+        Explore all our services in detail and get personalized assistance.
+      </p>
+    </div>
+    
+    <Link to="/services" className="mt-3 sm:mt-0 sm:ml-4 flex-shrink-0">
+      <motion.button
+        className="w-full sm:w-auto px-5 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        View All Services
+      </motion.button>
+    </Link>
+
+  </div>
+</motion.div>
+
       </div>
     </section>
   );
