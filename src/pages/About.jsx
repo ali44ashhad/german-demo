@@ -55,7 +55,7 @@ const About = () => {
               backgroundPosition: 'center'
             }}
           />
-          {/* Bluish Overlay */}
+     
           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
         </div>
         

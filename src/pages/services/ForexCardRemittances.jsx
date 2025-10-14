@@ -149,8 +149,7 @@ const ForexCardRemittances = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Benefits Section */}
+ 
       <section className="py-20 bg-green-50/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
