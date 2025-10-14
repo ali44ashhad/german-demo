@@ -56,32 +56,35 @@ const DisclaimerAndPolicy = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0 opacity-90"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           />
+
+          {/* Bluish overlay (preserved per request) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Disclaimer & <span className="bg-gradient-to-r from-yellow-400 to-cyan-400 bg-clip-text text-transparent">Policy</span>
+            Disclaimer & <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">Policy</span>
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -98,24 +101,24 @@ const DisclaimerAndPolicy = () => {
             {policies.map((policy, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-300"
+                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
                     <policy.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">{policy.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">{policy.title}</h3>
                 </div>
 
                 <div className="space-y-3">
                   {policy.content.map((item, itemIndex) => (
                     <div key={itemIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <p className="text-gray-300 leading-relaxed">{item}</p>
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-700 leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -126,17 +129,17 @@ const DisclaimerAndPolicy = () => {
       </section>
 
       {/* Additional Legal Info */}
-      <section className="py-20 bg-gray-800/30">
+      <section className="py-20 bg-green-50/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="bg-gray-800/50 rounded-2xl p-8 border border-yellow-400/30"
+            className="bg-white rounded-2xl p-8 border border-green-100 shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Service Understanding</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Service Understanding</h2>
             
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-gray-700">
               <p>
                 <strong>Educational Consulting Nature:</strong> Profiberater provides educational consulting and advisory services. We offer guidance, support, and expertise in the German education system but do not guarantee admissions, scholarships, or visa approvals.
               </p>
@@ -161,14 +164,14 @@ const DisclaimerAndPolicy = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
-            className="text-4xl font-bold text-white mb-6"
+            className="text-4xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           >
             Questions About Our Policies?
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-300 mb-8"
+            className="text-xl text-gray-700 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.2 }}
@@ -176,7 +179,7 @@ const DisclaimerAndPolicy = () => {
             Contact us for any clarification regarding our policies and terms.
           </motion.p>
           <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
+            className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

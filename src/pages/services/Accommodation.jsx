@@ -74,32 +74,35 @@ const Accommodation = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0 opacity-90"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           />
+
+          {/* Bluish overlay preserved */}
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-yellow-500 mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Student <span className="bg-gradient-to-r from-yellow-400 to-cyan-400 bg-clip-text text-transparent">Accommodation</span>
+            Student <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">Accommodation</span>
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -113,7 +116,7 @@ const Accommodation = () => {
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            className="text-4xl font-bold text-white mb-12 text-center"
+            className="text-4xl font-bold text-gray-900 mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -124,7 +127,7 @@ const Accommodation = () => {
             {accommodationTypes.map((accommodation, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700 hover:border-cyan-400/50 transition-all duration-300"
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -140,28 +143,28 @@ const Accommodation = () => {
                 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold text-white">{accommodation.type}</h3>
-                    <div className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-bold">
+                    <h3 className="text-2xl font-bold text-gray-900">{accommodation.type}</h3>
+                    <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
                       {accommodation.price}
                     </div>
                   </div>
 
-                  <p className="text-cyan-400 text-sm mb-4 flex items-center gap-1">
+                  <p className="text-sky-600 text-sm mb-4 flex items-center gap-1">
                     <Users className="w-4 h-4" />
                     Best for: {accommodation.bestFor}
                   </p>
 
                   <div className="space-y-2 mb-4">
                     {accommodation.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2 text-gray-300 text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <div key={featureIndex} className="flex items-center gap-2 text-gray-700 text-sm">
+                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
                         {feature}
                       </div>
                     ))}
                   </div>
 
                   <motion.button
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -175,10 +178,10 @@ const Accommodation = () => {
       </section>
 
       {/* Cities Section */}
-      <section className="py-20 bg-gray-800/30">
+      <section className="py-20 bg-green-50/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            className="text-4xl font-bold text-white mb-12 text-center"
+            className="text-4xl font-bold text-gray-900 mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -189,34 +192,34 @@ const Accommodation = () => {
             {cities.map((city, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 text-center"
+                className="bg-white rounded-2xl p-6 border border-gray-100 text-center hover:shadow-md"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2">{city.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{city.name}</h3>
                 
-                <div className="space-y-2 text-sm text-gray-300 mb-4">
+                <div className="space-y-2 text-sm text-gray-700 mb-4">
                   <div className="flex justify-between">
                     <span>Average Rent:</span>
-                    <span className="text-cyan-400">{city.averageRent}</span>
+                    <span className="text-sky-600">{city.averageRent}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Popularity:</span>
-                    <span className="text-yellow-400">{city.popularity}</span>
+                    <span className="text-green-600">{city.popularity}</span>
                   </div>
                 </div>
 
                 <div className="text-left">
-                  <p className="text-gray-400 text-sm mb-2">Student Areas:</p>
+                  <p className="text-gray-600 text-sm mb-2">Student Areas:</p>
                   {city.studentAreas.map((area, areaIndex) => (
-                    <div key={areaIndex} className="flex items-center gap-2 text-gray-300 text-xs mb-1">
-                      <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                    <div key={areaIndex} className="flex items-center gap-2 text-gray-700 text-xs mb-1">
+                      <div className="w-1 h-1 bg-green-600 rounded-full"></div>
                       {area}
                     </div>
                   ))}
@@ -231,16 +234,16 @@ const Accommodation = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl p-12 border border-purple-400/20"
+            className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-white mb-6">Need Accommodation in Germany?</h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Need Accommodation in Germany?</h2>
+            <p className="text-xl text-gray-700 mb-8">
               Let us help you find the perfect home for your study journey.
             </p>
             <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 flex items-center gap-2 mx-auto"
+              className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

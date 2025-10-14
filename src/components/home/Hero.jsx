@@ -36,27 +36,7 @@ const Hero = () => {
       </div>
 
       {/* Animated Floating Shapes */}
-      <div className="absolute inset-0 overflow-hidden z-[1]">
-        <motion.div
-          className="absolute top-[20%] left-[10%] w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 border-2 border-sky-200/60 rounded-xl bg-white/10 backdrop-blur-sm"
-          animate={{
-            y: [0, -20, 0],
-            rotateX: [0, 8, 0],
-            rotateY: [0, 6, 0],
-            opacity: [0.6, 0.9, 0.6],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[20%] right-[10%] w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 border-2 border-blue-200/50 rounded-full bg-white/10 backdrop-blur-sm"
-          animate={{
-            y: [0, 30, 0],
-            rotateZ: [0, 180, 360],
-            opacity: [0.5, 0.9, 0.5],
-          }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 sm:px-6 md:px-10 lg:px-16 py-20 sm:py-28 lg:py-40">

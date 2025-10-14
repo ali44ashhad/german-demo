@@ -75,32 +75,35 @@ const Team = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0 opacity-90"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           />
+
+          {/* Bluish overlay (kept as requested) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Meet Our <span className="bg-gradient-to-r from-yellow-400 to-cyan-400 bg-clip-text text-transparent">Team</span>
+            Meet Our <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">Team</span>
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -118,49 +121,49 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-cyan-400/50 transition-all duration-300 group"
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-cyan-400/30 group-hover:border-cyan-400 transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-green-200 transition-all duration-300">
                     <img 
                       src={member.image} 
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className="text-cyan-400 font-semibold mb-2">{member.role}</p>
-                  <p className="text-gray-400 text-sm mb-3">{member.experience}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <p className="text-green-600 font-semibold mb-2">{member.role}</p>
+                  <p className="text-gray-600 text-sm mb-3">{member.experience}</p>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-gray-300 text-sm">
-                    <GraduationCap className="w-4 h-4 text-yellow-400" />
+                  <div className="flex items-center gap-2 text-gray-700 text-sm">
+                    <GraduationCap className="w-4 h-4 text-green-600" />
                     <span>{member.education}</span>
                   </div>
                   
                   <div className="space-y-2">
-                    <p className="text-gray-400 text-sm font-semibold">Specializations:</p>
+                    <p className="text-gray-700 text-sm font-semibold">Specializations:</p>
                     {member.specialization.map((spec, specIndex) => (
                       <div key={specIndex} className="flex items-center gap-2">
-                        <div className="w-1 h-1 bg-green-400 rounded-full"></div>
-                        <span className="text-gray-300 text-sm">{spec}</span>
+                        <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                        <span className="text-gray-700 text-sm">{spec}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
-                  <button className="flex-1 bg-cyan-500/10 text-cyan-400 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-500/20 transition-all duration-300">
-                    <Mail className="w-4 h-4 inline mr-1" />
+                <div className="flex gap-3 mt-6 pt-6 border-t border-gray-100">
+                  <button className="flex-1 bg-white/60 text-green-600 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 transition-all duration-300 flex items-center justify-center gap-2">
+                    <Mail className="w-4 h-4 inline" />
                     Contact
                   </button>
-                  <button className="flex-1 bg-blue-500/10 text-blue-400 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500/20 transition-all duration-300">
-                    <Linkedin className="w-4 h-4 inline mr-1" />
+                  <button className="flex-1 bg-white/60 text-sky-600 py-2 rounded-lg text-sm font-semibold hover:bg-sky-50 transition-all duration-300 flex items-center justify-center gap-2">
+                    <Linkedin className="w-4 h-4 inline" />
                     Profile
                   </button>
                 </div>
@@ -171,15 +174,15 @@ const Team = () => {
       </section>
 
       {/* Expertise Areas */}
-      <section className="py-20 bg-gray-800/30">
+      <section className="py-20 bg-white/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-white mb-6">Our Expertise Areas</h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Expertise Areas</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
               Specialized guidance across diverse academic and professional fields
             </p>
           </motion.div>
@@ -188,17 +191,17 @@ const Team = () => {
             {expertiseAreas.map((area, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300 text-center"
+                className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-all duration-300 text-center"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <area.icon className="w-8 h-8 text-gray-900" />
+                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <area.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{area.field}</h3>
-                <p className="text-gray-300 leading-relaxed">{area.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{area.field}</h3>
+                <p className="text-gray-700 leading-relaxed">{area.description}</p>
               </motion.div>
             ))}
           </div>
@@ -209,14 +212,14 @@ const Team = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
-            className="text-4xl font-bold text-white mb-6"
+            className="text-4xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           >
             Ready to Work With Our Experts?
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-300 mb-8"
+            className="text-xl text-gray-700 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.2 }}
@@ -224,7 +227,7 @@ const Team = () => {
             Get personalized guidance from our team of experienced professionals.
           </motion.p>
           <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300"
+            className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
