@@ -239,8 +239,9 @@ const lenders = [
               </div>
 
              
-            <div className='py-6'>
-                <EMICalculator/>
+            <div
+            className='py-6'>
+              <EMICalculator/>
             </div>
             </motion.div>
           </div>
