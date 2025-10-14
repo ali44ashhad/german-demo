@@ -80,12 +80,11 @@ const Footer = () => {
           animate={{ scale: [1.2, 1, 1.2], y: [0, 30, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-
-        {/* Grid Pattern - now more visible */}
+ 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.08)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 
-      {/* Main Footer Content */}
+  
      
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>

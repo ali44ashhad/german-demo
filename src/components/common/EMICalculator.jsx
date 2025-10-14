@@ -137,7 +137,7 @@ const EMICalculator = ({ className = "" }) => {
         <div>Tenure: {months} months</div>
       </div>
 
-      {/* Example footer showing your sample values */}
+     
       <div className="mt-4 text-xs text-gray-500">
         <strong>Note:</strong> For your example inputs (₹20,00,000 · 9.5% p.a. · 10 years) this calculator shows ₹{formatINR(Math.round(emi))} as Monthly EMI using the standard formula.
       </div>
@@ -147,12 +147,12 @@ const EMICalculator = ({ className = "" }) => {
         <button
           className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold rounded-lg hover:shadow-md transition-transform transform hover:-translate-y-0.5"
           onClick={() => {
-            // small UX: copy EMI summary to clipboard
+           
             const text = `Loan ₹${formatINR(principal)} | Rate ${annualRate}% p.a. | Tenure ${tenureYears} yrs → EMI ₹${formatINR(
               Math.round(emi)
             )}`;
             navigator.clipboard?.writeText(text).catch(() => {});
-            // quick feedback (tiny visual) - user can add toast
+            
           }}
         >
           Copy Summary
