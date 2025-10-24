@@ -1,0 +1,436 @@
+{
+  "header": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "team": "Équipe",
+      "services": "Services",
+      "pricing": "Tarifs",
+      "coaching": "Coaching",
+      "contact": "Contact"
+    },
+    "servicesDropdown": {
+      "forex": "Carte Forex & Transferts",
+      "accommodation": "Logement",
+      "insurance": "Assurance Médicale",
+      "loan": "Prêt Étudiant"
+    },
+    "profile": "Profil",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu"
+  },
+  "hero": {
+    "title_line1": "Étudier en Allemagne",
+    "title_line2": "Votre Investissement Le Plus Intelligent",
+    "subtitle": "Votre Investissement Le Plus Intelligent",
+    "description": "Eduberator est votre partenaire de confiance pour les admissions dans les meilleures universités allemandes. Nous gérons tout en ligne - de la sélection au guidage visa et au soutien pré-départ.",
+    "cta_register": "🚀 Inscrivez-vous et réservez votre consultation avec nos experts professionnels.",
+    "stats": [
+      { "number": "99%", "text": "Succès aux Admissions" },
+      { "number": "500+", "text": "Étudiants Accompagnés" },
+      { "number": "50+", "text": "Universités Allemandes" },
+      { "number": "10+", "text": "Années d'Expérience" }
+    ],
+    "video_poster": "/assets/hero-poster.jpg",
+    "aria_hero_label": "Section hero : Étudier en Allemagne",
+    "scroll_indicator_label": "Défiler vers le bas",
+    "register_aria": "S'inscrire et réserver consultation"
+  },
+  "why": {
+    "heading": "Pourquoi Choisir",
+    "sub": "Tous nos services sont réalisés entièrement en ligne - aucune visite au bureau requise. Nous restons en communication étroite par Email, TEAMS/Zoom et WhatsApp pour vous guider à chaque étape.",
+    "features": [
+      {
+        "key": "expert",
+        "icon": "users",
+        "title": "Conseillers Experts avec Perspective Sectorielle",
+        "description": "Notre équipe est composée de professionnels expérimentés avec une vaste expérience académique et industrielle, vous offrant un accompagnement complet et pratique.",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "key": "personal",
+        "icon": "check-circle",
+        "title": "Attention Personnalisée",
+        "description": "Nous travaillons avec un nombre limité d'étudiants par semestre, garantissant que chaque candidat reçoive du temps dédié et un soutien pour une stratégie de candidature solide.",
+        "color": "from-yellow-500 to-orange-400"
+      },
+      {
+        "key": "levels",
+        "icon": "book-open",
+        "title": "Soutien à Tous les Niveaux Académiques",
+        "description": "Que vous postuliez pour une Licence, un Master, un MBA ou un Doctorat, nous offrons une assistance sur mesure répondant aux exigences uniques de chaque niveau de programme.",
+        "color": "from-green-500 to-emerald-500"
+      },
+      {
+        "key": "fields",
+        "icon": "globe",
+        "title": "Large Éventail de Domaines d'Étude",
+        "description": "Notre expertise couvre diverses disciplines, aidant les étudiants de différents horizons académiques à trouver les programmes et universités les mieux adaptés.",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "key": "tuition",
+        "icon": "banknote",
+        "title": "Opportunités d'Éducation sans Frais de Scolarité",
+        "description": "Nous aidons à identifier les programmes et institutions offrant une éducation gratuite ou à faible coût, augmentant vos chances d'une éducation de qualité et abordable en Europe.",
+        "color": "from-red-500 to-rose-500"
+      },
+      {
+        "key": "endtoend",
+        "icon": "life-buoy",
+        "title": "Accompagnement Complet",
+        "description": "De la candidature à l'intégration et l'installation, nous sommes à vos côtés tout au long de votre parcours éducatif.",
+        "color": "from-indigo-500 to-blue-500"
+      }
+    ],
+    "additional_highlights": {
+      "specialization_title": "Spécialisation en Admissions Européennes",
+      "specialization_text": "Nous nous concentrons sur les meilleures universités à travers l'Europe, fournissant des insights sur les exigences régionales, la culture et les opportunités pour vous aider à choisir la bonne destination.",
+      "online_title": "Entièrement en Ligne et Toujours Connecté",
+      "online_text": "Tous les services sont délivrés en ligne. Nous resterons en contact par Email, TEAMS/Zoom et WhatsApp pour les révisions de documents, entretiens simulés, suivi des candidatures et aide à l'intégration."
+    },
+    "cta": {
+      "title": "Prêt à construire votre feuille de route ?",
+      "text": "Réservez une consultation gratuite et laissez nos experts créer un plan personnalisé pour votre parcours éducatif européen.",
+      "button": "Commencer Mon Voyage 🚀"
+    }
+  },
+  "services": {
+    "header_short": "Services Essentiels pour l'Allemagne",
+    "heading": "Nos Services Principaux",
+    "learn_more": "en savoir plus",
+    "description": "Services de soutien complets pour les étudiants indiens - des solutions financières au logement et à l'assurance, nous avons tout prévu pour votre voyage en Allemagne.",
+    "list": [
+      {
+        "key": "forex",
+        "icon": "credit-card",
+        "title": "Carte Forex & Transferts",
+        "description": "Cartes forex multi-devises et services de transfert international d'argent avec les meilleurs taux de change pour les étudiants se rendant en Allemagne.",
+        "features": ["Cartes Multi-Devises", "Zéro Frais Forex", "Rechargement Instantané", "Support 24/7"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.1,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/forex-card-remittances"
+      },
+      {
+        "key": "accommodation",
+        "icon": "home",
+        "title": "Logement",
+        "description": "Trouvez votre maison parfaite en Allemagne avec nos services de logement complets près des universités.",
+        "features": ["Résidences Étudiantes", "Appartements Partagés", "Studios", "Options en Famille d'Accueil"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.2,
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/accommodation"
+      },
+      {
+        "key": "insurance",
+        "icon": "heart",
+        "title": "Assurance Médicale",
+        "description": "Solutions d'assurance santé allemande répondant aux exigences de visa avec une couverture complète pour les étudiants internationaux.",
+        "features": ["Conformité Visa", "Couverture Complète", "Validité dans l'UE", "Support Multilingue"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.3,
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/medical-insurance"
+      },
+      {
+        "key": "loan",
+        "icon": "trending-up",
+        "title": "Prêt Étudiant",
+        "description": "Aide financière pour les étudiants indiens poursuivant des études supérieures en Allemagne avec des options de remboursement flexibles.",
+        "features": ["Sans Garantie", "Faibles Taux d'Intérêt", "Durée Flexible", "Traitement Rapide"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.4,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/education-loan"
+      }
+    ],
+    "cta": {
+      "need_support_title": "Besoin d'un Soutien Complet ?",
+      "need_support_text": "Explorez tous nos services en détail et obtenez une assistance personnalisée.",
+      "view_all": "Voir Tous les Services"
+    }
+  },
+  "process": {
+    "badge": "Processus de Réussite en 4 Étapes",
+    "heading": "La Feuille de Route Eduberator vers l'Allemagne",
+    "sub": "Un processus éprouvé en 4 étapes qui a aidé plus de 500 étudiants à atteindre avec succès leurs universités allemandes de rêve. Nous gérons la complexité pendant que vous vous concentrez sur votre préparation.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Analyse de Profil & Stratégie",
+        "description": "Évaluation complète de votre parcours académique, objectifs et aspirations professionnelles pour créer votre feuille de route Eduberator personnalisée.",
+        "features": ["Évaluation Académique", "Cartographie des Objectifs", "Analyse ROI", "Planification Temporelle"],
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 2,
+        "title": "Finalisation Université & Programme",
+        "description": "Sélection stratégique parmi les universités TU9, U15 et Sciences Appliquées basée sur votre profil et les tendances du marché du travail allemand.",
+        "features": ["Appariement Universités TU9", "Recherche de Programmes", "Probabilité d'Admission", "Options de Rechange"],
+        "image": "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 3,
+        "title": "Candidature & Documentation",
+        "description": "Perfectionnez vos candidatures avec des SOP style allemand, LOR et gérez le traitement VPD Uni-Assist avec un guidage expert.",
+        "features": ["Rédaction SOP", "Préparation LOR", "Traitement VPD", "Vérification des Documents"],
+        "image": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 4,
+        "title": "Visa & Pré-Départ",
+        "description": "Soutien complet pour la demande de visa, configuration du compte bloqué et préparation culturelle pour votre voyage en Allemagne.",
+        "features": ["Documentation Visa", "Compte Bloqué", "Assurance Santé", "Briefing Culturel"],
+        "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      }
+    ],
+    "cta_title": "Prêt à Commencer Votre Voyage en Allemagne ?",
+    "cta_button": "Commencer Mon Analyse de Profil",
+    "cta_note": "Consultation initiale gratuite - Aucun engagement requis"
+  },
+  "testimonials": {
+    "label": "TÉMOIGNAGES",
+    "heading": "Ce que nos étudiants disent sur les études en Allemagne avec Profiberater",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "list": [
+      {
+        "id": 1,
+        "name": "Aman Verma",
+        "meta": "M.Sc. Sciences Computationnelles — TU Munich",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "« Profiberater m'a guidé à travers ma candidature à l'université allemande et le processus de visa avec clarté et attention - mon visa a été approuvé plus rapidement que prévu. Profondément reconnaissant ! »",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Sakshi Gupta",
+        "meta": "B.Sc → M.Sc. — Université de Fribourg",
+        "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "« Leur soutien APS et linguistique était extrêmement professionnel - j'ai trouvé la bonne université et reçu de l'aide pour obtenir une bourse. »",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Rohit Singh",
+        "meta": "Candidat MS — RWTH Aachen (accepté)",
+        "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+        "text": "« Après plusieurs refus de visa pour l'Allemagne, Profiberater a retravaillé mon profil et ma stratégie. Ils ont gardé des attentes réalistes et m'ont finalement aidé à obtenir l'approbation. »",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Neha Joshi",
+        "meta": "Préparation pour Studienkolleg / Cours de Langue",
+        "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+        "text": "« Tarifs transparents, mises à jour constantes et un conseiller dédié ont rendu l'ensemble du processus fluide. Fortement recommandé pour toute personne postulant en Allemagne. »",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Ankit Sharma",
+        "meta": "MBA — Frankfurt School of Finance & Management",
+        "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+        "text": "« L'équipe a aidé à perfectionner mon SOP et CV, rendant ma candidature MBA beaucoup plus solide. Leurs sessions de feedback étaient professionnelles et pratiques. »",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Priya Menon",
+        "meta": "Master en Ingénierie Environnementale — TU Delft",
+        "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+        "text": "« Leur expertise dans les admissions européennes s'est vraiment démarquée. J'ai reçu des admissions de multiples universités et leur guidance visa était précise. »",
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Vikram Desai",
+        "meta": "B.Sc Science des Données — Université de Hambourg",
+        "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+        "text": "« Étant un candidat international pour la première fois, j'ai apprécié leur clarté et réactivité. Ils ont géré chaque étape de manière transparente. »",
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "name": "Ritika Bansal",
+        "meta": "Ph.D. en Biotechnologie — Université de Bonn",
+        "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+        "text": "« Ils m'ont aidé à aligner mes intérêts de recherche avec des superviseurs appropriés et ont élaboré une proposition solide. Je n'aurais pas pu le faire seule ! »",
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "name": "Aditya Narang",
+        "meta": "M.Sc. Ingénierie Mécanique — TU Darmstadt",
+        "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+        "text": "« Chaque étape était transparente - de la sélection des candidatures à l'entretien simulé pour le visa. Je recommanderais absolument Profiberater. »",
+        "rating": 5
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Consultation Gratuite",
+    "heading": "Commencez Votre Voyage en Allemagne Aujourd'hui",
+    "sub": "Obtenez un guidage personnalisé d'experts en éducation allemande. Réservez votre évaluation de profil gratuite et découvrez votre chemin vers les universités allemandes.",
+    "get_in_touch": "Nous Contacter",
+    "free_assessment": "Évaluation de Profil Gratuite",
+    "thank_you_title": "Merci !",
+    "thank_you_text": "Nous avons reçu votre message et vous contacterons dans les 2 heures.",
+    "form": {
+      "name": "Nom Complet *",
+      "email": "Adresse Email *",
+      "phone": "Numéro de Téléphone",
+      "program": "Intérêt pour le Programme",
+      "message": "Votre Message",
+      "submit": "Envoyer Message & Obtenir Consultation Gratuite",
+      "submitting": "Envoi en cours..."
+    },
+    "contact_cards": {
+      "call": {
+        "title": "Appelez-nous",
+        "info": "+91 98765 43210",
+        "description": "Lun-Sam, 10h-19h",
+        "link": "tel:+919876543210",
+        "key": "call"
+      },
+      "email": {
+        "title": "Écrivez-nous",
+        "info": "hello@eduberator.com",
+        "description": "Nous répondons sous 2 heures",
+        "link": "mailto:hello@eduberator.com",
+        "key": "email"
+      },
+      "visit": {
+        "title": "Visitez le Bureau",
+        "info": "Delhi, Inde",
+        "description": "Réservez rendez-vous avant visite",
+        "link": "#",
+        "key": "visit"
+      },
+      "hours": {
+        "title": "Heures de Bureau",
+        "info": "10:00 - 19:00",
+        "description": "Lundi à Samedi",
+        "link": "#",
+        "key": "hours"
+      }
+    },
+    "programs": [
+      "Licence en Allemagne",
+      "Master en Allemagne",
+      "Programmes STEM",
+      "MBA en Allemagne",
+      "Doctorat en Allemagne",
+      "Cours de Langue"
+    ],
+    "cta_call_now": "Appeler Maintenant",
+    "cta_book_meeting": "Réserver Réunion",
+    "status_sending": "Envoi en cours...",
+    "status_sent": "Envoyé"
+  },
+  "footer": {
+    "company": "Eduberator",
+    "about": "Votre partenaire stratégique pour l'éducation allemande. Nous transformons les rêves en admissions réussies avec des stratégies éprouvées et un guidage expert.",
+    "trust": {
+      "one": "99% de Réussite aux Admissions",
+      "two": "500+ Étudiants Accompagnés",
+      "three": "Experts en Éducation Allemande"
+    },
+    "quick_links_title": "Liens Rapides",
+    "our_services_title": "Nos Services",
+    "important_links_title": "Liens Importants",
+    "follow_us_title": "Suivez-nous",
+    "newsletter_title": "Newsletter",
+    "contact": {
+      "phone": "+91 98765 43210",
+      "phone_note": "Lun-Sam, 10h-19h",
+      "email": "hello@eduberator.com",
+      "email_note": "Nous répondons sous 2 heures",
+      "address": "Delhi, Inde",
+      "address_note": "Réservez rendez-vous avant visite"
+    },
+    "quick_links": [
+      { "name": "Accueil", "href": "/" },
+      { "name": "À propos", "href": "/about" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Services", "href": "/services" }
+    ],
+    "services": [
+      { "name": "Carte Forex & Transferts", "to": "/services/forex-card-remittances" },
+      { "name": "Logement", "to": "/services/accommodation" },
+      { "name": "Assurance Médicale", "to": "/services/medical-insurance" },
+      { "name": "Prêt Étudiant", "to": "/services/education-loan" }
+    ],
+    "important_links": [
+      { "name": "Mentions Légales & Politique", "href": "/disclaimer" },
+      { "name": "Avis", "href": "/reviews" },
+      { "name": "Équipe", "href": "/team" },
+      { "name": "Coaching", "href": "/coaching" }
+    ],
+    "social": [
+      { "provider": "facebook", "href": "#" },
+      { "provider": "twitter", "href": "#" },
+      { "provider": "instagram", "href": "#" },
+      { "provider": "linkedin", "href": "#" },
+      { "provider": "youtube", "href": "#" }
+    ],
+    "copyright_prefix": "© 2025 Eduberator. Fait avec",
+    "copyright_suffix": "pour les étudiants du monde entier.",
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "cookies": "Cookies"
+    }
+  },
+  "about": {
+  "title": "À propos de Profiberater",
+  "hero": {
+    "heading": "À propos de Profiberater",
+    "subHeading": "Nous sommes une équipe de professionnels expérimentés, originaires de l'Inde et vivant en Europe depuis plus de dix ans. Cette combinaison unique de compréhension culturelle et d'expérience internationale nous permet de soutenir les étudiants indiens comme personne d'autre."
+  },
+  "story": {
+    "heading": "Notre Histoire",
+    "paragraphs": [
+      "Ayant commencé notre parcours en tant qu'étudiants internationaux il y a 10 à 15 ans, nous connaissons personnellement les défis, les décisions et les transitions impliqués. Aujourd'hui, nous sommes des professionnels établis dans divers secteurs et domaines en Europe.",
+      "Notre expérience nous permet de combler le fossé entre les aspirations des étudiants indiens et les systèmes académiques et professionnels européens avec clarté et empathie.",
+      "Au cours des deux dernières années, nous avons offert un accompagnement personnalisé à un groupe limité d'étudiants — gratuitement — chaque semestre, acquérant des connaissances précieuses et affinant notre approche. Forts de cette expérience et de cette confiance, nous étendons désormais nos services de manière plus structurée et professionnelle."
+    ]
+  },
+  "stats": [
+    { "number": "500+", "label": "Étudiants accompagnés" },
+    { "number": "99%", "label": "Taux de réussite aux admissions" },
+    { "number": "50+", "label": "Universités allemandes" },
+    { "number": "10+", "label": "Années d'expérience" }
+  ],
+  "valuesHeading": "Nos Valeurs et Philosophie",
+  "values": [
+    {
+      "title": "Notre Mission",
+      "description": "Vous guider et vous soutenir dans la poursuite de votre passion grâce à un accompagnement personnalisé et notre solide expérience dans le domaine de l’éducation.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "Notre Vision",
+      "description": "Permettre à chaque étudiant de poursuivre ses passions en toute confiance, en lui donnant les moyens de réaliser pleinement son potentiel et de réussir.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "Notre Approche",
+      "description": "Nous ne faisons pas que conseiller — nous mentorons, guidons et accompagnons chaque étudiant à chaque étape de son parcours éducatif à l’étranger.",
+      "color": "from-green-600 to-sky-600"
+    }
+  ],
+  "cta": {
+    "heading": "Prêt à commencer votre voyage ?",
+    "sub": "Laissez-nous vous aider à transformer votre rêve d’étudier en Allemagne en réalité.",
+    "button": "Obtenir une consultation gratuite"
+  }
+}
+
+}

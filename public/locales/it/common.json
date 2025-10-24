@@ -1,0 +1,436 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "Chi Siamo",
+      "team": "Team",
+      "services": "Servizi",
+      "pricing": "Prezzi",
+      "coaching": "Coaching",
+      "contact": "Contatto"
+    },
+    "servicesDropdown": {
+      "forex": "Carta Forex & Rimesse",
+      "accommodation": "Alloggio",
+      "insurance": "Assicurazione Medica",
+      "loan": "Prestito Studio"
+    },
+    "profile": "Profilo",
+    "open_menu": "Apri menu",
+    "close_menu": "Chiudi menu"
+  },
+  "hero": {
+    "title_line1": "Studiare in Germania",
+    "title_line2": "Il Tuo Investimento Più Intelligente",
+    "subtitle": "Il Tuo Investimento Più Intelligente",
+    "description": "Eduberator è il tuo partner affidabile per l'ammissione alle migliori università tedesche. Gestiamo tutto online - dalla selezione alla guida per il visto e supporto pre-partenza.",
+    "cta_register": "🚀 Registrati e prenota la tua consulenza con i nostri esperti professionisti.",
+    "stats": [
+      { "number": "99%", "text": "Successo Ammissioni" },
+      { "number": "500+", "text": "Studenti Guidati" },
+      { "number": "50+", "text": "Università Tedesche" },
+      { "number": "10+", "text": "Anni di Esperienza" }
+    ],
+    "video_poster": "/assets/hero-poster.jpg",
+    "aria_hero_label": "Sezione hero: Studiare in Germania",
+    "scroll_indicator_label": "Scorri in basso",
+    "register_aria": "Registrati e prenota consulenza"
+  },
+  "why": {
+    "heading": "Perché Scegliere",
+    "sub": "Tutti i nostri servizi sono condotti interamente online - nessuna visita in ufficio richiesta. Restiamo in stretta comunicazione via Email, TEAMS/Zoom e WhatsApp per guidarti in ogni passo.",
+    "features": [
+      {
+        "key": "expert",
+        "icon": "users",
+        "title": "Consulenti Esperti con Competenza Settoriale",
+        "description": "Il nostro team è composto da professionisti esperti con ampia esperienza sia accademica che industriale, fornendoti una guida completa e pratica.",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "key": "personal",
+        "icon": "check-circle",
+        "title": "Attenzione Personalizzata",
+        "description": "Lavoriamo con un numero limitato di studenti per semestre, garantendo che ogni candidato riceva tempo dedicato e supporto per una solida strategia di applicazione.",
+        "color": "from-yellow-500 to-orange-400"
+      },
+      {
+        "key": "levels",
+        "icon": "book-open",
+        "title": "Supporto per Tutti i Livelli Accademici",
+        "description": "Che tu stia applicando per Laurea, Master, MBA o Dottorato, offriamo assistenza personalizzata che soddisfa i requisiti unici di ogni livello di programma.",
+        "color": "from-green-500 to-emerald-500"
+      },
+      {
+        "key": "fields",
+        "icon": "globe",
+        "title": "Ampia Gamma di Campi di Studio",
+        "description": "La nostra esperienza abbraccia diverse discipline, aiutando studenti da vari background accademici a trovare i programmi e le università più adatte.",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "key": "tuition",
+        "icon": "banknote",
+        "title": "Opportunità per Istruzione Gratuita",
+        "description": "Aiutiamo a identificare programmi e istituzioni che offrono istruzione gratuita o a basso costo, aumentando le tue possibilità di un'istruzione di alta qualità e accessibile in Europa.",
+        "color": "from-red-500 to-rose-500"
+      },
+      {
+        "key": "endtoend",
+        "icon": "life-buoy",
+        "title": "Supporto End-to-End",
+        "description": "Dall'applicazione all'inserimento e sistemazione, stiamo al tuo fianco durante tutto il tuo percorso educativo.",
+        "color": "from-indigo-500 to-blue-500"
+      }
+    ],
+    "additional_highlights": {
+      "specialization_title": "Specializzazione in Ammissioni Europee",
+      "specialization_text": "Ci concentriamo sulle migliori università in tutta Europa, fornendo approfondimenti sui requisiti regionali, cultura e opportunità per aiutarti a scegliere la destinazione giusta.",
+      "online_title": "Completamente Online e Sempre Connessi",
+      "online_text": "Tutti i servizi sono erogati online. Saremo in contatto via Email, TEAMS/Zoom e WhatsApp per revisioni documenti, colloqui simulati, tracciamento applicazioni e aiuto per l'inserimento."
+    },
+    "cta": {
+      "title": "Pronto a costruire la tua roadmap?",
+      "text": "Prenota una consulenza gratuita e lascia che i nostri esperti creino un piano personalizzato per il tuo percorso educativo europeo.",
+      "button": "Inizia il Mio Viaggio 🚀"
+    }
+  },
+  "services": {
+    "header_short": "Servizi Essenziali per la Germania",
+    "heading": "I Nostri Servizi Principali",
+    "learn_more": "scopri di più",
+    "description": "Servizi di supporto completi per studenti indiani - dalle soluzioni finanziarie all'alloggio e assicurazione, abbiamo tutto ciò che ti serve per il tuo viaggio in Germania.",
+    "list": [
+      {
+        "key": "forex",
+        "icon": "credit-card",
+        "title": "Carta Forex & Rimesse",
+        "description": "Carte forex multi-valuta e servizi di trasferimento internazionale di denaro con i migliori tassi di cambio per studenti che vanno in Germania.",
+        "features": ["Carte Multi-Valuta", "Zero Commissioni Forex", "Ricarica Istantanea", "Supporto 24/7"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.1,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/forex-card-remittances"
+      },
+      {
+        "key": "accommodation",
+        "icon": "home",
+        "title": "Alloggio",
+        "description": "Trova la tua casa perfetta in Germania con i nostri servizi completi di alloggio vicino alle università.",
+        "features": ["Ostelli Studenteschi", "Appartamenti Condivisi", "Monolocali", "Opzioni Homestay"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.2,
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/accommodation"
+      },
+      {
+        "key": "insurance",
+        "icon": "heart",
+        "title": "Assicurazione Medica",
+        "description": "Soluzioni di assicurazione sanitaria tedesca che soddisfano i requisiti per il visto con copertura completa per studenti internazionali.",
+        "features": ["Conformità Visto", "Copertura Completa", "Validità UE", "Supporto Multilingue"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.3,
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/medical-insurance"
+      },
+      {
+        "key": "loan",
+        "icon": "trending-up",
+        "title": "Prestito Studio",
+        "description": "Assistenza finanziaria per studenti indiani che perseguono l'istruzione superiore in Germania con opzioni di rimborso flessibili.",
+        "features": ["Senza Garanzie", "Bassi Interessi", "Durata Flessibile", "Elaborazione Rapida"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.4,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/education-loan"
+      }
+    ],
+    "cta": {
+      "need_support_title": "Hai Bisogno di Supporto Completo?",
+      "need_support_text": "Esplora tutti i nostri servizi in dettaglio e ricevi assistenza personalizzata.",
+      "view_all": "Vedi Tutti i Servizi"
+    }
+  },
+  "process": {
+    "badge": "Processo di Successo in 4 Fasi",
+    "heading": "La Roadmap Eduberator per la Germania",
+    "sub": "Un processo collaudato in 4 fasi che ha aiutato oltre 500 studenti a raggiungere con successo le loro università tedesche dei sogni. Gestiamo la complessità mentre tu ti concentri sulla preparazione.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Analisi Profilo & Strategia",
+        "description": "Valutazione completa del tuo background accademico, obiettivi e aspirazioni di carriera per creare la tua roadmap Eduberator personalizzata.",
+        "features": ["Valutazione Accademica", "Mappatura Obiettivi Carriera", "Analisi ROI", "Pianificazione Tempistiche"],
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 2,
+        "title": "Finalizzazione Università & Programma",
+        "description": "Selezione strategica da università TU9, U15 e Scienze Applicate basata sul tuo profilo e tendenze del mercato del lavoro tedesco.",
+        "features": ["Abbinamento Università TU9", "Ricerca Programmi", "Probabilità Ammissione", "Opzioni di Backup"],
+        "image": "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 3,
+        "title": "Applicazione & Documentazione",
+        "description": "Perfeziona le tue applicazioni con SOP in stile tedesco, LOR e gestisci l'elaborazione VPD Uni-Assist con guida esperta.",
+        "features": ["Scrittura SOP", "Preparazione LOR", "Elaborazione VPD", "Verifica Documenti"],
+        "image": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 4,
+        "title": "Visto & Pre-Partenza",
+        "description": "Supporto completo per l'applicazione del visto, configurazione conto bloccato e preparazione culturale per il tuo viaggio in Germania.",
+        "features": ["Documentazione Visto", "Conto Bloccato", "Assicurazione Sanitaria", "Briefing Culturale"],
+        "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      }
+    ],
+    "cta_title": "Pronto per Iniziare il Tuo Viaggio in Germania?",
+    "cta_button": "Inizia la Mia Analisi Profilo",
+    "cta_note": "Consulenza iniziale gratuita - Nessun impegno richiesto"
+  },
+  "testimonials": {
+    "label": "TESTIMONIANZE",
+    "heading": "Cosa dicono i nostri studenti dello studio in Germania con Profiberater",
+    "pause": "Pausa",
+    "resume": "Riprendi",
+    "list": [
+      {
+        "id": 1,
+        "name": "Aman Verma",
+        "meta": "M.Sc. Scienze Computazionali — TU Monaco",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "“Profiberater mi ha guidato attraverso la mia applicazione all'università tedesca e il processo del visto con chiarezza e cura - il mio visto è stato approvato più velocemente del previsto. Profondamente grato!”",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Sakshi Gupta",
+        "meta": "B.Sc → M.Sc. — Università di Friburgo",
+        "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "“Il loro supporto APS e linguistico è stato estremamente professionale - ho trovato la giusta corrispondenza universitaria e ho ricevuto aiuto per ottenere una borsa di studio.”",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Rohit Singh",
+        "meta": "Candidato MS — RWTH Aachen (accettato)",
+        "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+        "text": "“Dopo multiple rifiuti del visto per la Germania, Profiberater ha rielaborato il mio profilo e la mia strategia. Hanno mantenuto le aspettative realistiche e finalmente mi hanno aiutato a ottenere l'approvazione.”",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Neha Joshi",
+        "meta": "Preparazione per Studienkolleg / Corsi di Lingua",
+        "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+        "text": "“Tariffe trasparenti, aggiornamenti costanti e un consulente dedicato hanno reso l'intero processo fluido. Altamente raccomandato per chiunque applichi per la Germania.”",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Ankit Sharma",
+        "meta": "MBA — Frankfurt School of Finance & Management",
+        "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+        "text": "“Il team ha aiutato a perfezionare la mia SOP e CV, rendendo la mia applicazione MBA molto più forte. Le loro sessioni di feedback sono state professionali e pratiche.”",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Priya Menon",
+        "meta": "Master in Ingegneria Ambientale — TU Delft",
+        "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+        "text": "“La loro competenza nelle ammissioni europee si è davvero distinta. Ho ricevuto ammissioni da multiple università e la loro guida per il visto è stata precisa.”",
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Vikram Desai",
+        "meta": "B.Sc Data Science — Università di Amburgo",
+        "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+        "text": "“Essendo un candidato internazionale per la prima volta, ho apprezzato la loro chiarezza e reattività. Hanno gestito ogni passo senza intoppi.”",
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "name": "Ritika Bansal",
+        "meta": "Dottorato in Biotecnologie — Università di Bonn",
+        "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+        "text": "“Mi hanno aiutato ad allineare i miei interessi di ricerca con supervisori adatti e hanno creato una proposta forte. Non ce l'avrei fatta da sola!”",
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "name": "Aditya Narang",
+        "meta": "M.Sc. Ingegneria Meccanica — TU Darmstadt",
+        "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+        "text": "“Ogni passo è stato trasparente - dalla selezione dell'applicazione al colloquio simulato per il visto. Raccomanderei assolutamente Profiberater.”",
+        "rating": 5
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Consulenza Gratuita",
+    "heading": "Inizia il Tuo Viaggio in Germania Oggi",
+    "sub": "Ricevi guida personalizzata da esperti di educazione tedesca. Prenota la tua valutazione del profilo gratuita e scopri il tuo percorso verso le università tedesche.",
+    "get_in_touch": "Mettiti in Contatto",
+    "free_assessment": "Valutazione Profilo Gratuita",
+    "thank_you_title": "Grazie!",
+    "thank_you_text": "Abbiamo ricevuto il tuo messaggio e ti contatteremo entro 2 ore.",
+    "form": {
+      "name": "Nome Completo *",
+      "email": "Indirizzo Email *",
+      "phone": "Numero di Telefono",
+      "program": "Interesse Programma",
+      "message": "Il Tuo Messaggio",
+      "submit": "Invia Messaggio & Ottieni Consulenza Gratuita",
+      "submitting": "Invio in corso..."
+    },
+    "contact_cards": {
+      "call": {
+        "title": "Chiamaci",
+        "info": "+91 98765 43210",
+        "description": "Lun-Sab, 10:00-19:00",
+        "link": "tel:+919876543210",
+        "key": "call"
+      },
+      "email": {
+        "title": "Scrivici",
+        "info": "hello@eduberator.com",
+        "description": "Rispondiamo entro 2 ore",
+        "link": "mailto:hello@eduberator.com",
+        "key": "email"
+      },
+      "visit": {
+        "title": "Visita Ufficio",
+        "info": "Delhi, India",
+        "description": "Prenota appuntamento prima della visita",
+        "link": "#",
+        "key": "visit"
+      },
+      "hours": {
+        "title": "Orari Ufficio",
+        "info": "10:00 - 19:00",
+        "description": "Lunedì a Sabato",
+        "link": "#",
+        "key": "hours"
+      }
+    },
+    "programs": [
+      "Laurea in Germania",
+      "Master in Germania",
+      "Programmi STEM",
+      "MBA in Germania",
+      "Dottorato in Germania",
+      "Corsi di Lingua"
+    ],
+    "cta_call_now": "Chiama Ora",
+    "cta_book_meeting": "Prenota Meeting",
+    "status_sending": "Invio in corso...",
+    "status_sent": "Inviato"
+  },
+  "footer": {
+    "company": "Eduberator",
+    "about": "Il tuo partner strategico per l'educazione tedesca. Trasformiamo i sogni in ammissioni di successo con strategie collaudate e guida esperta.",
+    "trust": {
+      "one": "99% Successo Ammissioni",
+      "two": "500+ Studenti Guidati",
+      "three": "Esperti Educazione Tedesca"
+    },
+    "quick_links_title": "Link Rapidi",
+    "our_services_title": "I Nostri Servizi",
+    "important_links_title": "Link Importanti",
+    "follow_us_title": "Seguici",
+    "newsletter_title": "Newsletter",
+    "contact": {
+      "phone": "+91 98765 43210",
+      "phone_note": "Lun-Sab, 10:00-19:00",
+      "email": "hello@eduberator.com",
+      "email_note": "Rispondiamo entro 2 ore",
+      "address": "Delhi, India",
+      "address_note": "Prenota appuntamento prima della visita"
+    },
+    "quick_links": [
+      { "name": "Home", "href": "/" },
+      { "name": "Chi Siamo", "href": "/about" },
+      { "name": "Contatto", "href": "/contact" },
+      { "name": "Servizi", "href": "/services" }
+    ],
+    "services": [
+      { "name": "Carta Forex & Rimesse", "to": "/services/forex-card-remittances" },
+      { "name": "Alloggio", "to": "/services/accommodation" },
+      { "name": "Assicurazione Medica", "to": "/services/medical-insurance" },
+      { "name": "Prestito Studio", "to": "/services/education-loan" }
+    ],
+    "important_links": [
+      { "name": "Disclaimer & Policy", "href": "/disclaimer" },
+      { "name": "Recensioni", "href": "/reviews" },
+      { "name": "Team", "href": "/team" },
+      { "name": "Coaching", "href": "/coaching" }
+    ],
+    "social": [
+      { "provider": "facebook", "href": "#" },
+      { "provider": "twitter", "href": "#" },
+      { "provider": "instagram", "href": "#" },
+      { "provider": "linkedin", "href": "#" },
+      { "provider": "youtube", "href": "#" }
+    ],
+    "copyright_prefix": "© 2025 Eduberator. Realizzato con",
+    "copyright_suffix": "per studenti in tutto il mondo.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Termini di Servizio",
+      "cookies": "Cookies"
+    }
+  },
+  "about": {
+  "title": "Chi Siamo - Profiberater",
+  "hero": {
+    "heading": "Chi Siamo - Profiberater",
+    "subHeading": "Siamo un team di professionisti esperti, originari dell'India e residenti in Europa da oltre un decennio. Questa combinazione unica di comprensione culturale ed esperienza internazionale ci consente di supportare gli studenti indiani come nessun altro."
+  },
+  "story": {
+    "heading": "La Nostra Storia",
+    "paragraphs": [
+      "Avendo iniziato i nostri percorsi come studenti internazionali 10–15 anni fa, conosciamo in prima persona le sfide, le decisioni e le transizioni coinvolte. Oggi siamo professionisti affermati in vari settori e industrie in tutta Europa.",
+      "Il nostro background ci permette di colmare il divario tra le aspirazioni degli studenti indiani e i sistemi accademici e professionali europei con chiarezza ed empatia.",
+      "Negli ultimi due anni, abbiamo offerto consulenze personalizzate a un gruppo limitato di studenti — gratuitamente — ogni semestre, acquisendo preziose conoscenze e perfezionando il nostro approccio. Con questa esperienza e fiducia, stiamo ora ampliando i nostri servizi in modo più strutturato e professionale."
+    ]
+  },
+  "stats": [
+    { "number": "500+", "label": "Studenti Guidati" },
+    { "number": "99%", "label": "Successo nelle Ammissioni" },
+    { "number": "50+", "label": "Università Tedesche" },
+    { "number": "10+", "label": "Anni di Esperienza" }
+  ],
+  "valuesHeading": "I Nostri Valori e la Nostra Filosofia",
+  "values": [
+    {
+      "title": "La Nostra Missione",
+      "description": "Guidarti e supportarti nel perseguire la tua passione attraverso consulenze personalizzate e la nostra profonda esperienza nel settore dell'istruzione.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "La Nostra Visione",
+      "description": "Dare a ogni studente la fiducia per inseguire le proprie passioni, fornendo gli strumenti per realizzare il proprio potenziale e raggiungere il successo.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "Il Nostro Approccio",
+      "description": "Non siamo solo consulenti — siamo mentori, guide e compagni di viaggio che ti accompagnano in ogni passo del tuo percorso di studio all’estero.",
+      "color": "from-green-600 to-sky-600"
+    }
+  ],
+  "cta": {
+    "heading": "Pronto a Iniziare il Tuo Viaggio?",
+    "sub": "Lascia che ti aiutiamo a trasformare il tuo sogno di studiare in Germania in realtà.",
+    "button": "Richiedi una Consulenza Gratuita"
+  }
+}
+
+}

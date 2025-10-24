@@ -5,8 +5,10 @@ import {
   Award, 
   Briefcase,
   Mail, 
-  GraduationCap
+  GraduationCap,
+  Linkedin
 } from 'lucide-react';
+
 
 const Team = () => {
   const ref = useRef(null);

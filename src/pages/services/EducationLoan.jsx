@@ -10,6 +10,7 @@ import {
   Users,
   FileText
 } from 'lucide-react'; 
+import EMICalculator from '../../components/home/EMICalculator';
 
 const EducationLoan = () => {
   const ref = useRef(null);
@@ -238,7 +239,7 @@ const lenders = [
              
             <div
             className='py-6'>
-             
+             <EMICalculator/>
             </div>
             </motion.div>
           </div>

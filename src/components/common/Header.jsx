@@ -1,39 +1,44 @@
-// Header.jsx (fixed for scroll-related issues)
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import ReactCountryFlag from "react-country-flag";
 import logo from "../../assets/logo.png";
 import { Menu, X, ChevronDown, User } from "lucide-react";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const { t, i18n } = useTranslation("common");
   const location = useLocation();
 
-  // rAF ref to avoid multiple setState calls while scrolling
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // used for services menu and language menu
   const rafRef = useRef(null);
   const lastScrollY = useRef(0);
 
+  // persist language selection in localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("i18nextLng");
+    if (saved && saved !== i18n.language) {
+      i18n.changeLanguage(saved).catch(() => {});
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // scroll handler
   useEffect(() => {
     const onScroll = () => {
-      // throttle via rAF
       lastScrollY.current = window.scrollY;
       if (rafRef.current) return;
       rafRef.current = requestAnimationFrame(() => {
         const y = lastScrollY.current;
-        const scrolled = y > 50;
-        setIsScrolled(scrolled);
-
-        // Close open dropdowns while scrolling to avoid flicker / stuck menus
+        setIsScrolled(y > 50);
         if (activeDropdown) setActiveDropdown(null);
-
         rafRef.current = null;
       });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    // initial check
     lastScrollY.current = window.scrollY;
     setIsScrolled(window.scrollY > 50);
 
@@ -42,15 +47,15 @@ const Header = () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // only once
+  }, []);
 
-  // Close mobile menu and dropdowns on route change
+  // Close mobile menu & dropdowns on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
   }, [location.pathname]);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent background scroll when mobile menu open
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (isMobileMenuOpen) {
@@ -63,25 +68,48 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Languages with country codes for svg flags
+  const availableLangs = [
+    { code: "en", label: "English", countryCode: "GB" },
+    { code: "it", label: "Italiano", countryCode: "IT" },
+    { code: "es", label: "Español", countryCode: "ES" },
+    { code: "de", label: "Deutsch", countryCode: "DE" },
+    { code: "zh-CN", label: "简体中文", countryCode: "CN" },
+    { code: "fr", label: "Français", countryCode: "FR" }
+  ];
+
+  const currentLang = i18n.language || "en";
+
+  const changeLanguage = (lng) => {
+    i18n
+      .changeLanguage(lng)
+      .then(() => {
+        localStorage.setItem("i18nextLng", lng);
+        setActiveDropdown(null);
+      })
+      .catch(() => {
+        // ignore
+      });
+  };
+
+  // navigation labels pulled from translations
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-      { name: "Team", href: "/team" },
+    { name: t("header.nav.home", "Home"), href: "/" },
+    { name: t("header.nav.about", "About Us"), href: "/about" },
+    { name: t("header.nav.team", "Team"), href: "/team" },
     {
-      name: "Services",
+      name: t("header.nav.services", "Services"),
       href: "/services",
-      
       dropdown: [
-        { name: "Forex Card & Remittances", to: "/services/forex-card-remittances" },
-        { name: "Accommodation", to: "/services/accommodation" },
-        { name: "Medical Insurance", to: "/services/medical-insurance" },
-        { name: "Education Loan", to: "/services/education-loan" },
+        { name: t("header.servicesDropdown.forex", "Forex Card & Remittances"), to: "/services/forex-card-remittances" },
+        { name: t("header.servicesDropdown.accommodation", "Accommodation"), to: "/services/accommodation" },
+        { name: t("header.servicesDropdown.insurance", "Medical Insurance"), to: "/services/medical-insurance" },
+        { name: t("header.servicesDropdown.loan", "Education Loan"), to: "/services/education-loan" },
       ],
     },
-  
-    { name: "Pricing", href: "/#" },
-    { name: "Coaching", href: "/coaching" },
-    { name: "Contact", href: "/contact" },
+    { name: t("header.nav.pricing", "Pricing"), href: "/pricing" },
+    { name: t("header.nav.coaching", "Coaching"), href: "/coaching" },
+    { name: t("header.nav.contact", "Contact"), href: "/contact" },
   ];
 
   const isActiveLink = (href) => {
@@ -99,23 +127,26 @@ const Header = () => {
     }
   };
 
+  // helper: get countryCode for current language (fallback to GB)
+  const currentCountryCode = (code) => {
+    const found = availableLangs.find((l) => l.code === code);
+    return found ? found.countryCode : "GB";
+  };
+
   return (
     <>
       <motion.header
         aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-sky-50 "
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-sky-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Keep padding constant to avoid layout jumps */}
           <div className="flex justify-between items-center py-3">
-           
-            <a href="/">
-             <img src={logo} alt="Eduberator" className="h-14 w-auto" /></a>
+            <a href="/" aria-label={t("header.nav.home", "Home")}>
+              <img src={logo} alt="Eduberator" className="h-14 w-auto" />
+            </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex text-lg items-center space-x-8" role="navigation">
+            <nav className="hidden lg:flex text-lg items-center space-x-8" role="navigation" aria-label="Primary">
               {navigation.map((item) => (
                 <div key={item.name} className="relative">
                   {item.dropdown ? (
@@ -128,11 +159,7 @@ const Header = () => {
                         aria-expanded={activeDropdown === item.name}
                         onKeyDown={(e) => handleDropdownKey(e, item.name)}
                         className={`flex items-center gap-1 font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-300 ${
-                          isScrolled
-                            ? isActiveLink(item.href)
-                              ? "text-green-600"
-                              : "text-gray-800 hover:text-green-600"
-                            : "text-gray-700 hover:text-green-500"
+                          isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
                         }`}
                       >
                         <span>{item.name}</span>
@@ -142,7 +169,7 @@ const Header = () => {
                       <AnimatePresence>
                         {activeDropdown === item.name && (
                           <motion.div
-                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden"
+                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
@@ -167,11 +194,7 @@ const Header = () => {
                     <Link
                       to={item.href}
                       className={`font-medium transition-colors duration-300 ${
-                        isScrolled
-                          ? isActiveLink(item.href)
-                            ? "text-green-600"
-                            : "text-gray-800 hover:text-green-600"
-                          : "text-gray-700 hover:text-green-500"
+                        isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
                       }`}
                     >
                       {item.name}
@@ -181,15 +204,65 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Right Side - Profile & Mobile Menu */}
+            {/* Right Side - Language selector, Profile & Mobile Menu */}
             <div className="flex items-center gap-2">
+              {/* Language button (compact on small screens, expanded on md+) */}
+              <div className="relative">
+                <button
+                  onClick={() => setActiveDropdown((prev) => (prev === "lang" ? null : "lang"))}
+                  onKeyDown={(e) => handleDropdownKey(e, "lang")}
+                  aria-haspopup="true"
+                  aria-expanded={activeDropdown === "lang"}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-white/90 border border-gray-200 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300"
+                  title={t("header.language_toggle", "Change language")}
+                >
+                  {/* SVG flag */}
+                  <ReactCountryFlag
+                    countryCode={currentCountryCode(currentLang)}
+                    svg
+                    style={{ width: "1.2em", height: "1.2em", borderRadius: 4 }}
+                    title={currentLang}
+                  />
+
+                  {/* label visible on md+ */}
+                  <span className="hidden md:inline text-sm">{availableLangs.find(l => l.code === currentLang)?.label}</span>
+
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <AnimatePresence>
+                  {activeDropdown === "lang" && (
+                    <motion.div
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.16 }}
+                    >
+                      <div className="p-2">
+                        {availableLangs.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => changeLanguage(lang.code)}
+                            className={`w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm flex items-center gap-3 ${lang.code === currentLang ? "font-semibold bg-gray-50" : ""}`}
+                          >
+                            <ReactCountryFlag countryCode={lang.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={lang.label} />
+                            <span className="truncate">{lang.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {/* Profile Icon */}
               <Link
                 to="#"
                 className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
                   isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
                 }`}
-                aria-label="Profile"
+                aria-label={t("header.profile", "Profile")}
               >
                 <User className="w-5 h-5" />
               </Link>
@@ -201,13 +274,12 @@ const Header = () => {
                 }`}
                 onClick={() => {
                   setIsMobileMenuOpen((prev) => !prev);
-                  // Reset any desktop dropdown state when toggling mobile menu
                   if (!isMobileMenuOpen) setActiveDropdown(null);
                 }}
                 whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.96 }}
                 aria-expanded={isMobileMenuOpen}
-                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-label={isMobileMenuOpen ? t("header.close_menu", "Close menu") : t("header.open_menu", "Open menu")}
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </motion.button>
@@ -276,6 +348,26 @@ const Header = () => {
                     )}
                   </div>
                 ))}
+
+                {/* Mobile language selector - full buttons with SVG flags */}
+                <div className="pt-3 border-t border-gray-100">
+                  <div className="text-sm font-medium px-4 py-2">{t("languages.select", "Language")}</div>
+                  <div className="flex flex-wrap gap-2 px-4 pb-3">
+                    {availableLangs.map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => {
+                          changeLanguage(l.code);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm border ${currentLang === l.code ? "bg-green-50 border-green-200 font-semibold" : "bg-white border-gray-200"}`}
+                      >
+                        <ReactCountryFlag countryCode={l.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={l.label} />
+                        <span>{l.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}

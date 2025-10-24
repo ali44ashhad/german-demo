@@ -1,0 +1,436 @@
+{
+  "header": {
+    "nav": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "team": "Team",
+      "services": "Dienstleistungen",
+      "pricing": "Preise",
+      "coaching": "Coaching",
+      "contact": "Kontakt"
+    },
+    "servicesDropdown": {
+      "forex": "Forex-Karte & Überweisungen",
+      "accommodation": "Unterkunft",
+      "insurance": "Krankenversicherung",
+      "loan": "Bildungskredit"
+    },
+    "profile": "Profil",
+    "open_menu": "Menü öffnen",
+    "close_menu": "Menü schließen"
+  },
+  "hero": {
+    "title_line1": "Studieren in Deutschland",
+    "title_line2": "Deine klügste Investition",
+    "subtitle": "Deine klügste Investition",
+    "description": "Eduberator ist dein vertrauenswürdiger Partner für die Zulassung an Deutschlands Top-Universitäten. Wir kümmern uns vollständig online um alles – von der Auswahl bis zur Visumberatung und Vorbereitung auf die Abreise.",
+    "cta_register": "🚀 Registriere dich und buche deine Beratung mit unseren professionellen Experten.",
+    "stats": [
+      { "number": "99%", "text": "Zulassungserfolg" },
+      { "number": "500+", "text": "Betreute Studierende" },
+      { "number": "50+", "text": "Deutsche Universitäten" },
+      { "number": "10+", "text": "Jahre Erfahrung" }
+    ],
+    "video_poster": "/assets/hero-poster.jpg",
+    "aria_hero_label": "Hero-Bereich: Studium in Deutschland",
+    "scroll_indicator_label": "Nach unten scrollen",
+    "register_aria": "Registrieren und Beratung buchen"
+  },
+  "why": {
+    "heading": "Warum wählen",
+    "sub": "Alle unsere Dienstleistungen werden vollständig online angeboten – keine Bürobesuche erforderlich. Wir bleiben per E-Mail, TEAMS/Zoom und WhatsApp in engem Kontakt, um dich in jedem Schritt zu begleiten.",
+    "features": [
+      {
+        "key": "expert",
+        "icon": "users",
+        "title": "Erfahrene Berater mit Branchenkenntnis",
+        "description": "Unser Team besteht aus erfahrenen Fachleuten mit umfassender Erfahrung in Wissenschaft und Industrie, die dir praxisnahe und fundierte Beratung bieten.",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "key": "personal",
+        "icon": "check-circle",
+        "title": "Persönliche Betreuung",
+        "description": "Wir arbeiten pro Semester nur mit einer begrenzten Anzahl von Studierenden, um jedem Bewerber individuelle Aufmerksamkeit und Unterstützung zu bieten.",
+        "color": "from-yellow-500 to-orange-400"
+      },
+      {
+        "key": "levels",
+        "icon": "book-open",
+        "title": "Unterstützung auf allen akademischen Ebenen",
+        "description": "Egal ob Bachelor, Master, MBA oder Promotion – wir bieten maßgeschneiderte Unterstützung für jedes Studienniveau.",
+        "color": "from-green-500 to-emerald-500"
+      },
+      {
+        "key": "fields",
+        "icon": "globe",
+        "title": "Breites Fächerspektrum",
+        "description": "Unsere Expertise umfasst verschiedene Disziplinen und hilft Studierenden aus unterschiedlichen akademischen Hintergründen, das passende Programm zu finden.",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "key": "tuition",
+        "icon": "banknote",
+        "title": "Möglichkeiten für gebührenfreies Studium",
+        "description": "Wir helfen dir, Programme und Institutionen zu finden, die gebührenfreies oder kostengünstiges Studium in Europa anbieten.",
+        "color": "from-red-500 to-rose-500"
+      },
+      {
+        "key": "endtoend",
+        "icon": "life-buoy",
+        "title": "Rundum-Betreuung",
+        "description": "Von der Bewerbung bis zur Ankunft und Eingewöhnung – wir begleiten dich auf deinem gesamten Bildungsweg.",
+        "color": "from-indigo-500 to-blue-500"
+      }
+    ],
+    "additional_highlights": {
+      "specialization_title": "Spezialisierung auf europäische Zulassungen",
+      "specialization_text": "Wir konzentrieren uns auf führende Universitäten in Europa und bieten Einblicke in regionale Anforderungen, Kultur und Chancen, um das ideale Ziel zu finden.",
+      "online_title": "Vollständig online & immer verbunden",
+      "online_text": "Alle Dienstleistungen werden online erbracht. Wir bleiben über E-Mail, TEAMS/Zoom und WhatsApp für Dokumentenprüfungen, Probeinterviews, Antragsverfolgung und Unterstützung in Kontakt."
+    },
+    "cta": {
+      "title": "Bereit, deinen Weg zu planen?",
+      "text": "Buche eine kostenlose Beratung und lass unsere Experten deinen individuellen Plan für dein Studium in Europa erstellen.",
+      "button": "Meine Reise starten 🚀"
+    }
+  },
+  "services": {
+    "header_short": "Essenzielle Leistungen für Deutschland",
+    "heading": "Unsere Kern-Dienstleistungen",
+    "learn_more": "mehr erfahren",
+    "description": "Komplette Unterstützungsleistungen für indische Studierende – von finanziellen Lösungen bis hin zu Unterkunft und Versicherung, wir haben alles für deine Reise nach Deutschland abgedeckt.",
+    "list": [
+      {
+        "key": "forex",
+        "icon": "credit-card",
+        "title": "Forex-Karte & Überweisungen",
+        "description": "Multicurrency-Forex-Karten und internationale Geldüberweisungsdienste mit besten Wechselkursen für Studierende, die nach Deutschland gehen.",
+        "features": ["Multicurrency-Karten", "Null Forex-Aufschlag", "Sofortiges Nachladen", "24/7 Support"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.1,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/forex-card-remittances"
+      },
+      {
+        "key": "accommodation",
+        "icon": "home",
+        "title": "Unterkunft",
+        "description": "Finde dein perfektes Zuhause in Deutschland mit unseren umfassenden Unterkunfts-Services in Uni-nähe.",
+        "features": ["Studentenheime", "WG-Wohnungen", "Studio-Flats", "Homestay-Optionen"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.2,
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/accommodation"
+      },
+      {
+        "key": "insurance",
+        "icon": "heart",
+        "title": "Krankenversicherung",
+        "description": "Deutsche Krankenversicherungslösungen, die Visabestimmungen erfüllen, mit umfassendem Schutz für internationale Studierende.",
+        "features": ["Visalevorschriften erfüllt", "Voller Schutz", "EU-weite Gültigkeit", "Mehrsprachiger Support"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.3,
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/medical-insurance"
+      },
+      {
+        "key": "loan",
+        "icon": "trending-up",
+        "title": "Bildungskredit",
+        "description": "Finanzielle Unterstützung für indische Studierende, die ein weiterführendes Studium in Deutschland anstreben, mit flexiblen Rückzahlungsoptionen.",
+        "features": ["Sicherungsfrei", "Niedriger Zinssatz", "Flexible Laufzeit", "Schnelle Bearbeitung"],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.4,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/education-loan"
+      }
+    ],
+    "cta": {
+      "need_support_title": "Benötigst du umfassende Unterstützung?",
+      "need_support_text": "Entdecke all unsere Dienstleistungen im Detail und erhalte persönliche Hilfe.",
+      "view_all": "Alle Dienstleistungen ansehen"
+    }
+  },
+  "process": {
+    "badge": "4-Schritte-Erfolgsprozess",
+    "heading": "Die Eduberator-Roadmap nach Deutschland",
+    "sub": "Ein bewährter 4-Schritte-Prozess, der über 500 Studierende erfolgreich an ihre Traum-Universitäten in Deutschland gebracht hat. Wir übernehmen die Komplexität – du konzentrierst dich auf deine Vorbereitung.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Profilanalyse & Strategie",
+        "description": "Umfassende Bewertung deiner akademischen Hintergründe, Ziele und Karriereaspirationen, um deine persönliche Eduberator-Roadmap zu erstellen.",
+        "features": ["Akademische Bewertung", "Karriere-Ziel-Mapping", "ROI-Analyse", "Zeitplan-Planung"],
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 2,
+        "title": "Universitäts- & Programmfinalisierung",
+        "description": "Strategische Auswahl aus TU9, U15 und Fachhochschulen basierend auf deinem Profil und den Trends auf dem deutschen Arbeitsmarkt.",
+        "features": ["TU9 Universitäts-Match", "Programm-Recherche", "Zulassungswahrscheinlichkeit", "Backup-Optionen"],
+        "image": "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 3,
+        "title": "Bewerbung & Dokumentation",
+        "description": "Perfektioniere deine Bewerbungen mit deutschen-Stil SOPs, LORs und handle Uni-Assist VPD-Bearbeitung mit Expertenberatung.",
+        "features": ["SOP-Schreiben", "LOR-Vorbereitung", "VPD-Bearbeitung", "Dokumenten-Verifizierung"],
+        "image": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 4,
+        "title": "Visum & Pre-Departure",
+        "description": "Komplette Visumsantrags-Unterstützung, Sperrkonto-Einrichtung und kulturelle Vorbereitung für deine Reise nach Deutschland.",
+        "features": ["Visumsdokumentation", "Sperrkonto", "Krankenversicherung", "Kulturelles Briefing"],
+        "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      }
+    ],
+    "cta_title": "Bereit dein deutsches Abenteuer zu starten?",
+    "cta_button": "Mein Profil analysieren",
+    "cta_note": "Kostenlose Erstberatung – Keine Verpflichtung"
+  },
+  "testimonials": {
+    "label": "TESTIMONIALS",
+    "heading": "Was unsere Studierenden über das Studium in Deutschland mit Profiberater sagen",
+    "pause": "Pause",
+    "resume": "Fortsetzen",
+    "list": [
+      {
+        "id": 1,
+        "name": "Aman Verma",
+        "meta": "M.Sc. Computational Science — TU Munich",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "“Profiberater guided me through my German university application and visa process with clarity and care — my visa was approved faster than I expected. Deeply grateful!”",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Sakshi Gupta",
+        "meta": "B.Sc → M.Sc. — University of Freiburg",
+        "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "“Their APS and language support was extremely professional — I found the right university match and received help securing a scholarship.”",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Rohit Singh",
+        "meta": "MS Applicant — RWTH Aachen (accepted)",
+        "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+        "text": "“After multiple Germany visa refusals, Profiberater reworked my profile and strategy. They kept expectations realistic and finally helped me secure approval.”",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Neha Joshi",
+        "meta": "Preparing for Studienkolleg / Language Courses",
+        "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+        "text": "“Transparent fees, consistent updates, and a dedicated counsellor made the entire process smooth. Highly recommended for anyone applying to Germany.”",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Ankit Sharma",
+        "meta": "MBA — Frankfurt School of Finance & Management",
+        "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+        "text": "“The team helped refine my SOP and CV, making my MBA application much stronger. Their feedback sessions were professional and practical.”",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Priya Menon",
+        "meta": "Master’s in Environmental Engineering — TU Delft",
+        "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+        "text": "“Their expertise in European admissions really stood out. I got admits from multiple universities and their visa guidance was spot on.”",
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Vikram Desai",
+        "meta": "B.Sc Data Science — University of Hamburg",
+        "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+        "text": "“Being a first-time international applicant, I appreciated their clarity and responsiveness. They handled every step seamlessly.”",
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "name": "Ritika Bansal",
+        "meta": "Ph.D. in Biotechnology — University of Bonn",
+        "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+        "text": "“They helped align my research interests with suitable supervisors and crafted a strong proposal. Couldn’t have done it alone!”",
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "name": "Aditya Narang",
+        "meta": "M.Sc. Mechanical Engineering — TU Darmstadt",
+        "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+        "text": "“Every step was transparent — from application shortlist to visa mock interview. I’d absolutely recommend Profiberater.”",
+        "rating": 5
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Kostenlose Beratung",
+    "heading": "Starte deine Deutschland-Reise noch heute",
+    "sub": "Erhalte persönliche Beratung von Deutschlands Bildungsexperten. Buche deine kostenlose Profilanalyse und entdecke deinen Weg zu deutschen Universitäten.",
+    "get_in_touch": "Kontaktiere uns",
+    "free_assessment": "Kostenlose Profilanalyse",
+    "thank_you_title": "Vielen Dank!",
+    "thank_you_text": "Wir haben deine Nachricht erhalten und werden dich innerhalb von 2 Stunden kontaktieren.",
+    "form": {
+      "name": "Vollständiger Name *",
+      "email": "E-Mail Adresse *",
+      "phone": "Telefonnummer",
+      "program": "Programm Interesse",
+      "message": "Deine Nachricht",
+      "submit": "Nachricht senden & kostenlose Beratung erhalten",
+      "submitting": "Senden…"
+    },
+    "contact_cards": {
+      "call": {
+        "title": "Ruf uns an",
+        "info": "+91 98765 43210",
+        "description": "Mo-Sa, 10 Uhr-19 Uhr",
+        "link": "tel:+919876543210",
+        "key": "call"
+      },
+      "email": {
+        "title": "Schreib uns",
+        "info": "hello@eduberator.com",
+        "description": "Wir antworten innerhalb von 2 Stunden",
+        "link": "mailto:hello@eduberator.com",
+        "key": "email"
+      },
+      "visit": {
+        "title": "Besuche unser Büro",
+        "info": "Delhi, Indien",
+        "description": "Termin vor Besuch vereinbaren",
+        "link": "#",
+        "key": "visit"
+      },
+      "hours": {
+        "title": "Bürozeiten",
+        "info": "10:00 Uhr – 19:00 Uhr",
+        "description": "Montag bis Samstag",
+        "link": "#",
+        "key": "hours"
+      }
+    },
+    "programs": [
+      "Bachelorstudium in Deutschland",
+      "Masterstudium in Deutschland",
+      "STEM-Programme",
+      "MBA in Deutschland",
+      "Promotion in Deutschland",
+      "Sprachkurse"
+    ],
+    "cta_call_now": "Jetzt anrufen",
+    "cta_book_meeting": "Meeting buchen",
+    "status_sending": "Senden…",
+    "status_sent": "Gesendet"
+  },
+  "footer": {
+    "company": "Eduberator",
+    "about": "Dein strategischer Partner für deutsche Bildung. Wir verwandeln Träume in erfolgreiche Zulassungen mit bewährten Strategien und Expertenberatung.",
+    "trust": {
+      "one": "99% Zulassungserfolg",
+      "two": "500+ betreute Studierende",
+      "three": "Deutschland-Bildungsexperten"
+    },
+    "quick_links_title": "Schnelle Links",
+    "our_services_title": "Unsere Dienstleistungen",
+    "important_links_title": "Wichtige Links",
+    "follow_us_title": "Folge uns",
+    "newsletter_title": "Newsletter",
+    "contact": {
+      "phone": "+91 98765 43210",
+      "phone_note": "Mo-Sa, 10 Uhr-19 Uhr",
+      "email": "hello@eduberator.com",
+      "email_note": "Wir antworten innerhalb von 2 Stunden",
+      "address": "Delhi, Indien",
+      "address_note": "Bitte Termin vorher buchen"
+    },
+    "quick_links": [
+      { "name": "Startseite", "href": "/" },
+      { "name": "Über uns", "href": "/about" },
+      { "name": "Kontakt", "href": "/contact" },
+      { "name": "Dienstleistungen", "href": "/services" }
+    ],
+    "services": [
+      { "name": "Forex-Karte & Überweisungen", "to": "/services/forex-card-remittances" },
+      { "name": "Unterkunft", "to": "/services/accommodation" },
+      { "name": "Krankenversicherung", "to": "/services/medical-insurance" },
+      { "name": "Bildungskredit", "to": "/services/education-loan" }
+    ],
+    "important_links": [
+      { "name": "Disclaimer & Richtlinien", "href": "/disclaimer" },
+      { "name": "Bewertungen", "href": "/reviews" },
+      { "name": "Team", "href": "/team" },
+      { "name": "Coaching", "href": "/coaching" }
+    ],
+    "social": [
+      { "provider": "facebook", "href": "#" },
+      { "provider": "twitter", "href": "#" },
+      { "provider": "instagram", "href": "#" },
+      { "provider": "linkedin", "href": "#" },
+      { "provider": "youtube", "href": "#" }
+    ],
+    "copyright_prefix": "© 2025 Eduberator. Hergestellt mit",
+    "copyright_suffix": "für Studierende weltweit.",
+    "legal": {
+      "privacy": "Datenschutz-Richtlinie",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookies"
+    }
+  },
+  "about": {
+  "title": "Über Profiberater",
+  "hero": {
+    "heading": "Über Profiberater",
+    "subHeading": "Wir sind ein Team erfahrener Fachleute, ursprünglich aus Indien und seit über einem Jahrzehnt in Europa lebend und arbeitend. Diese einzigartige Kombination aus kulturellem Verständnis und internationaler Erfahrung ermöglicht es uns, indische Studierende wie niemand sonst zu unterstützen."
+  },
+  "story": {
+    "heading": "Unsere Geschichte",
+    "paragraphs": [
+      "Vor 10–15 Jahren haben wir unsere eigenen Wege als internationale Studierende begonnen und kennen daher die Herausforderungen, Entscheidungen und Übergänge aus erster Hand. Heute sind wir etablierte Fachleute in verschiedenen Branchen und Bereichen in Europa.",
+      "Unsere Erfahrung ermöglicht es uns, die Lücke zwischen den Aspirationen indischer Studierender und den europäischen akademischen und beruflichen Systemen mit Klarheit und Empathie zu überbrücken.",
+      "In den letzten zwei Jahren haben wir einer begrenzten Gruppe von Studierenden personalisierte Beratung — kostenlos — pro Semester angeboten, wertvolle Einblicke gewonnen und unseren Ansatz verfeinert. Mit dieser Erfahrung und Zuversicht erweitern wir nun unsere Dienstleistungen auf eine strukturiertere und professionellere Weise."
+    ]
+  },
+  "stats": [
+    { "number": "500+", "label": "Betreute Studierende" },
+    { "number": "99%", "label": "Erfolgsquote bei Zulassungen" },
+    { "number": "50+", "label": "Deutsche Universitäten" },
+    { "number": "10+", "label": "Jahre Erfahrung" }
+  ],
+  "valuesHeading": "Unsere Werte & Philosophie",
+  "values": [
+    {
+      "title": "Unsere Mission",
+      "description": "Dich zu begleiten und zu unterstützen, damit du deiner Leidenschaft folgen kannst, durch personalisierte Beratung und unsere umfangreiche Erfahrung im Bildungsbereich.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "Unsere Vision",
+      "description": "Jeden Studierenden zu befähigen, seinen Leidenschaften mit Selbstvertrauen nachzugehen und ihnen die Mittel zu geben, ihr volles Potenzial zu entfalten und Erfolg zu erzielen.",
+      "color": "from-green-600 to-sky-600"
+    },
+    {
+      "title": "Unser Ansatz",
+      "description": "Wir beraten nicht nur — wir betreuen, führen und begleiten dich durch jeden Schritt deiner Bildungsreise im Ausland.",
+      "color": "from-green-600 to-sky-600"
+    }
+  ],
+  "cta": {
+    "heading": "Bereit, deine Reise zu starten?",
+    "sub": "Lass uns dir helfen, deinen Traum vom Studium in Deutschland Wirklichkeit werden zu lassen.",
+    "button": "Kostenlose Beratung erhalten"
+  }
+}
+
+}
