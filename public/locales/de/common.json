@@ -431,6 +431,1300 @@
     "sub": "Lass uns dir helfen, deinen Traum vom Studium in Deutschland Wirklichkeit werden zu lassen.",
     "button": "Kostenlose Beratung erhalten"
   }
+},
+"team": {
+  "title": "Lernen Sie Unser",
+  "hero": {
+    "title": "Lernen Sie Unser Team Kennen",
+    "subtitle": "Erfahrene Fachleute aus Indien, die seit über einem Jahrzehnt in Europa leben und arbeiten. Wir bringen praktische Erfahrung und tiefes Branchenwissen mit, um Sie auf Ihrem Bildungsweg in Deutschland zu begleiten."
+  },
+  "members": [
+    {
+      "name": "Dr. Pavan B.",
+      "role": "Experte für Biomedizin / Biotechnologie / Biologie",
+      "education": "Promotion in Biomedizinischer Technik",
+      "experience": "Über 10 Jahre Erfahrung im europäischen Gesundheitswesen",
+      "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["Medizinische Forschung", "Biotech-Zulassungen", "Promotionsberatung"],
+      "contactMail": ""
+    },
+    {
+      "name": "Sagar P.",
+      "role": "Business Development Manager",
+      "education": "Maschinenbau",
+      "experience": "Über 8 Jahre Erfahrung in der europäischen Industrie",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["Maschinenbau", "Business-Programme", "Industrie-Netzwerke"],
+      "contactMail": ""
+    },
+    {
+      "name": "Vivek P.",
+      "role": "CEO & Gründer",
+      "education": "Maschinenbau",
+      "experience": "Über 12 Jahre in Deutschland",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["Strategische Planung", "Universitätspartnerschaften", "Karriereentwicklung"],
+      "contactMail": ""
+    },
+    {
+      "name": "Dr. Pavan Reddy",
+      "role": "Biomedizinischer Spezialist",
+      "education": "Promotion in Biotechnologie",
+      "experience": "Über 9 Jahre Forschungserfahrung in Deutschland",
+      "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["Forschungsprogramme", "Laborplatzierungen", "Wissenschaftliches Schreiben"],
+      "contactMail": ""
+    },
+    {
+      "name": "Dr. Arindam",
+      "role": "Akademischer Berater",
+      "education": "Doktor der Ingenieurwissenschaften",
+      "experience": "Über 11 Jahre akademische Erfahrung",
+      "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["Ingenieurprogramme", "Technische Zulassungen", "Forschungsberatung"],
+      "contactMail": ""
+    }
+  ],
+  "expertiseHeading": "Unsere Fachgebiete",
+  "expertiseSub": "Spezialisierte Beratung in verschiedenen akademischen und beruflichen Bereichen",
+  "expertiseAreas": [
+    {
+      "field": "COEP & Automobiltechnik",
+      "description": "Spezialisierte Beratung für Automobiltechnik und COEP-Programme"
+    },
+    {
+      "field": "SAP & IT",
+      "description": "Fachkundige Beratung für SAP-Zertifizierungen und IT-Programme"
+    },
+    {
+      "field": "MINT-Programme",
+      "description": "Umfassende Unterstützung für Mathematik, Informatik, Naturwissenschaften und Technik"
+    }
+  ],
+  "contact": "Kontakt",
+  "profile": "Profil",
+  "cta": {
+    "heading": "Bereit, mit unseren Experten zu arbeiten?",
+    "sub": "Erhalten Sie eine individuelle Beratung von unserem erfahrenen Team.",
+    "button": "Beratung mit unserem Team buchen"
+  }
+},
+"contactus": {
+  "hero": {
+    "title": "Kontakt",
+    "subtitle": "Nehmen Sie Kontakt mit unseren Experten für Bildung in Deutschland auf. Wir helfen Ihnen gerne bei Ihrem Auslandsstudium."
+  },
+  "contactInfo": [
+    {
+      "icon": "Phone",
+      "title": "Rufen Sie uns an",
+      "info": "+91 98765 43210",
+      "description": "Montag–Samstag, 10:00–19:00 Uhr",
+      "color": "from-green-600 to-sky-600",
+      "link": "tel:+919876543210"
+    },
+    {
+      "icon": "Mail",
+      "title": "Schreiben Sie uns",
+      "info": "hello@profiberater.com",
+      "description": "Wir antworten innerhalb von 2 Stunden",
+      "color": "from-green-600 to-sky-600",
+      "link": "mailto:hello@profiberater.com"
+    },
+    {
+      "icon": "MapPin",
+      "title": "Besuchen Sie unser Büro",
+      "info": "Delhi, Indien",
+      "description": "Bitte vereinbaren Sie einen Termin vor dem Besuch",
+      "color": "from-green-600 to-sky-600",
+      "link": "#"
+    },
+    {
+      "icon": "Clock",
+      "title": "Bürozeiten",
+      "info": "10:00 – 19:00 Uhr",
+      "description": "Montag bis Samstag",
+      "color": "from-green-600 to-sky-600",
+      "link": "#"
+    }
+  ],
+  "services": [
+    "Forex-Karte und Auslandsüberweisungen",
+    "Unterkunft",
+    "Krankenversicherung",
+    "Bildungskredit",
+    "Universitätszulassung",
+    "Visa-Beratung"
+  ],
+  "form": {
+    "heading": "Kostenloses Beratungsformular",
+    "name": "Vollständiger Name *",
+    "email": "E-Mail-Adresse *",
+    "phone": "Telefonnummer",
+    "service": "Interessierter Service",
+    "message": "Ihre Nachricht",
+    "submit": "Nachricht senden & kostenlose Beratung erhalten",
+    "submitting": "Wird gesendet...",
+    "thanksTitle": "Vielen Dank!",
+    "thanksText": "Wir haben Ihre Nachricht erhalten und werden Sie innerhalb von 2 Stunden kontaktieren."
+  },
+  "why": {
+    "heading": "Warum Profiberater wählen?",
+    "bullets": [
+      "Über 10 Jahre Erfahrung in Europa",
+      "500+ erfolgreiche Zulassungen",
+      "Umfassende Unterstützung von Anfang bis Ende",
+      "Spezialisierte Expertise für Deutschland"
+    ]
+  },
+  "cta": {
+    "heading": "Bereit, Ihre Reise nach Deutschland zu beginnen?",
+    "sub": "Kontaktieren Sie uns noch heute und machen Sie den ersten Schritt zu Ihrer Traum-Ausbildung in Deutschland.",
+    "whatsapp": "Jetzt auf WhatsApp schreiben",
+    "call": "Jetzt anrufen"
+  },
+  "getInTouch": "Kontakt aufnehmen"
+}
+,
+"disclaimer": {
+  "hero": {
+    "title": "Haftungsausschluss & Richtlinien",
+    "subtitle": "Wichtige rechtliche Informationen zu unseren Dienstleistungen, zum Datenschutz und zu den Nutzungsbedingungen.",
+    "backgroundImage": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop"
+  },
+  "policies": [
+    {
+      "icon": "Shield",
+      "title": "Datenschutzrichtlinie",
+      "content": [
+        "Wir erfassen nur die Informationen, die zur Erbringung unserer Dienstleistungen erforderlich sind.",
+        "Ihre Daten werden mit branchenüblichen Sicherheitsmaßnahmen geschützt.",
+        "Wir geben Ihre personenbezogenen Daten nicht ohne Ihre Zustimmung an Dritte weiter.",
+        "Sie können jederzeit die Löschung Ihrer Daten beantragen."
+      ]
+    },
+    {
+      "icon": "FileText",
+      "title": "Nutzungsbedingungen",
+      "content": [
+        "Unsere Dienstleistungen sind beratender Natur.",
+        "Wir geben Orientierung, können jedoch keine Universitätszulassungen garantieren.",
+        "Die Kunden sind für ihre eigenen Bewerbungen und Unterlagen verantwortlich.",
+        "Die Gebühren beziehen sich auf die erbrachten Dienstleistungen und nicht auf Zulassungsgarantien."
+      ]
+    },
+    {
+      "icon": "Lock",
+      "title": "Datensicherheit",
+      "content": [
+        "SSL-Verschlüsselung für alle Datenübertragungen.",
+        "Regelmäßige Sicherheitsprüfungen und Updates.",
+        "Begrenzter Zugriff auf personenbezogene Daten.",
+        "Datenverarbeitung gemäß DSGVO."
+      ]
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "Wichtige Hinweise",
+      "content": [
+        "Wir sind nicht mit deutschen Universitäten oder Regierungsstellen verbunden.",
+        "Zulassungsentscheidungen werden ausschließlich von den Universitäten getroffen.",
+        "Visa-Genehmigungen liegen im Ermessen der deutschen Behörden.",
+        "Testergebnisse und akademische Leistungen liegen in der Verantwortung der Studierenden."
+      ]
+    }
+  ],
+  "additional": {
+    "title": "Verständnis der Dienstleistung",
+    "paragraphs": [
+      "<strong>Art der Bildungsberatung:</strong> Wir bieten Bildungsberatung und Unterstützungsdienste an. Wir geben Orientierung, Unterstützung und Fachwissen zum deutschen Bildungssystem, garantieren jedoch keine Zulassungen, Stipendien oder Visa.",
+      "<strong>Verantwortlichkeiten der Kunden:</strong> Studierende sind verantwortlich für ihre akademischen Leistungen, Testergebnisse, Dokumentenvorbereitung und Einhaltung aller Bewerbungsfristen. Wir bieten Beratung, die Umsetzung liegt jedoch beim Studierenden.",
+      "<strong>Dienste von Drittanbietern:</strong> Obwohl wir mit Ausbildungsinstituten und anderen Dienstleistern zusammenarbeiten, sind wir nicht direkt für deren Dienstleistungen verantwortlich. Jegliche Vereinbarungen mit Drittanbietern erfolgen zwischen Studierenden und dem Anbieter.",
+      "<strong>Aktualisierungen der Richtlinien:</strong> Wir behalten uns das Recht vor, unsere Richtlinien und Bedingungen zu aktualisieren. Die fortgesetzte Nutzung unserer Dienste gilt als Zustimmung zu den aktualisierten Bedingungen."
+    ]
+  },
+  "contact": {
+    "title": "Fragen zu unseren Richtlinien?",
+    "subtitle": "Kontaktieren Sie uns für Klarstellungen zu unseren Richtlinien und Bedingungen.",
+    "button": "Juristisches Team kontaktieren"
+  }
+}
+,"reviews": {
+  "hero": {
+    "title": "Studentenbewertungen",
+    "subtitle": "Erfahren Sie von Studierenden, die mit unserer Unterstützung erfolgreich an ihren Wunschuniversitäten in Deutschland aufgenommen wurden."
+  },
+  "stats": [
+    { "number": "4,9/5", "label": "Durchschnittliche Bewertung" },
+    { "number": "500+", "label": "Zufriedene Studierende" },
+    { "number": "99%", "label": "Empfehlen uns weiter" },
+    { "number": "50+", "label": "Partneruniversitäten" }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Aman Verma",
+      "meta": "M.Sc. Computational Science — TU München",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "text": "„Profiberater hat mich klar und sorgfältig durch den Bewerbungs- und Visaprozess für deutsche Universitäten geführt — mein Visum wurde schneller genehmigt als erwartet. Sehr dankbar!“",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Sakshi Gupta",
+      "meta": "B.Sc → M.Sc. — Universität Freiburg",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "text": "„Ihre APS- und Sprachunterstützung war extrem professionell — ich fand die passende Universität und erhielt Hilfe bei der Sicherung eines Stipendiums.“",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Rohit Singh",
+      "meta": "MS-Bewerber — RWTH Aachen (angenommen)",
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+      "text": "„Nach mehreren Ablehnungen meines Deutschland-Visums hat Profiberater mein Profil und meine Strategie überarbeitet. Sie hielten die Erwartungen realistisch und halfen mir schließlich, die Genehmigung zu erhalten.“",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "name": "Neha Joshi",
+      "meta": "Vorbereitung auf Studienkolleg / Sprachkurse",
+      "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+      "text": "„Transparente Gebühren, kontinuierliche Updates und ein engagierter Berater machten den gesamten Prozess reibungslos. Sehr empfehlenswert für alle, die sich in Deutschland bewerben.“",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "name": "Ankit Sharma",
+      "meta": "MBA — Frankfurt School of Finance & Management",
+      "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+      "text": "„Das Team half mir, mein SOP und meinen Lebenslauf zu verbessern, wodurch meine MBA-Bewerbung deutlich stärker wurde. Ihre Feedback-Sitzungen waren professionell und praxisnah.“",
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "name": "Priya Menon",
+      "meta": "Master in Umweltingenieurwesen — TU Delft",
+      "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+      "text": "„Ihre Expertise bei europäischen Zulassungen war wirklich bemerkenswert. Ich erhielt Zusagen von mehreren Universitäten und ihre Visa-Beratung war punktgenau.“",
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "name": "Vikram Desai",
+      "meta": "B.Sc Data Science — Universität Hamburg",
+      "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+      "text": "„Als erstmaliger internationaler Bewerber schätzte ich ihre Klarheit und schnelle Reaktion. Sie haben jeden Schritt nahtlos begleitet.“",
+      "rating": 5
+    },
+    {
+      "id": 8,
+      "name": "Ritika Bansal",
+      "meta": "Ph.D. in Biotechnologie — Universität Bonn",
+      "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+      "text": "„Sie halfen mir, meine Forschungsinteressen mit geeigneten Betreuern abzustimmen und einen starken Vorschlag zu erstellen. Ich hätte es alleine nicht geschafft!“",
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "name": "Aditya Narang",
+      "meta": "M.Sc. Maschinenbau — TU Darmstadt",
+      "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+      "text": "„Jeder Schritt war transparent — von der Bewerbungs-Shortlist bis zum Visa-Mock-Interview. Ich würde Profiberater auf jeden Fall empfehlen.“",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "heading": "Werden Sie Teil unserer Erfolgsgeschichten",
+    "sub": "Werden Sie Teil einer Gemeinschaft motivierter Studierender, die Profiberater vertrauten, um ihre akademischen Träume zu verwirklichen.",
+    "button": "Meine Erfolgsgeschichte starten"
+  }
+},
+"terms": {
+  "hero": {
+    "title": "Nutzungsbedingungen",
+    "description": "Bitte lesen Sie diese Bedingungen sorgfältig, bevor Sie unsere Dienste nutzen. Diese Bedingungen regeln Ihre Beziehung zu Profiberater.",
+    "badge": "Rechtliche Vereinbarung"
+  },
+  "notice": {
+    "title": "Wichtiger Rechtlicher Hinweis",
+    "text": "Diese Nutzungsbedingungen stellen eine rechtlich verbindliche Vereinbarung zwischen Ihnen und Profiberater dar. Durch die Nutzung unserer Dienste bestätigen Sie, dass Sie diese Bedingungen gelesen, verstanden und akzeptiert haben. Wenn Sie mit einem Teil dieser Bedingungen nicht einverstanden sind, dürfen Sie unsere Dienste nicht nutzen."
+  },
+  "sections": [
+    {
+      "icon": "Users",
+      "title": "Dienstleistungsvereinbarung",
+      "content": [
+        {
+          "subtitle": "Akzeptanz der Bedingungen",
+          "points": [
+            "Durch den Zugriff auf unsere Dienste stimmen Sie diesen Bedingungen zu",
+            "Dienste stehen nur Personen ab 18 Jahren zur Verfügung",
+            "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren",
+            "Die fortgesetzte Nutzung nach Änderungen gilt als Zustimmung"
+          ]
+        },
+        {
+          "subtitle": "Dienstleistungsbeschreibung",
+          "points": [
+            "Bildungsberatung für deutsche Universitäten",
+            "Unterstützung bei Unterkunft und Finanzdienstleistungen",
+            "Visa-Beratung und Dokumentationsunterstützung",
+            "Koordination mit Drittanbietern"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Scale",
+      "title": "Verantwortlichkeiten des Nutzers",
+      "content": [
+        {
+          "subtitle": "Genaue Informationen",
+          "points": [
+            "Vollständige und genaue persönliche Angaben machen",
+            "Informationen umgehend aktualisieren, wenn sich Änderungen ergeben",
+            "Vertraulichkeit der Kontodaten wahren",
+            "Unbefugten Zugriff sofort melden"
+          ]
+        },
+        {
+          "subtitle": "Verbotene Aktivitäten",
+          "points": [
+            "Fälschung akademischer Qualifikationen",
+            "Einreichung gefälschter Dokumente",
+            "Unbefugte kommerzielle Nutzung der Dienste",
+            "Verstoß gegen deutsches oder indisches Recht"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "Einschränkungen & Haftungsausschlüsse",
+      "content": [
+        {
+          "subtitle": "Dienstleistungseinschränkungen",
+          "points": [
+            "Wir bieten Beratung, können jedoch keine Universitätszulassung garantieren",
+            "Visa-Genehmigungen liegen im Ermessen der deutschen Behörden",
+            "Ergebnisse der Dienstleistungen hängen von individuellen Umständen ab",
+            "Drittanbieter-Dienste unterliegen deren eigenen Bedingungen"
+          ]
+        },
+        {
+          "subtitle": "Finanzielle Haftungsausschlüsse",
+          "points": [
+            "Kreditgenehmigungen hängen von den Kriterien des Kreditgebers ab",
+            "Wechselkurse für Forex-Dienste können schwanken",
+            "Versicherungsschutz unterliegt den Bedingungen des Anbieters",
+            "Gebühren beziehen sich auf erbrachte Leistungen, nicht auf Ergebnisse"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Clock",
+      "title": "Zahlungen & Rückerstattungen",
+      "content": [
+        {
+          "subtitle": "Gebührenstruktur",
+          "points": [
+            "Servicegebühren werden im Voraus klar kommuniziert",
+            "Zusätzliche Kosten für Dienstleistungen Dritter können anfallen",
+            "Zahlungspläne für bestimmte Dienste verfügbar",
+            "Alle Gebühren sind in Indischen Rupien, sofern nicht anders angegeben"
+          ]
+        },
+        {
+          "subtitle": "Rückerstattungsrichtlinie",
+          "points": [
+            "Beratungsgebühren sind nicht erstattungsfähig",
+            "Teilweise Rückerstattungen basierend auf dem Stand der Service-Erbringung",
+            "Keine Rückerstattungen nach Abschluss der Dienstleistung",
+            "Rückerstattungsanfragen müssen schriftlich eingereicht werden"
+          ]
+        }
+      ]
+    }
+  ],
+  "governing": {
+    "title": "Anwendbares Recht & Gerichtsstand",
+    "paragraphs": [
+      "Diese Bedingungen unterliegen den Gesetzen Indiens und sind entsprechend auszulegen, unabhängig von etwaigen Kollisionsnormen.",
+      "Alle Streitigkeiten, die sich aus oder im Zusammenhang mit diesen Bedingungen ergeben, unterliegen der ausschließlichen Zuständigkeit der Gerichte in Delhi, Indien.",
+      "Die Nichtdurchsetzung eines Rechts oder einer Bestimmung dieser Bedingungen gilt nicht als Verzicht auf diese Rechte."
+    ]
+  }
+},
+"privacy": {
+  "hero": {
+    "title": "Datenschutzrichtlinie",
+    "subtitle": "Ihre Privatsphäre ist uns wichtig. Diese Richtlinie erklärt, wie wir Ihre persönlichen Daten erfassen, verwenden und schützen."
+  },
+  "intro": {
+    "title": "Einleitung",
+    "paragraphs": [
+      "Profiberater (\"wir\", \"unser\" oder \"uns\") verpflichtet sich, Ihre Privatsphäre zu schützen. Diese Datenschutzrichtlinie erklärt, wie Ihre personenbezogenen Daten von Profiberater erfasst, verwendet und offengelegt werden.",
+      "Diese Richtlinie gilt für unsere Website und deren zugehörige Subdomains (zusammen unser \"Dienst\") sowie für unsere Anwendung Profiberater. Durch den Zugriff auf oder die Nutzung unseres Dienstes stimmen Sie der Erfassung, Speicherung, Nutzung und Offenlegung Ihrer personenbezogenen Daten gemäß dieser Datenschutzrichtlinie und unseren Nutzungsbedingungen zu."
+    ]
+  },
+  "sections": [
+    {
+      "icon": "Eye",
+      "title": "Informationen, die wir erfassen",
+      "blocks": [
+        {
+          "subtitle": "Persönliche Informationen",
+          "points": [
+            "Name, E-Mail-Adresse, Telefonnummer",
+            "Akademischer Hintergrund und Qualifikationen",
+            "Pass- und Visadokumentation",
+            "Finanzinformationen zur Serviceabwicklung"
+          ]
+        },
+        {
+          "subtitle": "Nutzungsdaten",
+          "points": [
+            "IP-Adresse und Browsertyp",
+            "Besuchte Seiten und aufgewendete Zeit",
+            "Geräteinformationen und Betriebssystem",
+            "Cookies und Tracking-Technologien"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Lock",
+      "title": "Wie wir Ihre Informationen verwenden",
+      "blocks": [
+        {
+          "subtitle": "Dienstbereitstellung",
+          "points": [
+            "Bearbeitung Ihrer Serviceanfragen",
+            "Kommunikation über den Status Ihrer Dienstleistung",
+            "Bereitstellung von Kundensupport",
+            "Versand wichtiger Updates und Benachrichtigungen"
+          ]
+        },
+        {
+          "subtitle": "Gesetzliche Einhaltung",
+          "points": [
+            "Einhaltung der deutschen Bildungsbestimmungen",
+            "Erfüllung finanzieller Serviceanforderungen",
+            "Betrugsprävention und Gewährleistung der Sicherheit",
+            "Erfüllung gesetzlicher Verpflichtungen und Zusammenarbeit mit Behörden"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Shield",
+      "title": "Datenschutz",
+      "blocks": [
+        {
+          "subtitle": "Sicherheitsmaßnahmen",
+          "points": [
+            "SSL-Verschlüsselung für alle Datenübertragungen",
+            "Regelmäßige Sicherheitsprüfungen und Aktualisierungen",
+            "Eingeschränkter Zugriff auf persönliche Informationen",
+            "Sichere Datenspeicherung mit Backups"
+          ]
+        },
+        {
+          "subtitle": "Datenaufbewahrung",
+          "points": [
+            "Servicedaten: 7 Jahre nach Abschluss der Dienstleistung",
+            "Finanzunterlagen: 10 Jahre gemäß indischem Recht",
+            "Marketingdaten: Bis zum Widerruf der Einwilligung",
+            "Analysedaten: Maximal 26 Monate"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "FileText",
+      "title": "Ihre Rechte",
+      "blocks": [
+        {
+          "subtitle": "Zugang und Kontrolle",
+          "points": [
+            "Recht auf Zugang zu Ihren persönlichen Daten",
+            "Recht auf Berichtigung ungenauer Informationen",
+            "Recht auf Löschung Ihrer Daten (mit Einschränkungen)",
+            "Recht auf Datenübertragbarkeit"
+          ]
+        },
+        {
+          "subtitle": "Einwilligungsverwaltung",
+          "points": [
+            "Widerruf der Zustimmung zu Marketingkommunikation",
+            "Abmeldung von nicht wesentlichen Cookies",
+            "Beantragung von Einschränkungen der Datenverarbeitung",
+            "Widerspruch gegen bestimmte Datenverarbeitungen"
+          ]
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "description": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte:",
+    "email": "E-Mail: privacy@profiberater.com",
+    "phone": "Telefon: +91 98765 43210",
+    "address": "Adresse: Delhi, Indien"
+  },
+  "meta": {
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}"
+  }
+},
+"cookies": {
+  "hero": {
+    "title": "Cookie-Richtlinie",
+    "subtitle": "Erfahren Sie, wie wir Cookies und ähnliche Technologien verwenden, um Ihr Surferlebnis zu verbessern."
+  },
+  "badge": "DSGVO-konform",
+
+  "cookieTypes": [
+    {
+      "type": "Notwendige Cookies",
+      "necessary": true,
+      "description": "Erforderlich, damit die Website ordnungsgemäß funktioniert",
+      "examples": [
+        "Sitzungsverwaltung",
+        "Sicherheitsfunktionen",
+        "Lastverteilung"
+      ],
+      "duration": "Sitzung"
+    },
+    {
+      "type": "Analyse-Cookies",
+      "necessary": false,
+      "description": "Helfen uns, die Website zu verbessern, indem sie Nutzungsmuster analysieren.",
+      "examples": [
+        "Seitenaufrufe",
+        "Verweildauer",
+        "Fehlerverfolgung"
+      ],
+      "duration": "2 Jahre"
+    },
+    {
+      "type": "Marketing-Cookies",
+      "necessary": false,
+      "description": "Werden verwendet, um relevantere Werbung im Internet anzuzeigen.",
+      "examples": [
+        "Remarketing",
+        "Interessenbasierte Werbung",
+        "Conversion-Tracking"
+      ],
+      "duration": "1 Jahr"
+    },
+    {
+      "type": "Präferenz-Cookies",
+      "necessary": false,
+      "description": "Speichern Ihre Einstellungen und Präferenzen",
+      "examples": [
+        "Spracheinstellungen",
+        "Schriftgröße",
+        "Regionseinstellungen"
+      ],
+      "duration": "1 Jahr"
+    }
+  ],
+
+  "managementSteps": [
+    {
+      "step": 1,
+      "title": "Browsereinstellungen",
+      "description": "Verwalten Sie Cookies über Ihre Browsereinstellungen"
+    },
+    {
+      "step": 2,
+      "title": "Unser Cookie-Banner",
+      "description": "Verwenden Sie das Cookie-Einverständnisbanner auf unserer Website"
+    },
+    {
+      "step": 3,
+      "title": "Opt-out-Tools",
+      "description": "Nutzen Sie branchenübliche Opt-out-Tools für Werbe-Cookies"
+    },
+    {
+      "step": 4,
+      "title": "Kontaktieren Sie uns",
+      "description": "Senden Sie uns eine E-Mail für spezielle Cookie-Anfragen"
+    }
+  ],
+
+  "browsers": [
+    {
+      "name": "Chrome",
+      "instr": "Einstellungen → Datenschutz und Sicherheit → Cookies und andere Websitedaten"
+    },
+    {
+      "name": "Firefox",
+      "instr": "Optionen → Datenschutz & Sicherheit → Cookies und Websitedaten"
+    },
+    {
+      "name": "Safari",
+      "instr": "Einstellungen → Datenschutz → Cookies und Websitedaten"
+    },
+    {
+      "name": "Edge",
+      "instr": "Einstellungen → Cookies und Websiteberechtigungen → Cookies und gespeicherte Daten"
+    }
+  ],
+
+  "defaults": {
+    "analyticsEnabled": true,
+    "marketingEnabled": false
+  },
+
+  "headings": {
+    "types": "Arten von Cookies, die wir verwenden",
+    "management": "Verwaltung Ihrer Cookies",
+    "browserSettings": "Cookie-Einstellungen im Browser"
+  },
+
+  "labels": {
+    "examples": "Beispiele:",
+    "duration": "Dauer:"
+  },
+
+  "tags": {
+    "necessary": "Notwendig",
+    "optional": "Optional"
+  },
+
+  "toggles": {
+    "analyticsLabel": "Analyse-Cookies",
+    "analyticsDescription": "Helfen uns, die Website durch Analyse der Nutzungsmuster zu verbessern.",
+    "marketingLabel": "Marketing-Cookies",
+    "marketingDescription": "Werden verwendet, um relevantere Werbung im Internet anzuzeigen."
+  },
+
+  "meta": {
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}"
+  }
+},
+"allservices": {
+  "hero": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Umfassende Unterstützungsleistungen für indische Studenten, die in Deutschland studieren. Von finanziellen Lösungen bis zur Unterkunft – wir kümmern uns um alles für einen reibungslosen Übergang."
+  },
+  "stats": [
+    { "number": "5000+", "label": "Ausgestellte Forex-Karten" },
+    { "number": "2000+", "label": "Organisierte Unterkünfte" },
+    { "number": "3000+", "label": "Versicherungspolicen" },
+    { "number": "₹100Cr+", "label": "Genehmigte Kredite" }
+  ],
+  "servicesList": [
+    {
+      "id": "forex-card-remittances",
+      "icon": "CreditCard",
+      "title": "Forex-Karte & Überweisungen",
+      "description": "Umfassende Devisenlösungen, einschließlich Multi-Währungs-Forex-Karten und internationale Geldüberweisungen zu den besten Wechselkursen.",
+      "features": [
+        "Multi-Währungs-Forex-Karten",
+        "Keine Forex-Aufschläge",
+        "Internationale Geldüberweisungen",
+        "24/7 Kundensupport",
+        "Mobile App-Verwaltung",
+        "Notfallkartenersatz"
+      ],
+      "benefits": [
+        "3–5% bei Währungsumtausch sparen",
+        "Sofortige Aufladeoptionen",
+        "Weltweit akzeptiert",
+        "Vollständige Transaktionssicherheit"
+      ],
+      "process": [
+        "Dokumentation",
+        "KYC-Überprüfung",
+        "Kartenlieferung",
+        "Aktivierung & Nutzung"
+      ],
+      "price": "Keine versteckten Gebühren",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/forex-card-remittances"
+    },
+    {
+      "id": "accommodation",
+      "icon": "Home",
+      "title": "Unterkunftsservice",
+      "description": "End-to-End-Unterkunftslösungen für Studenten in Deutschland, von temporären Aufenthalten bis hin zu langfristigen Mietoptionen in Uni-Nähe.",
+      "features": [
+        "Studentenwohnheime",
+        "Gemeinschaftswohnungen (WG)",
+        "Studio-Apartments",
+        "Gastfamilienoptionen",
+        "Universitätskooperationen",
+        "Unterstützung bei Mietverträgen"
+      ],
+      "benefits": [
+        "Überprüfte Vermieter & Immobilien",
+        "Nähe zu Universitäten",
+        "Alle Nebenkosten inklusive",
+        "Möblierte Optionen verfügbar"
+      ],
+      "process": [
+        "Bedarfsanalyse",
+        "Immobiliensuche",
+        "Virtuelle Besichtigungen",
+        "Buchung & Einzug"
+      ],
+      "price": "€250–€700/Monat",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/accommodation"
+    },
+    {
+      "id": "medical-insurance",
+      "icon": "Heart",
+      "title": "Krankenversicherung",
+      "description": "Deutsche Krankenversicherungslösungen, die den Visabestimmungen entsprechen und internationalen Studenten umfassenden Schutz bieten.",
+      "features": [
+        "Gesetzliche Krankenversicherung (GKV)",
+        "Private Krankenversicherung",
+        "Zahn- & Sehversicherung",
+        "Notfallmedizinische Evakuierung",
+        "Rückführungsschutz",
+        "24/7 Mehrsprachiger Support"
+      ],
+      "benefits": [
+        "Visakonformität garantiert",
+        "Bargeldlose Krankenhausaufenthalte",
+        "EU-weite Abdeckung",
+        "Abdeckung von Vorerkrankungen"
+      ],
+      "process": [
+        "Auswahl des Plans",
+        "Dokumenteinreichung",
+        "Policenausstellung",
+        "Visa-Unterstützung"
+      ],
+      "price": "€30–€100/Monat",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/medical-insurance"
+    },
+    {
+      "id": "education-loan",
+      "icon": "TrendingUp",
+      "title": "Bildungskredit",
+      "description": "Finanzielle Unterstützung für indische Studenten, die in Deutschland höhere Bildung verfolgen, mit flexiblen Rückzahlungsoptionen.",
+      "features": [
+        "Kredite ohne Sicherheiten",
+        "Gesicherte Bildungskredite",
+        "Kredite der deutschen Regierung",
+        "Karenzzeit",
+        "Steuervorteile gemäß 80E",
+        "Flexible Rückzahlungsdauer"
+      ],
+      "benefits": [
+        "Wettbewerbsfähige Zinssätze",
+        "Schnelle Kreditbearbeitung",
+        "Keine Vorfälligkeitsgebühren",
+        "Steuerliche Vorteile"
+      ],
+      "process": [
+        "Überprüfung der Berechtigung",
+        "Dokumentation",
+        "Genehmigung & Auszahlung",
+        "Nachbetreuung"
+      ],
+      "price": "Bis zu ₹1,5 Crores",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/education-loan"
+    }
+  ],
+  "serviceCard": {
+    "keyFeaturesTitle": "Hauptmerkmale",
+    "keyBenefitsTitle": "Hauptvorteile",
+    "processFlowTitle": "Ablauf",
+    "readyCTA": "Bereit loszulegen?",
+    "ctaDescription": "Beginnen Sie Ihre Reise mit unseren umfassenden {serviceTitle}-Dienstleistungen.",
+    "learnMore": "Mehr erfahren"
+  },
+  "quickStats": {
+    "studentsLabel": "1000+ Studenten",
+    "secureLabel": "100% Sicher"
+  },
+  "comprehensiveCTA": {
+    "heading": "Benötigen Sie mehrere Dienstleistungen?",
+    "description": "Profitieren Sie von Sonderpaketen, wenn Sie mehrere Dienstleistungen gleichzeitig in Anspruch nehmen. Sparen Sie Zeit und Geld mit unseren kombinierten Lösungen.",
+    "packageButton": "Paketangebot erhalten",
+    "quoteButton": "Individuelles Angebot",
+    "contactLink": "/contact"
+  },
+  "meta": {
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}"
+  }
+},
+"accommodation": {
+  "hero": {
+    "title": "Studentenunterkünfte",
+    "subtitle": "Finden Sie Ihr perfektes Zuhause in Deutschland mit unseren umfassenden Unterkunftsdiensten. Von Studentenwohnheimen bis zu privaten Apartments – wir kümmern uns um alles."
+  },
+  "typesTitle": "Arten von Unterkünften",
+  "accommodationTypes": [
+    {
+      "type": "Studentenwohnheime",
+      "price": "€250-€400/Monat",
+      "features": ["Voll möbliert", "WiFi inklusive", "Waschmöglichkeiten", "Gemeinschaftsküche"],
+      "bestFor": "Erstsemester",
+      "image": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "Wohngemeinschaften",
+      "price": "€350-€550/Monat",
+      "features": ["Privates Zimmer", "Geteilte Küche", "Wohnbereich", "Nebenkosten inklusive"],
+      "bestFor": "Kostenbewusste Studierende",
+      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "Einzimmerwohnungen",
+      "price": "€450-€700/Monat",
+      "features": ["Eigene Küche", "Eigenes Bad", "Eigenständig", "Alle Nebenkosten"],
+      "bestFor": "Studierende, die Privatsphäre bevorzugen",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "Gastfamilie",
+      "price": "€300-€500/Monat",
+      "features": ["Lokale Familie", "Mahlzeiten inklusive", "Kulturelles Eintauchen", "Unterstützungssystem"],
+      "bestFor": "Internationale Studierende",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    }
+  ],
+  "citiesTitle": "Beliebte Studentenstädte",
+  "cities": [
+    {
+      "name": "Berlin",
+      "averageRent": "€400-€600",
+      "popularity": "Hoch",
+      "studentAreas": ["Kreuzberg", "Neukölln", "Prenzlauer Berg"]
+    },
+    {
+      "name": "München",
+      "averageRent": "€500-€750",
+      "popularity": "Sehr hoch",
+      "studentAreas": ["Schwabing", "Maxvorstadt", "Giesing"]
+    },
+    {
+      "name": "Hamburg",
+      "averageRent": "€350-€550",
+      "popularity": "Hoch",
+      "studentAreas": ["Sternschanze", "Eimsbüttel", "Altona"]
+    },
+    {
+      "name": "Köln",
+      "averageRent": "€300-€500",
+      "popularity": "Mittel",
+      "studentAreas": ["Ehrenfeld", "Sülz", "Lindenthal"]
+    }
+  ],
+  "averageRentLabel": "Durchschnittliche Miete:",
+  "popularityLabel": "Beliebtheit:",
+  "studentAreasLabel": "Studentenbereiche:",
+  "bestForLabel": "Am besten für:",
+  "viewOptions": "Verfügbare Optionen anzeigen",
+  "cta": {
+    "heading": "Benötigen Sie eine Unterkunft in Deutschland?",
+    "sub": "Lassen Sie uns Ihnen helfen, das perfekte Zuhause für Ihr Studium zu finden.",
+    "button": "Meine Unterkunft finden"
+  }
+},
+"forexCardRemittances": {
+  "hero": {
+    "title": "Forex-Karte & Überweisungen",
+    "subtitle": "Verwalten Sie Ihre internationalen Finanzen mühelos mit unseren Multiwährungs-Forex-Karten und wettbewerbsfähigen Überweisungsdiensten. Perfekt für Studierende in Deutschland."
+  },
+  "features": [
+    {
+      "icon": "CreditCard",
+      "title": "Multiwährungs-Forex-Karten",
+      "description": "Laden Sie mehrere Währungen, darunter EUR, USD und GBP, auf eine einzige Karte für nahtlose Transaktionen in ganz Europa.",
+      "benefits": ["Keine Forex-Aufschläge", "Sofortige Aufladung", "ATM-Zugang", "Online-Tracking"]
+    },
+    {
+      "icon": "Send",
+      "title": "Internationale Geldüberweisungen",
+      "description": "Schnelle und sichere Überweisungsdienste mit wettbewerbsfähigen Wechselkursen und minimalen Transfergebühren.",
+      "benefits": ["Beste Wechselkurse", "Schnelle Überweisung", "Geringe Gebühren", "24/7 Support"]
+    },
+    {
+      "icon": "Shield",
+      "title": "Sicher & Versichert",
+      "description": "Ihr Geld ist durch modernste Sicherheitsfunktionen und Versicherungsschutz geschützt.",
+      "benefits": ["Betrugsschutz", "Versicherungsschutz", "PIN-Schutz", "Notfallunterstützung"]
+    },
+    {
+      "icon": "Globe",
+      "title": "Weltweite Akzeptanz",
+      "description": "Akzeptiert an Millionen von Standorten weltweit, einschließlich Geldautomaten, Geschäften und Online-Plattformen.",
+      "benefits": ["Weltweite Akzeptanz", "Online-Shopping", "Kontaktloses Bezahlen", "Mobile App"]
+    }
+  ],
+  "processTitle": "Einfacher 4-Schritte-Prozess",
+  "process": [
+    { "step": 1, "title": "Dokumentation", "description": "Reichen Sie KYC-Dokumente und das Antragsformular ein" },
+    { "step": 2, "title": "Kartenausgabe", "description": "Erhalten Sie Ihre Forex-Karte innerhalb von 2–3 Werktagen" },
+    { "step": 3, "title": "Währungsaufladung", "description": "Laden Sie gewünschte Währungen zu den besten Wechselkursen auf" },
+    { "step": 4, "title": "Aktivierung & Nutzung", "description": "Aktivieren Sie Ihre Karte und nutzen Sie sie weltweit" }
+  ],
+  "whyTitle": "Warum unsere Forex-Dienste wählen?",
+  "whyBenefits": [
+    { "icon": "Zap", "title": "Beste Wechselkurse", "description": "Erhalten Sie die wettbewerbsfähigsten Kurse für EUR und andere Hauptwährungen" },
+    { "icon": "TrendingUp", "title": "Sparen Sie 3–5 % bei Forex", "description": "Deutlich bessere Kurse im Vergleich zu Banken und Flughäfen" },
+    { "icon": "Shield", "title": "Umfassende Sicherheit", "description": "Bankensichere Technologie mit 24/7 Betrugsüberwachung" }
+  ],
+  "cta": {
+    "heading": "Bereit, Ihre Forex-Karte zu erhalten?",
+    "sub": "Starten Sie Ihre finanzielle Reise nach Deutschland mit den besten Forex-Lösungen.",
+    "button": "Jetzt beantragen"
+  }
+},
+"medicalInsurance": {
+  "hero": {
+    "title": "Krankenversicherung",
+    "subtitle": "Umfassende Krankenversicherungslösungen, die den deutschen Visaanforderungen entsprechen. Bleiben Sie während Ihres Studiums in Deutschland geschützt."
+  },
+  "planTitle": "Versicherungspläne für Studierende",
+  "insurancePlans": [
+    {
+      "name": "Basis-Studentenplan",
+      "price": "€30–€40/Monat",
+      "coverage": "Grundlegende medizinische Abdeckung",
+      "features": ["Arztbesuche", "Grundmedikamente", "Notfallversorgung", "24/7 Support"],
+      "bestFor": "Studierende mit kleinem Budget",
+      "popular": false
+    },
+    {
+      "name": "Umfassender Plan",
+      "price": "€50–€70/Monat",
+      "coverage": "Vollständige medizinische Abdeckung",
+      "features": ["Krankenhausaufenthalt", "Zahnbehandlung", "Augenpflege", "Therapiesitzungen"],
+      "bestFor": "Die meisten internationalen Studierenden",
+      "popular": true
+    },
+    {
+      "name": "Premium-Plan",
+      "price": "€80–€100/Monat",
+      "coverage": "Premium-Gesundheitsversicherung mit umfassendem Schutz",
+      "features": ["Privatklinik", "Weltweite Abdeckung", "Keine Wartezeit", "Vollständige Zahnversicherung"],
+      "bestFor": "Studierende, die Premium-Versorgung wünschen",
+      "popular": false
+    }
+  ],
+  "labels": {
+    "mostPopular": "Am beliebtesten",
+    "bestFor": "Am besten geeignet für:",
+    "learnMore": "Mehr erfahren",
+    "getStarted": "Jetzt starten",
+    "averageRent": "Durchschnittliche Miete:",
+    "popularity": "Beliebtheit:",
+    "studentAreas": "Studentengebiete:"
+  },
+  "requirementsTitle": "Anforderungen für das deutsche Visum",
+  "requirements": [
+    "Erforderlich für den deutschen Visumantrag",
+    "Mindestdeckung von €30.000",
+    "Gültig für die gesamte Studiendauer",
+    "Muss Rückführung abdecken",
+    "Keine Selbstbeteiligung für Basisleistungen",
+    "EU-weit anerkannt"
+  ],
+  "providersTitle": "Vertrauenswürdige Anbieter",
+  "providers": [
+    {
+      "name": "TK (Techniker Krankenkasse)",
+      "rating": 4.8,
+      "students": "500.000+",
+      "features": ["Englischsprachiger Support", "Digitale Services", "Weitreichendes Netzwerk"]
+    },
+    {
+      "name": "AOK",
+      "rating": 4.6,
+      "students": "400.000+",
+      "features": ["Lokale Büros", "Traditioneller Anbieter", "Umfassende Leistungen"]
+    },
+    {
+      "name": "DAK-Gesundheit",
+      "rating": 4.7,
+      "students": "300.000+",
+      "features": ["Moderne App", "Präventivpflege", "Studentenrabatte"]
+    }
+  ],
+  "cta": {
+    "heading": "Versicherung für Deutschland abschließen",
+    "sub": "Erfüllen Sie Ihre Visaanforderungen mit unseren anerkannten Krankenversicherungsplänen.",
+    "button": "Versicherungsangebot erhalten"
+  }
+},
+"educationLoan": {
+  "hero": {
+    "title": "Bildungskredit",
+    "subtitle": "Finanzieren Sie Ihr Studium in Deutschland mit unseren Partnerkreditprogrammen. Profitieren Sie von wettbewerbsfähigen Zinssätzen und flexiblen Rückzahlungsoptionen."
+  },
+  "sections": {
+    "loanOptionsTitle": "Bildungskreditoptionen",
+    "lendersTitle": "Partnerbanken",
+    "documentsTitle": "Erforderliche Dokumente"
+  },
+  "labels": {
+    "eligibility": "Berechtigung:",
+    "processing": "Bearbeitungszeit:",
+    "marginMoney": "Eigenanteil:",
+    "studentsSuffix": "Studierende",
+    "checkEligibility": "Berechtigung prüfen"
+  },
+  "loanTypes": [
+    {
+      "name": "Unbesicherter Kredit",
+      "amount": "Bis zu ₹75 Lakh",
+      "interest": "8,5 % – 11,5 % p.a.",
+      "features": ["Keine Sicherheit erforderlich", "Tilgungsfreie Zeit", "Flexible Rückzahlung", "Schnelle Auszahlung"],
+      "eligibility": "Indische Studierende mit Zulassung"
+    },
+    {
+      "name": "Besicherter Bildungskredit",
+      "amount": "Bis zu ₹1,5 Crore",
+      "interest": "7,5 % – 9,5 % p.a.",
+      "features": ["Niedrigerer Zinssatz", "Längere Laufzeit", "Eltern als Mitbewerber", "Steuervorteile"],
+      "eligibility": "Mit hinterlegter Sicherheit"
+    },
+    {
+      "name": "Deutscher Regierungskredit",
+      "amount": "Bis zu €850/Monat",
+      "interest": "0 % – 2 % p.a.",
+      "features": ["Subventionierter Zinssatz", "Lange Rückzahlungszeit", "Einkommensabhängig", "Keine Sicherheit erforderlich"],
+      "eligibility": "EU- und internationale Studierende"
+    }
+  ],
+  "lenders": [
+    { "name": "SBI Global Ed-Vantage", "processing": "7–10 Tage", "margin": "Bis zu 15 %", "special": "Kein Eigenanteil für Spitzeninstitute" },
+    { "name": "HDFC Credila", "processing": "5–7 Tage", "margin": "Bis zu 10 %", "special": "Digitaler Prozess" },
+    { "name": "Axis Bank Bildungskredit", "processing": "10–12 Tage", "margin": "Bis zu 15 %", "special": "Umfassende Universitätsabdeckung" },
+    { "name": "Prodigy Finance", "processing": "2–3 Wochen", "margin": "Kein Eigenanteil", "special": "Internationale Kreditgeber" },
+    { "name": "Union Bank of India – Bildungskredit", "processing": "8–10 Tage", "margin": "Bis zu 10 %", "special": "Niedrige Zinsen für Auslandsstudien" }
+  ],
+  "documents": [
+    "Zulassungsbescheid einer deutschen Universität",
+    "Akademische Zeugnisse und Zertifikate",
+    "Reisepass und Visumsunterlagen",
+    "Kostenaufstellung des Studiums",
+    "Einkommensnachweis der Eltern oder Erziehungsberechtigten"
+  ],
+  "cta": {
+    "heading": "Finanzieren Sie Ihren Traum vom Studium in Deutschland",
+    "sub": "Erhalten Sie mit unserer Expertenhilfe den besten Bildungskredit für Ihr Studium in Deutschland.",
+    "button": "Bildungskredit beantragen"
+  }
+},
+"emiCalculator": {
+  "title": "Schneller EMI-Rechner",
+  "subtitle": "Schätzen Sie die monatliche EMI für Bildungskredite. Die Ergebnisse basieren auf der Standardformel mit monatlicher Zinseszinsberechnung.",
+  "loanAmount": "Darlehensbetrag (₹)",
+  "rate": "Zinssatz (% p.a.)",
+  "tenure": "Laufzeit (Jahre)",
+  "adjustTenure": "Laufzeit anpassen:",
+  "monthlyEMI": "Monatliche EMI",
+  "totalPaymentLabel": "Gesamtzahlung",
+  "totalInterestLabel": "Gesamtzins",
+  "principal": "Kapitalbetrag:",
+  "rateMonthly": "Monatlicher Zinssatz:",
+  "tenureMonths": "Laufzeit (Monate):",
+  "notePrefix": "Hinweis:",
+  "noteText": "Für Ihr Beispiel (₹20,00,000 · 9,5 % p.a. · 10 Jahre) zeigt dieser Rechner {emi} als monatliche EMI unter Verwendung der Standardformel.",
+  "copySummary": "Zusammenfassung kopieren"
+},
+"coaching": {
+  "hero": {
+    "titleLeft": "Coaching",
+    "titleRight": "& Schulung",
+    "subtitle": "Wir sind Ihre zentrale Anlaufstelle für alle Trainingsbedürfnisse. Greifen Sie auf unser Netzwerk von Premium-Trainingspartnern zu und profitieren Sie von exklusiven Rabatten."
+  },
+  "headings": {
+    "premiumPartners": "Premium-Trainingspartner",
+    "accessReq": "Zugangsvoraussetzungen",
+    "keyBenefits": "Wichtige Vorteile",
+    "ourPartners": "Unsere Trainingspartner",
+    "compGuideKicker": "Vergleichsleitfaden zu Englischtests",
+    "compGuideTitle": "Wichtige Informationen für Testteilnehmer",
+    "ctaTitle": "Bereit für Premium-Training?",
+    "ctaSub": "Registrieren Sie sich, um exklusive Rabatte freizuschalten und mit unseren Premium-Trainingspartnern in Kontakt zu treten.",
+    "ctaBtn": "Jetzt registrieren"
+  },
+  "paragraphs": [
+    "Wir bieten selbst kein Training an, arbeiten jedoch mit renommierten professionellen Instituten zusammen, die nachweislich erfolgreich Studierende ausbilden.",
+    "Diese Institute sind bekannt dafür, Lernende effektiv zu höheren Punktzahlen zu führen, wodurch ihre Profile gestärkt und ihr Zulassungsprozess unterstützt wird.",
+    "Wenn Sie Ihre Bewerbung über uns einreichen, können Sie zudem von exklusiven Rabatten profitieren."
+  ],
+  "accessReqText": "Der Zugang zu unserem Partnerprogramm ist nur nach der Registrierung möglich. Nach der Anmeldung können Sie über Ihr persönliches Profil unsere Trainingspartner einsehen und direkt kontaktieren.",
+  "benefits": [
+    "Exklusive Rabatte für Profiberater-Studierende",
+    "Nachweislich erfolgreiche Erfolgsbilanz",
+    "Erfahrene und zertifizierte Trainer",
+    "Flexible Kurszeiten",
+    "Individuelle Betreuung",
+    "Regelmäßige Fortschrittsüberwachung"
+  ],
+  "partnerInstitutes": [
+    {
+      "name": "Deutsches Sprachinstitut",
+      "courses": ["A1–C2 Deutsch", "TestDaF Vorbereitung", "Goethe-Prüfung"],
+      "discount": "20%",
+      "rating": 4.9,
+      "students": "2000+"
+    },
+    {
+      "name": "STEM Trainingszentrum",
+      "courses": ["TestAS Vorbereitung", "GRE/GMAT", "Technische Vorstellungsgespräche"],
+      "discount": "15%",
+      "rating": 4.8,
+      "students": "1500+"
+    },
+    {
+      "name": "Study Abroad Akademie",
+      "courses": ["IELTS Vorbereitung", "Akademisches Schreiben", "Interviewfähigkeiten"],
+      "discount": "25%",
+      "rating": 4.7,
+      "students": "1800+"
+    }
+  ],
+  "table": {
+    "headers": [
+      "Prüfungsname",
+      "Vollständiger Name",
+      "Zweck",
+      "Module & getestete Fähigkeiten",
+      "Dauer",
+      "Modi",
+      "Sitzungen",
+      "Verfügbarkeit",
+      "Anmeldung",
+      "Wartezeit für Wiederholung",
+      "Bewertung",
+      "Ergebnisse",
+      "Gültigkeit",
+      "Kosten",
+      "Fragetypen",
+      "Anzahl der Fragen"
+    ],
+    "rows": [
+      {
+        "exam": "PTE",
+        "full": "Pearson Test of English",
+        "purpose": "Studentenvisum; Hochschulzulassung",
+        "modules": "Sprechen & Schreiben, Lesen, Hören",
+        "duration": "2 Stunden",
+        "modes": "Nur im Testzentrum, Nur computergestützt",
+        "sessions": "Einzelsitzung",
+        "avail": "Täglich (abhängig vom Testzentrum)",
+        "reg": "Bis zu 24 Stunden im Voraus",
+        "wait": "Nach Erhalt des Ergebnisberichts (2–3 Tage)",
+        "scoring": "Vollautomatisiert, Gesamt: 90 Punkte, Einzelmodule: 90 Punkte",
+        "results": "Innerhalb von 48 Stunden",
+        "validity": "2 Jahre",
+        "cost": "₹ 17.000",
+        "types": "S: 5 Typen, W: 2 Typen, R: 5 Typen, L: 8 Typen",
+        "count": "Gesamt 52–73, S: 25–31, W: 2–4, R: 13–18, L: 12–20"
+      },
+      {
+        "exam": "IELTS",
+        "full": "International English Language Testing System",
+        "purpose": "Studentenvisum; Hochschulzulassung",
+        "modules": "Hören, Lesen, Schreiben, Sprechen",
+        "duration": "LRW: 2 Std. 40 Min, S: 11–14 Min",
+        "modes": "Nur im Testzentrum, Papier- oder Computertest",
+        "sessions": "Zwei Sitzungen: 1 für LRW, 1 für S",
+        "avail": "CDT: täglich, PBT: 4–5 Mal pro Monat",
+        "reg": "CDT: 4–5 Tage vorher, PBT: bis zu 15 Tage vorher",
+        "wait": "CDT: 3 Tage, PBT: keine Begrenzung",
+        "scoring": "Menschlich + automatisiert, Gesamt: Band 9.0, Einzelmodule: Band 9.0",
+        "results": "CDT: 3–4 Tage, PBT: 13 Tage",
+        "validity": "2 Jahre",
+        "cost": "₹ 17.000",
+        "types": "L: 8–9 Typen, R: 10–12 Typen, W: 2 Typen, S: 3 Teile",
+        "count": "L: 40, R: 40, W: 2, S: (P1: 9–10; P2: 1; P3: 5–6)"
+      },
+      {
+        "exam": "TOEFL",
+        "full": "Test of English as a Foreign Language",
+        "purpose": "Studentenvisum; Hochschulzulassung",
+        "modules": "Lesen, Hören, Sprechen, Schreiben",
+        "duration": "2 Stunden",
+        "modes": "Im Testzentrum oder zu Hause, Papier- oder Computertest",
+        "sessions": "Ein Sitzung im Zentrum oder Home Edition, Zwei Sitzungen für Papier-Edition",
+        "avail": "Zentrum: 60+ Mal pro Jahr, Home Edition: 24h / 4 Tage pro Woche, Papier: monatlich (3. Samstag)",
+        "reg": "Zentrum: 3–5 Tage vorher, Home: 1–2 Tage, Papier: 7–10 Tage",
+        "wait": "3 Tage",
+        "scoring": "Menschlich + automatisiert, Gesamt: 120 Punkte, Module: 30 Punkte",
+        "results": "Zentrum/Home: 4–8 Tage, Papier: 11–13 Tage",
+        "validity": "2 Jahre",
+        "cost": "₹ 16.900 | $195",
+        "types": "R: MCQs, L: MCQs, S: 4 Typen, W: 2 Typen",
+        "count": "R: 20, L: 28, S: 4, W: 2"
+      },
+      {
+        "exam": "DUOLINGO",
+        "full": "Duolingo Englischtest (Adaptiver Test)",
+        "purpose": "Hochschulzulassung",
+        "modules": "Lesen & Schreiben, Lesen & Hören, Schreiben & Sprechen, Hören & Sprechen (einzeln & integriert)",
+        "duration": "1 Stunde",
+        "modes": "Nicht im Testzentrum, Von zu Hause oder Büro, Nur computergestützt",
+        "sessions": "Einzelsitzung",
+        "avail": "Jeden Tag, jederzeit",
+        "reg": "Keine Begrenzung",
+        "wait": "Zweimal pro Monat",
+        "scoring": "Vollautomatisiert, Gesamt: 160 Punkte",
+        "results": "Innerhalb von 48 Stunden",
+        "validity": "2 Jahre",
+        "cost": "$59",
+        "types": "S: 4–5 Typen, W: 4 Typen, R: 7–8 Typen, L: 4–5 Typen",
+        "count": "Gesamt 50–58"
+      },
+      {
+        "exam": "CELPIP",
+        "full": "Canadian English Language Proficiency Index Program",
+        "purpose": "Studentenvisum (Kanada); Daueraufenthalt (Kanada)",
+        "modules": "Lesen, Hören, Sprechen, Schreiben (einzeln & integriert)",
+        "duration": "3 Stunden",
+        "modes": "Nur im Testzentrum, Nur computergestützt",
+        "sessions": "Einzelsitzung",
+        "avail": "Wochenenden, 2 Sitzungen pro Tag",
+        "reg": "Mindestens 1 Werktag vorher (je nach Platzverfügbarkeit)",
+        "wait": "5 Tage",
+        "scoring": "Menschlich + automatisiert, Gesamt: Stufe 3–12, Einzelmodule: Stufe 3–12",
+        "results": "In 4–5 Tagen",
+        "validity": "2 Jahre",
+        "cost": "₹ 12.500",
+        "types": "L: 6 Typen, 38+ MCQs, R: 4 Typen, 38+ MCQs, S: 2 Typen, W: 8 Typen",
+        "count": "L: 6 Teile, R: 4 Teile, W: 2 Aufgaben, S: 8 Teile"
+      },
+      {
+        "exam": "CAEL",
+        "full": "Canadian Academic English Language Test",
+        "purpose": "Hochschulzulassung (Kanada); Studentenvisum (nur im Testzentrum)",
+        "modules": "Sprechen, Lesen, Hören, Akademische Einheit A, Akademische Einheit B",
+        "duration": "3,5 Stunden",
+        "modes": "Im Testzentrum oder zu Hause, Nur computergestützt",
+        "sessions": "Einzelsitzung",
+        "avail": "Wochenenden",
+        "reg": "Mindestens 1 Werktag vorher (je nach Platzverfügbarkeit)",
+        "wait": "4 Tage",
+        "scoring": "Menschlich + automatisiert, Gesamt: Band 90, Einzelmodule: Band 90",
+        "results": "In 8 Tagen",
+        "validity": "2 Jahre",
+        "cost": "₹ 12.500",
+        "types": "S: 3 Typen, R: 2 Typen + 1 R+S integriert, L: 2 Typen + 1 L+S integriert, W: 2 Typen (R+L+W integriert)",
+        "count": "S: 3 Aufgaben, R: 14–25 MCQs + 1 R+S, L: 14–25 MCQs + 1 L+S, W: 44–60 MCQs + 2 integrierte Aufgaben"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Bereit für Premium-Training?",
+    "sub": "Registrieren Sie sich, um exklusive Rabatte freizuschalten und mit unseren Premium-Trainingspartnern in Kontakt zu treten.",
+    "button": "Jetzt registrieren"
+  }
 }
 
 }

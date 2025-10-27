@@ -431,7 +431,1300 @@
     "sub": "让我们帮助你实现赴德留学的梦想。",
     "button": "获取免费咨询"
   }
-}
+},
+"team": {
+  "title": "认识我们的",
+  "hero": {
+    "title": "认识我们的团队",
+    "subtitle": "来自印度的资深专业人士，已在欧洲生活和工作十多年。我们拥有第一手经验和深厚的行业洞察力，致力于为您在德国的教育之旅提供专业指导。"
+  },
+  "members": [
+    {
+      "name": "Dr. Pavan B.",
+      "role": "生物医学 / 生物技术 / 生物学专家",
+      "education": "生物医学工程博士",
+      "experience": "在欧洲医疗行业拥有超过10年的经验",
+      "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["医学研究", "生物技术入学咨询", "博士申请指导"],
+      "contactMail": ""
+    },
+    {
+      "name": "Sagar P.",
+      "role": "业务发展经理",
+      "education": "机械工程学士",
+      "experience": "在欧洲工业领域拥有8年以上经验",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["机械工程", "商学课程", "行业人脉与合作"],
+      "contactMail": ""
+    },
+    {
+      "name": "Vivek P.",
+      "role": "首席执行官兼创始人",
+      "education": "机械工程学士",
+      "experience": "在德国工作与生活超过12年",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["战略规划", "大学合作关系", "职业发展辅导"],
+      "contactMail": ""
+    },
+    {
+      "name": "Dr. Pavan Reddy",
+      "role": "生物医学专家",
+      "education": "生物技术博士",
+      "experience": "在德国科研领域拥有超过9年经验",
+      "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["科研项目", "实验室实习", "科学论文写作指导"],
+      "contactMail": ""
+    },
+    {
+      "name": "Dr. Arindam",
+      "role": "学术顾问",
+      "education": "工程学博士",
+      "experience": "拥有超过11年的学术研究经验",
+      "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+      "specialization": ["工程类项目", "技术类招生", "科研指导与咨询"],
+      "contactMail": ""
+    }
+  ],
+  "expertiseHeading": "我们的专业领域",
+  "expertiseSub": "为各类学术与职业领域提供专业化指导",
+  "expertiseAreas": [
+    {
+      "field": "COEP 与汽车工程",
+      "description": "为汽车工程和 COEP 项目提供专业咨询"
+    },
+    {
+      "field": "SAP 与信息技术",
+      "description": "为 SAP 认证及 IT 项目提供专家咨询"
+    },
+    {
+      "field": "STEM 课程",
+      "description": "为科学、技术、工程和数学（STEM）提供全方位支持"
+    }
+  ],
+  "contact": "联系我们",
+  "profile": "个人简介",
+  "cta": {
+    "heading": "准备好与我们的专家合作了吗？",
+    "sub": "从我们经验丰富的专业团队获得个性化指导与支持。",
+    "button": "预约与我们的团队咨询"
+  }
+},
+"contactus": {
+  "hero": {
+    "title": "联系我们",
+    "subtitle": "与我们德国教育专家取得联系。我们将全程协助您实现留学德国的梦想。"
+  },
+  "contactInfo": [
+    {
+      "icon": "Phone",
+      "title": "致电我们",
+      "info": "+91 98765 43210",
+      "description": "周一至周六，上午10点至晚上7点",
+      "color": "from-green-600 to-sky-600",
+      "link": "tel:+919876543210"
+    },
+    {
+      "icon": "Mail",
+      "title": "发送邮件",
+      "info": "hello@profiberater.com",
+      "description": "我们将在2小时内回复您",
+      "color": "from-green-600 to-sky-600",
+      "link": "mailto:hello@profiberater.com"
+    },
+    {
+      "icon": "MapPin",
+      "title": "办公地址",
+      "info": "印度，新德里",
+      "description": "请提前预约来访时间",
+      "color": "from-green-600 to-sky-600",
+      "link": "#"
+    },
+    {
+      "icon": "Clock",
+      "title": "办公时间",
+      "info": "上午10:00 - 晚上7:00",
+      "description": "周一至周六",
+      "color": "from-green-600 to-sky-600",
+      "link": "#"
+    }
+  ],
+  "services": [
+    "外汇卡与国际汇款",
+    "住宿安排",
+    "医疗保险",
+    "教育贷款",
+    "大学录取服务",
+    "签证指导"
+  ],
+  "form": {
+    "heading": "免费咨询表",
+    "name": "全名 *",
+    "email": "电子邮箱地址 *",
+    "phone": "联系电话",
+    "service": "感兴趣的服务",
+    "message": "您的留言",
+    "submit": "发送信息并获取免费咨询",
+    "submitting": "发送中...",
+    "thanksTitle": "感谢您！",
+    "thanksText": "我们已收到您的信息，将在2小时内与您联系。"
+  },
+  "why": {
+    "heading": "为什么选择 Profiberater？",
+    "bullets": [
+      "10年以上欧洲教育经验",
+      "500+成功录取案例",
+      "全流程留学支持",
+      "专注德国教育服务"
+    ]
+  },
+  "cta": {
+    "heading": "准备好开启您的德国留学之旅了吗？",
+    "sub": "立即联系我们，迈出实现德国留学梦想的第一步。",
+    "whatsapp": "立即通过 WhatsApp 联系",
+    "call": "立即致电"
+  },
+  "getInTouch": "保持联系"
+},
+"disclaimer": {
+  "hero": {
+    "title": "免责声明与政策",
+    "subtitle": "关于我们的服务、数据保护及参与条款的重要法律信息。",
+    "backgroundImage": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop"
+  },
+  "policies": [
+    {
+      "icon": "Shield",
+      "title": "隐私政策",
+      "content": [
+        "我们仅收集提供服务所需的必要信息。",
+        "您的数据受行业标准的安全措施保护。",
+        "未经您的同意，我们不会将个人信息与第三方共享。",
+        "您可随时请求删除数据。"
+      ]
+    },
+    {
+      "icon": "FileText",
+      "title": "服务条款",
+      "content": [
+        "我们的服务仅为咨询性质。",
+        "我们提供指导，但无法保证大学录取。",
+        "客户需自行负责申请及文件准备。",
+        "费用仅为所提供服务，不保证录取结果。"
+      ]
+    },
+    {
+      "icon": "Lock",
+      "title": "数据保护",
+      "content": [
+        "所有数据传输均采用 SSL 加密。",
+        "定期进行安全审计和更新。",
+        "个人信息访问权限受限。",
+        "遵守 GDPR 数据处理规范。"
+      ]
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "重要免责声明",
+      "content": [
+        "我们不隶属于任何德国大学或政府机构。",
+        "录取决定完全由大学自行做出。",
+        "签证批准由德国当局决定。",
+        "考试成绩及学术表现由学生自行负责。"
+      ]
+    }
+  ],
+  "additional": {
+    "title": "服务说明",
+    "paragraphs": [
+      "教育咨询性质： 我们提供教育咨询及指导服务。我们提供德国教育体系的指导、支持与专业知识，但不保证录取、奖学金或签证批准。",
+      "客户责任： 学生需对其学业表现、考试成绩、文件准备及申请截止日期负责。我们提供指导，但执行责任由学生承担。",
+      "第三方服务： 虽然我们与培训机构及其他服务提供商合作，但不对其服务直接负责。任何与第三方提供商的协议均由学生与提供商自行签署。",
+      "政策更新： 我们保留更新政策和条款的权利。继续使用我们的服务即表示接受更新后的条款。"
+    ]
+  },
+  "contact": {
+    "title": "对我们的政策有疑问？",
+    "subtitle": "如需任何关于政策和条款的说明，请联系我们。",
+    "button": "联系法律团队"
+  }
+},
+"reviews": {
+  "hero": {
+    "title": "学生评价",
+    "subtitle": "听听那些在我们的指导下成功进入梦想德国大学的学生的心声。"
+  },
+  "stats": [
+    { "number": "4.9/5", "label": "平均评分" },
+    { "number": "500+", "label": "满意学生" },
+    { "number": "99%", "label": "推荐我们" },
+    { "number": "50+", "label": "合作大学" }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Aman Verma",
+      "meta": "计算科学硕士 — 慕尼黑工业大学",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "text": "“Profiberater在我的德国大学申请和签证过程中提供了清晰和贴心的指导——我的签证比预期更快获得批准，非常感激！”",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Sakshi Gupta",
+      "meta": "学士 → 硕士 — 弗赖堡大学",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "text": "“他们的APS和语言支持非常专业——我找到了合适的大学匹配，并获得了奖学金帮助。”",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Rohit Singh",
+      "meta": "硕士申请人 — 亚琛工业大学（已录取）",
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+      "text": "“在多次德国签证被拒后，Profiberater重新优化了我的个人资料和策略。他们保持了合理的期望，最终帮助我获得批准。”",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "name": "Neha Joshi",
+      "meta": "Studienkolleg / 语言课程准备中",
+      "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+      "text": "“透明的费用、一致的更新，以及专属顾问让整个过程顺利。强烈推荐给申请德国的学生。”",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "name": "Ankit Sharma",
+      "meta": "工商管理硕士 — 法兰克福金融与管理学院",
+      "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+      "text": "“团队帮助我完善了SOP和简历，使我的MBA申请更强。他们的反馈会议非常专业和实用。”",
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "name": "Priya Menon",
+      "meta": "环境工程硕士 — 代尔夫特理工大学",
+      "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+      "text": "“他们在欧洲招生方面的专业知识令人印象深刻。我获得了多所大学录取，他们的签证指导也非常到位。”",
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "name": "Vikram Desai",
+      "meta": "数据科学学士 — 汉堡大学",
+      "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+      "text": "“作为首次国际申请者，我很欣赏他们的清晰和响应速度。他们无缝处理每一个步骤。”",
+      "rating": 5
+    },
+    {
+      "id": 8,
+      "name": "Ritika Bansal",
+      "meta": "生物技术博士 — 波恩大学",
+      "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+      "text": "“他们帮助我将研究兴趣与合适的导师对齐，并制定了强有力的提案。没有他们，我无法完成！”",
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "name": "Aditya Narang",
+      "meta": "机械工程硕士 — 达姆施塔特工业大学",
+      "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+      "text": "“每一步都很透明——从申请名单到签证模拟面试。我绝对会推荐Profiberater。”",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "heading": "加入我们的成功故事",
+    "sub": "成为信任Profiberater，将学术梦想变为现实的积极学生社区的一员。",
+    "button": "开始我的成功之旅"
+  }
+},
+"terms": {
+  "hero": {
+    "title": "服务条款",
+    "description": "在使用我们的服务之前，请仔细阅读这些条款。这些条款规范您与 Profiberater 之间的关系。",
+    "badge": "法律协议"
+  },
+  "notice": {
+    "title": "重要法律声明",
+    "text": "这些服务条款构成您与 Profiberater 之间具有法律约束力的协议。使用我们的服务即表示您已阅读、理解并同意受这些条款约束。如果您不同意任何条款，请不要使用我们的服务。"
+  },
+  "sections": [
+    {
+      "icon": "Users",
+      "title": "服务协议",
+      "content": [
+        {
+          "subtitle": "条款接受",
+          "points": [
+            "访问我们的服务即表示您同意受这些条款约束",
+            "服务仅适用于年满 18 岁的个人",
+            "我们保留随时更新这些条款的权利",
+            "在条款变更后继续使用即表示接受"
+          ]
+        },
+        {
+          "subtitle": "服务说明",
+          "points": [
+            "为德国大学提供教育咨询",
+            "提供住宿和财务服务支持",
+            "签证指导与文件支持",
+            "第三方服务协调"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Scale",
+      "title": "用户责任",
+      "content": [
+        {
+          "subtitle": "准确信息",
+          "points": [
+            "提供完整且准确的个人信息",
+            "信息变更时及时更新",
+            "保持账户凭证的保密性",
+            "立即报告未经授权的访问"
+          ]
+        },
+        {
+          "subtitle": "禁止行为",
+          "points": [
+            "虚报学术资格",
+            "提交虚假文件",
+            "未经授权的商业使用服务",
+            "违反德国或印度法律"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "AlertTriangle",
+      "title": "限制与免责声明",
+      "content": [
+        {
+          "subtitle": "服务限制",
+          "points": [
+            "我们提供指导，但无法保证大学录取",
+            "签证批准由德国相关部门决定",
+            "服务结果取决于个人情况",
+            "第三方服务受其自身条款约束"
+          ]
+        },
+        {
+          "subtitle": "财务免责声明",
+          "points": [
+            "贷款批准取决于贷款方标准",
+            "外汇服务的汇率可能波动",
+            "保险覆盖范围受提供方条款约束",
+            "费用仅针对提供的服务，不保证结果"
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "Clock",
+      "title": "付款与退款",
+      "content": [
+        {
+          "subtitle": "费用结构",
+          "points": [
+            "服务费用在前期明确告知",
+            "第三方服务可能产生额外费用",
+            "某些服务可提供分期付款计划",
+            "所有费用均以印度卢比计，除非另有说明"
+          ]
+        },
+        {
+          "subtitle": "退款政策",
+          "points": [
+            "咨询费用不可退",
+            "基于服务完成阶段可部分退款",
+            "服务完成后不予退款",
+            "退款请求必须以书面形式提交"
+          ]
+        }
+      ]
+    }
+  ],
+  "governing": {
+    "title": "适用法律与管辖",
+    "paragraphs": [
+      "这些条款应受印度法律管辖并依其解释，不考虑其法律冲突规定。",
+      "任何因这些条款引起或与之相关的争议，应提交至位于印度德里的法院专属管辖。",
+      "我们未能执行这些条款中的任何权利或条款，不应视为放弃该等权利。"
+    ]
+  }
+},
+  "privacy": {
+    "hero": {
+      "title": "隐私政策",
+      "subtitle": "我们重视您的隐私。本政策解释我们如何收集、使用并保护您的个人信息。"
+    },
+    "intro": {
+      "title": "简介",
+      "paragraphs": [
+        "Profiberater（“我们”、“我们的”或“本公司”）致力于保护您的隐私。本隐私政策说明 Profiberater 如何收集、使用并披露您的个人信息。",
+        "本政策适用于我们的网站及其关联子域（统称为“服务”）以及我们的应用 Profiberater。访问或使用我们的服务，即表示您已阅读、理解并同意我们按照本隐私政策和服务条款所述的方式收集、存储、使用和披露您的个人信息。"
+      ]
+    },
+    "sections": [
+      {
+        "icon": "Eye",
+        "title": "我们收集的信息",
+        "blocks": [
+          {
+            "subtitle": "个人信息",
+            "points": [
+              "姓名、电子邮箱、电话号码",
+              "学术背景与资质",
+              "护照与签证文件",
+              "为服务处理目的的财务信息"
+            ]
+          },
+          {
+            "subtitle": "使用数据",
+            "points": [
+              "IP 地址与浏览器类型",
+              "访问页面及停留时长",
+              "设备信息与操作系统",
+              "Cookie 与跟踪技术"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Lock",
+        "title": "我们如何使用您的信息",
+        "blocks": [
+          {
+            "subtitle": "服务提供",
+            "points": [
+              "处理您的服务申请",
+              "就服务状态与您沟通",
+              "提供客户支持",
+              "发送重要更新与通知"
+            ]
+          },
+          {
+            "subtitle": "法律合规",
+            "points": [
+              "遵守德国教育相关法规",
+              "满足金融服务要求",
+              "防范欺诈并确保安全",
+              "履行法律义务并配合执法"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Shield",
+        "title": "数据保护",
+        "blocks": [
+          {
+            "subtitle": "安全措施",
+            "points": [
+              "所有数据传输使用 SSL 加密",
+              "定期进行安全审计与更新",
+              "限制对个人信息的访问",
+              "安全的数据存储与备份"
+            ]
+          },
+          {
+            "subtitle": "数据保留",
+            "points": [
+              "服务数据：服务完成后保留 7 年",
+              "财务记录：依据印度法律保留 10 年",
+              "营销数据：直至撤回同意",
+              "分析数据：最长保留 26 个月"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "您的权利",
+        "blocks": [
+          {
+            "subtitle": "访问与控制",
+            "points": [
+              "访问您的个人数据的权利",
+              "更正不准确资料的权利",
+              "在有限制情况下删除数据的权利",
+              "数据可移植性的权利"
+            ]
+          },
+          {
+            "subtitle": "同意管理",
+            "points": [
+              "撤回营销通信同意的权利",
+              "选择不接受非必要 Cookie 的权利",
+              "请求对数据处理施加限制",
+              "反对某些数据处理的权利"
+            ]
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "title": "联系我们",
+      "description": "如果您对本隐私政策有任何疑问，请联系我们：",
+      "email": "电子邮箱：privacy@profiberater.com",
+      "phone": "电话：+91 98765 43210",
+      "address": "地址：印度，德里"
+    },
+    "meta": {
+      "lastUpdated": "最后更新：{{date}}"
+    }
+  },
+ "cookies": {
+  "hero": {
+    "title": "Cookie 政策",
+    "subtitle": "了解我们如何使用 Cookie 和类似技术来提升您的浏览体验。"
+  },
+  "badge": "符合 GDPR 规定",
 
+  "cookieTypes": [
+    {
+      "type": "必要的 Cookie",
+      "necessary": true,
+      "description": "网站正常运行所必需的 Cookie",
+      "examples": [
+        "会话管理",
+        "安全功能",
+        "负载均衡"
+      ],
+      "duration": "会话期间"
+    },
+    {
+      "type": "分析类 Cookie",
+      "necessary": false,
+      "description": "帮助我们通过分析使用模式来改进网站。",
+      "examples": [
+        "页面访问情况",
+        "停留时间",
+        "错误跟踪"
+      ],
+      "duration": "2 年"
+    },
+    {
+      "type": "营销类 Cookie",
+      "necessary": false,
+      "description": "用于在网络上展示更相关的广告。",
+      "examples": [
+        "再营销",
+        "基于兴趣的广告",
+        "转化跟踪"
+      ],
+      "duration": "1 年"
+    },
+    {
+      "type": "偏好类 Cookie",
+      "necessary": false,
+      "description": "记住您的设置和偏好",
+      "examples": [
+        "语言设置",
+        "字体大小",
+        "地区选择"
+      ],
+      "duration": "1 年"
+    }
+  ],
+
+  "managementSteps": [
+    {
+      "step": 1,
+      "title": "浏览器设置",
+      "description": "通过浏览器设置来管理 Cookie"
+    },
+    {
+      "step": 2,
+      "title": "我们的网站横幅",
+      "description": "使用我们网站上的 Cookie 同意横幅"
+    },
+    {
+      "step": 3,
+      "title": "退出工具",
+      "description": "使用行业退出工具来管理广告 Cookie"
+    },
+    {
+      "step": 4,
+      "title": "联系我们",
+      "description": "如有特定的 Cookie 相关请求，请通过电子邮件联系我们"
+    }
+  ],
+
+  "browsers": [
+    {
+      "name": "Chrome",
+      "instr": "设置 → 隐私和安全 → Cookie 及其他网站数据"
+    },
+    {
+      "name": "Firefox",
+      "instr": "选项 → 隐私与安全 → Cookie 和网站数据"
+    },
+    {
+      "name": "Safari",
+      "instr": "偏好设置 → 隐私 → Cookie 和网站数据"
+    },
+    {
+      "name": "Edge",
+      "instr": "设置 → Cookie 和网站权限 → Cookie 和已存储的数据"
+    }
+  ],
+
+  "defaults": {
+    "analyticsEnabled": true,
+    "marketingEnabled": false
+  },
+
+  "headings": {
+    "types": "我们使用的 Cookie 类型",
+    "management": "管理您的 Cookie",
+    "browserSettings": "浏览器 Cookie 设置"
+  },
+
+  "labels": {
+    "examples": "示例：",
+    "duration": "有效期："
+  },
+
+  "tags": {
+    "necessary": "必要",
+    "optional": "可选"
+  },
+
+  "toggles": {
+    "analyticsLabel": "分析类 Cookie",
+    "analyticsDescription": "帮助我们通过分析使用模式来改进网站。",
+    "marketingLabel": "营销类 Cookie",
+    "marketingDescription": "用于在网络上展示更相关的广告。"
+  },
+
+  "meta": {
+    "lastUpdated": "最后更新日期：{{date}}"
+  }
+},
+"allservices": {
+  "hero": {
+    "title": "我们的服务",
+    "subtitle": "为前往德国留学的印度学生提供全面支持服务。从金融方案到住宿安排，我们为您的顺利过渡处理一切事务。"
+  },
+  "stats": [
+    { "number": "5000+", "label": "已发放外汇卡" },
+    { "number": "2000+", "label": "已安排住宿" },
+    { "number": "3000+", "label": "保险单" },
+    { "number": "₹100Cr+", "label": "批准贷款" }
+  ],
+  "servicesList": [
+    {
+      "id": "forex-card-remittances",
+      "icon": "CreditCard",
+      "title": "外汇卡与汇款",
+      "description": "提供多币种外汇卡和国际汇款服务的全面外汇解决方案，享受最佳汇率。",
+      "features": [
+        "多币种外汇卡",
+        "零外汇加价",
+        "国际汇款服务",
+        "24/7 客户支持",
+        "移动应用管理",
+        "紧急卡片更换"
+      ],
+      "benefits": [
+        "货币兑换节省 3-5%",
+        "即时充值选项",
+        "全球通用",
+        "交易安全保障"
+      ],
+      "process": [
+        "提交文件",
+        "KYC 验证",
+        "卡片配送",
+        "激活并使用"
+      ],
+      "price": "无隐藏费用",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/forex-card-remittances"
+    },
+    {
+      "id": "accommodation",
+      "icon": "Home",
+      "title": "住宿服务",
+      "description": "为在德国的学生提供从临时住宿到长期大学附近租赁的端到端住宿解决方案。",
+      "features": [
+        "学生宿舍",
+        "合租公寓（WG）",
+        "单间公寓",
+        "寄宿家庭选择",
+        "与大学合作",
+        "租赁合同协助"
+      ],
+      "benefits": [
+        "房东及房产经过验证",
+        "靠近大学",
+        "包含所有水电费用",
+        "提供家具配置选项"
+      ],
+      "process": [
+        "需求分析",
+        "房源筛选",
+        "虚拟参观",
+        "预订与入住"
+      ],
+      "price": "€250-€700/月",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/accommodation"
+    },
+    {
+      "id": "medical-insurance",
+      "icon": "Heart",
+      "title": "医疗保险",
+      "description": "符合德国签证要求的健康保险解决方案，为国际学生提供全面保障。",
+      "features": [
+        "公共健康保险（GKV）",
+        "私人健康保险",
+        "牙科与视力保险",
+        "紧急医疗撤离",
+        "遣返保险",
+        "24/7 多语言支持"
+      ],
+      "benefits": [
+        "保证签证合规",
+        "无需现金住院",
+        "覆盖整个欧盟",
+        "覆盖既往病症"
+      ],
+      "process": [
+        "选择计划",
+        "提交文件",
+        "保险单签发",
+        "签证申请支持"
+      ],
+      "price": "€30-€100/月",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/medical-insurance"
+    },
+    {
+      "id": "education-loan",
+      "icon": "TrendingUp",
+      "title": "教育贷款",
+      "description": "为前往德国深造的印度学生提供灵活还款选项的财务援助。",
+      "features": [
+        "无抵押贷款",
+        "担保教育贷款",
+        "德国政府贷款",
+        "宽限期",
+        "80E 税收优惠",
+        "灵活还款期限"
+      ],
+      "benefits": [
+        "利率具有竞争力",
+        "快速贷款处理",
+        "无提前还款罚金",
+        "享受所得税优惠"
+      ],
+      "process": [
+        "资格审核",
+        "提交文件",
+        "批准与发放",
+        "贷后支持"
+      ],
+      "price": "最高 ₹1.5 Crores",
+      "color": "from-green-600 to-sky-600",
+      "link": "/services/education-loan"
+    }
+  ],
+  "serviceCard": {
+    "keyFeaturesTitle": "主要特点",
+    "keyBenefitsTitle": "主要收益",
+    "processFlowTitle": "流程步骤",
+    "readyCTA": "准备开始了吗？",
+    "ctaDescription": "开始您的 {serviceTitle} 全面服务之旅。",
+    "learnMore": "了解更多"
+  },
+  "quickStats": {
+    "studentsLabel": "1000+ 学生",
+    "secureLabel": "100% 安全"
+  },
+  "comprehensiveCTA": {
+    "heading": "需要多项服务？",
+    "description": "当您同时使用多项服务时，可享受特别套餐优惠。使用我们的组合方案节省时间和金钱。",
+    "packageButton": "获取套餐优惠",
+    "quoteButton": "定制报价",
+    "contactLink": "/contact"
+  },
+  "meta": {
+    "lastUpdated": "最后更新：{{date}}"
+  }
+},
+"accommodation": {
+  "hero": {
+    "title": "学生住宿",
+    "subtitle": "通过我们全面的住宿服务，在德国找到理想的家。从学生宿舍到私人公寓，我们为您提供全方位支持。"
+  },
+  "typesTitle": "住宿类型",
+  "accommodationTypes": [
+    {
+      "type": "学生宿舍",
+      "price": "€250-€400/月",
+      "features": ["全套家具", "包含WiFi", "洗衣设施", "公共厨房"],
+      "bestFor": "一年级学生",
+      "image": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "合租公寓",
+      "price": "€350-€550/月",
+      "features": ["私人房间", "共享厨房", "起居区", "包含水电费"],
+      "bestFor": "注重预算的学生",
+      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "单间公寓",
+      "price": "€450-€700/月",
+      "features": ["私人厨房", "私人浴室", "独立空间", "所有水电费"],
+      "bestFor": "喜欢私密空间的学生",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    },
+    {
+      "type": "寄宿家庭",
+      "price": "€300-€500/月",
+      "features": ["当地家庭", "包含餐食", "文化体验", "支持系统"],
+      "bestFor": "国际学生",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+    }
+  ],
+  "citiesTitle": "热门学生城市",
+  "cities": [
+    {
+      "name": "柏林",
+      "averageRent": "€400-€600",
+      "popularity": "高",
+      "studentAreas": ["克罗伊茨贝格", "诺伊凯恩", "普伦茨劳贝格"]
+    },
+    {
+      "name": "慕尼黑",
+      "averageRent": "€500-€750",
+      "popularity": "非常高",
+      "studentAreas": ["施瓦宾区", "马克斯福施塔特", "吉辛"]
+    },
+    {
+      "name": "汉堡",
+      "averageRent": "€350-€550",
+      "popularity": "高",
+      "studentAreas": ["斯特恩尚策", "艾姆斯比特尔", "阿尔托纳"]
+    },
+    {
+      "name": "科隆",
+      "averageRent": "€300-€500",
+      "popularity": "中",
+      "studentAreas": ["埃伦费尔德", "苏尔茨", "林登塔尔"]
+    }
+  ],
+  "averageRentLabel": "平均租金：",
+  "popularityLabel": "受欢迎程度：",
+  "studentAreasLabel": "学生区域：",
+  "bestForLabel": "适合：",
+  "viewOptions": "查看可用选项",
+  "cta": {
+    "heading": "需要在德国的住宿吗？",
+    "sub": "让我们帮助您找到完美的学习住宿。",
+    "button": "寻找我的住宿"
+  }
+}
+,
+"forexCardRemittances": {
+  "hero": {
+    "title": "外汇卡与汇款服务",
+    "subtitle": "使用我们的多币种外汇卡和具竞争力的汇款服务，让您的国际财务管理更加便捷无忧。非常适合赴德国留学的学生。"
+  },
+  "features": [
+    {
+      "icon": "CreditCard",
+      "title": "多币种外汇卡",
+      "description": "在一张卡上加载多种货币（包括欧元、美元、英镑），轻松实现全欧洲无缝交易。",
+      "benefits": ["零外汇加价", "即时充值", "ATM取款", "在线追踪"]
+    },
+    {
+      "icon": "Send",
+      "title": "国际汇款服务",
+      "description": "快速安全的国际汇款服务，提供极具竞争力的汇率和极低的转账费用。",
+      "benefits": ["最佳汇率", "快速转账", "低手续费", "24/7客户支持"]
+    },
+    {
+      "icon": "Shield",
+      "title": "安全与保险保障",
+      "description": "您的资金通过先进的安全功能和保险覆盖得到全面保护。",
+      "benefits": ["防欺诈保护", "保险保障", "PIN码保护", "紧急支持"]
+    },
+    {
+      "icon": "Globe",
+      "title": "全球通用",
+      "description": "可在全球数百万个地点使用，包括ATM、商店和在线平台。",
+      "benefits": ["全球接受", "在线购物", "非接触支付", "移动应用管理"]
+    }
+  ],
+  "processTitle": "简单的四步流程",
+  "process": [
+    { "step": 1, "title": "提交文件", "description": "提交KYC文件和申请表" },
+    { "step": 2, "title": "卡片发放", "description": "在2-3个工作日内收到您的外汇卡" },
+    { "step": 3, "title": "货币充值", "description": "以最佳汇率加载所需货币" },
+    { "step": 4, "title": "激活与使用", "description": "激活后即可在全球范围内使用您的外汇卡" }
+  ],
+  "whyTitle": "为什么选择我们的外汇服务？",
+  "whyBenefits": [
+    { "icon": "Zap", "title": "最优汇率", "description": "为欧元及其他主要货币提供最具竞争力的汇率" },
+    { "icon": "TrendingUp", "title": "节省3-5%的外汇费用", "description": "相比银行和机场兑换，节省显著费用" },
+    { "icon": "Shield", "title": "全面安全保障", "description": "银行级安全防护与24小时欺诈监控" }
+  ],
+  "cta": {
+    "heading": "准备好申请您的外汇卡了吗？",
+    "sub": "以最佳外汇解决方案开启您前往德国的财务之旅。",
+    "button": "立即申请"
+  }
+},
+"medicalInsurance": {
+  "hero": {
+    "title": "医疗保险",
+    "subtitle": "符合德国签证要求的综合健康保险方案。在德国学习期间，为您的健康提供全面保障。"
+  },
+  "planTitle": "学生医疗保险计划",
+  "insurancePlans": [
+    {
+      "name": "基础学生计划",
+      "price": "€30-€40/月",
+      "coverage": "基本医疗保障",
+      "features": ["门诊就诊", "基础药品", "紧急护理", "24/7 客服支持"],
+      "bestFor": "预算有限的学生",
+      "popular": false
+    },
+    {
+      "name": "综合计划",
+      "price": "€50-€70/月",
+      "coverage": "全面医疗保障",
+      "features": ["住院治疗", "牙科护理", "视力护理", "心理治疗"],
+      "bestFor": "大多数国际学生",
+      "popular": true
+    },
+    {
+      "name": "高级计划",
+      "price": "€80-€100/月",
+      "coverage": "高级全面保障",
+      "features": ["私人医院", "全球范围保障", "无等待期", "全额牙科保障"],
+      "bestFor": "希望获得高端医疗服务的学生",
+      "popular": false
+    }
+  ],
+  "labels": {
+    "mostPopular": "最受欢迎",
+    "bestFor": "适合：",
+    "learnMore": "了解更多",
+    "getStarted": "开始办理",
+    "averageRent": "平均租金：",
+    "popularity": "受欢迎程度：",
+    "studentAreas": "学生区域："
+  },
+  "requirementsTitle": "德国签证要求",
+  "requirements": [
+    "德国签证申请必须提供医疗保险",
+    "最低保险金额为 €30,000",
+    "保险需覆盖整个学习期间",
+    "必须包含遣返保障",
+    "基础医疗无免赔额",
+    "欧盟范围内认可"
+  ],
+  "providersTitle": "可信赖的保险提供商",
+  "providers": [
+    {
+      "name": "TK（Techniker Krankenkasse）",
+      "rating": 4.8,
+      "students": "500,000+",
+      "features": ["英文支持", "数字化服务", "广泛网络"]
+    },
+    {
+      "name": "AOK",
+      "rating": 4.6,
+      "students": "400,000+",
+      "features": ["本地办事处", "传统保险机构", "全面保障"]
+    },
+    {
+      "name": "DAK-Gesundheit",
+      "rating": 4.7,
+      "students": "300,000+",
+      "features": ["现代化应用程序", "预防保健", "学生优惠"]
+    }
+  ],
+  "cta": {
+    "heading": "为德国获取医疗保险",
+    "sub": "通过我们认可的健康保险计划，轻松满足签证要求。",
+    "button": "获取保险报价"
+  }
+},
+"educationLoan": {
+  "hero": {
+    "title": "教育贷款",
+    "subtitle": "通过我们的合作贷款项目，为您的德国教育提供资金支持。享受具有竞争力的利率和灵活的还款方式。"
+  },
+  "sections": {
+    "loanOptionsTitle": "教育贷款选项",
+    "lendersTitle": "合作贷款机构",
+    "documentsTitle": "所需文件"
+  },
+  "labels": {
+    "eligibility": "资格：",
+    "processing": "处理时间：",
+    "marginMoney": "自筹比例：",
+    "studentsSuffix": "名学生",
+    "checkEligibility": "查看资格"
+  },
+  "loanTypes": [
+    {
+      "name": "无抵押贷款",
+      "amount": "最高 ₹75 万卢比",
+      "interest": "年利率 8.5% - 11.5%",
+      "features": ["无需抵押", "宽限期", "灵活还款", "快速放款"],
+      "eligibility": "拥有录取通知书的印度学生"
+    },
+    {
+      "name": "有担保教育贷款",
+      "amount": "最高 ₹1.5 亿卢比",
+      "interest": "年利率 7.5% - 9.5%",
+      "features": ["较低利率", "更长期限", "父母作为共同申请人", "享受税收优惠"],
+      "eligibility": "提供抵押担保"
+    },
+    {
+      "name": "德国政府贷款",
+      "amount": "最高 €850/月",
+      "interest": "年利率 0% - 2%",
+      "features": ["低息补贴", "长期还款", "基于收入", "无需抵押"],
+      "eligibility": "欧盟及国际学生"
+    }
+  ],
+  "lenders": [
+    { "name": "印度国家银行（SBI Global Ed-Vantage）", "processing": "7–10 天", "margin": "最高 15%", "special": "顶级院校免自筹资金" },
+    { "name": "HDFC Credila", "processing": "5–7 天", "margin": "最高 10%", "special": "全程数字化流程" },
+    { "name": "Axis 银行教育贷款", "processing": "10–12 天", "margin": "最高 15%", "special": "覆盖众多大学" },
+    { "name": "Prodigy Finance", "processing": "2–3 周", "margin": "无需自筹资金", "special": "国际贷款机构" },
+    { "name": "印度联合银行 – 教育贷款", "processing": "8–10 天", "margin": "最高 10%", "special": "出国留学低利率" }
+  ],
+  "documents": [
+    "德国大学录取通知书",
+    "学术成绩单和证书",
+    "护照和签证文件",
+    "教育费用明细",
+    "父母/监护人的收入证明"
+  ],
+  "cta": {
+    "heading": "资助您的德国梦想",
+    "sub": "通过我们的专业指导，获得最适合您在德国学习的教育贷款。",
+    "button": "申请教育贷款"
+  }
+},
+"emiCalculator": {
+  "title": "快速等额本息（EMI）计算器",
+  "subtitle": "估算教育贷款的每月等额还款额（EMI）。结果基于标准的按月复利计算公式。",
+  "loanAmount": "贷款金额（₹）",
+  "rate": "年利率（%）",
+  "tenure": "贷款期限（年）",
+  "adjustTenure": "调整期限：",
+  "monthlyEMI": "每月还款额（EMI）",
+  "totalPaymentLabel": "总还款金额",
+  "totalInterestLabel": "总利息",
+  "principal": "本金：",
+  "rateMonthly": "月利率：",
+  "tenureMonths": "期限（月）：",
+  "notePrefix": "注意：",
+  "noteText": "例如（₹20,00,000 · 年利率9.5% · 10年），本计算器使用标准公式计算出的每月还款额为 {emi}。",
+  "copySummary": "复制摘要"
+},
+"coaching": {
+  "hero": {
+    "titleLeft": "辅导",
+    "titleRight": "与培训",
+    "subtitle": "我们是您的一站式培训资源中心。通过我们的高级培训合作伙伴网络，享受独家折扣优惠。"
+  },
+  "headings": {
+    "premiumPartners": "高级培训合作伙伴",
+    "accessReq": "访问要求",
+    "keyBenefits": "主要优势",
+    "ourPartners": "我们的培训合作伙伴",
+    "compGuideKicker": "英语水平测试对比指南",
+    "compGuideTitle": "考生必备信息",
+    "ctaTitle": "准备好加入高级培训了吗？",
+    "ctaSub": "注册即可解锁独家折扣并与我们的高级培训合作伙伴建立联系。",
+    "ctaBtn": "立即注册"
+  },
+  "paragraphs": [
+    "虽然我们不直接提供培训，但我们与一些知名的专业机构建立了合作关系，这些机构在成功培训学生方面拥有良好的记录。",
+    "这些机构以有效指导学习者取得更高分数而闻名，从而提升他们的学术档案并支持其入学申请。",
+    "通过我们的渠道申请入学，您还有机会获得独家折扣。"
+  ],
+  "accessReqText": "只有在您注册后，才能访问我们的合作伙伴计划。注册后，您可以通过个人资料直接查看并联系我们的培训合作伙伴。",
+  "benefits": [
+    "Profiberater 学生专属折扣",
+    "成功记录可靠",
+    "经验丰富且持证的培训师",
+    "灵活的课程时间",
+    "个性化指导",
+    "定期进度跟踪"
+  ],
+  "partnerInstitutes": [
+    {
+      "name": "德语语言学院",
+      "courses": ["A1-C2 德语", "TestDaF 备考", "歌德考试"],
+      "discount": "20%",
+      "rating": 4.9,
+      "students": "2000+"
+    },
+    {
+      "name": "STEM 培训中心",
+      "courses": ["TestAS 备考", "GRE/GMAT", "技术面试培训"],
+      "discount": "15%",
+      "rating": 4.8,
+      "students": "1500+"
+    },
+    {
+      "name": "海外留学学院",
+      "courses": ["IELTS 雅思备考", "学术写作", "面试技巧"],
+      "discount": "25%",
+      "rating": 4.7,
+      "students": "1800+"
+    }
+  ],
+  "table": {
+    "headers": [
+      "考试名称",
+      "全称",
+      "用途",
+      "测试模块与技能",
+      "时长",
+      "考试形式",
+      "场次",
+      "考试可用性",
+      "报名时间",
+      "重考等待期",
+      "评分方式",
+      "成绩公布",
+      "成绩有效期",
+      "费用",
+      "题型",
+      "题目数量"
+    ],
+    "rows": [
+      {
+        "exam": "PTE",
+        "full": "培生英语考试",
+        "purpose": "学生签证；大学入学",
+        "modules": "口语与写作、阅读、听力",
+        "duration": "2 小时",
+        "modes": "仅在考试中心；仅计算机考试",
+        "sessions": "单场考试",
+        "avail": "每日开放（视考点而定）",
+        "reg": "最迟提前 24 小时报名",
+        "wait": "收到成绩报告后（2-3 天）",
+        "scoring": "完全自动评分，总分 90 分，单项满分 90 分",
+        "results": "48 小时内公布",
+        "validity": "2 年",
+        "cost": "₹ 17,000",
+        "types": "S: 5 种, W: 2 种, R: 5 种, L: 8 种",
+        "count": "总计 52-73, S: 25-31, W: 2-4, R: 13-18, L: 12-20"
+      },
+      {
+        "exam": "IELTS",
+        "full": "国际英语语言测试系统",
+        "purpose": "学生签证；大学入学",
+        "modules": "听力、阅读、写作、口语",
+        "duration": "LRW: 2 小时 40 分, S: 11-14 分钟",
+        "modes": "仅在考试中心；纸笔或机考",
+        "sessions": "两场：LRW 一场，S 一场",
+        "avail": "机考每日；纸笔月考 4-5 次",
+        "reg": "机考提前 4-5 天；纸笔提前 15 天",
+        "wait": "机考 3 天；纸笔无限制",
+        "scoring": "人工 + 自动评分，总分 9.0 分，单项 9.0 分",
+        "results": "机考 3-4 天；纸笔 13 天",
+        "validity": "2 年",
+        "cost": "₹ 17,000",
+        "types": "L: 8-9 种, R: 10-12 种, W: 2 种, S: 3 部分",
+        "count": "L: 40, R: 40, W: 2, S: (P1: 9-10; P2: 1; P3: 5-6)"
+      },
+      {
+        "exam": "TOEFL",
+        "full": "托福考试",
+        "purpose": "学生签证；大学入学",
+        "modules": "阅读、听力、口语、写作",
+        "duration": "2 小时",
+        "modes": "考试中心或居家考试；纸笔或机考",
+        "sessions": "单场（中心或居家）；纸笔两场",
+        "avail": "中心：每年 60+ 次；居家：每周 4 天 24 小时；纸笔：每月第 3 个星期六",
+        "reg": "中心提前 3-5 天；居家提前 1-2 天；纸笔提前 7-10 天",
+        "wait": "3 天",
+        "scoring": "人工 + 自动评分，总分 120 分，单项 30 分",
+        "results": "中心/居家 4-8 天；纸笔 11-13 天",
+        "validity": "2 年",
+        "cost": "₹ 16,900 | $195",
+        "types": "R: 选择题, L: 选择题, S: 4 种, W: 2 种",
+        "count": "R: 20, L: 28, S: 4, W: 2"
+      },
+      {
+        "exam": "DUOLINGO",
+        "full": "多邻国英语测试（自适应测试）",
+        "purpose": "大学入学",
+        "modules": "读写、听读、写说、听说（个人与综合）",
+        "duration": "1 小时",
+        "modes": "非考试中心；在家或办公室；仅机考",
+        "sessions": "单场考试",
+        "avail": "每天，随时可考",
+        "reg": "无限制",
+        "wait": "每月可重考 2 次",
+        "scoring": "自动评分，总分 160",
+        "results": "48 小时内公布",
+        "validity": "2 年",
+        "cost": "$59",
+        "types": "S: 4-5 种, W: 4 种, R: 7-8 种, L: 4-5 种",
+        "count": "总计 50-58"
+      },
+      {
+        "exam": "CELPIP",
+        "full": "加拿大英语水平指数计划",
+        "purpose": "加拿大学生签证；加拿大永久居留申请",
+        "modules": "阅读、听力、口语、写作（单独与综合）",
+        "duration": "3 小时",
+        "modes": "仅考试中心；仅机考",
+        "sessions": "单场考试",
+        "avail": "周末，每天 2 场",
+        "reg": "至少提前 1 个工作日（视座位而定）",
+        "wait": "5 天",
+        "scoring": "人工 + 自动评分，总分等级 3-12，单项同",
+        "results": "4-5 天内",
+        "validity": "2 年",
+        "cost": "₹ 12,500",
+        "types": "L: 6 种, 38+ 选择题, R: 4 种, 38+ 选择题, S: 2 种, W: 8 种",
+        "count": "L: 6 部分, 38+ 题; R: 4 部分, 38+ 题; W: 2 题; S: 8 部分, 8 题"
+      },
+      {
+        "exam": "CAEL",
+        "full": "加拿大学术英语测试",
+        "purpose": "加拿大学校入学；学生签证（仅限中心）",
+        "modules": "口语、阅读、听力、学术单元 A、学术单元 B",
+        "duration": "3.5 小时",
+        "modes": "考试中心或居家；仅机考",
+        "sessions": "单场考试",
+        "avail": "周末",
+        "reg": "提前 1 个工作日（视座位而定）",
+        "wait": "4 天",
+        "scoring": "人工 + 自动评分，总分 90 分，单项 90 分",
+        "results": "8 天内",
+        "validity": "2 年",
+        "cost": "₹ 12,500",
+        "types": "S: 3 种, R: 2 种 + 1 R+S 综合, L: 2 种 + 1 L+S 综合, W: 2 种 (R+L+W 综合)",
+        "count": "S: 3 题; R: 14-25 选择题 + 1 综合; L: 14-25 选择题 + 1 综合; W: 44-60 选择题 + 2 综合题"
+      }
+    ]
+  },
+  "cta": {
+    "title": "准备好加入高级培训了吗？",
+    "sub": "注册即可解锁独家折扣并与我们的高级培训合作伙伴建立联系。",
+    "button": "立即注册"
+  }
+}
 
 }

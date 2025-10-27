@@ -1,3 +1,255 @@
+// import { motion, useInView } from 'framer-motion';
+// import { useRef } from 'react';
+// import { 
+//   FileText, 
+//   Scale, 
+//   AlertTriangle,
+//   CheckCircle,
+//   Clock,
+//   Users
+// } from 'lucide-react';
+
+// const TermsOfService = () => {
+//   const ref = useRef(null);
+//   const isInView = useInView(ref, { once: true, threshold: 0.2 });
+
+//   const sections = [
+//     {
+//       icon: Users,
+//       title: "Service Agreement",
+//       content: [
+//         {
+//           subtitle: "Acceptance of Terms",
+//           points: [
+//             "By accessing our services, you agree to be bound by these terms",
+//             "Services are available only to individuals who are at least 18 years old",
+//             "We reserve the right to update these terms at any time",
+//             "Continued use after changes constitutes acceptance"
+//           ]
+//         },
+//         {
+//           subtitle: "Service Description",
+//           points: [
+//             "Educational consulting for German universities",
+//             "Assistance with accommodation and financial services",
+//             "Visa guidance and documentation support",
+//             "Third-party service coordination"
+//           ]
+//         }
+//       ]
+//     },
+//     {
+//       icon: Scale,
+//       title: "User Responsibilities",
+//       content: [
+//         {
+//           subtitle: "Accurate Information",
+//           points: [
+//             "Provide complete and accurate personal information",
+//             "Update information promptly when changes occur",
+//             "Maintain confidentiality of account credentials",
+//             "Report unauthorized access immediately"
+//           ]
+//         },
+//         {
+//           subtitle: "Prohibited Activities",
+//           points: [
+//             "Misrepresentation of academic qualifications",
+//             "Submission of fraudulent documents",
+//             "Unauthorized commercial use of services",
+//             "Violation of German or Indian laws"
+//           ]
+//         }
+//       ]
+//     },
+//     {
+//       icon: AlertTriangle,
+//       title: "Limitations & Disclaimers",
+//       content: [
+//         {
+//           subtitle: "Service Limitations",
+//           points: [
+//             "We provide guidance but cannot guarantee university admissions",
+//             "Visa approvals are at the discretion of German authorities",
+//             "Service outcomes depend on individual circumstances",
+//             "Third-party services are subject to their terms"
+//           ]
+//         },
+//         {
+//           subtitle: "Financial Disclaimers",
+//           points: [
+//             "Loan approvals depend on lender criteria",
+//             "Exchange rates for forex services may fluctuate",
+//             "Insurance coverage subject to provider terms",
+//             "Fees are for services rendered, not outcomes"
+//           ]
+//         }
+//       ]
+//     },
+//     {
+//       icon: Clock,
+//       title: "Payments & Refunds",
+//       content: [
+//         {
+//           subtitle: "Fee Structure",
+//           points: [
+//             "Service fees are clearly communicated upfront",
+//             "Additional costs for third-party services may apply",
+//             "Payment plans available for certain services",
+//             "All fees are in Indian Rupees unless specified"
+//           ]
+//         },
+//         {
+//           subtitle: "Refund Policy",
+//           points: [
+//             "Consultation fees are non-refundable",
+//             "Partial refunds based on service completion stage",
+//             "No refunds after service delivery completion",
+//             "Refund requests must be submitted in writing"
+//           ]
+//         }
+//       ]
+//     }
+//   ];
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//       {/* Hero Section */}
+//       <section className="relative py-20 overflow-hidden">
+//         <div className="absolute inset-0">
+//           <div 
+//             className="absolute inset-0 opacity-80"
+//             style={{
+//               backgroundImage: `url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop')`,
+//               backgroundSize: 'cover',
+//               backgroundPosition: 'center'
+//             }}
+//           />
+//           {/* Bluish overlay (kept as requested) */}
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+//         </div>
+        
+//         <div className="relative z-10 max-w-6xl py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
+//           <motion.h1 
+//             className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg"
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.8 }}
+//           >
+//             Terms of <span className="bg-gradient-to-r from-green-300 to-sky-400 bg-clip-text text-transparent">Service</span>
+//           </motion.h1>
+          
+//           <motion.p 
+//             className="text-xl text-blue-50 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+//             initial={{ opacity: 0, y: 30 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.8, delay: 0.2 }}
+//           >
+//             Please read these terms carefully before using our services. These terms govern your relationship with Profiberater.
+//           </motion.p>
+
+//           <motion.div 
+//             className="inline-flex items-center gap-2 bg-green-50/30 border border-green-100 rounded-full px-6 py-3"
+//             initial={{ opacity: 0, scale: 0.8 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             transition={{ duration: 0.6, delay: 0.4 }}
+//           >
+//             <AlertTriangle className="w-5 h-5 text-yellow-400" />
+//             <span className="text-yellow-400 font-semibold">Legal Agreement</span>
+//           </motion.div>
+//         </div>
+//       </section>
+
+//       {/* Terms Content */}
+//       <section ref={ref} className="py-20">
+//         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+//           {/* Important Notice */}
+//           <motion.div
+//             className="bg-green-50/30 border border-green-100 rounded-2xl p-6 mb-12"
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+//             transition={{ duration: 0.8 }}
+//           >
+//             <div className="flex items-start gap-4">
+//               <AlertTriangle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+//               <div>
+//                 <h3 className="text-xl font-bold text-yellow-400 mb-2">Important Legal Notice</h3>
+//                 <p className="text-yellow-600">
+//                   These Terms of Service constitute a legally binding agreement between you and Profiberater. 
+//                   By using our services, you acknowledge that you have read, understood, and agree to be bound 
+//                   by these terms. If you do not agree with any part of these terms, you must not use our services.
+//                 </p>
+//               </div>
+//             </div>
+//           </motion.div>
+
+//           {/* Main Sections */}
+//           <div className="space-y-8">
+//             {sections.map((section, index) => (
+//               <motion.div
+//                 key={index}
+//                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+//                 initial={{ opacity: 0, y: 50 }}
+//                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+//                 transition={{ duration: 0.6, delay: index * 0.1 }}
+//               >
+//                 <div className="flex items-center gap-4 mb-6">
+//                   <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
+//                     <section.icon className="w-6 h-6 text-white" />
+//                   </div>
+//                   <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
+//                 </div>
+
+//                 <div className="space-y-6">
+//                   {section.content.map((content, contentIndex) => (
+//                     <div key={contentIndex}>
+//                       <h3 className="text-xl font-semibold text-green-600 mb-4">{content.subtitle}</h3>
+//                       <div className="space-y-2">
+//                         {content.points.map((point, pointIndex) => (
+//                           <div key={pointIndex} className="flex items-start gap-3">
+//                             <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+//                             <span className="text-gray-700">{point}</span>
+//                           </div>
+//                         ))}
+//                       </div>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+
+//           {/* Governing Law */}
+//           <motion.div
+//             className="bg-gradient-to-r from-green-50 to-sky-50 rounded-2xl p-8 border border-green-100 mt-12"
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+//             transition={{ duration: 0.8, delay: 0.6 }}
+//           >
+//             <h2 className="text-2xl font-bold text-gray-900 mb-4">Governing Law & Jurisdiction</h2>
+//             <div className="space-y-3 text-gray-700">
+//               <p>
+//                 These Terms shall be governed and construed in accordance with the laws of India, without 
+//                 regard to its conflict of law provisions.
+//               </p>
+//               <p>
+//                 Any disputes arising under or in connection with these Terms shall be subject to the exclusive 
+//                 jurisdiction of the courts located in Delhi, India.
+//               </p>
+//               <p>
+//                 Our failure to enforce any right or provision of these Terms will not be considered a waiver 
+//                 of those rights.
+//               </p>
+//             </div>
+//           </motion.div>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
+
+// export default TermsOfService;
+
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { 
@@ -8,109 +260,94 @@ import {
   Clock,
   Users
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const TermsOfService = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.2 });
-
-  const sections = [
+const FALLBACK = {
+  hero: {
+    title: 'Terms of Service',
+    description:
+      'Please read these terms carefully before using our services. These terms govern your relationship with Profiberater.',
+    badge: 'Legal Agreement'
+  },
+  notice: {
+    title: 'Important Legal Notice',
+    text:
+      'These Terms of Service constitute a legally binding agreement between you and Profiberater. By using our services, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree with any part of these terms, you must not use our services.'
+  },
+  sections: [
     {
-      icon: Users,
-      title: "Service Agreement",
+      title: 'Service Agreement',
+      icon: 'Users',
       content: [
         {
-          subtitle: "Acceptance of Terms",
+          subtitle: 'Acceptance of Terms',
           points: [
-            "By accessing our services, you agree to be bound by these terms",
-            "Services are available only to individuals who are at least 18 years old",
-            "We reserve the right to update these terms at any time",
-            "Continued use after changes constitutes acceptance"
+            'By accessing our services, you agree to be bound by these terms',
+            'Services are available only to individuals who are at least 18 years old',
+            'We reserve the right to update these terms at any time',
+            'Continued use after changes constitutes acceptance'
           ]
         },
         {
-          subtitle: "Service Description",
+          subtitle: 'Service Description',
           points: [
-            "Educational consulting for German universities",
-            "Assistance with accommodation and financial services",
-            "Visa guidance and documentation support",
-            "Third-party service coordination"
-          ]
-        }
-      ]
-    },
-    {
-      icon: Scale,
-      title: "User Responsibilities",
-      content: [
-        {
-          subtitle: "Accurate Information",
-          points: [
-            "Provide complete and accurate personal information",
-            "Update information promptly when changes occur",
-            "Maintain confidentiality of account credentials",
-            "Report unauthorized access immediately"
-          ]
-        },
-        {
-          subtitle: "Prohibited Activities",
-          points: [
-            "Misrepresentation of academic qualifications",
-            "Submission of fraudulent documents",
-            "Unauthorized commercial use of services",
-            "Violation of German or Indian laws"
-          ]
-        }
-      ]
-    },
-    {
-      icon: AlertTriangle,
-      title: "Limitations & Disclaimers",
-      content: [
-        {
-          subtitle: "Service Limitations",
-          points: [
-            "We provide guidance but cannot guarantee university admissions",
-            "Visa approvals are at the discretion of German authorities",
-            "Service outcomes depend on individual circumstances",
-            "Third-party services are subject to their terms"
-          ]
-        },
-        {
-          subtitle: "Financial Disclaimers",
-          points: [
-            "Loan approvals depend on lender criteria",
-            "Exchange rates for forex services may fluctuate",
-            "Insurance coverage subject to provider terms",
-            "Fees are for services rendered, not outcomes"
-          ]
-        }
-      ]
-    },
-    {
-      icon: Clock,
-      title: "Payments & Refunds",
-      content: [
-        {
-          subtitle: "Fee Structure",
-          points: [
-            "Service fees are clearly communicated upfront",
-            "Additional costs for third-party services may apply",
-            "Payment plans available for certain services",
-            "All fees are in Indian Rupees unless specified"
-          ]
-        },
-        {
-          subtitle: "Refund Policy",
-          points: [
-            "Consultation fees are non-refundable",
-            "Partial refunds based on service completion stage",
-            "No refunds after service delivery completion",
-            "Refund requests must be submitted in writing"
+            'Educational consulting for German universities',
+            'Assistance with accommodation and financial services',
+            'Visa guidance and documentation support',
+            'Third-party service coordination'
           ]
         }
       ]
     }
-  ];
+    // ... more fallback sections (if needed)
+  ],
+  governing: {
+    title: 'Governing Law & Jurisdiction',
+    paragraphs: [
+      'These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.',
+      'Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Delhi, India.',
+      'Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.'
+    ]
+  }
+};
+
+// helper to normalize content that might be an object with numeric keys or an array
+const normalizeArray = (val, fallback = []) => {
+  if (!val) return fallback;
+  if (Array.isArray(val)) return val;
+  if (typeof val === 'object') {
+    const keys = Object.keys(val);
+    // numeric keys => convert to array in order
+    if (keys.length && keys.every(k => /^\d+$/.test(k))) {
+      return keys.sort((a,b) => Number(a)-Number(b)).map(k => val[k]);
+    }
+    // otherwise wrap single object
+    return [val];
+  }
+  return fallback;
+};
+
+const iconMap = {
+  Users,
+  FileText,
+  Scale,
+  AlertTriangle,
+  CheckCircle,
+  Clock
+};
+
+const TermsOfService = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const { t } = useTranslation('common');
+
+  // attempt to read the terms block from i18n
+  const raw = t('terms', { returnObjects: true, defaultValue: {} });
+
+  const hero = raw.hero && Object.keys(raw.hero).length ? raw.hero : FALLBACK.hero;
+  const notice = raw.notice && Object.keys(raw.notice).length ? raw.notice : FALLBACK.notice;
+  const sections = normalizeArray(raw.sections, FALLBACK.sections);
+  const governing = raw.governing && Object.keys(raw.governing).length ? raw.governing : FALLBACK.governing;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
@@ -125,7 +362,6 @@ const TermsOfService = () => {
               backgroundPosition: 'center'
             }}
           />
-          {/* Bluish overlay (kept as requested) */}
           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
         </div>
         
@@ -133,29 +369,32 @@ const TermsOfService = () => {
           <motion.h1 
             className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg"
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
           >
-            Terms of <span className="bg-gradient-to-r from-green-300 to-sky-400 bg-clip-text text-transparent">Service</span>
+            {hero.title.split(' ')[0]}{' '}
+            <span className="bg-gradient-to-r from-green-300 to-sky-400 bg-clip-text text-transparent">
+              {hero.title.split(' ').slice(1).join(' ')}
+            </span>
           </motion.h1>
           
           <motion.p 
             className="text-xl text-blue-50 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Please read these terms carefully before using our services. These terms govern your relationship with Profiberater.
+            {hero.description || hero.subtitle || FALLBACK.hero.description}
           </motion.p>
 
           <motion.div 
             className="inline-flex items-center gap-2 bg-green-50/30 border border-green-100 rounded-full px-6 py-3"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <AlertTriangle className="w-5 h-5 text-yellow-400" />
-            <span className="text-yellow-400 font-semibold">Legal Agreement</span>
+            <span className="text-yellow-400 font-semibold">{hero.badge || FALLBACK.hero.badge}</span>
           </motion.div>
         </div>
       </section>
@@ -173,50 +412,50 @@ const TermsOfService = () => {
             <div className="flex items-start gap-4">
               <AlertTriangle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-bold text-yellow-400 mb-2">Important Legal Notice</h3>
-                <p className="text-yellow-600">
-                  These Terms of Service constitute a legally binding agreement between you and Profiberater. 
-                  By using our services, you acknowledge that you have read, understood, and agree to be bound 
-                  by these terms. If you do not agree with any part of these terms, you must not use our services.
-                </p>
+                <h3 className="text-xl font-bold text-yellow-400 mb-2">{notice.title}</h3>
+                <p className="text-yellow-600">{notice.text}</p>
               </div>
             </div>
           </motion.div>
 
           {/* Main Sections */}
           <div className="space-y-8">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
-                    <section.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
-                </div>
-
-                <div className="space-y-6">
-                  {section.content.map((content, contentIndex) => (
-                    <div key={contentIndex}>
-                      <h3 className="text-xl font-semibold text-green-600 mb-4">{content.subtitle}</h3>
-                      <div className="space-y-2">
-                        {content.points.map((point, pointIndex) => (
-                          <div key={pointIndex} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-700">{point}</span>
-                          </div>
-                        ))}
-                      </div>
+            {sections.map((section, index) => {
+              const IconComp = iconMap[section.icon] || section.icon && iconMap[section.icon.toString()] || Users;
+              const contentArr = normalizeArray(section.content, []);
+              return (
+                <motion.div
+                  key={index}
+                  className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
+                      <IconComp className="w-6 h-6 text-white" />
                     </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                    <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
+                  </div>
+
+                  <div className="space-y-6">
+                    {contentArr.map((content, contentIndex) => (
+                      <div key={contentIndex}>
+                        <h3 className="text-xl font-semibold text-green-600 mb-4">{content.subtitle}</h3>
+                        <div className="space-y-2">
+                          {normalizeArray(content.points, []).map((point, pointIndex) => (
+                            <div key={pointIndex} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700">{point}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Governing Law */}
@@ -226,20 +465,11 @@ const TermsOfService = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Governing Law & Jurisdiction</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">{governing.title}</h2>
             <div className="space-y-3 text-gray-700">
-              <p>
-                These Terms shall be governed and construed in accordance with the laws of India, without 
-                regard to its conflict of law provisions.
-              </p>
-              <p>
-                Any disputes arising under or in connection with these Terms shall be subject to the exclusive 
-                jurisdiction of the courts located in Delhi, India.
-              </p>
-              <p>
-                Our failure to enforce any right or provision of these Terms will not be considered a waiver 
-                of those rights.
-              </p>
+              {normalizeArray(governing.paragraphs, []).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </motion.div>
         </div>

@@ -278,9 +278,7 @@
       "rating": 5
     }
   ]
-}
-
-,
+},
  "contact": {
   "eyebrow": "Free Consultation",
   "heading": "Start Your German Journey Today",
@@ -439,7 +437,1274 @@
       "sub": "Let us help you turn your German education dream into reality.",
       "button": "Get Free Consultation"
     }
-  }
+  },
+  
+  "team": {
+    "title": "Meet Our",
+    "hero": {
+      "title": "Meet Our Team",
+      "subtitle": "Seasoned professionals from India now living and working across Europe for over a decade. We bring first-hand experience and deep industry insights to guide your German education journey."
+    },
+    "members": [
+      {
+        "name": "Dr. Pavan B.",
+        "role": "Biomedical / Biotech / Biology Expert",
+        "education": "PhD in Biomedical Engineering",
+        "experience": "10+ years in European healthcare",
+        "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+        "specialization": ["Medical Research", "Biotech Admissions", "PhD Guidance"],
+        "contactMail": ""
+      },
+      {
+        "name": "Sagar P.",
+        "role": "Business Development Manager",
+        "education": "Mechanical Engineering",
+        "experience": "8+ years in European industry",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+        "specialization": ["Mechanical Engineering", "Business Programs", "Industry Connections"],
+        "contactMail": ""
+      },
+      {
+        "name": "Vivek P.",
+        "role": "CEO & Founder",
+        "education": "Mechanical Engineering",
+        "experience": "12+ years in Germany",
+        "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+        "specialization": ["Strategic Planning", "University Partnerships", "Career Development"],
+        "contactMail": ""
+      },
+      {
+        "name": "Dr. Pavan Reddy",
+        "role": "Biomedical Specialist",
+        "education": "PhD in Biotechnology",
+        "experience": "9+ years in German research",
+        "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+        "specialization": ["Research Programs", "Lab Placements", "Scientific Writing"],
+        "contactMail": ""
+      },
+      {
+        "name": "Dr. Arindam",
+        "role": "Academic Consultant",
+        "education": "Doctorate in Engineering",
+        "experience": "11+ years academic experience",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
+        "specialization": ["Engineering Programs", "Technical Admissions", "Research Guidance"],
+        "contactMail": ""
+      }
+    ],
+    "expertiseHeading": "Our Expertise Areas",
+    "expertiseSub": "Specialized guidance across diverse academic and professional fields",
+    "expertiseAreas": [
+      {
+        "field": "COEP & Automobile",
+        "description": "Specialized guidance for automotive engineering and COEP programs"
+      },
+      {
+        "field": "SAP & IT",
+        "description": "Expert consultation for SAP certifications and IT programs"
+      },
+      {
+        "field": "STEM Programs",
+        "description": "Comprehensive support for Science, Technology, Engineering, and Mathematics"
+      }
+    ],
+    "contact": "Contact",
+    "profile": "Profile",
+    "cta": {
+      "heading": "Ready to Work With Our Experts?",
+      "sub": "Get personalized guidance from our team of experienced professionals.",
+      "button": "Book Consultation With Our Team"
+    }
+  } ,
+ 
+  "contactus": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "Get in touch with our Germany education experts. We're here to help you with your study abroad journey."
+    },
+    "contactInfo": [
+      {
+        "icon": "Phone",
+        "title": "Call Us",
+        "info": "+91 98765 43210",
+        "description": "Mon-Sat, 10AM-7PM",
+        "color": "from-green-600 to-sky-600",
+        "link": "tel:+919876543210"
+      },
+      {
+        "icon": "Mail",
+        "title": "Email Us",
+        "info": "hello@profiberater.com",
+        "description": "We reply within 2 hours",
+        "color": "from-green-600 to-sky-600",
+        "link": "mailto:hello@profiberater.com"
+      },
+      {
+        "icon": "MapPin",
+        "title": "Visit Office",
+        "info": "Delhi, India",
+        "description": "Book appointment before visit",
+        "color": "from-green-600 to-sky-600",
+        "link": "#"
+      },
+      {
+        "icon": "Clock",
+        "title": "Office Hours",
+        "info": "10:00 AM - 7:00 PM",
+        "description": "Monday to Saturday",
+        "color": "from-green-600 to-sky-600",
+        "link": "#"
+      }
+    ],
+    "services": [
+      "Forex Card & Remittances",
+      "Accommodation",
+      "Medical Insurance",
+      "Education Loan",
+      "University Admission",
+      "Visa Guidance"
+    ],
+    "form": {
+      "heading": "Free Consultation Form",
+      "name": "Full Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "service": "Service Interest",
+      "message": "Your Message",
+      "submit": "Send Message & Get Free Consultation",
+      "submitting": "Sending...",
+      "thanksTitle": "Thank You!",
+      "thanksText": "We've received your message and will contact you within 2 hours."
+    },
+    "why": {
+      "heading": "Why Choose Profiberater?",
+      "bullets": [
+        "10+ Years Experience in Europe",
+        "500+ Successful Admissions",
+        "End-to-End Support",
+        "Germany-Specific Expertise"
+      ]
+    },
+    "cta": {
+      "heading": "Ready to Start Your German Journey?",
+      "sub": "Contact us today and take the first step towards your dream education in Germany.",
+      "whatsapp": "WhatsApp Now",
+      "call": "Call Now"
+    },
+    "getInTouch": "Get In Touch"
+  },
+  "disclaimer": {
+    "hero": {
+      "title": "Disclaimer & Policy",
+      "subtitle": "Important legal information about our services, data protection, and terms of engagement.",
+      "backgroundImage": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop"
+    },
+    "policies": [
+      {
+        "icon": "Shield",
+        "title": "Privacy Policy",
+        "content": [
+          "We collect only necessary information for providing our services.",
+          "Your data is protected with industry-standard security measures.",
+          "We do not share your personal information with third parties without consent.",
+          "You can request data deletion at any time."
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "Terms of Service",
+        "content": [
+          "Our services are advisory in nature.",
+          "We provide guidance but cannot guarantee university admissions.",
+          "Clients are responsible for their own applications and documents.",
+          "Fees are for services rendered, not admission guarantees."
+        ]
+      },
+      {
+        "icon": "Lock",
+        "title": "Data Protection",
+        "content": [
+          "SSL encryption for all data transmission.",
+          "Regular security audits and updates.",
+          "Limited access to personal information.",
+          "GDPR compliant data handling practices."
+        ]
+      },
+      {
+        "icon": "AlertTriangle",
+        "title": "Important Disclaimers",
+        "content": [
+          "We are not affiliated with any German universities or government bodies.",
+          "Admission decisions are made solely by universities.",
+          "Visa approvals are at the discretion of German authorities.",
+          "Test scores and academic performance are student responsibilities."
+        ]
+      }
+    ],
+    "additional": {
+      "title": "Service Understanding",
+      "paragraphs": [
+        "Educational Consulting Nature: We provide educational consulting and advisory services. We offer guidance, support, and expertise in the German education system but do not guarantee admissions, scholarships, or visa approvals.",
+        "Client Responsibilities: Students are responsible for their academic performance, test scores, document preparation, and meeting all application deadlines. We provide guidance but the execution remains with the student.",
+        "Third-Party Services: While we partner with training institutes and other service providers, we are not directly responsible for their services. Any agreements with third-party providers are between the student and the provider.",
+        "Policy Updates: We reserve the right to update our policies and terms. Continued use of our services constitutes acceptance of updated terms."
+      ]
+    },
+    "contact": {
+      "title": "Questions About Our Policies?",
+      "subtitle": "Contact us for any clarification regarding our policies and terms.",
+      "button": "Contact Legal Team"
+    }
+  } ,
+  "reviews": {
+    "hero": {
+      "title": "Student Reviews",
+      "subtitle": "Hear from students who successfully made it to their dream German universities with our guidance."
+    },
+    "stats": [
+      { "number": "4.9/5", "label": "Average Rating" },
+      { "number": "500+", "label": "Happy Students" },
+      { "number": "99%", "label": "Recommend Us" },
+      { "number": "50+", "label": "Partner Universities" }
+    ],
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Aman Verma",
+        "meta": "M.Sc. Computational Science — TU Munich",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "“Profiberater guided me through my German university application and visa process with clarity and care — my visa was approved faster than I expected. Deeply grateful!”",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Sakshi Gupta",
+        "meta": "B.Sc → M.Sc. — University of Freiburg",
+        "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "“Their APS and language support was extremely professional — I found the right university match and received help securing a scholarship.”",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Rohit Singh",
+        "meta": "MS Applicant — RWTH Aachen (accepted)",
+        "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+        "text": "“After multiple Germany visa refusals, Profiberater reworked my profile and strategy. They kept expectations realistic and finally helped me secure approval.”",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Neha Joshi",
+        "meta": "Preparing for Studienkolleg / Language Courses",
+        "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+        "text": "“Transparent fees, consistent updates, and a dedicated counsellor made the entire process smooth. Highly recommended for anyone applying to Germany.”",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Ankit Sharma",
+        "meta": "MBA — Frankfurt School of Finance & Management",
+        "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+        "text": "“The team helped refine my SOP and CV, making my MBA application much stronger. Their feedback sessions were professional and practical.”",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Priya Menon",
+        "meta": "Master’s in Environmental Engineering — TU Delft",
+        "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+        "text": "“Their expertise in European admissions really stood out. I got admits from multiple universities and their visa guidance was spot on.”",
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Vikram Desai",
+        "meta": "B.Sc Data Science — University of Hamburg",
+        "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+        "text": "“Being a first-time international applicant, I appreciated their clarity and responsiveness. They handled every step seamlessly.”",
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "name": "Ritika Bansal",
+        "meta": "Ph.D. in Biotechnology — University of Bonn",
+        "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+        "text": "“They helped align my research interests with suitable supervisors and crafted a strong proposal. Couldn’t have done it alone!”",
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "name": "Aditya Narang",
+        "meta": "M.Sc. Mechanical Engineering — TU Darmstadt",
+        "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+        "text": "“Every step was transparent — from application shortlist to visa mock interview. I’d absolutely recommend Profiberater.”",
+        "rating": 5
+      }
+    ],
+    "cta": {
+      "heading": "Join Our Success Stories",
+      "sub": "Become part of a community of motivated students who trusted Profiberater to turn their academic dreams into reality.",
+      "button": "Start My Success Journey"
+    }
+  },
+  "terms": {
+    "hero": {
+      "title": "Terms of Service",
+      "description": "Please read these terms carefully before using our services. These terms govern your relationship with Profiberater.",
+      "badge": "Legal Agreement"
+    },
+    "notice": {
+      "title": "Important Legal Notice",
+      "text": "These Terms of Service constitute a legally binding agreement between you and Profiberater. By using our services, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree with any part of these terms, you must not use our services."
+    },
+    "sections": [
+      {
+        "icon": "Users",
+        "title": "Service Agreement",
+        "content": [
+          {
+            "subtitle": "Acceptance of Terms",
+            "points": [
+              "By accessing our services, you agree to be bound by these terms",
+              "Services are available only to individuals who are at least 18 years old",
+              "We reserve the right to update these terms at any time",
+              "Continued use after changes constitutes acceptance"
+            ]
+          },
+          {
+            "subtitle": "Service Description",
+            "points": [
+              "Educational consulting for German universities",
+              "Assistance with accommodation and financial services",
+              "Visa guidance and documentation support",
+              "Third-party service coordination"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Scale",
+        "title": "User Responsibilities",
+        "content": [
+          {
+            "subtitle": "Accurate Information",
+            "points": [
+              "Provide complete and accurate personal information",
+              "Update information promptly when changes occur",
+              "Maintain confidentiality of account credentials",
+              "Report unauthorized access immediately"
+            ]
+          },
+          {
+            "subtitle": "Prohibited Activities",
+            "points": [
+              "Misrepresentation of academic qualifications",
+              "Submission of fraudulent documents",
+              "Unauthorized commercial use of services",
+              "Violation of German or Indian laws"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "AlertTriangle",
+        "title": "Limitations & Disclaimers",
+        "content": [
+          {
+            "subtitle": "Service Limitations",
+            "points": [
+              "We provide guidance but cannot guarantee university admissions",
+              "Visa approvals are at the discretion of German authorities",
+              "Service outcomes depend on individual circumstances",
+              "Third-party services are subject to their terms"
+            ]
+          },
+          {
+            "subtitle": "Financial Disclaimers",
+            "points": [
+              "Loan approvals depend on lender criteria",
+              "Exchange rates for forex services may fluctuate",
+              "Insurance coverage subject to provider terms",
+              "Fees are for services rendered, not outcomes"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Clock",
+        "title": "Payments & Refunds",
+        "content": [
+          {
+            "subtitle": "Fee Structure",
+            "points": [
+              "Service fees are clearly communicated upfront",
+              "Additional costs for third-party services may apply",
+              "Payment plans available for certain services",
+              "All fees are in Indian Rupees unless specified"
+            ]
+          },
+          {
+            "subtitle": "Refund Policy",
+            "points": [
+              "Consultation fees are non-refundable",
+              "Partial refunds based on service completion stage",
+              "No refunds after service delivery completion",
+              "Refund requests must be submitted in writing"
+            ]
+          }
+        ]
+      }
+    ],
+    "governing": {
+      "title": "Governing Law & Jurisdiction",
+      "paragraphs": [
+        "These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.",
+        "Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Delhi, India.",
+        "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights."
+      ]
+    }
+  },
+  "privacy": {
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your personal information."
+    },
+    "intro": {
+      "title": "Introduction",
+      "paragraphs": [
+        "Profiberater (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Profiberater.",
+        "This policy applies to our website and its associated subdomains (collectively, our \"Service\") alongside our application, Profiberater. By accessing or using our Service, you agree to the collection, storage, use, and disclosure of your personal information as described in this Privacy Policy and our Terms of Service."
+      ]
+    },
+    "sections": [
+      {
+        "icon": "Eye",
+        "title": "Information We Collect",
+        "blocks": [
+          {
+            "subtitle": "Personal Information",
+            "points": [
+              "Name, email address, phone number",
+              "Academic background and qualifications",
+              "Passport and visa documentation",
+              "Financial information for service processing"
+            ]
+          },
+          {
+            "subtitle": "Usage Data",
+            "points": [
+              "IP address and browser type",
+              "Pages visited and time spent",
+              "Device information and operating system",
+              "Cookies and tracking technologies"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Lock",
+        "title": "How We Use Your Information",
+        "blocks": [
+          {
+            "subtitle": "Service Provision",
+            "points": [
+              "Process your service applications",
+              "Communicate about your service status",
+              "Provide customer support",
+              "Send important updates and notifications"
+            ]
+          },
+          {
+            "subtitle": "Legal Compliance",
+            "points": [
+              "Comply with German education regulations",
+              "Meet financial service requirements",
+              "Prevent fraud and ensure security",
+              "Legal obligations and law enforcement"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "Shield",
+        "title": "Data Protection",
+        "blocks": [
+          {
+            "subtitle": "Security Measures",
+            "points": [
+              "SSL encryption for all data transmission",
+              "Regular security audits and updates",
+              "Limited access to personal information",
+              "Secure data storage with backups"
+            ]
+          },
+          {
+            "subtitle": "Data Retention",
+            "points": [
+              "Service data: 7 years after service completion",
+              "Financial records: 10 years as per Indian law",
+              "Marketing data: Until consent withdrawal",
+              "Analytics data: 26 months maximum"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "Your Rights",
+        "blocks": [
+          {
+            "subtitle": "Access and Control",
+            "points": [
+              "Right to access your personal data",
+              "Right to correct inaccurate information",
+              "Right to delete your data (with limitations)",
+              "Right to data portability"
+            ]
+          },
+          {
+            "subtitle": "Consent Management",
+            "points": [
+              "Withdraw consent for marketing communications",
+              "Opt-out of non-essential cookies",
+              "Request data processing restrictions",
+              "Object to certain data processing"
+            ]
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this Privacy Policy, please contact us:",
+      "email": "Email: privacy@profiberater.com",
+      "phone": "Phone: +91 98765 43210",
+      "address": "Address: Delhi, India"
+    },
+    "meta": {
+      "lastUpdated": "Last Updated: {{date}}"
+    }
+  },
+  "cookies": {
+    "hero": {
+      "title": "Cookies Policy",
+      "subtitle": "Learn about how we use cookies and similar technologies to enhance your browsing experience."
+    },
+    "badge": "GDPR Compliant",
 
+    "cookieTypes": [
+      {
+        "type": "Essential Cookies",
+        "necessary": true,
+        "description": "Required for the website to function properly",
+        "examples": [
+          "Session management",
+          "Security features",
+          "Load balancing"
+        ],
+        "duration": "Session"
+      },
+      {
+        "type": "Analytics Cookies",
+        "necessary": false,
+        "description": "Help us improve the site by seeing usage patterns.",
+        "examples": [
+          "Page visits",
+          "Time on site",
+          "Error tracking"
+        ],
+        "duration": "2 years"
+      },
+      {
+        "type": "Marketing Cookies",
+        "necessary": false,
+        "description": "Used for showing more relevant ads across the web.",
+        "examples": [
+          "Remarketing",
+          "Interest-based ads",
+          "Conversion tracking"
+        ],
+        "duration": "1 year"
+      },
+      {
+        "type": "Preference Cookies",
+        "necessary": false,
+        "description": "Remember your settings and preferences",
+        "examples": [
+          "Language settings",
+          "Font size",
+          "Region selection"
+        ],
+        "duration": "1 year"
+      }
+    ],
+
+    "managementSteps": [
+      {
+        "step": 1,
+        "title": "Browser Settings",
+        "description": "Manage cookies through your browser settings"
+      },
+      {
+        "step": 2,
+        "title": "Our Cookie Banner",
+        "description": "Use the cookie consent banner on our website"
+      },
+      {
+        "step": 3,
+        "title": "Opt-Out Tools",
+        "description": "Use industry opt-out tools for advertising cookies"
+      },
+      {
+        "step": 4,
+        "title": "Contact Us",
+        "description": "Email us for specific cookie-related requests"
+      }
+    ],
+
+    "browsers": [
+      {
+        "name": "Chrome",
+        "instr": "Settings → Privacy and security → Cookies and other site data"
+      },
+      {
+        "name": "Firefox",
+        "instr": "Options → Privacy & Security → Cookies and Site Data"
+      },
+      {
+        "name": "Safari",
+        "instr": "Preferences → Privacy → Cookies and website data"
+      },
+      {
+        "name": "Edge",
+        "instr": "Settings → Cookies and site permissions → Cookies and data stored"
+      }
+    ],
+
+    "defaults": {
+      "analyticsEnabled": true,
+      "marketingEnabled": false
+    },
+
+    "headings": {
+      "types": "Types of Cookies We Use",
+      "management": "Managing Your Cookies",
+      "browserSettings": "Browser Cookie Settings"
+    },
+
+    "labels": {
+      "examples": "Examples:",
+      "duration": "Duration:"
+    },
+
+    "tags": {
+      "necessary": "Necessary",
+      "optional": "Optional"
+    },
+
+    "toggles": {
+      "analyticsLabel": "Analytics Cookies",
+      "analyticsDescription": "Help us improve the site by seeing usage patterns.",
+      "marketingLabel": "Marketing Cookies",
+      "marketingDescription": "Used for showing more relevant ads across the web."
+    },
+
+    "meta": {
+      "lastUpdated": "Last Updated: {{date}}"
+    }
+  },
+  "allservices": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive support services for Indian students pursuing education in Germany. From financial solutions to accommodation, we handle everything for your smooth transition."
+    },
+    "stats": [
+      { "number": "5000+", "label": "Forex Cards Issued" },
+      { "number": "2000+", "label": "Accommodations Arranged" },
+      { "number": "3000+", "label": "Insurance Policies" },
+      { "number": "₹100Cr+", "label": "Loans Sanctioned" }
+    ],
+    "servicesList": [
+      {
+        "id": "forex-card-remittances",
+        "icon": "CreditCard",
+        "title": "Forex Card & Remittances",
+        "description": "Comprehensive foreign exchange solutions including multi-currency forex cards and international money transfer services with best exchange rates.",
+        "features": [
+          "Multi-Currency Forex Cards",
+          "Zero Forex Markup",
+          "International Money Transfer",
+          "24/7 Customer Support",
+          "Mobile App Management",
+          "Emergency Card Replacement"
+        ],
+        "benefits": [
+          "Save 3-5% on currency conversion",
+          "Instant reload options",
+          "Accepted worldwide",
+          "Complete transaction security"
+        ],
+        "process": [
+          "Documentation",
+          "KYC Verification",
+          "Card Delivery",
+          "Activation & Use"
+        ],
+        "price": "No hidden charges",
+        "color": "from-green-600 to-sky-600",
+        "link": "/services/forex-card-remittances"
+      },
+      {
+        "id": "accommodation",
+        "icon": "Home",
+        "title": "Accommodation Services",
+        "description": "End-to-end accommodation solutions for students in Germany, from temporary stays to long-term rentals near universities.",
+        "features": [
+          "Student Hostels & Dorms",
+          "Shared Apartments (WG)",
+          "Studio Apartments",
+          "Homestay Options",
+          "University Partnerships",
+          "Rental Contract Assistance"
+        ],
+        "benefits": [
+          "Verified landlords & properties",
+          "Location near universities",
+          "All utility bills included",
+          "Furnished options available"
+        ],
+        "process": [
+          "Requirement Analysis",
+          "Property Shortlisting",
+          "Virtual Tours",
+          "Booking & Move-in"
+        ],
+        "price": "€250-€700/month",
+        "color": "from-green-600 to-sky-600",
+        "link": "/services/accommodation"
+      },
+      {
+        "id": "medical-insurance",
+        "icon": "Heart",
+        "title": "Medical Insurance",
+        "description": "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+        "features": [
+          "Public Health Insurance (GKV)",
+          "Private Health Insurance",
+          "Dental & Vision Coverage",
+          "Emergency Medical Evacuation",
+          "Repatriation Coverage",
+          "24/7 Multilingual Support"
+        ],
+        "benefits": [
+          "Visa compliance guaranteed",
+          "Cashless hospitalization",
+          "EU-wide coverage",
+          "Pre-existing conditions coverage"
+        ],
+        "process": [
+          "Plan Selection",
+          "Document Submission",
+          "Policy Issuance",
+          "Visa Application Support"
+        ],
+        "price": "€30-€100/month",
+        "color": "from-green-600 to-sky-600",
+        "link": "/services/medical-insurance"
+      },
+      {
+        "id": "education-loan",
+        "icon": "TrendingUp",
+        "title": "Education Loan",
+        "description": "Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.",
+        "features": [
+          "Collateral-Free Loans",
+          "Secured Education Loans",
+          "German Government Loans",
+          "Moratorium Period",
+          "Tax Benefits Under 80E",
+          "Flexible Repayment Tenure"
+        ],
+        "benefits": [
+          "Competitive interest rates",
+          "Quick loan processing",
+          "No prepayment penalties",
+          "Income tax benefits"
+        ],
+        "process": [
+          "Eligibility Check",
+          "Documentation",
+          "Sanction & Disbursal",
+          "Post-Loan Support"
+        ],
+        "price": "Up to ₹1.5 Crores",
+        "color": "from-green-600 to-sky-600",
+        "link": "/services/education-loan"
+      }
+    ],
+    "serviceCard": {
+      "keyFeaturesTitle": "Key Features",
+      "keyBenefitsTitle": "Key Benefits",
+      "processFlowTitle": "Process Flow",
+      "readyCTA": "Ready to Get Started?",
+      "ctaDescription": "Begin your journey with our comprehensive {serviceTitle} services.",
+      "learnMore": "Learn More"
+    },
+    "quickStats": {
+      "studentsLabel": "1000+ Students",
+      "secureLabel": "100% Secure"
+    },
+    "comprehensiveCTA": {
+      "heading": "Need Multiple Services?",
+      "description": "Get special package deals when you avail multiple services together. Save time and money with our bundled solutions.",
+      "packageButton": "Get Package Deal",
+      "quoteButton": "Custom Quote",
+      "contactLink": "/contact"
+    },
+    "meta": {
+      "lastUpdated": "Last Updated: {{date}}"
+    }
+  },
+  "accommodation": {
+    "hero": {
+      "title": "Student Accommodation",
+      "subtitle": "Find your perfect home in Germany with our comprehensive accommodation services. From student hostels to private apartments, we've got you covered."
+    },
+    "typesTitle": "Types of Accommodation",
+    "accommodationTypes": [
+      {
+        "type": "Student Hostels",
+        "price": "€250-€400/month",
+        "features": ["Fully Furnished", "WiFi Included", "Laundry Facilities", "Common Kitchen"],
+        "bestFor": "First-year students",
+        "image": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      },
+      {
+        "type": "Shared Apartments",
+        "price": "€350-€550/month",
+        "features": ["Private Room", "Shared Kitchen", "Living Area", "Bills Included"],
+        "bestFor": "Budget-conscious students",
+        "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      },
+      {
+        "type": "Studio Apartments",
+        "price": "€450-€700/month",
+        "features": ["Private Kitchen", "Private Bathroom", "Self-Contained", "All Utilities"],
+        "bestFor": "Students preferring privacy",
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      },
+      {
+        "type": "Homestay",
+        "price": "€300-€500/month",
+        "features": ["Local Family", "Meals Included", "Cultural Immersion", "Support System"],
+        "bestFor": "International students",
+        "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
+      }
+    ],
+    "citiesTitle": "Popular Student Cities",
+    "cities": [
+      {
+        "name": "Berlin",
+        "averageRent": "€400-€600",
+        "popularity": "High",
+        "studentAreas": ["Kreuzberg", "Neukölln", "Prenzlauer Berg"]
+      },
+      {
+        "name": "Munich",
+        "averageRent": "€500-€750",
+        "popularity": "Very High",
+        "studentAreas": ["Schwabing", "Maxvorstadt", "Giesing"]
+      },
+      {
+        "name": "Hamburg",
+        "averageRent": "€350-€550",
+        "popularity": "High",
+        "studentAreas": ["Sternschanze", "Eimsbüttel", "Altona"]
+      },
+      {
+        "name": "Cologne",
+        "averageRent": "€300-€500",
+        "popularity": "Medium",
+        "studentAreas": ["Ehrenfeld", "Sülz", "Lindenthal"]
+      }
+    ],
+    "averageRentLabel": "Average Rent:",
+    "popularityLabel": "Popularity:",
+    "studentAreasLabel": "Student Areas:",
+    "bestForLabel": "Best for:",
+    "viewOptions": "View Available Options",
+    "cta": {
+      "heading": "Need Accommodation in Germany?",
+      "sub": "Let us help you find the perfect home for your study journey.",
+      "button": "Find My Accommodation"
+    }
+  },
+  "forexCardRemittances": {
+    "hero": { "title": "Forex Card & Remittances", "subtitle": "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying in Germany." },
+    "features": [
+      { "icon": "CreditCard", "title": "Multi-Currency Forex Cards", "description": "Load multiple currencies including EUR, USD, GBP on a single card for seamless transactions across Europe.", "benefits": ["Zero Forex Markup", "Instant Reload", "ATM Access", "Online Tracking"] },
+      { "icon": "Send", "title": "International Money Transfer", "description": "Fast and secure remittance services with competitive exchange rates and minimal transfer fees.", "benefits": ["Best Exchange Rates", "Quick Transfer", "Low Fees", "24/7 Support"] },
+      { "icon": "Shield", "title": "Secure & Insured", "description": "Your money is protected with advanced security features and insurance coverage.", "benefits": ["Fraud Protection", "Insurance Cover", "PIN Protection", "Emergency Support"] },
+      { "icon": "Globe", "title": "Global Acceptance", "description": "Accepted at millions of locations worldwide including ATMs, shops, and online platforms.", "benefits": ["Worldwide Acceptance", "Online Shopping", "Contactless Payments", "Mobile App"] }
+    ],
+    "processTitle": "Simple 4-Step Process",
+    "process": [
+      { "step": 1, "title": "Documentation", "description": "Submit KYC documents and application form" },
+      { "step": 2, "title": "Card Issuance", "description": "Receive your forex card within 2-3 business days" },
+      { "step": 3, "title": "Currency Load", "description": "Load desired currencies at best exchange rates" },
+      { "step": 4, "title": "Activation & Use", "description": "Activate and start using your card globally" }
+    ],
+    "whyTitle": "Why Choose Our Forex Services?",
+    "whyBenefits": [
+      { "icon": "Zap", "title": "Best Exchange Rates", "description": "Get the most competitive rates for EUR and other major currencies" },
+      { "icon": "TrendingUp", "title": "Save 3-5% on Forex", "description": "Significantly better rates compared to banks and airports" },
+      { "icon": "Shield", "title": "Complete Security", "description": "Bank-grade security with 24/7 fraud monitoring" }
+    ],
+    "cta": { "heading": "Ready to Get Your Forex Card?", "sub": "Start your financial journey to Germany with the best forex solutions.", "button": "Apply Now" }
+  },
+  "medicalInsurance": {
+    "hero": {
+      "title": "Medical Insurance",
+      "subtitle": "Comprehensive health insurance solutions meeting German visa requirements. Stay protected throughout your studies in Germany."
+    },
+    "planTitle": "Insurance Plans for Students",
+    "insurancePlans": [
+      {
+        "name": "Basic Student Plan",
+        "price": "€30-€40/month",
+        "coverage": "Basic medical coverage",
+        "features": ["Doctor Visits", "Basic Medications", "Emergency Care", "24/7 Support"],
+        "bestFor": "Budget-conscious students",
+        "popular": false
+      },
+      {
+        "name": "Comprehensive Plan",
+        "price": "€50-€70/month",
+        "coverage": "Full medical coverage",
+        "features": ["Hospitalization", "Dental Care", "Vision Care", "Therapy Sessions"],
+        "bestFor": "Most international students",
+        "popular": true
+      },
+      {
+        "name": "Premium Plan",
+        "price": "€80-€100/month",
+        "coverage": "Premium comprehensive coverage",
+        "features": ["Private Hospital", "Worldwide Coverage", "No Waiting Period", "Full Dental"],
+        "bestFor": "Students wanting premium care",
+        "popular": false
+      }
+    ],
+    "labels": {
+      "mostPopular": "Most Popular",
+      "bestFor": "Best for:",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started",
+      "averageRent": "Average Rent:",
+      "popularity": "Popularity:",
+      "studentAreas": "Student Areas:"
+    },
+    "requirementsTitle": "German Visa Requirements",
+    "requirements": [
+      "Mandatory for German visa application",
+      "Minimum coverage of €30,000",
+      "Valid for entire study period",
+      "Must cover repatriation",
+      "No deductibles for basic care",
+      "EU-wide recognition"
+    ],
+    "providersTitle": "Trusted Providers",
+    "providers": [
+      {
+        "name": "TK (Techniker Krankenkasse)",
+        "rating": 4.8,
+        "students": "500,000+",
+        "features": ["English Support", "Digital Services", "Wide Network"]
+      },
+      {
+        "name": "AOK",
+        "rating": 4.6,
+        "students": "400,000+",
+        "features": ["Local Offices", "Traditional Provider", "Comprehensive"]
+      },
+      {
+        "name": "DAK-Gesundheit",
+        "rating": 4.7,
+        "students": "300,000+",
+        "features": ["Modern App", "Preventive Care", "Student Discounts"]
+      }
+    ],
+    "cta": {
+      "heading": "Get Insured for Germany",
+      "sub": "Complete your visa requirements with our approved health insurance plans.",
+      "button": "Get Insurance Quote"
+    }
+  },
+  "educationLoan": {
+    "hero": {
+      "title": "Education Loan",
+      "subtitle": "Finance your German education with our partnership loan programs. Competitive interest rates and flexible repayment options."
+    },
+    "sections": {
+      "loanOptionsTitle": "Education Loan Options",
+      "lendersTitle": "Partner Lenders",
+      "documentsTitle": "Required Documents"
+    },
+    "labels": {
+      "eligibility": "Eligibility:",
+      "processing": "Processing:",
+      "marginMoney": "Margin Money:",
+      "studentsSuffix": "students",
+      "checkEligibility": "Check Eligibility"
+    },
+    "loanTypes": [
+      {
+        "name": "Collateral-Free Loan",
+        "amount": "Up to ₹75 Lakhs",
+        "interest": "8.5% - 11.5% p.a.",
+        "features": ["No Collateral", "Moratorium Period", "Flexible Repayment", "Quick Disbursal"],
+        "eligibility": "Indian students with admission"
+      },
+      {
+        "name": "Secured Education Loan",
+        "amount": "Up to ₹1.5 Crores",
+        "interest": "7.5% - 9.5% p.a.",
+        "features": ["Lower Interest", "Longer Tenure", "Parent as Co-applicant", "Tax Benefits"],
+        "eligibility": "With collateral security"
+      },
+      {
+        "name": "German Government Loan",
+        "amount": "Up to €850/month",
+        "interest": "0% - 2% p.a.",
+        "features": ["Subsidized Interest", "Long Repayment", "Income-Based", "No Collateral"],
+        "eligibility": "EU & International students"
+      }
+    ],
+    "lenders": [
+      { "name": "SBI Global Ed-Vantage", "processing": "7-10 days", "margin": "Up to 15%", "special": "No margin for premier institutes" },
+      { "name": "HDFC Credila", "processing": "5-7 days", "margin": "Up to 10%", "special": "Digital process" },
+      { "name": "Axis Bank Education Loan", "processing": "10-12 days", "margin": "Up to 15%", "special": "Wide university coverage" },
+      { "name": "Prodigy Finance", "processing": "2-3 weeks", "margin": "No margin", "special": "International lenders" },
+      { "name": "Union Bank of India – Education Loan", "processing": "8-10 days", "margin": "Up to 10%", "special": "Low interest for overseas studies" }
+    ],
+    "documents": [
+      "Admission letter from German university",
+      "Academic transcripts and certificates",
+      "Passport and visa documents",
+      "Cost of education breakdown",
+      "Parent/guardian income proof"
+    ],
+    "cta": {
+      "heading": "Finance Your German Dream",
+      "sub": "Get the best education loan for your studies in Germany with our expert guidance.",
+      "button": "Apply for Education Loan"
+    }
+  },
+  "emiCalculator": {
+    "title": "Quick EMI Calculator",
+    "subtitle": "Estimate monthly EMI for education loans. Results use standard monthly-compounding EMI formula.",
+    "loanAmount": "Loan Amount (₹)",
+    "rate": "Interest Rate (% p.a.)",
+    "tenure": "Tenure (years)",
+    "adjustTenure": "Adjust Tenure:",
+    "monthlyEMI": "Monthly EMI",
+    "totalPaymentLabel": "Total Payment",
+    "totalInterestLabel": "Total Interest",
+    "principal": "Principal:",
+    "rateMonthly": "Rate (monthly):",
+    "tenureMonths": "Tenure:",
+    "notePrefix": "Note:",
+    "noteText": "For your example inputs (₹20,00,000 · 9.5% p.a. · 10 years) this calculator shows {emi} as Monthly EMI using the standard formula.",
+    "copySummary": "Copy Summary"
+  },
+  "coaching": {
+    "hero": {
+      "titleLeft": "Coaching",
+      "titleRight": "& Training",
+      "subtitle": "We are your one-stop source for all your training needs. Access our network of premium training partners with exclusive discounts."
+    },
+    "headings": {
+      "premiumPartners": "Premium Training Partners",
+      "accessReq": "Access Requirements",
+      "keyBenefits": "Key Benefits",
+      "ourPartners": "Our Training Partners",
+      "compGuideKicker": "Comparative Guide to English Proficiency Tests",
+      "compGuideTitle": "Essential Info for Test-Takers",
+      "ctaTitle": "Ready to Access Premium Training?",
+      "ctaSub": "Register with us to unlock exclusive discounts and connect with our premium training partners.",
+      "ctaBtn": "Register Now"
+    },
+    "paragraphs": [
+      "While we do not provide training directly, we have partnerships with well-established professional institutes that have a strong track record of successfully training students.",
+      "These institutes are known for guiding learners effectively to achieve higher scores, which in turn enhances their profiles and supports their admission process.",
+      "By applying for admission through us, you may also become eligible for exclusive discounts."
+    ],
+    "accessReqText": "Access to our partner program is available only after you register with us. Once registered, you will be able to view and connect with our training partners directly through your personal profile.",
+    "benefits": [
+      "Exclusive discounts for Profiberater students",
+      "Proven track record of success",
+      "Experienced certified trainers",
+      "Flexible batch timings",
+      "Personalized attention",
+      "Regular progress tracking"
+    ],
+    "partnerInstitutes": [
+      {
+        "name": "German Language Institute",
+        "courses": ["A1-C2 German", "TestDaF Prep", "Goethe Exam"],
+        "discount": "20%",
+        "rating": 4.9,
+        "students": "2000+"
+      },
+      {
+        "name": "STEM Training Center",
+        "courses": ["TestAS Prep", "GRE/GMAT", "Technical Interviews"],
+        "discount": "15%",
+        "rating": 4.8,
+        "students": "1500+"
+      },
+      {
+        "name": "Study Abroad Academy",
+        "courses": ["IELTS Prep", "Academic Writing", "Interview Skills"],
+        "discount": "25%",
+        "rating": 4.7,
+        "students": "1800+"
+      }
+    ],
+    "table": {
+      "headers": [
+        "Exam Name",
+        "Full Name",
+        "Purpose",
+        "Modules & Skills Tested",
+        "Duration",
+        "Modes",
+        "Sessions",
+        "Test Availability",
+        "Test Registration",
+        "Re-Test Wait Period",
+        "Scoring",
+        "Results",
+        "Score Validity",
+        "Cost",
+        "Types of Questions",
+        "Number of Questions"
+      ],
+      "rows": [
+        {
+          "exam": "PTE",
+          "full": "Pearson Test of English",
+          "purpose": "Student visa; college admissions",
+          "modules": "Speaking & Writing, Reading, Listening",
+          "duration": "2 hours",
+          "modes": "Only at a Test Centre, Only Computer-delivered",
+          "sessions": "Single session",
+          "avail": "Every day (depends on the test centre)",
+          "reg": "Up to 24 hours in advance",
+          "wait": "After receiving score report (2-3 days)",
+          "scoring": "Only automated, Overall: out of 90, Individual modules: out of 90",
+          "results": "In 48 hours",
+          "validity": "2 years",
+          "cost": "₹ 17,000",
+          "types": "S: 5 types, W: 2 types, R: 5 types, L: 8 types",
+          "count": "Total 52-73, S: 25-31, W: 2-4, R: 13-18, L: 12-20"
+        },
+        {
+          "exam": "IELTS",
+          "full": "International English Language Testing System",
+          "purpose": "Student visa; college admissions",
+          "modules": "Listening, Reading, Writing, Speaking",
+          "duration": "LRW: 2 hours 40 mins, S: 11-14 mins",
+          "modes": "Only at a Test Centre, Paper-based and Computer-delivered",
+          "sessions": "Two sessions: 1 for LRW, 1 for S",
+          "avail": "CDT: every day, PBT: 4-5 times a month",
+          "reg": "CDT: 4-5 days in advance, PBT: up to 15 days in advance",
+          "wait": "CDT: 3 days, PBT: no limit",
+          "scoring": "Both human and automated, Overall: out of band 9.0, Individual modules: out of band 9.0",
+          "results": "CDT: 3-4 days, PBT: 13 days",
+          "validity": "2 years",
+          "cost": "₹ 17,000",
+          "types": "L: 8-9 types, R: 10-12 types, W: 2 types, S: 3 parts",
+          "count": "L: 40, R: 40, W: 2, S: (P1: 9-10; P2: 1; P3: 5-6)"
+        },
+        {
+          "exam": "TOEFL",
+          "full": "Test of English as a Foreign Language",
+          "purpose": "Student visa; college admissions",
+          "modules": "Reading, Listening, Speaking, Writing",
+          "duration": "2 hours",
+          "modes": "At a Test Centre and At Home, Paper-based and Computer-delivered",
+          "sessions": "Single session at test centre or Home edition, Two sessions for Paper edition",
+          "avail": "At test centre: 60+ times a year, Home edition: 24 hrs / 4 days a week, Paper edition: once a month (3rd Saturday)",
+          "reg": "At test centre: 3-5 days in advance, Home edition: 1-2 days in advance, Paper edition: 7-10 days in advance",
+          "wait": "3 days",
+          "scoring": "Both human and automated, Overall: out of 120 points, Individual modules: out of 30 points",
+          "results": "At test centre: 4-8 days, Home edition: 4-8 days, Paper edition: 11-13 days",
+          "validity": "2 years",
+          "cost": "₹ 16,900 | $ 195",
+          "types": "R: MCQs, L: MCQs, S: 4 types, W: 2 types",
+          "count": "R: 20, L: 28, S: 4, W: 2"
+        },
+        {
+          "exam": "DUOLINGO",
+          "full": "Duolingo English Test [Adaptive Test]",
+          "purpose": "College admissions",
+          "modules": "Literacy - read and write, Comprehension - read and listen, Production - write and speak, Conversation - listen and speak [individual and integrated]",
+          "duration": "1 hour",
+          "modes": "NOT at a Test Centre, From home or office, Only Computer-delivered",
+          "sessions": "Single session",
+          "avail": "Every day, any time",
+          "reg": "No limit",
+          "wait": "2 times a month",
+          "scoring": "Only automated, Overall: out of 160",
+          "results": "In 48 hours",
+          "validity": "2 years",
+          "cost": "$ 59",
+          "types": "S: 4-5 types, W: 4 types, R: 7-8 types, L: 4-5 types",
+          "count": "Total 50-58"
+        },
+        {
+          "exam": "CELPIP",
+          "full": "Canadian English Language Proficiency Index Program",
+          "purpose": "Student visa (Canada); Permanent Residence (Canada)",
+          "modules": "Reading, Listening, Speaking, Writing [individual and integrated]",
+          "duration": "3 hours",
+          "modes": "Only at a Test Centre, Only Computer-delivered",
+          "sessions": "Single session",
+          "avail": "Weekends, 2 slots a day",
+          "reg": "One business day before the test, Depends on seat availability",
+          "wait": "5 days",
+          "scoring": "Both human and automated, Overall: out of levels 3-12, Individual modules: out of levels 3-12",
+          "results": "4-5 days",
+          "validity": "2 years",
+          "cost": "₹ 12,500",
+          "types": "L: 6 types, 38+ MCQs, R: 4 types, 38+ MCQs, S: 2 types, W: 8 types",
+          "count": "L: 6 parts, 38+ MCQs, R: 4 parts, 38+ MCQs, W: 2 parts, 2 questions, S: 8 parts, 8 questions"
+        },
+        {
+          "exam": "CAEL",
+          "full": "Canadian Academic English Language",
+          "purpose": "College admissions (Canada); Student Visa (only CAEL at test centre) (Canada)",
+          "modules": "Speaking, Reading, Listening, Academic Unit A, Academic Unit B",
+          "duration": "3.5 hours",
+          "modes": "At a Test Centre and At Home, Only Computer-delivered",
+          "sessions": "Single session",
+          "avail": "Weekends",
+          "reg": "One business day before the test, Depends on seat availability",
+          "wait": "4 days",
+          "scoring": "Both human and automated, Overall: out of Band 90, Individual modules: out of Band 90",
+          "results": "8 days",
+          "validity": "2 years",
+          "cost": "₹ 12,500",
+          "types": "S: 3 types, R: 2 types + 1 R+S Integrated, L: 2 types + 1 L+S Integrated, W: 2 types (R+L+W Integrated)",
+          "count": "S: 3 questions, R: 14-25 MCQs + 1 R+S question, L: 14-25 MCQs + 1 L+S question, W: 44-60 MCQs + 2 R+L+W question"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Access Premium Training?",
+      "sub": "Register with us to unlock exclusive discounts and connect with our premium training partners.",
+      "button": "Register Now"
+    }
+  }
 
 }

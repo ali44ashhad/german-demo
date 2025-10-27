@@ -207,7 +207,7 @@ const Header = () => {
             {/* Right Side - Language selector, Profile & Mobile Menu */}
             <div className="flex items-center gap-2">
               {/* Language button (compact on small screens, expanded on md+) */}
-              <div className="relative">
+              <div className="relative  hidden md:block">
                 <button
                   onClick={() => setActiveDropdown((prev) => (prev === "lang" ? null : "lang"))}
                   onKeyDown={(e) => handleDropdownKey(e, "lang")}
