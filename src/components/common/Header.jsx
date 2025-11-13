@@ -1,20 +1,57 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReactCountryFlag from "react-country-flag";
 import logo from "../../assets/logo.png";
 import { Menu, X, ChevronDown, User } from "lucide-react";
+import { useLogoutMutation } from "../../store/apiSlice";
 
 const Header = () => {
   const { t, i18n } = useTranslation("common");
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // used for services menu and language menu
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [userRole, setUserRole] = useState(null);
+  const [logout, { isLoading: isLoggingOut }] = useLogoutMutation();
   const rafRef = useRef(null);
   const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const readUserRole = () => {
+      try {
+        const stored = localStorage.getItem("user");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setUserRole(parsed?.role || null);
+        } else {
+          setUserRole(null);
+        }
+      } catch {
+        setUserRole(null);
+      }
+    };
+
+    readUserRole();
+
+    const handleStorage = (event) => {
+      if (event.key === "user") {
+        readUserRole();
+      }
+    };
+
+    window.addEventListener("storage", handleStorage);
+    window.addEventListener("focus", readUserRole);
+
+    return () => {
+      window.removeEventListener("storage", handleStorage);
+      window.removeEventListener("focus", readUserRole);
+    };
+  }, []);
 
   // persist language selection in localStorage
   useEffect(() => {
@@ -53,6 +90,7 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
+    setIsProfileMenuOpen(false);
   }, [location.pathname]);
 
   // Prevent background scroll when mobile menu open
@@ -93,8 +131,8 @@ const Header = () => {
   };
 
   // navigation labels pulled from translations
-  const navigation = [
-    { name: t("header.nav.home", "Home"), href: "/" },
+  const regularNavigation = [
+    { name: t("header.nav.home", "Home"), href: "/home" },
     { name: t("header.nav.about", "About Us"), href: "/about" },
     { name: t("header.nav.team", "Team"), href: "/team" },
     {
@@ -112,10 +150,20 @@ const Header = () => {
     { name: t("header.nav.contact", "Contact"), href: "/contact" },
   ];
 
+  const adminNavigation = [
+    { name: t("header.nav.home", "Home"), href: "/admin" },
+    { name: t("header.nav.subadmins", "Sub-admins"), href: "/admin/subadmins" },
+    { name: t("header.nav.users", "Users"), href: "/admin/users" },
+    { name: t("header.nav.bookings", "Bookings"), href: "/admin/bookings" },
+    { name: t("header.nav.payments", "Payments"), href: "/admin/payments" },
+  ];
+
+  // Use admin navigation for superadmin, regular navigation for others
+  const navigation = userRole === "superadmin" ? adminNavigation : regularNavigation;
+
   const isActiveLink = (href) => {
     if (!href) return false;
-    if (href === "/") return location.pathname === "/";
-    return location.pathname === href || location.pathname.startsWith(href + "/");
+    return location.pathname === href || location.pathname.startsWith(`${href}/`);
   };
 
   const handleDropdownKey = (e, name) => {
@@ -133,6 +181,22 @@ const Header = () => {
     return found ? found.countryCode : "GB";
   };
 
+  const isAdmin = userRole === "superadmin" || userRole === "subadmin";
+  const profilePath = isAdmin ? "/admin" : "/profile";
+
+  const handleLogout = async () => {
+    setIsProfileMenuOpen(false);
+    try {
+      await logout().unwrap();
+    } catch (error) {
+      console.error("Logout failed", error);
+    } finally {
+      localStorage.removeItem("user");
+      setUserRole(null);
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       <motion.header
@@ -141,9 +205,9 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
-            <a href="/" aria-label={t("header.nav.home", "Home")}>
+            <Link to={userRole === "superadmin" ? "/admin" : "/home"} aria-label={t("header.nav.home", "Home")}>
               <img src={logo} alt="Eduberator" className="h-14 w-auto" />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex text-lg items-center space-x-8" role="navigation" aria-label="Primary">
@@ -256,16 +320,58 @@ const Header = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Profile Icon */}
-              <Link
-                to="#"
-                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
-                  isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
-                }`}
-                aria-label={t("header.profile", "Profile")}
+              {/* Profile / Admin Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsProfileMenuOpen(true)}
+                onMouseLeave={() => setIsProfileMenuOpen(false)}
               >
-                <User className="w-5 h-5" />
-              </Link>
+                <button
+                  type="button"
+                  onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
+                    isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
+                  }`}
+                  aria-haspopup="true"
+                  aria-expanded={isProfileMenuOpen}
+                  aria-label={isAdmin ? t("header.admin_dashboard", "Admin Dashboard") : t("header.profile", "Profile")}
+                >
+                  <User className="w-5 h-5" />
+                </button>
+
+                <AnimatePresence>
+                  {isProfileMenuOpen && (
+                    <motion.div
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.16 }}
+                    >
+                      <div className="p-2 flex flex-col gap-1">
+                        <Link
+                          to={profilePath}
+                          className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                          onClick={() => setIsProfileMenuOpen(false)}
+                        >
+                          {t("header.profile", "Profile")}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={handleLogout}
+                          disabled={isLoggingOut}
+                          className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-between disabled:opacity-60"
+                        >
+                          {t("header.logout", "Logout")}
+                          {isLoggingOut && (
+                            <span className="ml-2 h-2 w-2 rounded-full bg-red-400 animate-ping" aria-hidden="true" />
+                          )}
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Mobile Menu Button */}
               <motion.button

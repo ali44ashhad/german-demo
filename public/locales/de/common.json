@@ -356,8 +356,8 @@
       "address_note": "Bitte Termin vorher buchen"
     },
     "quick_links": [
-      { "name": "Startseite", "href": "/" },
-      { "name": "Über uns", "href": "/about" },
+      { "name": "Startseite", "href": "/home" },
+      { "name": "Über Uns", "href": "/about" },
       { "name": "Kontakt", "href": "/contact" },
       { "name": "Dienstleistungen", "href": "/services" }
     ],

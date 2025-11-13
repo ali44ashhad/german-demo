@@ -356,8 +356,8 @@
       "address_note": "Réservez rendez-vous avant visite"
     },
     "quick_links": [
-      { "name": "Accueil", "href": "/" },
-      { "name": "À propos", "href": "/about" },
+      { "name": "Accueil", "href": "/home" },
+      { "name": "À Propos", "href": "/about" },
       { "name": "Contact", "href": "/contact" },
       { "name": "Services", "href": "/services" }
     ],

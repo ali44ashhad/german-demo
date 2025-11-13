@@ -309,7 +309,7 @@ const Footer = () => {
   const quickLinks = Array.isArray(footer.quick_links)
     ? footer.quick_links
     : [
-        { name: 'Home', href: '/' },
+        { name: 'Home', href: '/home' },
         { name: 'About Us', href: '/about' },
         { name: 'Contact', href: '/contact' },
         { name: 'Services', href: '/services' }

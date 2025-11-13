@@ -356,7 +356,7 @@
       "address_note": "Prenota appuntamento prima della visita"
     },
     "quick_links": [
-      { "name": "Home", "href": "/" },
+      { "name": "Home", "href": "/home" },
       { "name": "Chi Siamo", "href": "/about" },
       { "name": "Contatto", "href": "/contact" },
       { "name": "Servizi", "href": "/services" }

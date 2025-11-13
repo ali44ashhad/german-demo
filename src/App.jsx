@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer"; 
 import About from "./pages/About";
@@ -17,15 +17,25 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import ScrollToTop from "./components/common/ScrollToTop";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import AdminRoute from "./components/common/AdminRoute";
+import AdminHome from "./pages/admin/AdminHome";
 
 function App() {
+  const location = useLocation();
+  const hideLayoutRoutes = ["/", "/login", "/register"];
+  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
+
   return (
     <>
      <ScrollToTop/>
-      <Header />
-      <div className="min-h-screen">
+      {!shouldHideLayout && <Header />}
+      <div className={shouldHideLayout ? "" : "min-h-screen"}>
         <Routes> 
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/coaching" element={<Coaching />} />
@@ -43,9 +53,23 @@ function App() {
           <Route path="/services/accommodation" element={<Accommodation />} />
           <Route path="/services/medical-insurance" element={<MedicalInsurance />} />
           <Route path="/services/education-loan" element={<EducationLoan />} />
+
+          {/* Auth Routes */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminHome />
+              </AdminRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-      <Footer />
+      {!shouldHideLayout && <Footer />}
     </>
   );
 }

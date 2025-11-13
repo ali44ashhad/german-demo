@@ -356,7 +356,7 @@
       "address_note": "到访前请预约"
     },
     "quick_links": [
-      { "name": "首页", "href": "/" },
+      { "name": "首页", "href": "/home" },
       { "name": "关于我们", "href": "/about" },
       { "name": "联系我们", "href": "/contact" },
       { "name": "服务", "href": "/services" }
