@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Header from "./components/common/Header";
+import SubAdminHeader from "./components/common/SubAdminHeader";
 import Footer from "./components/common/Footer"; 
 import About from "./pages/About";
 import Coaching from "./pages/Coaching";
@@ -21,17 +22,27 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import AdminRoute from "./components/common/AdminRoute";
+import SubAdminRoute from "./components/common/SubAdminRoute";
 import AdminHome from "./pages/admin/AdminHome";
+import SubAdmins from "./pages/admin/SubAdmins";
+import Users from "./pages/admin/Users";
+import Bookings from "./pages/admin/Bookings";
+import SubAdminHome from "./pages/subadmin/SubAdminHome";
+import SubAdminConsultations from "./pages/subadmin/SubAdminConsultations";
+import SubAdminStudents from "./pages/subadmin/SubAdminStudents";
+import SubAdminProfile from "./pages/subadmin/SubAdminProfile";
 
 function App() {
   const location = useLocation();
   const hideLayoutRoutes = ["/", "/login", "/register"];
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
+  const isSubAdminView = location.pathname.startsWith("/subadmin");
 
   return (
     <>
      <ScrollToTop/>
-      {!shouldHideLayout && <Header />}
+      {!shouldHideLayout && !isSubAdminView && <Header />}
+      {!shouldHideLayout && isSubAdminView && <SubAdminHeader />}
       <div className={shouldHideLayout ? "" : "min-h-screen"}>
         <Routes> 
           <Route path="/" element={<Login />} />
@@ -64,6 +75,62 @@ function App() {
               <AdminRoute>
                 <AdminHome />
               </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/subadmins"
+            element={
+              <AdminRoute>
+                <SubAdmins />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <AdminRoute>
+                <Users />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/bookings"
+            element={
+              <AdminRoute>
+                <Bookings />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/subadmin"
+            element={
+              <SubAdminRoute>
+                <SubAdminHome />
+              </SubAdminRoute>
+            }
+          />
+          <Route
+            path="/subadmin/consultations"
+            element={
+              <SubAdminRoute>
+                <SubAdminConsultations />
+              </SubAdminRoute>
+            }
+          />
+          <Route
+            path="/subadmin/students"
+            element={
+              <SubAdminRoute>
+                <SubAdminStudents />
+              </SubAdminRoute>
+            }
+          />
+          <Route
+            path="/subadmin/profile"
+            element={
+              <SubAdminRoute>
+                <SubAdminProfile />
+              </SubAdminRoute>
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,69 +1,83 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useGetCurrentUserQuery } from "../../store/apiSlice";
+import { useGetCurrentUserQuery, useGetDashboardStatsQuery } from "../../store/apiSlice";
 import {
   CalendarDays,
   Users,
   ClipboardCheck,
   TrendingUp,
   Loader2,
+  DollarSign,
+  Briefcase,
 } from "lucide-react";
 
-const statCards = [
-  {
-    title: "New Registrations",
-    value: "24",
-    change: "+12.5%",
-    icon: Users,
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    title: "Pending Consultations",
-    value: "8",
-    change: "-5.2%",
-    icon: CalendarDays,
-    color: "from-sky-500 to-blue-500",
-  },
-  {
-    title: "Applications Reviewed",
-    value: "19",
-    change: "+3.8%",
-    icon: ClipboardCheck,
-    color: "from-amber-500 to-orange-500",
-  },
-  {
-    title: "Conversion Rate",
-    value: "42%",
-    change: "+2.4%",
-    icon: TrendingUp,
-    color: "from-fuchsia-500 to-purple-500",
-  },
-];
+// Helper function to format date
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  try {
+    // Handle both Date objects and ISO strings (new Date() handles ISO strings correctly)
+    const date = dateString instanceof Date ? dateString : new Date(dateString);
+    
+    if (isNaN(date.getTime())) {
+      // If parsing failed, try to handle as string and extract date parts
+      if (typeof dateString === 'string') {
+        // For ISO format: 2025-11-12T16:00:00.000Z
+        const dateMatch = dateString.match(/(\d{4})-(\d{2})-(\d{2})/);
+        if (dateMatch) {
+          const [, year, month, day] = dateMatch;
+          const dateObj = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+          if (!isNaN(dateObj.getTime())) {
+            return dateObj.toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            });
+          }
+        }
+      }
+      return "";
+    }
+    
+    return date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  } catch (error) {
+    console.error("Date formatting error:", error, dateString);
+    return "";
+  }
+};
 
-const upcomingSessions = [
-  { applicant: "Anika Sharma", program: "MSc Computer Science", date: "12 Nov 2025 • 4:00 PM" },
-  { applicant: "Lukas Meyer", program: "MBA International Business", date: "13 Nov 2025 • 11:30 AM" },
-  { applicant: "Maria Garcia", program: "BSc Mechanical Engineering", date: "14 Nov 2025 • 2:15 PM" },
-];
-
-const highlights = [
-  {
-    title: "Scholarship Alerts",
-    description: "3 new DAAD scholarship updates available for Winter 2026 intake.",
-  },
-  {
-    title: "University Follow-ups",
-    description: "Send personalised follow-up emails to 5 shortlisted candidates.",
-  },
-  {
-    title: "Team Updates",
-    description: "Sub-admin onboarding session scheduled for Friday at 10:00 AM.",
-  },
-];
+// Helper function to format time with AM/PM
+const formatTime = (timeslot) => {
+  if (!timeslot || !timeslot.start || !timeslot.end) return "";
+  // Convert 24-hour format to 12-hour format if needed
+  const formatTime12 = (time24) => {
+    if (!time24) return "";
+    // If already in 12-hour format (contains AM/PM), return as is
+    if (time24.includes("AM") || time24.includes("PM")) {
+      return time24;
+    }
+    // Otherwise, parse as 24-hour format
+    const [hours, minutes] = time24.split(":");
+    if (!hours || !minutes) return time24;
+    const hour = parseInt(hours, 10);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+  };
+  
+  return `${formatTime12(timeslot.start)} - ${formatTime12(timeslot.end)}`;
+};
 
 const AdminHome = () => {
-  const { data, isLoading } = useGetCurrentUserQuery();
+  const { data, isLoading: userLoading } = useGetCurrentUserQuery();
+  const { data: dashboardData, isLoading: statsLoading, error } = useGetDashboardStatsQuery();
   const user = data?.user;
+  const stats = dashboardData?.stats;
+
+  const isLoading = userLoading || statsLoading;
 
   if (isLoading && !user) {
     return (
@@ -72,6 +86,68 @@ const AdminHome = () => {
       </div>
     );
   }
+
+  // Prepare stat cards with real data
+  const statCards = [
+    {
+      title: "New Registrations",
+      value: stats?.newRegistrations?.toString() || "0",
+      change: `${stats?.registrationChange}% `|| "+0%",
+      icon: Users,
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      title: "Pending Consultations",
+      value: stats?.pendingBookings?.toString() || "0",
+      change: stats?.recentBookingsCount > 0 ? `+${stats.recentBookingsCount}` : "0",
+      icon: CalendarDays,
+      color: "from-sky-500 to-blue-500",
+    },
+    {
+      title: "Applications Reviewed",
+      value: stats?.completedBookings?.toString() || "0",
+      change: stats?.totalBookings > 0 
+        ? `+${((stats.completedBookings / stats.totalBookings) * 100).toFixed(1)}%`
+        : "+0%",
+      icon: ClipboardCheck,
+      color: "from-amber-500 to-orange-500",
+    },
+    {
+      title: "Conversion Rate",
+      value: stats?.conversionRate || "0%",
+      change: stats?.totalBookings > 0 ? "+0%" : "0%",
+      icon: TrendingUp,
+      color: "from-fuchsia-500 to-purple-500",
+    },
+  ];
+
+  // Format upcoming consultations from real data
+  const upcomingSessions = stats?.upcomingConsultations?.map((booking) => {
+    const formattedDate = formatDate(booking.date);
+    const formattedTime = formatTime(booking.timeslot);
+    return {
+      applicant: booking.userId?.name || "Unknown User",
+      program: booking.serviceId?.name || "Service",
+      date: formattedDate ? `${formattedDate} • ${formattedTime}` : formattedTime || "Date TBD",
+      id: booking._id,
+    };
+  }) || [];
+
+  // Prepare highlights based on real data
+  const highlights = [
+    {
+      title: "Total Users",
+      description: `You have ${stats?.totalUsers || 0} registered users in the system.`,
+    },
+    {
+      title: "Total Bookings",
+      description: `There are ${stats?.totalBookings || 0} total bookings, with ${stats?.pendingBookings || 0} pending payment.`,
+    },
+    {
+      title: "Revenue",
+      description: `Total revenue from successful payments: $${(stats?.totalRevenue || 0).toLocaleString()}.`,
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
@@ -125,16 +201,22 @@ const AdminHome = () => {
               <span className="text-sm text-green-600 font-semibold">View calendar</span>
             </div>
             <div className="space-y-4">
-              {upcomingSessions.map((session, index) => (
-                <div
-                  key={`${session.applicant}-${index}`}
-                  className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 hover:border-green-200 hover:bg-green-50 transition-colors"
-                >
-                  <p className="text-sm font-semibold text-gray-900">{session.applicant}</p>
-                  <p className="text-sm text-gray-600">{session.program}</p>
-                  <p className="text-xs text-green-600 mt-1">{session.date}</p>
+              {upcomingSessions.length > 0 ? (
+                upcomingSessions.map((session, index) => (
+                  <div
+                    key={session.id || `session-${index}`}
+                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 hover:border-green-200 hover:bg-green-50 transition-colors"
+                  >
+                    <p className="text-sm font-semibold text-gray-900">{session.applicant}</p>
+                    <p className="text-sm text-gray-600">{session.program}</p>
+                    <p className="text-xs text-green-600 mt-1">{session.date}</p>
+                  </div>
+                ))
+              ) : (
+                <div className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-center text-gray-500">
+                  <p className="text-sm">No upcoming consultations scheduled</p>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
 
@@ -158,6 +240,44 @@ const AdminHome = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* Recent Users Section */}
+        {stats?.recentUsers && stats.recentUsers.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-gray-900">Recent Users</h2>
+              <span className="text-sm text-green-600 font-semibold">Last 5 registrations</span>
+            </div>
+            <div className="space-y-3">
+              {stats.recentUsers.map((user) => (
+                <div
+                  key={user._id}
+                  className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 hover:border-green-200 hover:bg-green-50 transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">{user.name}</p>
+                      <p className="text-xs text-gray-600 mt-1">{user.email}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-500">
+                        {formatDate(user.createdAt)}
+                      </p>
+                      {user.country && (
+                        <p className="text-xs text-gray-400 mt-1">{user.country}</p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </div>
   );

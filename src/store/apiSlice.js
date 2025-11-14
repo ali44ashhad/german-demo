@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery,
-  tagTypes: ['User', 'Service', 'Booking', 'ZoomSession'],
+  tagTypes: ['User', 'Service', 'Booking', 'ZoomSession', 'Dashboard'],
   endpoints: (builder) => ({
     // ==================== AUTH ENDPOINTS ====================
     register: builder.mutation({
@@ -49,6 +49,33 @@ export const apiSlice = createApi({
       providesTags: ['User'],
     }),
 
+    updateCurrentUserProfile: builder.mutation({
+      query: (userData) => ({
+        url: '/users/auth/profile',
+        method: 'PUT',
+        body: userData,
+      }),
+      invalidatesTags: ['User'],
+    }),
+
+    uploadProfileImage: builder.mutation({
+      query: (file) => {
+        const formData = new FormData();
+        formData.append('profileImage', file);
+        return {
+          url: '/users/auth/profile-image',
+          method: 'POST',
+          body: formData,
+        };
+      },
+      invalidatesTags: ['User'],
+    }),
+
+    getCurrentUserResume: builder.query({
+      query: () => '/users/auth/resume',
+      providesTags: ['User'],
+    }),
+
     // ==================== USER ENDPOINTS ====================
     getAllUsers: builder.query({
       query: ({ page = 1, limit = 10, role, search } = {}) => ({
@@ -61,6 +88,15 @@ export const apiSlice = createApi({
     getUserById: builder.query({
       query: (id) => `/users/users/${id}`,
       providesTags: (result, error, id) => [{ type: 'User', id }],
+    }),
+
+    createUser: builder.mutation({
+      query: (userData) => ({
+        url: '/users/users',
+        method: 'POST',
+        body: userData,
+      }),
+      invalidatesTags: ['User'],
     }),
 
     updateUser: builder.mutation({
@@ -208,6 +244,47 @@ export const apiSlice = createApi({
         body: webhookData,
       }),
     }),
+
+    // ==================== SUBADMIN ENDPOINTS ====================
+    getAllSubadmins: builder.query({
+      query: ({ page = 1, limit = 10, search } = {}) => ({
+        url: '/users/users',
+        params: { page, limit, role: 'subadmin', search },
+      }),
+      providesTags: ['User'],
+    }),
+
+    createSubadmin: builder.mutation({
+      query: (subadminData) => ({
+        url: '/users/users',
+        method: 'POST',
+        body: { ...subadminData, role: 'subadmin' },
+      }),
+      invalidatesTags: ['User'],
+    }),
+
+    updateSubadmin: builder.mutation({
+      query: ({ id, ...subadminData }) => ({
+        url: `/users/users/${id}`,
+        method: 'PUT',
+        body: subadminData,
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: 'User', id }, 'User'],
+    }),
+
+    deleteSubadmin: builder.mutation({
+      query: (id) => ({
+        url: `/users/users/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['User'],
+    }),
+
+    // ==================== DASHBOARD ENDPOINTS ====================
+    getDashboardStats: builder.query({
+      query: () => '/dashboard/stats',
+      providesTags: ['Dashboard'],
+    }),
   }),
 });
 
@@ -218,9 +295,13 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useGetCurrentUserQuery,
+  useUpdateCurrentUserProfileMutation,
+  useUploadProfileImageMutation,
+  useGetCurrentUserResumeQuery,
   // User hooks
   useGetAllUsersQuery,
   useGetUserByIdQuery,
+  useCreateUserMutation,
   useUpdateUserMutation,
   useDeleteUserMutation,
   // Service hooks
@@ -243,5 +324,12 @@ export const {
   useDeleteZoomSessionMutation,
   // Webhook hooks
   useHandleWebhookMutation,
+  // Subadmin hooks
+  useGetAllSubadminsQuery,
+  useCreateSubadminMutation,
+  useUpdateSubadminMutation,
+  useDeleteSubadminMutation,
+  // Dashboard hooks
+  useGetDashboardStatsQuery,
 } = apiSlice;
 

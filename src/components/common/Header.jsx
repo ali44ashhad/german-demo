@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import ReactCountryFlag from "react-country-flag";
 import logo from "../../assets/logo.png";
 import { Menu, X, ChevronDown, User } from "lucide-react";
-import { useLogoutMutation } from "../../store/apiSlice";
+import { useLogoutMutation, useGetCurrentUserQuery } from "../../store/apiSlice";
 
 const Header = () => {
   const { t, i18n } = useTranslation("common");
@@ -16,42 +16,32 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // used for services menu and language menu
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const [userRole, setUserRole] = useState(null);
   const [logout, { isLoading: isLoggingOut }] = useLogoutMutation();
   const rafRef = useRef(null);
   const lastScrollY = useRef(0);
 
-  useEffect(() => {
-    const readUserRole = () => {
-      try {
-        const stored = localStorage.getItem("user");
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          setUserRole(parsed?.role || null);
-        } else {
-          setUserRole(null);
-        }
-      } catch {
-        setUserRole(null);
-      }
-    };
+  // Get user from API with localStorage fallback
+  const {
+    data,
+    isLoading: isUserLoading,
+  } = useGetCurrentUserQuery(undefined, {
+    // Refetch on mount to ensure fresh data
+    refetchOnMountOrArgChange: true,
+    // Polling interval can be added if needed for real-time updates
+  });
 
-    readUserRole();
+  // Get user from API or fallback to localStorage
+  const getStoredUser = () => {
+    try {
+      const stored = localStorage.getItem("user");
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      return null;
+    }
+  };
 
-    const handleStorage = (event) => {
-      if (event.key === "user") {
-        readUserRole();
-      }
-    };
-
-    window.addEventListener("storage", handleStorage);
-    window.addEventListener("focus", readUserRole);
-
-    return () => {
-      window.removeEventListener("storage", handleStorage);
-      window.removeEventListener("focus", readUserRole);
-    };
-  }, []);
+  const user = data?.user || getStoredUser();
+  const userRole = user?.role || null;
 
   // persist language selection in localStorage
   useEffect(() => {
@@ -181,7 +171,7 @@ const Header = () => {
     return found ? found.countryCode : "GB";
   };
 
-  const isAdmin = userRole === "superadmin" || userRole === "subadmin";
+  const isAdmin = userRole === "superadmin";
   const profilePath = isAdmin ? "/admin" : "/profile";
 
   const handleLogout = async () => {
@@ -192,7 +182,7 @@ const Header = () => {
       console.error("Logout failed", error);
     } finally {
       localStorage.removeItem("user");
-      setUserRole(null);
+      // RTK Query cache will be automatically invalidated due to invalidatesTags: ['User']
       navigate("/login");
     }
   };

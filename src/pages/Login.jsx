@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react';
 import { useLoginMutation } from '../store/apiSlice';
 
-const ADMIN_ROLES = ['superadmin', 'subadmin'];
+const ADMIN_ROLE = 'superadmin';
+const SUBADMIN_ROLE = 'subadmin';
 
 const Login = () => {
   const { t } = useTranslation('common');
@@ -47,7 +48,12 @@ const Login = () => {
           localStorage.setItem('user', JSON.stringify(response.user));
         }
         setTimeout(() => {
-          const targetRoute = ADMIN_ROLES.includes(response.user?.role) ? '/admin' : '/home';
+          let targetRoute = '/home';
+          if (response.user?.role === ADMIN_ROLE) {
+            targetRoute = '/admin';
+          } else if (response.user?.role === SUBADMIN_ROLE) {
+            targetRoute = '/subadmin';
+          }
           navigate(targetRoute);
         }, 1500);
       }

@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { useGetCurrentUserQuery, useUpdateUserMutation } from "../store/apiSlice";
-import { CheckCircle, Loader2, RefreshCw, XCircle } from "lucide-react";
+import {
+  useGetCurrentUserQuery,
+  useUpdateCurrentUserProfileMutation,
+  useUploadProfileImageMutation,
+} from "../store/apiSlice";
+import { CheckCircle, Loader2, RefreshCw, XCircle, Upload, X } from "lucide-react";
+import PDFPreviewModal from "../components/common/PDFPreviewModal";
 
 const needHelpOptions = [
   { value: "SOP", label: "Statement of Purpose (SOP)" },
@@ -40,6 +45,26 @@ const formatRole = (role) => {
     .join(" ");
 };
 
+// Define mandatory fields
+const mandatoryFields = [
+  "name",
+  "dateOfBirth",
+  "country",
+  "city",
+  "highestQualification",
+  "fieldOfStudy",
+  "graduationYear",
+  "marksOrCGPA",
+  "targetDegreeInGermany",
+  "desiredCourseProgram",
+  "preferredIntake",
+  "englishProficiency",
+  "germanLanguageLevel",
+  "workExperience",
+  "estimatedBudget",
+  "shortlistedUniversities",
+];
+
 const Profile = () => {
   const {
     data,
@@ -48,14 +73,22 @@ const Profile = () => {
     refetch,
     error: userError,
   } = useGetCurrentUserQuery();
-  const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
+  const [updateCurrentUserProfile, { isLoading: isUpdating }] =
+    useUpdateCurrentUserProfileMutation();
+  const [uploadProfileImage, { isLoading: isUploadingImage }] =
+    useUploadProfileImageMutation();
 
   const user = data?.user;
-  const userId = useMemo(() => user?._id || user?.id || user?.userId, [user]);
 
   const [formData, setFormData] = useState(initialFormState);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [validationErrors, setValidationErrors] = useState({});
+  const [showPDFPreview, setShowPDFPreview] = useState(false);
+  const [generatedPDF, setGeneratedPDF] = useState(null);
+  const [isSavingPDF, setIsSavingPDF] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     if (!user) return;
@@ -81,6 +114,7 @@ const Profile = () => {
       needHelpWith: user.needHelpWith || [],
       agreedToTerms: Boolean(user.agreedToTerms),
     });
+    setImagePreview(user.profileImage || null);
   }, [user]);
 
   const handleInputChange = (event) => {
@@ -121,10 +155,97 @@ const Profile = () => {
     setSuccessMessage("");
   };
 
+  const handleImageChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      setErrorMessage("Please select a valid image file");
+      return;
+    }
+
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setErrorMessage("Image size must be less than 5MB");
+      return;
+    }
+
+    setSelectedFile(file);
+    setErrorMessage("");
+
+    // Create preview
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleImageUpload = async () => {
+    if (!selectedFile) return;
+
+    try {
+      setErrorMessage("");
+      const response = await uploadProfileImage(selectedFile).unwrap();
+      if (response?.success) {
+        setSuccessMessage("Profile image uploaded successfully!");
+        setSelectedFile(null);
+        refetch();
+        if (response.user) {
+          localStorage.setItem("user", JSON.stringify(response.user));
+        }
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      } else {
+        setErrorMessage(response?.message || "Failed to upload image");
+      }
+    } catch (error) {
+      const apiMessage = error?.data?.message || error?.message;
+      setErrorMessage(apiMessage || "Failed to upload image. Please try again.");
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setSelectedFile(null);
+    setImagePreview(user?.profileImage || null);
+    setErrorMessage("");
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    
+    mandatoryFields.forEach((field) => {
+      const value = formData[field];
+      if (!value || (typeof value === "string" && value.trim() === "")) {
+        errors[field] = `${field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, " $1")} is required`;
+      }
+    });
+
+    // Validate graduationYear is a valid number
+    if (formData.graduationYear) {
+      const parsedYear = parseInt(formData.graduationYear, 10);
+      if (Number.isNaN(parsedYear)) {
+        errors.graduationYear = "Graduation year must be a valid number";
+      }
+    }
+
+    // Validate dateOfBirth
+    if (formData.dateOfBirth) {
+      const dob = new Date(formData.dateOfBirth);
+      if (isNaN(dob.getTime())) {
+        errors.dateOfBirth = "Date of birth must be a valid date";
+      }
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const buildPayload = () => {
     const {
       name,
-      profileImage,
       dateOfBirth,
       country,
       city,
@@ -146,7 +267,6 @@ const Profile = () => {
 
     const payload = {
       name: name.trim(),
-      profileImage: profileImage.trim(),
       country: country.trim(),
       city: city.trim(),
       highestQualification: highestQualification.trim(),
@@ -162,21 +282,6 @@ const Profile = () => {
       shortlistedUniversities: shortlistedUniversities.trim(),
       agreedToTerms,
     };
-
-    if (profileImage === "") delete payload.profileImage;
-    if (country === "") delete payload.country;
-    if (city === "") delete payload.city;
-    if (highestQualification === "") delete payload.highestQualification;
-    if (fieldOfStudy === "") delete payload.fieldOfStudy;
-    if (marksOrCGPA === "") delete payload.marksOrCGPA;
-    if (targetDegreeInGermany === "") delete payload.targetDegreeInGermany;
-    if (desiredCourseProgram === "") delete payload.desiredCourseProgram;
-    if (preferredIntake === "") delete payload.preferredIntake;
-    if (englishProficiency === "") delete payload.englishProficiency;
-    if (germanLanguageLevel === "") delete payload.germanLanguageLevel;
-    if (workExperience === "") delete payload.workExperience;
-    if (estimatedBudget === "") delete payload.estimatedBudget;
-    if (shortlistedUniversities === "") delete payload.shortlistedUniversities;
 
     if (dateOfBirth) {
       payload.dateOfBirth = dateOfBirth;
@@ -202,17 +307,26 @@ const Profile = () => {
     event.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
+    setValidationErrors({});
 
-    if (!userId) {
-      setErrorMessage("Unable to determine user identifier.");
+    // Validate mandatory fields
+    if (!validateForm()) {
+      setErrorMessage("Please fill in all required fields.");
       return;
     }
 
     try {
       const payload = buildPayload();
-      const response = await updateUser({ id: userId, ...payload }).unwrap();
+      const response = await updateCurrentUserProfile(payload).unwrap();
       if (response?.success) {
-        setSuccessMessage("Profile updated successfully.");
+        setSuccessMessage("Profile updated successfully. Preview your resume below.");
+        // Use backend proxy endpoint for PDF instead of direct Cloudinary URL
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5010/api';
+        const pdfUrl = response.resumePdf?.startsWith('http') 
+          ? `${API_BASE_URL}/users/auth/resume/file`
+          : response.resumePdf; // Fallback to base64 if it's not a URL
+        setGeneratedPDF(pdfUrl);
+        setShowPDFPreview(true);
         refetch();
         if (response.user) {
           localStorage.setItem("user", JSON.stringify(response.user));
@@ -224,6 +338,28 @@ const Profile = () => {
       const apiMessage = error?.data?.message || error?.message;
       setErrorMessage(apiMessage || "Something went wrong while updating your profile.");
     }
+  };
+
+  const handleSavePDF = async () => {
+    setIsSavingPDF(true);
+    try {
+      // The PDF is already saved in the backend, we just need to close the modal
+      setShowPDFPreview(false);
+      setSuccessMessage("Resume saved successfully!");
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+    } catch (error) {
+      setErrorMessage("Failed to save resume. Please try again.");
+    } finally {
+      setIsSavingPDF(false);
+    }
+  };
+
+  const handleDiscardPDF = () => {
+    setShowPDFPreview(false);
+    setGeneratedPDF(null);
+    setSuccessMessage("");
   };
 
   if (isUserLoading) {
@@ -344,55 +480,148 @@ const Profile = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Personal Details</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.name
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.name && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                      )}
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Profile Image
+                      </label>
+                      <div className="space-y-4">
+                        {/* Image Preview */}
+                        {imagePreview && (
+                          <div className="relative inline-block">
+                            <img
+                              src={imagePreview}
+                              alt="Profile preview"
+                              className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                            />
+                            {selectedFile && (
+                              <button
+                                type="button"
+                                onClick={handleRemoveImage}
+                                className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                                title="Remove selected image"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            )}
+                          </div>
+                        )}
+                        
+                        {/* File Input */}
+                        <div className="flex items-center gap-4">
+                          <label className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300 bg-white text-gray-700 font-medium cursor-pointer hover:bg-gray-50 transition-colors">
+                            <Upload className="w-5 h-5" />
+                            {selectedFile ? "Change Image" : "Upload Image"}
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={handleImageChange}
+                              className="hidden"
+                              disabled={isUploadingImage}
+                            />
+                          </label>
+                          
+                          {selectedFile && (
+                            <button
+                              type="button"
+                              onClick={handleImageUpload}
+                              disabled={isUploadingImage}
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-green-600 to-sky-600 text-white font-medium shadow-md hover:shadow-lg transition-all disabled:opacity-60"
+                            >
+                              {isUploadingImage ? (
+                                <>
+                                  <Loader2 className="w-4 h-4 animate-spin" />
+                                  Uploading...
+                                </>
+                              ) : (
+                                "Upload"
+                              )}
+                            </button>
+                          )}
+                        </div>
+                        
+                        <p className="text-xs text-gray-500">
+                          Supported formats: JPEG, PNG, GIF, WEBP. Max size: 5MB
+                        </p>
+                      </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Profile Image URL</label>
-                      <input
-                        type="url"
-                        name="profileImage"
-                        value={formData.profileImage}
-                        onChange={handleInputChange}
-                        placeholder="https://example.com/photo.jpg"
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Date of Birth</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Date of Birth <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="date"
                         name="dateOfBirth"
                         value={formData.dateOfBirth}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.dateOfBirth
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.dateOfBirth && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.dateOfBirth}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Country <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="country"
                         value={formData.country}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.country
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.country && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.country}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        City <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="city"
                         value={formData.city}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.city
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.city && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.city}</p>
+                      )}
                     </div>
                   </div>
                 </section>
@@ -402,27 +631,49 @@ const Profile = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Academic Details</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Highest Qualification</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Highest Qualification <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="highestQualification"
                         value={formData.highestQualification}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.highestQualification
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.highestQualification && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.highestQualification}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Field of Study</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Field of Study <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="fieldOfStudy"
                         value={formData.fieldOfStudy}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.fieldOfStudy
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.fieldOfStudy && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.fieldOfStudy}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Graduation Year</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Graduation Year <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="number"
                         name="graduationYear"
@@ -430,71 +681,139 @@ const Profile = () => {
                         max={new Date().getFullYear() + 5}
                         value={formData.graduationYear}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.graduationYear
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.graduationYear && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.graduationYear}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Marks / CGPA</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Marks / CGPA <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="marksOrCGPA"
                         value={formData.marksOrCGPA}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.marksOrCGPA
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.marksOrCGPA && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.marksOrCGPA}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Target Degree in Germany</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Target Degree in Germany <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="targetDegreeInGermany"
                         value={formData.targetDegreeInGermany}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.targetDegreeInGermany
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.targetDegreeInGermany && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.targetDegreeInGermany}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Desired Course / Program</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Desired Course / Program <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="desiredCourseProgram"
                         value={formData.desiredCourseProgram}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.desiredCourseProgram
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.desiredCourseProgram && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.desiredCourseProgram}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Intake</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Preferred Intake <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="preferredIntake"
                         value={formData.preferredIntake}
                         onChange={handleInputChange}
                         placeholder="Winter / Summer"
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.preferredIntake
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.preferredIntake && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.preferredIntake}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">English Proficiency</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        English Proficiency <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="englishProficiency"
                         value={formData.englishProficiency}
                         onChange={handleInputChange}
                         placeholder="IELTS / TOEFL / PTE"
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.englishProficiency
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.englishProficiency && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.englishProficiency}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">German Language Level</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        German Language Level <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="germanLanguageLevel"
                         value={formData.germanLanguageLevel}
                         onChange={handleInputChange}
                         placeholder="None / A1 / A2 / B1 / B2 / C1"
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.germanLanguageLevel
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.germanLanguageLevel && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.germanLanguageLevel}</p>
+                      )}
                     </div>
                   </div>
                 </section>
@@ -504,34 +823,64 @@ const Profile = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Professional & Planning</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Work Experience</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Work Experience <span className="text-red-500">*</span>
+                      </label>
                       <textarea
                         name="workExperience"
                         value={formData.workExperience}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.workExperience
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.workExperience && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.workExperience}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Estimated Budget</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Estimated Budget <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="text"
                         name="estimatedBudget"
                         value={formData.estimatedBudget}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.estimatedBudget
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.estimatedBudget && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.estimatedBudget}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Shortlisted Universities</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Shortlisted Universities <span className="text-red-500">*</span>
+                      </label>
                       <textarea
                         name="shortlistedUniversities"
                         value={formData.shortlistedUniversities}
                         onChange={handleInputChange}
                         rows={3}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className={`w-full rounded-xl border ${
+                          validationErrors.shortlistedUniversities
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                        required
                       />
+                      {validationErrors.shortlistedUniversities && (
+                        <p className="mt-1 text-sm text-red-600">{validationErrors.shortlistedUniversities}</p>
+                      )}
                     </div>
                   </div>
                 </section>
@@ -639,6 +988,16 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* PDF Preview Modal */}
+      <PDFPreviewModal
+        isOpen={showPDFPreview}
+        onClose={() => setShowPDFPreview(false)}
+        pdfDataUrl={generatedPDF}
+        onSave={handleSavePDF}
+        onDiscard={handleDiscardPDF}
+        isLoading={isSavingPDF}
+      />
     </div>
   );
 };
