@@ -34,7 +34,7 @@ import SubAdminProfile from "./pages/subadmin/SubAdminProfile";
 
 function App() {
   const location = useLocation();
-  const hideLayoutRoutes = ["/", "/login", "/register"];
+  const hideLayoutRoutes = ["/login", "/register"];
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
   const isSubAdminView = location.pathname.startsWith("/subadmin");
 
@@ -45,7 +45,7 @@ function App() {
       {!shouldHideLayout && isSubAdminView && <SubAdminHeader />}
       <div className={shouldHideLayout ? "" : "min-h-screen"}>
         <Routes> 
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -133,7 +133,7 @@ function App() {
               </SubAdminRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/home" replace />} />
         </Routes>
       </div>
       {!shouldHideLayout && <Footer />}

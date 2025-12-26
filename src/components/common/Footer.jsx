@@ -285,6 +285,9 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import logo from '../../assets/logo.png';
+import { useAuthRedirect } from '../../utils/useAuthRedirect';
+
 
 const ICON_MAP = {
   facebook: Facebook,
@@ -384,16 +387,17 @@ const Footer = () => {
           {/* Company Info */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>
             <motion.div className="flex items-center gap-3 mb-6" whileHover={{ scale: 1.03 }}>
-              <div className="w-10 h-10 bg-gradient-to-r from-green-900 to-sky-900 rounded-xl flex items-center justify-center">
+              {/* <div className="w-10 h-10 bg-gradient-to-r from-green-900 to-sky-900 rounded-xl flex items-center justify-center">
                 <Globe className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">{footer.company || 'Eduberator'}</h3>
+              </div> */}
+              <img src={logo} alt="Eduberator" className="h-14 w-auto" />
+              {/* <h3 className="text-2xl font-bold text-gray-900">{footer.company || 'Eduberator'}</h3> */}
             </motion.div>
 
-            <p className="text-gray-700 mb-6 leading-relaxed">{footer.about || 'Your strategic partner for German education. We transform dreams into successful admissions with proven strategies and expert guidance.'}</p>
+            <p className="text-gray-700 mb-6 leading-relaxed">{footer.about || 'Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.'}</p>
 
             {/* Trust Badges */}
-            <div className="space-y-3">
+            {/* <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-gray-700">
                 <CheckCircle className="w-4 h-4 text-green-600" />
                 <span>{(footer.trust && footer.trust.one) || '99% Admission Success'}</span>
@@ -406,7 +410,7 @@ const Footer = () => {
                 <CheckCircle className="w-4 h-4 text-green-600" />
                 <span>{(footer.trust && footer.trust.three) || 'Germany Education Experts'}</span>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Quick Links */}
@@ -458,7 +462,7 @@ const Footer = () => {
         {/* Contact & Social Section */}
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 border-t border-gray-200" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
           {/* Contact Info */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold text-gray-900 mb-4">{footer.get_in_touch_title || 'Get In Touch'}</h4>
             <div className="space-y-3">
               <motion.a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-3 text-gray-700 hover:text-green-600 transition-colors duration-300 group" whileHover={{ x: 5 }}>
@@ -491,42 +495,68 @@ const Footer = () => {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </div> */}
 
-          {/* Social & Newsletter */}
-          <div className="space-y-6">
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">{footer.follow_us_title || 'Follow Us'}</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => {
-                  const Icon = ICON_MAP[(social.provider || '').toLowerCase()] || null;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={social.href || '#'}
-                      className={`w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-700 transition-all duration-300 hover:scale-110 border border-gray-100`}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label={social.provider || `social-${index}`}
-                    >
-                      {Icon ? <Icon className="w-5 h-5" /> : <Globe className="w-5 h-5" />}
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </div>
+          {/* Newsletter - LEFT */}
+<div className="space-y-4">
+  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+    {footer.newsletter_title || 'Newsletter'}
+  </h4>
 
-            {/* Newsletter */}
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">{footer.newsletter_title || 'Newsletter'}</h4>
-              <div className="flex gap-2">
-                <input type="email" placeholder={footer.newsletter_placeholder || 'Enter your email'} className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-green-600 transition-all duration-300" />
-                <motion.button className="px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} aria-label="subscribe">
-                  <MessageCircle className="w-5 h-5" />
-                </motion.button>
-              </div>
-            </div>
-          </div>
+  <div className="flex gap-2">
+    <input
+      type="email"
+      placeholder={footer.newsletter_placeholder || 'Enter your email'}
+      className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-green-600 transition-all duration-300"
+    />
+    <motion.button
+      className="px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      aria-label="subscribe"
+      onClick={(e) => {
+        if (!requireAuth()) {
+          e.preventDefault();
+          return;
+        }
+      }}
+    >
+      <MessageCircle className="w-5 h-5" />
+    </motion.button>
+  </div>
+</div>
+
+{/* Social Links - RIGHT */}
+<div className="space-y-4 lg:text-right">
+  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+    {footer.follow_us_title || 'Follow Us'}
+  </h4>
+
+  <div className="flex gap-3 lg:justify-end">
+    {socialLinks.map((social, index) => {
+      const Icon =
+        ICON_MAP[(social.provider || '').toLowerCase()] || null;
+
+      return (
+        <motion.a
+          key={index}
+          href={social.href || '#'}
+          className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-700 transition-all duration-300 border border-gray-100"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label={social.provider || `social-${index}`}
+        >
+          {Icon ? (
+            <Icon className="w-5 h-5" />
+          ) : (
+            <Globe className="w-5 h-5" />
+          )}
+        </motion.a>
+      );
+    })}
+  </div>
+</div>
+
         </motion.div>
 
         {/* Bottom Bar */}

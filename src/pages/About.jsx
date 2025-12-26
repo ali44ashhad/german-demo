@@ -197,6 +197,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuthRedirect } from '../utils/useAuthRedirect';
 
 const FALLBACK = {
   title: 'About Profiberater',
@@ -214,23 +215,23 @@ const FALLBACK = {
     ]
   },
   stats: [
-    { number: '500+', label: 'Students Guided' },
+    { number: 'International', label: 'Students Guided' },
     { number: '99%', label: 'Admission Success' },
-    { number: '50+', label: 'German Universities' },
-    { number: '10+', label: 'Years Experience' }
+    { number: '5000+', label: 'European Universities' },
+    { number: '10+ years', label: 'Industrial Experience' }
   ],
   valuesHeading: 'Our Values & Philosophy',
   values: [
     {
       title: 'Our Mission',
       description:
-        'To guide and support you in pursuing your passion through personalized counselling and our deep experience in the education industry.',
+        'At Eduberater, our mission is to guide and support students in pursuing their passion through personalized counselling and our deep experience in the education industry. We are committed to empowering your academic and career journey with expert advice and genuine care.',
       color: 'from-green-600 to-sky-600'
     },
     {
       title: 'Our Vision',
       description:
-        'Empowering every student to pursue their passions with confidence, equipping them to realize their full potential and soar toward success.',
+        'At Eduberater, we are committed to guiding students through one of the most pivotal phases of their lives - choosing the right career path. We believe no student should ever have to settle for less than what they truly aspire to achieve. Our vision is to empower every student to pursue their passions with confidence, equipping them with the support and resources they need to realize their full potential and soar toward a future of success.',
       color: 'from-green-600 to-sky-600'
     },
     {
@@ -417,6 +418,12 @@ const About = () => {
             className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              if (!requireAuth()) {
+                e.preventDefault();
+                return;
+              }
+            }}
           >
             {cta.button}
           </motion.button>

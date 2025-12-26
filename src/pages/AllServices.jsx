@@ -351,6 +351,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuthRedirect } from "../utils/useAuthRedirect";
 
 // ===== FALLBACK (mirrors your JSON data) =====
 const FALLBACK = {
@@ -423,7 +424,7 @@ const FALLBACK = {
       icon: "Heart",
       title: "Medical Insurance",
       description:
-        "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+        "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
       features: [
         "Public Health Insurance (GKV)",
         "Private Health Insurance",
@@ -452,7 +453,7 @@ const FALLBACK = {
       icon: "TrendingUp",
       title: "Education Loan",
       description:
-        "Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.",
+        "Financial assistance for students pursuing higher education in Europe with flexible repayment options.",
       features: [
         "Collateral-Free Loans",
         "Secured Education Loans",
@@ -525,6 +526,7 @@ const AllServices = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation("common");
+  const { requireAuth } = useAuthRedirect();
 
   const raw = t("allservices", { returnObjects: true, defaultValue: {} });
 
@@ -756,6 +758,12 @@ const AllServices = () => {
                 className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  if (!requireAuth()) {
+                    e.preventDefault();
+                    return;
+                  }
+                }}
               >
                 {comprehensiveCTA.packageButton}
               </motion.button>

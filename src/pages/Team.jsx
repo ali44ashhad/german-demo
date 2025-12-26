@@ -254,34 +254,34 @@ import {
   Linkedin
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuthRedirect } from '../utils/useAuthRedirect';
 
 const FALLBACK = {
   hero: {
     title: 'Meet Our Team',
     subtitle:
-      'Seasoned professionals from India now living and working across Europe for over a decade. We bring first-hand experience and deep industry insights to guide your German education journey.'
+      'Led by Indian professionals who have lived and worked across Europe & India for more than a decade, we combine real-world experience with deep industry expertise to deliver trusted guidance for your education journey.'
   },
   members: [
     {
       name: 'Dr. Pavan B.',
-      role: 'Biomedical / Biotech / Biology Expert',
+      role: 'Co-Founder, Biotech expert with 12+ years of Industry Experience',
       education: 'PhD in Biomedical Engineering',
       experience: '10+ years in European healthcare',
       image:
         'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face',
-      specialization: ['Medical Research', 'Biotech Admissions', 'PhD Guidance']
+      specialization: ['Life Science Research', 'Higher Education in Life Sciences' , 'Guidance for PhD & Masters' ]
     },
     {
       name: 'Sagar P.',
-      role: 'Business Development Manager',
-      education: 'Mechanical Engineering',
-      experience: '8+ years in European industry',
+      role: 'Sales & Business Development Manager',
+      education: 'Masters in International Business & Engineering',
+      experience: '12+ years Experience',
       image:
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face',
       specialization: [
-        'Mechanical Engineering',
+        'Engineering Programs',
         'Business Programs',
-        'Industry Connections'
       ]
     },
     {
@@ -329,7 +329,7 @@ const FALLBACK = {
   cta: {
     heading: 'Ready to Work With Our Experts?',
     sub: 'Get personalized guidance from our team of experienced professionals.',
-    button: 'Book Consultation With Our Team'
+    button: 'Register yourself for counselling'
   }
 };
 
@@ -409,35 +409,37 @@ const Team = () => {
             {members.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group"
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col h-full"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
                 whileHover={{ y: -8 }}
               >
-                <div className="text-center mb-6">
+                {/* Header Section - Fixed Height */}
+                <div className="text-center mb-6 flex-shrink-0">
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-green-200 transition-all duration-300">
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-1">{member.role}</p>
-                  <p className="text-gray-600 text-sm mb-2">{member.experience}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[2rem]">{member.name}</h3>
+                  <p className="text-green-600 font-semibold mb-3 min-h-[3rem] line-clamp-2">{member.role}</p>
+                  <p className="text-gray-600 text-sm mb-2 min-h-[1.25rem]">{member.experience}</p>
                 </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-gray-700 text-sm">
-                    <GraduationCap className="w-4 h-4 text-green-600" />
-                    <span>{member.education}</span>
+                {/* Content Section - Flexible */}
+                <div className="flex flex-col flex-grow space-y-4">
+                  <div className="flex items-start gap-2 text-gray-700 text-sm min-h-[1.5rem]">
+                    <GraduationCap className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="flex-1">{member.education}</span>
                   </div>
 
-                  <div>
-                    <p className="text-gray-700 text-sm font-semibold mb-2">Specializations:</p>
-                    <div className="space-y-2">
+                  <div className="flex-grow">
+                    <p className="text-gray-700 text-sm font-semibold mb-3">Specializations:</p>
+                    <div className="space-y-2 min-h-[4rem]">
                       {Array.isArray(member.specialization)
                         ? member.specialization.map((spec, si) => (
-                            <div key={si} className="flex items-center gap-2 text-gray-700 text-sm">
-                              <div className="w-1 h-1 bg-green-600 rounded-full" />
-                              <span>{spec}</span>
+                            <div key={si} className="flex items-start gap-2 text-gray-700 text-sm">
+                              <div className="w-1 h-1 bg-green-600 rounded-full mt-2 flex-shrink-0" />
+                              <span className="flex-1">{spec}</span>
                             </div>
                           ))
                         : null}
@@ -445,7 +447,7 @@ const Team = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-3 mt-6 pt-6 border-t border-gray-100">
+                {/* <div className="flex gap-3 mt-6 pt-6 border-t border-gray-100">
                   <a
                     href={member.contactMail ? `mailto:${member.contactMail}` : '#'}
                     className="flex-1 bg-white/60 text-green-600 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 transition-all duration-300 flex items-center justify-center gap-2"
@@ -465,7 +467,7 @@ const Team = () => {
                     <Linkedin className="w-4 h-4 inline" />
                     {t('team.profile', 'Profile')}
                   </a>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </div>
@@ -530,6 +532,12 @@ const Team = () => {
             className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
+            onClick={(e) => {
+              if (!requireAuth()) {
+                e.preventDefault();
+                return;
+              }
+            }}
           >
             {cta.button}
           </motion.button>

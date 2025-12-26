@@ -271,6 +271,7 @@ import {
   Wifi
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useAuthRedirect } from "../../utils/useAuthRedirect";
 
 // ===== FALLBACK (matches your original strings) =====
 const FALLBACK = {
@@ -366,6 +367,7 @@ const Accommodation = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation("common");
+  const { requireAuth } = useAuthRedirect();
 
   // read accommodation block from i18n
   const raw = t("accommodation", { returnObjects: true, defaultValue: {} });
@@ -469,6 +471,12 @@ const Accommodation = () => {
                     className="w-full bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={(e) => {
+                      if (!requireAuth()) {
+                        e.preventDefault();
+                        return;
+                      }
+                    }}
                   >
                     {t("accommodation.viewOptions", { defaultValue: "View Available Options" })}
                   </motion.button>
@@ -548,6 +556,12 @@ const Accommodation = () => {
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                if (!requireAuth()) {
+                  e.preventDefault();
+                  return;
+                }
+              }}
             >
               {cta.button} <ArrowRight className="w-5 h-5" />
             </motion.button>

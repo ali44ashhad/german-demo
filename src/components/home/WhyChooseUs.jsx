@@ -236,7 +236,7 @@ const DEFAULT_FEATURES = [
     icon: LifeBuoy,
     title: 'End-to-End Support',
     description:
-      "From application to onboarding and settling in, we stand by your side throughout your educational journey.",
+      "We stand by your side throughout your educational journey, from application to admission.",
     color: 'from-indigo-500 to-blue-500'
   }
 ];
@@ -314,7 +314,7 @@ const WhyChooseUs = () => {
              {" "} {t('footer.company') || ' Eduberator'}
             </span>
           </motion.h2>
-
+{/* 
           <motion.p
             className="mt-6 text-base md:text-lg text-gray-700 leading-relaxed"
             initial={{ opacity: 0, y: 16 }}
@@ -322,7 +322,7 @@ const WhyChooseUs = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             {t('why.sub') || 'All our services are conducted entirely online — no office visits required. We stay in close communication via Email, TEAMS/Zoom, and WhatsApp to guide you at every step.'}
-          </motion.p>
+          </motion.p> */}
         </div>
 
         {/* Features Grid */}
@@ -342,8 +342,8 @@ const WhyChooseUs = () => {
                   >
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{f.title}</h3>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mt-auto">{f.description}</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 min-h-[3rem] md:min-h-[3.5rem]">{f.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mt-2">{f.description}</p>
                 </div>
               </motion.div>
             );
@@ -372,7 +372,7 @@ const WhyChooseUs = () => {
             <div>
               <h4 className="text-lg font-semibold text-gray-900">{add.online_title || 'Fully Online & Always Connected'}</h4>
               <p className="text-gray-600 text-sm md:text-base">
-                {add.online_text || "All services are delivered online. We'll be in touch via Email, TEAMS/Zoom, and WhatsApp for document reviews, mock interviews, application tracking, and onboarding help."}
+                {add.online_text || "All services are delivered online. We'll be in touch via Email, and TEAMS/Zoom for document reviews, mock interviews, application tracking, and onboarding help."}
               </p>
             </div>
           </div>
@@ -387,9 +387,9 @@ const WhyChooseUs = () => {
         >
           <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="text-left flex-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{(cta.title) || 'Ready to build your roadmap?'}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{(cta.title) || 'Ready to build your career roadmap?'}</h3>
               <p className="text-gray-600 text-sm md:text-base mt-2">
-                { (cta.text) || 'Book a free consultation and let our experts craft a personalized plan for your European education journey.'}
+                { (cta.text) || 'Book your consultation and let our experts craft a personalized plan for your European education journey.'}
               </p>
             </div>
             <button className="px-6 py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all mt-4 md:mt-0">

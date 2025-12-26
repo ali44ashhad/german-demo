@@ -357,8 +357,8 @@
 
 
 // src/components/home/Process.jsx
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useInView, useAnimation, useMotionValue, animate } from 'framer-motion';
 import {
   UserCheck,
   Search,
@@ -440,6 +440,9 @@ const Process = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const animationRef = useRef(null);
 
   // read steps from i18n; allow array or keyed object
   const rawSteps = t('process.steps', { returnObjects: true });
@@ -469,6 +472,74 @@ const Process = () => {
     image: s.image ?? '',
     color: s.color ?? 'from-green-600 to-sky-600'
   }));
+
+  // Duplicate steps for infinite scroll effect
+  const duplicatedSteps = [...steps, ...steps];
+
+  // Calculate scroll distance - responsive card widths
+  // Mobile: 350px, Tablet: 500px, Desktop: 550px
+  const [cardWidth, setCardWidth] = useState(350);
+  const [gap, setGap] = useState(24); // gap-6 = 24px on mobile, gap-8 = 32px on desktop
+  
+  // Update card width and gap based on screen size
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (window.innerWidth >= 768) {
+        setCardWidth(550); // md and above
+        setGap(32); // gap-8 = 32px
+      } else if (window.innerWidth >= 640) {
+        setCardWidth(500); // sm
+        setGap(32); // gap-8 = 32px
+      } else {
+        setCardWidth(350); // mobile
+        setGap(24); // gap-6 = 24px
+      }
+    };
+    
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
+  
+  const scrollDistance = (cardWidth + gap) * steps.length;
+
+  // Handle animation based on view and hover state
+  useEffect(() => {
+    if (isInView && !isHovered) {
+      // Get current position from motion value to resume from where we left off
+      const currentX = x.get();
+      const targetX = currentX - scrollDistance;
+      
+      // Cancel any existing animation
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+      
+      // Animate the motion value directly - this will loop seamlessly
+      animationRef.current = animate(x, targetX, {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 30,
+        ease: "linear"
+      });
+    } else if (isHovered) {
+      // Stop animation - the x motion value will maintain the current position
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+    } else if (!isInView) {
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+      x.set(0);
+    }
+    
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+    };
+  }, [isInView, isHovered, scrollDistance, x]);
 
   return (
     <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 overflow-hidden">
@@ -510,57 +581,75 @@ const Process = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
+      <div className="relative z-10">
+        {/* Section Header - Keep centered */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="inline-flex items-center gap-2 bg-green-50/50 border border-green-100 rounded-full px-6 py-3 mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Sparkles className="w-5 h-5 text-green-600" />
+              <span className="text-green-600 font-semibold">{t('process.badge') ?? '4-Step Success Process'}</span>
+            </motion.div>
+
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {t('process.heading') ?? 'The Eduberator Roadmap to Germany'}
+              <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent"> </span>
+            </motion.h2>
+
+            <motion.p
+              className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              {t('process.sub') ?? 'A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.'}
+            </motion.p>
+          </motion.div>
+        </div>
+
+        {/* Process Steps - Full Width Horizontal Scroll Container */}
+        <div 
+          className="w-full overflow-x-hidden py-8 pl-4 sm:pl-6 md:pl-8"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-green-50/50 border border-green-100 rounded-full px-6 py-3 mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-nowrap gap-6 md:gap-8"
+            style={{
+              width: 'max-content',
+              display: 'flex',
+              x: x
+            }}
           >
-            <Sparkles className="w-5 h-5 text-green-600" />
-            <span className="text-green-600 font-semibold">{t('process.badge') ?? '4-Step Success Process'}</span>
-          </motion.div>
-
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            {t('process.heading') ?? 'The Eduberator Roadmap to Germany'}
-            <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent"> </span>
-          </motion.h2>
-
-          <motion.p
-            className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {t('process.sub') ?? 'A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.'}
-          </motion.p>
-        </motion.div>
-
-        {/* Process Steps */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {steps.map((step, index) => {
+          {duplicatedSteps.map((step, index) => {
             // pick icon component (if icon is a string name in locale, you can map it; fallback to defaults above)
-            const IconComp = step.icon && typeof step.icon === 'function' ? step.icon : [UserCheck, Search, FileText, Shield][index] || UserCheck;
+            const originalIndex = index % steps.length;
+            const IconComp = step.icon && typeof step.icon === 'function' ? step.icon : [UserCheck, Search, FileText, Shield][originalIndex] || UserCheck;
 
             return (
-              <motion.div key={step.step ?? index} variants={stepVariants} className="group relative">
+              <motion.div 
+                key={`${step.step ?? originalIndex}-${index}`} 
+                initial={{ opacity: 1, y: 0, scale: 1 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                className="group relative flex-shrink-0 w-[350px] sm:w-[500px] md:w-[550px]"
+              >
                 {/* Background Image for Step */}
                 <div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-6 transition-opacity duration-500"
@@ -571,36 +660,25 @@ const Process = () => {
                   }}
                 />
 
-                {/* Connecting Line (for desktop) */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-20 -right-6 w-12 h-1 bg-gradient-to-r from-green-600 to-sky-600 z-0" />
-                )}
-
                 {/* Main Card */}
                 <motion.div
                   className="relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md h-full"
-                  whileHover={{
-                    y: -10,
-                    scale: 1.02,
-                    transition: { type: "spring", stiffness: 300 }
+                  style={{ 
+                    paddingTop: '2rem', 
+                    paddingBottom: '2rem',
+                    transformStyle: 'preserve-3d' 
                   }}
-                  style={{ transformStyle: 'preserve-3d' }}
                 >
                   {/* Step Number Badge */}
                   <motion.div
                     className={`absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-gradient-to-r ${step.color ?? 'from-green-600 to-sky-600'} flex items-center justify-center text-white font-bold text-xl shadow-2xl`}
-                    whileHover={{
-                      scale: 1.08,
-                      rotate: 360
-                    }}
-                    transition={{ duration: 0.5 }}
                   >
                     {step.step}
                   </motion.div>
 
                   <div className="flex flex-col lg:flex-row gap-8 items-center">
                     {/* Icon Section */}
-                    <motion.div className="flex-shrink-0 w-40 h-40 relative" whileHover={{ scale: 1.06, rotateY: 10 }} transition={{ duration: 0.5 }}>
+                    <motion.div className="flex-shrink-0 w-40 h-40 relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-green-50 rounded-2xl" />
 
                       <motion.div
@@ -642,18 +720,17 @@ const Process = () => {
                   {/* Hover Effect */}
                   <motion.div
                     className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${step.color ?? 'from-green-600 to-sky-600'} opacity-0 group-hover:opacity-5 -z-10`}
-                    initial={{ scale: 0.8 }}
-                    whileHover={{ scale: 1 }}
-                    transition={{ duration: 0.3 }}
                   />
                 </motion.div>
               </motion.div>
             );
           })}
-        </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
         {/* CTA Section */}
-        <motion.div className="text-center" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8, delay: 0.8 }}>
+        {/* <motion.div className="text-center" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8, delay: 0.8 }}>
           <div className="bg-gradient-to-r from-green-50 to-sky-50 backdrop-blur-lg rounded-3xl p-12 border border-green-100 relative">
             <div className="absolute inset-0 rounded-3xl opacity-4" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1560930950-5cc20e80e392?ixlib=rb-4.0.3&w=600&h=400&fit=crop')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
 
@@ -673,8 +750,7 @@ const Process = () => {
               <CheckCircle className="w-5 h-5" /> {t('process.cta_note') ?? 'Free initial consultation - No commitment required'}
             </motion.p>
           </div>
-        </motion.div>
-      </div>
+        </motion.div> */}
     </section>
   );
 };

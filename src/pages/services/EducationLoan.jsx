@@ -278,6 +278,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle, ArrowRight, FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useAuthRedirect } from "../../utils/useAuthRedirect";
 import EMICalculator from "../../components/home/EMICalculator";
 
 // helpers
@@ -466,6 +467,12 @@ export default function EducationLoan() {
                   className="w-full bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={(e) => {
+                    if (!requireAuth()) {
+                      e.preventDefault();
+                      return;
+                    }
+                  }}
                 >
                   {labels.checkEligibility}
                 </motion.button>
@@ -556,6 +563,12 @@ export default function EducationLoan() {
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                if (!requireAuth()) {
+                  e.preventDefault();
+                  return;
+                }
+              }}
             >
               {cta.button} <ArrowRight className="w-5 h-5" />
             </motion.button>

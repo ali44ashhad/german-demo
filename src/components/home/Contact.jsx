@@ -270,6 +270,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuthRedirect } from '../../utils/useAuthRedirect';
 
 const ICON_MAP = {
   call: Phone,
@@ -330,6 +331,7 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const { requireAuth } = useAuthRedirect();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -380,6 +382,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!requireAuth()) return;
     setIsSubmitting(true);
 
     try {
@@ -449,26 +452,34 @@ const Contact = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8 }}>
+        {/* <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8 }}>
           <motion.div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 border border-green-100 rounded-full px-6 py-3 mb-6" initial={{ opacity: 0, scale: 0.8 }} animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} transition={{ duration: 0.6, delay: 0.2 }}>
             <MessageCircle className="w-5 h-5 text-green-600" />
             <span className="text-green-600 font-semibold">{t('contact.eyebrow')}</span>
           </motion.div>
 
           <motion.h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            {t('contact.heading').split('{highlight}')[0]} <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">{/* optional highlight */}{/* if you want dynamic text use template in locales */}</span>
+            {t('contact.heading').split('{highlight}')[0]} <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent"> </span>
           </motion.h2>
           
           <motion.p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
             {t('contact.sub')}
           </motion.p>
-        </motion.div>
+        </motion.div> */}
+
+        {/* Heading outside grid */}
+        <motion.h3 
+          className="text-3xl font-bold text-gray-900 mb-12" 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
+          transition={{ duration: 0.6 }}
+        >
+          {t('contact.get_in_touch')}
+        </motion.h3>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-            <motion.h3 className="text-3xl font-bold text-gray-900 mb-8" variants={itemVariants}>{t('contact.get_in_touch')}</motion.h3>
-
             {/* Contact Cards */}
             <div className="space-y-6 mb-8">
               {contactInfo.map((contact, index) => {
@@ -495,11 +506,31 @@ const Contact = () => {
 
             {/* Quick Action Cards */}
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4" variants={itemVariants}>
-              <motion.button className="bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 group" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.button 
+                className="bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 group" 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  if (!requireAuth()) {
+                    e.preventDefault();
+                    return;
+                  }
+                }}
+              >
                 <span className="flex items-center justify-center gap-2"><Phone className="w-5 h-5" />{t('contact.cta_call_now')}</span>
               </motion.button>
 
-              <motion.button className="bg-gradient-to-r from-sky-400 to-blue-500 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-400/25 transition-all duration-300 group" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.button 
+                className="bg-gradient-to-r from-sky-400 to-blue-500 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-blue-400/25 transition-all duration-300 group" 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  if (!requireAuth()) {
+                    e.preventDefault();
+                    return;
+                  }
+                }}
+              >
                 <span className="flex items-center justify-center gap-2"><Calendar className="w-5 h-5" />{t('contact.cta_book_meeting')}</span>
               </motion.button>
             </motion.div>

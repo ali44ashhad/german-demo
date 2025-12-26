@@ -404,7 +404,7 @@ const SuccessStories = () => {
                 {t('testimonials.label') || 'TESTIMONIALS'}
               </span>
               <h2 className="text-slate-900 font-extrabold text-2xl md:text-4xl leading-[1.12] max-w-3xl">
-                {t('testimonials.heading') || 'What our students say about studying in Germany with Profiberater'}
+                {t('testimonials.heading') || 'What our students say about studying in Germany with Eduberater'}
               </h2>
             </div>
 

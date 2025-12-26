@@ -145,6 +145,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import heroVideo from "../../assets/hero.mp4";
 import { useTranslation } from "react-i18next";
+import { useAuthRedirect } from "../../utils/useAuthRedirect";
 
 const DEFAULT = {
   title_line1: "Study in Germany",
@@ -153,10 +154,11 @@ const DEFAULT = {
     "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
   cta_register: "🚀 Register yourself and book your consultation by our professional experts.",
   stats: [
-    { number: "99%", text: "Admission Success" },
-    { number: "500+", text: "Students Guided" },
-    { number: "50+", text: "German Universities" },
-    { number: "10+", text: "Years Experience" }
+    {"text": "High rate of admission success"},
+    {"text": "Efficient guidance for students"},
+    {"text": "Counselling for public and private universities in EU"},
+    {"text": "More than 40+ years of collaborative experience"},
+    {"text": "Industrial experienced counsellors from diverse backgrounds"},
   ],
   video_poster: heroVideo,
   aria_hero_label: "Hero section"
@@ -165,6 +167,7 @@ const DEFAULT = {
 const Hero = () => {
   const { t } = useTranslation("common");
   const videoRef = useRef(null);
+  const { requireAuth } = useAuthRedirect();
 
   // load hero translations defensively
   const raw = t("hero", { returnObjects: true });
@@ -273,6 +276,12 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             aria-label={hero.register_aria || DEFAULT.cta_register}
             title={hero.cta_register || DEFAULT.cta_register}
+            onClick={(e) => {
+              if (!requireAuth()) {
+                e.preventDefault();
+                return;
+              }
+            }}
           >
             {hero.cta_register || DEFAULT.cta_register}
           </motion.button>
@@ -280,13 +289,12 @@ const Hero = () => {
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 max-w-xs sm:max-w-2xl"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-xs sm:max-w-2xl md:max-w-5xl"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
         >
           {stats.map((stat, index) => {
-            const number = stat?.number ?? DEFAULT.stats[index]?.number ?? "";
             const text = stat?.text ?? DEFAULT.stats[index]?.text ?? "";
             return (
               <motion.div
@@ -295,10 +303,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.04, y: -6 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-sky-300">
-                  {number}
+                <div className="text-blue-50 text-xs sm:text-sm md:text-base font-medium leading-relaxed drop-shadow-md">
+                  {text}
                 </div>
-                <div className="text-blue-100 text-xs sm:text-sm md:text-base">{text}</div>
               </motion.div>
             );
           })}

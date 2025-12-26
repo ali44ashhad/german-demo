@@ -225,6 +225,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useAuthRedirect } from "../../utils/useAuthRedirect";
 
 // ---------- ICON MAP (works with string names or direct components) ----------
 const ICONS = {
@@ -254,7 +255,7 @@ const FALLBACK = {
   hero: {
     title: "Forex Card & Remittances",
     subtitle:
-      "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying in Germany.",
+      "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying international.",
   },
   features: [
     {
@@ -492,6 +493,12 @@ export default function ForexCardRemittances() {
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                if (!requireAuth()) {
+                  e.preventDefault();
+                  return;
+                }
+              }}
             >
               {cta.button} <ArrowRight className="w-5 h-5" />
             </motion.button>

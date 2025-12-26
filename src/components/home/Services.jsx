@@ -283,6 +283,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuthRedirect } from '../../utils/useAuthRedirect';
 
 const ICONS = {
   'credit-card': CreditCard,
@@ -300,7 +301,7 @@ const DEFAULT_SERVICES = [
     icon: CreditCard,
     title: 'Forex Card & Remittances',
     description:
-      'Multi-currency forex cards and international money transfer services with best exchange rates for students going to Germany.',
+      'Multi-currency forex cards and international money transfer services with best exchange rates for students.',
     features: ['Multi-Currency Cards', 'Zero Forex Markup', 'Instant Reload', '24/7 Support'],
     color: 'from-green-600 to-sky-600',
     delay: 0.1,
@@ -312,7 +313,7 @@ const DEFAULT_SERVICES = [
     icon: Home,
     title: 'Accommodation',
     description:
-      'Find your perfect home in Germany with our comprehensive accommodation services near universities.',
+      'Get advice on finding accommodation services.',
     features: ['Student Hostels', 'Shared Apartments', 'Studio Flats', 'Homestay Options'],
     color: 'from-green-600 to-sky-600',
     delay: 0.2,
@@ -324,7 +325,7 @@ const DEFAULT_SERVICES = [
     icon: Heart,
     title: 'Medical Insurance',
     description:
-      "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+      "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
     features: ['Visa Compliance', 'Full Coverage', 'EU-Wide Validity', 'Multilingual Support'],
     color: 'from-green-600 to-sky-600',
     delay: 0.3,
@@ -336,7 +337,7 @@ const DEFAULT_SERVICES = [
     icon: TrendingUp,
     title: 'Education Loan',
     description:
-      'Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.',
+      'Financial assistance for students pursuing higher education in Europe with flexible repayment options.',
     features: ['Collateral-Free', 'Low Interest', 'Flexible Tenure', 'Quick Processing'],
     color: 'from-green-600 to-sky-600',
     delay: 0.4,
@@ -349,6 +350,7 @@ const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const { requireAuth } = useAuthRedirect();
 
   // load services from i18n safely (supports array or object)
   const raw = t('services.list', { returnObjects: true });
@@ -448,7 +450,7 @@ const Services = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            {t('services.heading') ? t('services.heading').split('{brand}')[0] : 'Our Core '}
+            {t('services.heading') ? t('services.heading').split('{brand}')[0] : 'Additional'}
             <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">
               {t('services.heading') ? '' : 'Services'}
             </span>
@@ -460,13 +462,13 @@ const Services = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
-            {t('services.description') || 'Complete support services for Indian students - from financial solutions to accommodation and insurance, we haveve got you covered for your German journey.'}
+            {t('services.description') || 'Complete support services for students - from financial solutions to accommodation and insurance, we haveve got you covered for your educational journey.'}
           </motion.p>
         </motion.div>
 
         {/* Services Grid - 2x2 */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
@@ -478,7 +480,7 @@ const Services = () => {
                 key={service.key ?? index}
                 variants={cardVariants}
                 custom={index}
-                className="group relative"
+                className="group relative h-full flex flex-col"
               >
                 {/* subtle bg image overlay */}
                 <div
@@ -490,9 +492,9 @@ const Services = () => {
                   }}
                 />
 
-                <Link to={service.link ?? '#'} className="block relative z-10" aria-label={`${service.title} — Learn more`}>
+                <Link to={service.link ?? '#'} className="block relative z-10 h-full flex flex-col" aria-label={`${service.title} — Learn more`}>
                   <motion.div
-                    className="relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
+                    className="relative bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
                     whileHover={{
                       y: -8,
                       scale: 1.01,
@@ -503,14 +505,14 @@ const Services = () => {
                     <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-6 transition-opacity duration-500 -z-10`} />
 
                     <motion.div
-                      className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} p-5 mb-6 flex items-center justify-center relative overflow-hidden shadow-inner`}
+                      className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${service.color} p-4 sm:p-5 mb-4 sm:mb-6 flex items-center justify-center relative overflow-hidden shadow-inner flex-shrink-0`}
                       whileHover={{
                         scale: 1.06,
                         rotate: [0, -4, 4, 0]
                       }}
                       transition={{ duration: 0.45 }}
                     >
-                      <Icon className="w-10 h-10 text-white" />
+                      <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
                         initial={{ x: -120 }}
@@ -519,35 +521,35 @@ const Services = () => {
                       />
                     </motion.div>
 
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                      <p className="text-gray-700 mb-5 leading-relaxed">{service.description}</p>
+                    <div className="flex-1 flex flex-col min-h-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">{service.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-5 leading-relaxed flex-shrink-0">{service.description}</p>
 
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2 mb-4 sm:mb-6 flex-1 min-h-0">
                         {(Array.isArray(service.features) ? service.features : []).map((feature, featureIndex) => (
                           <motion.div
                             key={featureIndex}
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-2 sm:gap-3"
                             initial={{ opacity: 0, x: -20 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                             transition={{ duration: 0.45, delay: (service.delay || 0) + featureIndex * 0.08 }}
                           >
-                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{feature}</span>
+                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
+                            <span className="text-gray-700 text-xs sm:text-sm">{feature}</span>
                           </motion.div>
                         ))}
                       </div>
                     </div>
 
                     {/* CTA visual */}
-                    <div className="mt-2">
+                    <div className="mt-auto pt-2 flex-shrink-0">
                       <motion.div
-                        className="w-full flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white rounded-xl font-semibold transition-all duration-300"
+                        className="w-full flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 sm:px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white rounded-xl font-semibold text-sm sm:text-base transition-all duration-300"
                         whileHover={{ scale: 1.02 }}
                       >
                         <span>{t('services.learn_more') || 'Learn More'}</span>
                         <motion.div animate={{ x: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
-                          <ArrowRight className="w-5 h-5" />
+                          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                         </motion.div>
                       </motion.div>
                     </div>
@@ -580,6 +582,12 @@ const Services = () => {
                 className="w-full sm:w-auto px-5 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={(e) => {
+                  if (!requireAuth()) {
+                    e.preventDefault();
+                    return;
+                  }
+                }}
               >
                 {t('services.cta.view_all') || 'View All Services'}
               </motion.button>

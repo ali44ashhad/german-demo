@@ -27,10 +27,11 @@
   "description": "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
   "cta_register": "🚀 Register yourself and book your consultation by our professional experts.",
   "stats": [
-    { "number": "99%", "text": "Admission Success" },
-    { "number": "500+", "text": "Students Guided" },
-    { "number": "50+", "text": "German Universities" },
-    { "number": "10+", "text": "Years Experience" }
+    {"text": "High rate of admission success"},
+    {"text": "Efficient guidance for students"},
+    {"text": "Counselling for public and private universities in EU"},
+    {"text": "More than 40+ years of collaborative experience"},
+    {"text": "Industrial experienced counsellors from diverse backgrounds"}
   ],
   "video_poster": "/assets/hero-poster.jpg",
   "aria_hero_label": "Hero section: Study in Germany",
@@ -81,7 +82,7 @@
       "key": "endtoend",
       "icon": "life-buoy",
       "title": "End-to-End Support",
-      "description": "From application to onboarding and settling in, we stand by your side throughout your educational journey.",
+      "description": "We stand by your side throughout your educational journey, from application to admission.",
       "color": "from-indigo-500 to-blue-500"
     }
   ],
@@ -89,26 +90,26 @@
     "specialization_title": "Specialization in European Admissions",
     "specialization_text": "We focus on top universities across Europe, providing insights into regional requirements, culture, and opportunities to help you pick the right destination.",
     "online_title": "Fully Online & Always Connected",
-    "online_text": "All services are delivered online. We'll be in touch via Email, TEAMS/Zoom, and WhatsApp for document reviews, mock interviews, application tracking, and onboarding help."
+    "online_text": "All services are delivered online. We'll be in touch via Email, and TEAMS/Zoom for document reviews, mock interviews, application tracking, and onboarding help."
   },
   "cta": {
-    "title": "Ready to build your roadmap?",
-    "text": "Book a free consultation and let our experts craft a personalized plan for your European education journey.",
+    "title": "Ready to build your career roadmap?",
+    "text": "Book yourconsultation and let our experts craft a personalized plan for your European education journey.",
     "button": "Start My Journey 🚀"
   }
 }
 ,
   "services": {
   "header_short": "Essential Services for Germany",
-  "heading": "Our Core Services",
+  "heading": "Additional Services",
   "learn_more": "learn more",
-  "description": "Complete support services for Indian students - from financial solutions to accommodation and insurance, we've got you covered for your German journey.",
+  "description": "Complete support services for students - from financial solutions to accommodation and insurance, we've got you covered for your educational journey.",
   "list": [
     {
       "key": "forex",
       "icon": "credit-card",
       "title": "Forex Card & Remittances",
-      "description": "Multi-currency forex cards and international money transfer services with best exchange rates for students going to Germany.",
+      "description": "Multi-currency forex cards and international money transfer services with best exchange rates for students.",
       "features": ["Multi-Currency Cards", "Zero Forex Markup", "Instant Reload", "24/7 Support"],
       "color": "from-green-600 to-sky-600",
       "delay": 0.1,
@@ -119,7 +120,7 @@
       "key": "accommodation",
       "icon": "home",
       "title": "Accommodation",
-      "description": "Find your perfect home in Germany with our comprehensive accommodation services near universities.",
+      "description": "Get advice on finding accommodation services.",
       "features": ["Student Hostels", "Shared Apartments", "Studio Flats", "Homestay Options"],
       "color": "from-green-600 to-sky-600",
       "delay": 0.2,
@@ -130,7 +131,7 @@
       "key": "insurance",
       "icon": "heart",
       "title": "Medical Insurance",
-      "description": "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+      "description": "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
       "features": ["Visa Compliance", "Full Coverage", "EU-Wide Validity", "Multilingual Support"],
       "color": "from-green-600 to-sky-600",
       "delay": 0.3,
@@ -141,7 +142,7 @@
       "key": "loan",
       "icon": "trending-up",
       "title": "Education Loan",
-      "description": "Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.",
+      "description": "Financial assistance for students pursuing higher education in Europe with flexible repayment options.",
       "features": ["Collateral-Free", "Low Interest", "Flexible Tenure", "Quick Processing"],
       "color": "from-green-600 to-sky-600",
       "delay": 0.4,
@@ -188,7 +189,7 @@
     {
       "step": 4,
       "title": "Visa & Pre-Departure",
-      "description": "Complete visa application support, blocked account setup, and cultural preparation for your German journey.",
+      "description": "Complete visa application support, blocked account setup, and cultural preparation for your educational journey.",
       "features": ["Visa Documentation", "Blocked Account", "Health Insurance", "Cultural Briefing"],
       "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
       "color": "from-green-600 to-sky-600"
@@ -201,7 +202,7 @@
 ,
 "testimonials": {
   "label": "TESTIMONIALS",
-  "heading": "What our students say about studying in Germany with Profiberater",
+  "heading": "What our students say about studying in Germany with Eduberater",
   "pause": "Pause",
   "resume": "Resume",
   "list": [
@@ -282,7 +283,7 @@
  "contact": {
   "eyebrow": "Free Consultation",
   "heading": "Start Your German Journey Today",
-  "sub": "Get personalized guidance from Germany education experts. Book your free profile assessment and discover your path to German universities.",
+  "sub": "Get personalized guidance from Germany education experts. Book your free profile assessment and  to German universities.",
   "get_in_touch": "Get in Touch",
   "free_assessment": "Free Profile Assessment",
   "thank_you_title": "Thank You!",
@@ -341,10 +342,10 @@
 },
 "footer": {
   "company": "Eduberator",
-  "about": "Your strategic partner for German education. We transform dreams into successful admissions with proven strategies and expert guidance.",
+  "about": "Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.",
   "trust": {
     "one": "99% Admission Success",
-    "two": "500+ Students Guided",
+    "two": "International Students Guided",
     "three": "Germany Education Experts"
   },
   "quick_links_title": "Quick Links",
@@ -409,21 +410,21 @@
       ]
     },
     "stats": [
-      { "number": "500+", "label": "Students Guided" },
+      { "number": "International", "label": "Students Guided" },
       { "number": "99%", "label": "Admission Success" },
-      { "number": "50+", "label": "German Universities" },
-      { "number": "10+", "label": "Years Experience" }
+      { "number": "5000+", "label": "European Universities" },
+      { "number": "10+ years", "label": "Industrial Experience" }
     ],
     "valuesHeading": "Our Values & Philosophy",
     "values": [
       {
         "title": "Our Mission",
-        "description": "To guide and support you in pursuing your passion through personalized counselling and our deep experience in the education industry.",
+        "description": "At Eduberater, our mission is to guide and support students in pursuing your passion through personalized counselling and our deep experience in the education industry. We are committed to empowering your academic and career journey with expert advice and genuine care.",
         "color": "from-green-600 to-sky-600"
       },
       {
         "title": "Our Vision",
-        "description": "Empowering every student to pursue their passions with confidence, equipping them to realize their full potential and soar toward success.",
+        "description": "At Eduberater, we are committed to guiding students through one of the most pivotal phases of their lives - choosing the right career path. We beleieve no student should ever have to settle for less than what they truly aspire to achieve. Our vision is to empower every student to pursue their passions with confidence, equipping them with the support and resources they need to realize their full potential and soar toward a future of success.",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -443,25 +444,25 @@
     "title": "Meet Our",
     "hero": {
       "title": "Meet Our Team",
-      "subtitle": "Seasoned professionals from India now living and working across Europe for over a decade. We bring first-hand experience and deep industry insights to guide your German education journey."
+      "subtitle": "Led by Indian professionals who have lived and worked across Europe & India for more than a decade, we combine real-world experience with deep industry expertise to deliver trusted guidance for your education journey."
     },
     "members": [
       {
         "name": "Dr. Pavan B.",
-        "role": "Biomedical / Biotech / Biology Expert",
+        "role": "Co-Founder, Biotech expert with 12+ years of Industry Experience",
         "education": "PhD in Biomedical Engineering",
         "experience": "10+ years in European healthcare",
         "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Medical Research", "Biotech Admissions", "PhD Guidance"],
+        "specialization": ["Life Science Research", "Higher Education in Life Sciences", "Guidance for PhD & Masters"],
         "contactMail": ""
       },
       {
         "name": "Sagar P.",
-        "role": "Business Development Manager",
-        "education": "Mechanical Engineering",
-        "experience": "8+ years in European industry",
+        "role": "Sales & Business Development Manager",
+        "education": "Masters in International Business & Engineering",
+        "experience": "12+ years Experience",
         "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Mechanical Engineering", "Business Programs", "Industry Connections"],
+        "specialization": ["Engineering Programs", "Business Programs"],
         "contactMail": ""
       },
       {
@@ -513,7 +514,7 @@
     "cta": {
       "heading": "Ready to Work With Our Experts?",
       "sub": "Get personalized guidance from our team of experienced professionals.",
-      "button": "Book Consultation With Our Team"
+      "button": "Register yourself for counselling"
     }
   } ,
  
@@ -1187,7 +1188,7 @@
         "id": "medical-insurance",
         "icon": "Heart",
         "title": "Medical Insurance",
-        "description": "German health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+        "description": "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
         "features": [
           "Public Health Insurance (GKV)",
           "Private Health Insurance",
@@ -1216,7 +1217,7 @@
         "id": "education-loan",
         "icon": "TrendingUp",
         "title": "Education Loan",
-        "description": "Financial assistance for Indian students pursuing higher education in Germany with flexible repayment options.",
+        "description": "Financial assistance for students pursuing higher education in Europe with flexible repayment options.",
         "features": [
           "Collateral-Free Loans",
           "Secured Education Loans",
@@ -1340,7 +1341,7 @@
     }
   },
   "forexCardRemittances": {
-    "hero": { "title": "Forex Card & Remittances", "subtitle": "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying in Germany." },
+    "hero": { "title": "Forex Card & Remittances", "subtitle": "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying international." },
     "features": [
       { "icon": "CreditCard", "title": "Multi-Currency Forex Cards", "description": "Load multiple currencies including EUR, USD, GBP on a single card for seamless transactions across Europe.", "benefits": ["Zero Forex Markup", "Instant Reload", "ATM Access", "Online Tracking"] },
       { "icon": "Send", "title": "International Money Transfer", "description": "Fast and secure remittance services with competitive exchange rates and minimal transfer fees.", "benefits": ["Best Exchange Rates", "Quick Transfer", "Low Fees", "24/7 Support"] },

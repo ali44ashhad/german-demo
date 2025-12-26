@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react';
+import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
 import { useLoginMutation } from '../store/apiSlice';
 
 const ADMIN_ROLE = 'superadmin';
@@ -63,7 +63,22 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-20 px-4 sm:px-6 lg:px-8 relative">
+      {/* Back to Home Button */}
+      <motion.div
+        className="absolute top-6 left-4 sm:left-6 lg:left-8"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Link
+          to="/home"
+          className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-green-600 transition-colors duration-300 rounded-lg hover:bg-white/50"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span className="font-medium">{t('auth.backToHome', 'Back to Home')}</span>
+        </Link>
+      </motion.div>
       <div className="max-w-md mx-auto">
         {/* Header */}
         <motion.div

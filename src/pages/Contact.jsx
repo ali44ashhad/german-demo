@@ -457,6 +457,7 @@ import {
   Target
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuthRedirect } from '../utils/useAuthRedirect';
 
 const FALLBACK = {
   hero: {
@@ -546,6 +547,7 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const { requireAuth } = useAuthRedirect();
 
   // Attempt to read the whole contactus block as object
   const raw = t('contactus', { returnObjects: true, defaultValue: {} });
@@ -603,6 +605,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!requireAuth()) return;
     setIsSubmitting(true);
 
     // TODO: replace with real API call
@@ -657,6 +660,9 @@ const Contact = () => {
       {/* Main */}
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading outside grid */}
+          <h2 className="text-4xl font-bold text-gray-900 mb-12">{t('contactus.getInTouch', 'Get In Touch')}</h2>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <motion.div
@@ -664,8 +670,6 @@ const Contact = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">{t('contactus.getInTouch', 'Get In Touch')}</h2>
-
               <div className="space-y-6 mb-8">
                 {contactInfo.map((contact, idx) => {
                   const Icon = contact.icon || Phone;
@@ -802,11 +806,33 @@ const Contact = () => {
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2" whileHover={{ scale: 1.05 }}>
+            <motion.a 
+              href="https://wa.me/919876543210" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2" 
+              whileHover={{ scale: 1.05 }}
+              onClick={(e) => {
+                if (!requireAuth()) {
+                  e.preventDefault();
+                  return;
+                }
+              }}
+            >
               <MessageCircle className="w-5 h-5" /> {cta.whatsapp}
             </motion.a>
 
-            <motion.a href="tel:+919876543210" className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2" whileHover={{ scale: 1.05 }}>
+            <motion.a 
+              href="tel:+919876543210" 
+              className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2" 
+              whileHover={{ scale: 1.05 }}
+              onClick={(e) => {
+                if (!requireAuth()) {
+                  e.preventDefault();
+                  return;
+                }
+              }}
+            >
               <Phone className="w-5 h-5" /> {cta.call}
             </motion.a>
           </div>

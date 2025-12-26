@@ -195,9 +195,20 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
-            <Link to={userRole === "superadmin" ? "/admin" : "/home"} aria-label={t("header.nav.home", "Home")}>
+            <button
+              onClick={() => {
+                const homePath = userRole === "superadmin" ? "/admin" : "/home";
+                if (location.pathname === homePath) {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  navigate(homePath);
+                }
+              }}
+              aria-label={t("header.nav.home", "Home")}
+              className="cursor-pointer"
+            >
               <img src={logo} alt="Eduberator" className="h-14 w-auto" />
-            </Link>
+            </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex text-lg items-center space-x-8" role="navigation" aria-label="Primary">
@@ -339,24 +350,45 @@ const Header = () => {
                       transition={{ duration: 0.16 }}
                     >
                       <div className="p-2 flex flex-col gap-1">
-                        <Link
-                          to={profilePath}
-                          className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
-                          onClick={() => setIsProfileMenuOpen(false)}
-                        >
-                          {t("header.profile", "Profile")}
-                        </Link>
-                        <button
-                          type="button"
-                          onClick={handleLogout}
-                          disabled={isLoggingOut}
-                          className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-between disabled:opacity-60"
-                        >
-                          {t("header.logout", "Logout")}
-                          {isLoggingOut && (
-                            <span className="ml-2 h-2 w-2 rounded-full bg-red-400 animate-ping" aria-hidden="true" />
-                          )}
-                        </button>
+                        {user ? (
+                          <>
+                            <Link
+                              to={profilePath}
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                              onClick={() => setIsProfileMenuOpen(false)}
+                            >
+                              {t("header.profile", "Profile")}
+                            </Link>
+                            <button
+                              type="button"
+                              onClick={handleLogout}
+                              disabled={isLoggingOut}
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-between disabled:opacity-60"
+                            >
+                              {t("header.logout", "Logout")}
+                              {isLoggingOut && (
+                                <span className="ml-2 h-2 w-2 rounded-full bg-red-400 animate-ping" aria-hidden="true" />
+                              )}
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <Link
+                              to="/login"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                              onClick={() => setIsProfileMenuOpen(false)}
+                            >
+                              {t("header.login", "Login")}
+                            </Link>
+                            <Link
+                              to="/register"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-green-600 hover:bg-green-50 transition-colors"
+                              onClick={() => setIsProfileMenuOpen(false)}
+                            >
+                              {t("header.register", "Register")}
+                            </Link>
+                          </>
+                        )}
                       </div>
                     </motion.div>
                   )}
