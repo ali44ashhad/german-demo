@@ -506,22 +506,53 @@ const Process = () => {
   // Handle animation based on view and hover state
   useEffect(() => {
     if (isInView && !isHovered) {
-      // Get current position from motion value to resume from where we left off
-      const currentX = x.get();
-      const targetX = currentX - scrollDistance;
-      
       // Cancel any existing animation
       if (animationRef.current) {
         animationRef.current.stop();
       }
       
-      // Animate the motion value directly - this will loop seamlessly
-      animationRef.current = animate(x, targetX, {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 30,
-        ease: "linear"
-      });
+      // Normalize position to prevent drift
+      // If position has drifted beyond one cycle, wrap it back
+      let currentX = x.get();
+      if (currentX <= -scrollDistance) {
+        // Use modulo to wrap back to valid range [0, -scrollDistance)
+        currentX = currentX % scrollDistance;
+        if (currentX < 0) {
+          currentX += scrollDistance;
+        }
+        x.set(currentX);
+      } else if (currentX > 0) {
+        x.set(0);
+        currentX = 0;
+      }
+      
+      // Create seamless infinite loop
+      // Always animate from current position to one full cycle
+      // When complete, reset to 0 and restart (seamless due to duplicated steps)
+      const animateLoop = () => {
+        const startX = x.get();
+        const targetX = startX - scrollDistance;
+        
+        animationRef.current = animate(x, targetX, {
+          duration: 30,
+          ease: "linear",
+          onComplete: () => {
+            // Reset to 0 for seamless loop (duplicated steps make this invisible)
+            x.set(0);
+            // Continue animation if still in view and not hovered
+            if (isInView && !isHovered) {
+              // Use requestAnimationFrame to ensure smooth restart
+              requestAnimationFrame(() => {
+                if (isInView && !isHovered) {
+                  animateLoop();
+                }
+              });
+            }
+          }
+        });
+      };
+      
+      animateLoop();
     } else if (isHovered) {
       // Stop animation - the x motion value will maintain the current position
       if (animationRef.current) {
