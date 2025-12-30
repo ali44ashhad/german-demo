@@ -5,7 +5,7 @@ import {
   useUpdateCurrentUserProfileMutation,
   useUploadProfileImageMutation,
 } from "../store/apiSlice";
-import { CheckCircle, Loader2, RefreshCw, XCircle, Upload, X } from "lucide-react";
+import { CheckCircle, Loader2, RefreshCw, XCircle, Upload, X, FileText, Edit } from "lucide-react";
 import PDFPreviewModal from "../components/common/PDFPreviewModal";
 
 const needHelpOptions = [
@@ -89,6 +89,7 @@ const Profile = () => {
   const [isSavingPDF, setIsSavingPDF] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -115,6 +116,9 @@ const Profile = () => {
       agreedToTerms: Boolean(user.agreedToTerms),
     });
     setImagePreview(user.profileImage || null);
+    
+    // Initialize edit mode: if resume exists, start in view mode; otherwise, show form
+    setIsEditMode(!user.resumePdf);
   }, [user]);
 
   const handleInputChange = (event) => {
@@ -320,13 +324,21 @@ const Profile = () => {
       const response = await updateCurrentUserProfile(payload).unwrap();
       if (response?.success) {
         setSuccessMessage("Profile updated successfully. Preview your resume below.");
+        setIsEditMode(false); // Exit edit mode after successful save
         // Use backend proxy endpoint for PDF instead of direct Cloudinary URL
-        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5010/api';
+        // Add cache-busting parameter to ensure we get the latest PDF
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5005/api';
         const pdfUrl = response.resumePdf?.startsWith('http') 
-          ? `${API_BASE_URL}/users/auth/resume/file`
+          ? `${API_BASE_URL}/users/auth/resume/file?t=${Date.now()}`
           : response.resumePdf; // Fallback to base64 if it's not a URL
         setGeneratedPDF(pdfUrl);
-        setShowPDFPreview(true);
+        
+        // Add a small delay before opening the modal to ensure PDF is ready
+        // The PDFPreviewModal will handle retries if needed
+        setTimeout(() => {
+          setShowPDFPreview(true);
+        }, 300);
+        
         refetch();
         if (response.user) {
           localStorage.setItem("user", JSON.stringify(response.user));
@@ -360,6 +372,55 @@ const Profile = () => {
     setShowPDFPreview(false);
     setGeneratedPDF(null);
     setSuccessMessage("");
+  };
+
+  const handleViewResume = () => {
+    if (user?.resumePdf) {
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5005/api';
+      // Add cache-busting parameter to ensure we get the latest PDF
+      const pdfUrl = user.resumePdf.startsWith('http') 
+        ? `${API_BASE_URL}/users/auth/resume/file?t=${Date.now()}`
+        : user.resumePdf;
+      setGeneratedPDF(pdfUrl);
+      setShowPDFPreview(true);
+    }
+  };
+
+  const handleEditProfile = () => {
+    setIsEditMode(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditMode(false);
+    // Reset form data to user data
+    if (user) {
+      setFormData({
+        name: user.name || "",
+        profileImage: user.profileImage || "",
+        dateOfBirth: user.dateOfBirth ? user.dateOfBirth.substring(0, 10) : "",
+        country: user.country || "",
+        city: user.city || "",
+        highestQualification: user.highestQualification || "",
+        fieldOfStudy: user.fieldOfStudy || "",
+        graduationYear: user.graduationYear ? String(user.graduationYear) : "",
+        marksOrCGPA: user.marksOrCGPA || "",
+        targetDegreeInGermany: user.targetDegreeInGermany || "",
+        desiredCourseProgram: user.desiredCourseProgram || "",
+        preferredIntake: user.preferredIntake || "",
+        englishProficiency: user.englishProficiency || "",
+        germanLanguageLevel: user.germanLanguageLevel || "",
+        workExperience: user.workExperience || "",
+        estimatedBudget: user.estimatedBudget || "",
+        shortlistedUniversities: user.shortlistedUniversities || "",
+        needHelpWith: user.needHelpWith || [],
+        agreedToTerms: Boolean(user.agreedToTerms),
+      });
+    }
+    setSuccessMessage("");
+    setErrorMessage("");
+    setValidationErrors({});
   };
 
   if (isUserLoading) {
@@ -469,12 +530,55 @@ const Profile = () => {
             </div>
 
             <div className="border-t border-gray-200 pt-10">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Complete Your Profile</h2>
-              <p className="text-gray-600 mb-10">
-                Provide additional details to help us personalise your journey. Email and mobile number cannot be modified here.
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900">
+                    {isEditMode ? "Edit Your Profile" : "Your Profile"}
+                  </h2>
+                  {!isEditMode && user?.resumePdf && (
+                    <p className="text-gray-600 mt-2">
+                      Your resume has been generated. View it below or edit your profile to update it.
+                    </p>
+                  )}
+                  {!isEditMode && !user?.resumePdf && (
+                    <p className="text-gray-600 mt-2">
+                      Complete your profile to generate your resume.
+                    </p>
+                  )}
+                  {isEditMode && (
+                    <p className="text-gray-600 mt-2">
+                      Update your information below. Email and mobile number cannot be modified here.
+                    </p>
+                  )}
+                </div>
+                {!isEditMode && user?.resumePdf && (
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <motion.button
+                      type="button"
+                      onClick={handleViewResume}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FileText className="w-5 h-5" />
+                      View Resume
+                    </motion.button>
+                    <motion.button
+                      type="button"
+                      onClick={handleEditProfile}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-all"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Edit className="w-5 h-5" />
+                      Edit Profile
+                    </motion.button>
+                  </div>
+                )}
+              </div>
 
-              <form onSubmit={handleSubmit} className="space-y-12">
+              {(!user?.resumePdf || isEditMode) && (
+                <form onSubmit={handleSubmit} className="space-y-12">
                 {/* Personal Details */}
                 <section>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Personal Details</h3>
@@ -933,6 +1037,16 @@ const Profile = () => {
                 )}
 
                 <div className="flex flex-col sm:flex-row sm:justify-end gap-4 pt-4">
+                  {isEditMode && (
+                    <button
+                      type="button"
+                      onClick={handleCancelEdit}
+                      className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-all"
+                      disabled={isUpdating}
+                    >
+                      Cancel
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={() => {
@@ -984,6 +1098,7 @@ const Profile = () => {
                   </motion.button>
                 </div>
               </form>
+              )}
             </div>
           </div>
         </div>

@@ -17,47 +17,146 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
   const [pageNumber, setPageNumber] = React.useState(1);
   const [scale, setScale] = React.useState(1.0);
   const [pdfBlobUrl, setPdfBlobUrl] = React.useState(null);
+  const [isLoadingPdf, setIsLoadingPdf] = React.useState(false);
+  const [pdfError, setPdfError] = React.useState(null);
+  const [retryKey, setRetryKey] = React.useState(0);
+  const retryTimeoutRef = React.useRef(null);
+  const abortControllerRef = React.useRef(null);
 
   React.useEffect(() => {
     if (isOpen) {
       setPageNumber(1);
       setScale(1.0);
+      setPdfError(null);
     }
   }, [isOpen]);
 
   // Fetch PDF with credentials if it's a backend URL
   React.useEffect(() => {
     let currentBlobUrl = null;
+    let retryCount = 0;
+    const maxRetries = 5;
+    const initialDelay = 500; // Start with 500ms delay
     
-    if (pdfDataUrl && pdfDataUrl.startsWith('http') && pdfDataUrl.includes('/api/')) {
-      const fetchPdf = async () => {
-        try {
-          const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5005/api';
-          const response = await fetch(`${API_BASE_URL}/users/auth/resume/file`, {
-            credentials: 'include',
-          });
-          console.log("modal response", response);
-          
-          if (response.ok) {
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            currentBlobUrl = blobUrl;
-            setPdfBlobUrl(blobUrl);
-          }
-        } catch (error) {
-          console.error('Error fetching PDF:', error);
-        }
-      };
-      fetchPdf();
-    } else {
-      setPdfBlobUrl(null);
-    }
-
-    // Cleanup blob URL on unmount or when pdfDataUrl changes
-    return () => {
+    // Cleanup function
+    const cleanup = () => {
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+        retryTimeoutRef.current = null;
+      }
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+        abortControllerRef.current = null;
+      }
       if (currentBlobUrl) {
         URL.revokeObjectURL(currentBlobUrl);
+        currentBlobUrl = null;
       }
+    };
+    
+    // Only fetch through backend if it's a backend API URL
+    // Direct Cloudinary URLs can be used directly
+    if (pdfDataUrl && pdfDataUrl.startsWith('http') && pdfDataUrl.includes('/api/')) {
+      setIsLoadingPdf(true);
+      setPdfError(null);
+      
+      const fetchPdf = async (delay = initialDelay) => {
+        // Clear any existing timeout
+        if (retryTimeoutRef.current) {
+          clearTimeout(retryTimeoutRef.current);
+        }
+
+        // Wait for the delay before fetching
+        retryTimeoutRef.current = setTimeout(async () => {
+          try {
+            // Create new abort controller for this request
+            abortControllerRef.current = new AbortController();
+            
+            // Use the pdfDataUrl directly (includes cache-busting parameter if provided)
+            const response = await fetch(pdfDataUrl, {
+              credentials: 'include',
+              signal: abortControllerRef.current.signal,
+              headers: {
+                'Accept': 'application/pdf',
+              },
+            });
+            
+            if (response.ok) {
+              const blob = await response.blob();
+              
+              // Verify it's actually a PDF
+              if (blob.type !== 'application/pdf' && blob.size > 0) {
+                throw new Error('Invalid PDF format received');
+              }
+              
+              const blobUrl = URL.createObjectURL(blob);
+              currentBlobUrl = blobUrl;
+              setPdfBlobUrl(blobUrl);
+              setIsLoadingPdf(false);
+              setPdfError(null);
+              retryCount = 0; // Reset retry count on success
+            } else if (response.status === 401) {
+              // Authentication error - retry with exponential backoff
+              if (retryCount < maxRetries) {
+                retryCount++;
+                const backoffDelay = initialDelay * Math.pow(2, retryCount - 1); // Exponential backoff
+                console.log(`PDF fetch failed with 401, retrying in ${backoffDelay}ms (attempt ${retryCount}/${maxRetries})`);
+                fetchPdf(backoffDelay);
+              } else {
+                setIsLoadingPdf(false);
+                setPdfError('Authentication failed. Please try refreshing the page.');
+                console.error('Max retries reached for PDF fetch');
+              }
+            } else if (response.status === 404) {
+              // PDF not found - might not be ready yet, retry
+              if (retryCount < maxRetries) {
+                retryCount++;
+                const backoffDelay = initialDelay * Math.pow(2, retryCount - 1);
+                console.log(`PDF not found, retrying in ${backoffDelay}ms (attempt ${retryCount}/${maxRetries})`);
+                fetchPdf(backoffDelay);
+              } else {
+                setIsLoadingPdf(false);
+                setPdfError('Resume PDF not found. Please save your profile again.');
+              }
+            } else {
+              setIsLoadingPdf(false);
+              setPdfError(`Failed to load PDF: ${response.status} ${response.statusText}`);
+            }
+          } catch (error) {
+            if (error.name === 'AbortError') {
+              // Request was aborted, ignore
+              return;
+            }
+            
+            console.error('Error fetching PDF:', error);
+            
+            // Retry on network errors
+            if (retryCount < maxRetries) {
+              retryCount++;
+              const backoffDelay = initialDelay * Math.pow(2, retryCount - 1);
+              console.log(`PDF fetch error, retrying in ${backoffDelay}ms (attempt ${retryCount}/${maxRetries})`);
+              fetchPdf(backoffDelay);
+            } else {
+              setIsLoadingPdf(false);
+              setPdfError('Failed to load PDF. Please try again later.');
+            }
+          } finally {
+            abortControllerRef.current = null;
+          }
+        }, delay);
+      };
+      
+      // Start fetching with initial delay
+      fetchPdf(initialDelay);
+    } else {
+      setPdfBlobUrl(null);
+      setIsLoadingPdf(false);
+      setPdfError(null);
+    }
+
+    // Cleanup on unmount or when pdfDataUrl changes
+    return () => {
+      cleanup();
       // Also cleanup any existing blob URL
       setPdfBlobUrl((prev) => {
         if (prev) {
@@ -66,7 +165,7 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
         return null;
       });
     };
-  }, [pdfDataUrl]);
+  }, [pdfDataUrl, isOpen, retryKey]);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -114,12 +213,35 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
           </div>
 
           {/* PDF Viewer */}
-          <div className="flex-1 overflow-auto p-6 bg-gray-50 flex items-center justify-center">
-            
-            { 
-            (pdfDataUrl || pdfBlobUrl) ? (
-              <div className="space-y-4">
+          <div className="flex-1 overflow-auto bg-gray-50 flex items-start justify-center pt-8 pb-6 px-6">
+            {pdfError ? (
+              <div className="flex flex-col items-center justify-center p-8 text-red-600">
+                <XCircle className="w-12 h-12 mb-4" />
+                <p className="text-lg font-semibold mb-2">Failed to load PDF</p>
+                <p className="text-sm text-gray-600 text-center max-w-md">{pdfError}</p>
+                <button
+                  onClick={() => {
+                    setPdfError(null);
+                    setIsLoadingPdf(true);
+                    setPdfBlobUrl(null);
+                    // Trigger re-fetch by incrementing retryKey
+                    setRetryKey((prev) => prev + 1);
+                  }}
+                  className="mt-4 px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors"
+                >
+                  Retry
+                </button>
+              </div>
+            ) : isLoadingPdf ? (
+              <div className="flex flex-col items-center justify-center p-8">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mb-4"></div>
+                <p className="text-gray-600">Loading resume PDF...</p>
+                <p className="text-sm text-gray-500 mt-2">This may take a few moments</p>
+              </div>
+            ) : (pdfDataUrl || pdfBlobUrl) ? (
+              <div className="space-y-4 w-full flex flex-col items-center">
                 <Document
+                  key={pdfBlobUrl || pdfDataUrl} // Force re-render when PDF URL changes
                   file={pdfBlobUrl || pdfDataUrl}
                   onLoadSuccess={onDocumentLoadSuccess}
                   loading={
@@ -130,8 +252,7 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
                   error={
                     <div className="flex flex-col items-center justify-center p-8 text-red-600">
                       <XCircle className="w-12 h-12 mb-4" />
-                      <p>Failed to load PDF. Please try again.</p>
-                      
+                      <p>Failed to render PDF. Please try again.</p>
                     </div>
                   }
                 >
