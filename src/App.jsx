@@ -30,6 +30,7 @@ import Bookings from "./pages/admin/Bookings";
 import SubAdminHome from "./pages/subadmin/SubAdminHome";
 import SubAdminConsultations from "./pages/subadmin/SubAdminConsultations";
 import SubAdminStudents from "./pages/subadmin/SubAdminStudents";
+import SubAdminStudentDetails from "./pages/subadmin/SubAdminStudentDetails";
 import SubAdminProfile from "./pages/subadmin/SubAdminProfile";
 
 function App() {
@@ -122,6 +123,14 @@ function App() {
             element={
               <SubAdminRoute>
                 <SubAdminStudents />
+              </SubAdminRoute>
+            }
+          />
+          <Route
+            path="/subadmin/students/view/:studentId"
+            element={
+              <SubAdminRoute>
+                <SubAdminStudentDetails />
               </SubAdminRoute>
             }
           />

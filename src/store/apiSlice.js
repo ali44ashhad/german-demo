@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery,
-  tagTypes: ['User', 'Service', 'Booking', 'ZoomSession', 'Dashboard'],
+  tagTypes: ['User', 'Service', 'Booking', 'ZoomSession', 'Dashboard', 'Note'],
   endpoints: (builder) => ({
     // ==================== AUTH ENDPOINTS ====================
     register: builder.mutation({
@@ -285,6 +285,32 @@ export const apiSlice = createApi({
       query: () => '/dashboard/stats',
       providesTags: ['Dashboard'],
     }),
+
+    // ==================== NOTE ENDPOINTS ====================
+    getNoteByBookingId: builder.query({
+      query: (bookingId) => `/notes/booking/${bookingId}`,
+      providesTags: (result, error, bookingId) => [{ type: 'Note', id: bookingId }],
+    }),
+
+    getNotesBySubAdmin: builder.query({
+      query: ({ page = 1, limit = 100 } = {}) => ({
+        url: '/notes',
+        params: { page, limit },
+      }),
+      providesTags: ['Note'],
+    }),
+
+    createOrUpdateNote: builder.mutation({
+      query: ({ bookingId, content }) => ({
+        url: '/notes',
+        method: 'POST',
+        body: { bookingId, content },
+      }),
+      invalidatesTags: (result, error, { bookingId }) => [
+        { type: 'Note', id: bookingId },
+        'Note',
+      ],
+    }),
   }),
 });
 
@@ -331,5 +357,9 @@ export const {
   useDeleteSubadminMutation,
   // Dashboard hooks
   useGetDashboardStatsQuery,
+  // Note hooks
+  useGetNoteByBookingIdQuery,
+  useGetNotesBySubAdminQuery,
+  useCreateOrUpdateNoteMutation,
 } = apiSlice;
 
