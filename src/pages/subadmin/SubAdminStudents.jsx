@@ -18,39 +18,10 @@ import {
   useGetAllBookingsQuery,
   useGetCurrentUserQuery,
 } from "../../store/apiSlice";
-
-const formatDate = (isoString) => {
-  if (!isoString) return "Date TBD";
-  const date = new Date(isoString);
-  if (Number.isNaN(date.getTime())) return "Date TBD";
-  return date.toLocaleDateString(undefined, {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
-const formatTime = (isoString) => {
-  if (!isoString) return "";
-  const date = new Date(isoString);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleTimeString(undefined, {
-    hour: "numeric",
-    minute: "2-digit",
-  });
-};
-
-const formatTimeRange = (booking) => {
-  const start = booking?.timeslot?.start || booking?.date;
-  const end = booking?.timeslot?.end;
-  const startLabel = formatTime(start);
-  const endLabel = formatTime(end);
-
-  if (startLabel && endLabel) return `${startLabel} - ${endLabel}`;
-  if (startLabel) return startLabel;
-  return "Time TBD";
-};
+import {
+  formatBookingDate,
+  formatBookingTimeRange,
+} from "../../utils/bookingFormatters";
 
 const statusBadgeClass = (status) => {
   const normalized = (status || "scheduled").toLowerCase();
@@ -225,11 +196,11 @@ const StudentBookingsModal = ({
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-600">
                           <div className="flex items-center gap-2">
                             <Calendar className="h-4 w-4 text-sky-600" />
-                            <span>{formatDate(startDate)}</span>
+                            <span>{formatBookingDate(startDate)}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Clock className="h-4 w-4 text-sky-600" />
-                            <span>{formatTimeRange(booking)}</span>
+                            <span>{formatBookingTimeRange(booking.timeslot?.start, booking.timeslot?.end)}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Package className="h-4 w-4 text-sky-600" />

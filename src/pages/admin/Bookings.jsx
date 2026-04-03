@@ -12,6 +12,10 @@ import {
   useGetAllUsersQuery,
   useGetAllServicesQuery,
 } from "../../store/apiSlice";
+import {
+  formatBookingDate,
+  formatBookingTimeRange,
+} from "../../utils/bookingFormatters";
 
 const normalizeTimeString = (timeStr = "") => {
   let clean = timeStr.trim();
@@ -58,27 +62,6 @@ const extractTimeForInput = (value) => {
   }
 
   return value.slice(0, 5);
-};
-
-const formatTimeRange = (start, end) => {
-  const toDisplay = (iso) => {
-    if (!iso) return "";
-    if (iso.includes("T")) {
-      const [, timePart = ""] = iso.split("T");
-      const [hours = "00", minutes = "00"] = timePart.replace("Z", "").split(":");
-      const hourNum = parseInt(hours, 10);
-      if (Number.isNaN(hourNum)) return `${hours}:${minutes}`;
-      const period = hourNum >= 12 ? "PM" : "AM";
-      const hour12 = hourNum % 12 || 12;
-      return `${hour12}:${minutes} ${period}`;
-    }
-    return iso;
-  };
-
-  const startDisplay = toDisplay(start);
-  const endDisplay = toDisplay(end);
-  if (!startDisplay && !endDisplay) return "N/A";
-  return `${startDisplay}${endDisplay ? ` - ${endDisplay}` : ""}`;
 };
 
 const Bookings = () => {
@@ -265,11 +248,11 @@ const Bookings = () => {
             <div>
               <p className="text-xs text-gray-500 uppercase tracking-wide">Date & Time</p>
               <p className="text-sm font-semibold text-gray-900">
-                {booking.date ? new Date(booking.date).toLocaleDateString() : "N/A"}
+                {formatBookingDate(booking.date)}
               </p>
       {booking.timeslot && (
         <p className="text-xs text-gray-600">
-          {formatTimeRange(booking.timeslot.start, booking.timeslot.end)}
+          {formatBookingTimeRange(booking.timeslot.start, booking.timeslot.end)}
         </p>
       )}
             </div>
@@ -390,15 +373,12 @@ const Bookings = () => {
     {
       header: "Date",
       accessor: "date",
-      render: (value) => {
-        if (!value) return "N/A";
-        return new Date(value).toLocaleDateString();
-      },
+      render: (value) => formatBookingDate(value),
     },
     {
       header: "Time",
       accessor: "timeslot",
-      render: (value) => formatTimeRange(value?.start, value?.end),
+      render: (value) => formatBookingTimeRange(value?.start, value?.end),
     },
     {
       header: "Amount",

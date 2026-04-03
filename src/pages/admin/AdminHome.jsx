@@ -10,66 +10,10 @@ import {
   DollarSign,
   Briefcase,
 } from "lucide-react";
-
-// Helper function to format date
-const formatDate = (dateString) => {
-  if (!dateString) return "";
-  try {
-    // Handle both Date objects and ISO strings (new Date() handles ISO strings correctly)
-    const date = dateString instanceof Date ? dateString : new Date(dateString);
-    
-    if (isNaN(date.getTime())) {
-      // If parsing failed, try to handle as string and extract date parts
-      if (typeof dateString === 'string') {
-        // For ISO format: 2025-11-12T16:00:00.000Z
-        const dateMatch = dateString.match(/(\d{4})-(\d{2})-(\d{2})/);
-        if (dateMatch) {
-          const [, year, month, day] = dateMatch;
-          const dateObj = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-          if (!isNaN(dateObj.getTime())) {
-            return dateObj.toLocaleDateString("en-US", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            });
-          }
-        }
-      }
-      return "";
-    }
-    
-    return date.toLocaleDateString("en-US", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
-  } catch (error) {
-    console.error("Date formatting error:", error, dateString);
-    return "";
-  }
-};
-
-// Helper function to format time with AM/PM
-const formatTime = (timeslot) => {
-  if (!timeslot || !timeslot.start || !timeslot.end) return "";
-  // Convert 24-hour format to 12-hour format if needed
-  const formatTime12 = (time24) => {
-    if (!time24) return "";
-    // If already in 12-hour format (contains AM/PM), return as is
-    if (time24.includes("AM") || time24.includes("PM")) {
-      return time24;
-    }
-    // Otherwise, parse as 24-hour format
-    const [hours, minutes] = time24.split(":");
-    if (!hours || !minutes) return time24;
-    const hour = parseInt(hours, 10);
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const hour12 = hour % 12 || 12;
-    return `${hour12}:${minutes} ${ampm}`;
-  };
-  
-  return `${formatTime12(timeslot.start)} - ${formatTime12(timeslot.end)}`;
-};
+import {
+  formatBookingDate,
+  formatBookingTimeRange,
+} from "../../utils/bookingFormatters";
 
 const AdminHome = () => {
   const { data, isLoading: userLoading } = useGetCurrentUserQuery();
@@ -123,12 +67,19 @@ const AdminHome = () => {
 
   // Format upcoming consultations from real data
   const upcomingSessions = stats?.upcomingConsultations?.map((booking) => {
-    const formattedDate = formatDate(booking.date);
-    const formattedTime = formatTime(booking.timeslot);
+    const formattedDate = formatBookingDate(booking.date);
+    const formattedTime = formatBookingTimeRange(booking.timeslot?.start, booking.timeslot?.end);
+    const dateTimeDisplay = formattedDate !== "N/A" && formattedTime !== "N/A"
+      ? `${formattedDate} • ${formattedTime}`
+      : formattedDate !== "N/A"
+      ? formattedDate
+      : formattedTime !== "N/A"
+      ? formattedTime
+      : "Date TBD";
     return {
       applicant: booking.userId?.name || "Unknown User",
       program: booking.serviceId?.name || "Service",
-      date: formattedDate ? `${formattedDate} • ${formattedTime}` : formattedTime || "Date TBD",
+      date: dateTimeDisplay,
       id: booking._id,
     };
   }) || [];
@@ -266,7 +217,7 @@ const AdminHome = () => {
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-gray-500">
-                        {formatDate(user.createdAt)}
+                        {formatBookingDate(user.createdAt)}
                       </p>
                       {user.country && (
                         <p className="text-xs text-gray-400 mt-1">{user.country}</p>

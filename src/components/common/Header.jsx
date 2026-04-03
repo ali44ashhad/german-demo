@@ -47,7 +47,7 @@ const Header = () => {
   useEffect(() => {
     const saved = localStorage.getItem("i18nextLng");
     if (saved && saved !== i18n.language) {
-      i18n.changeLanguage(saved).catch(() => {});
+      i18n.changeLanguage(saved).catch(() => { });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -125,17 +125,8 @@ const Header = () => {
     { name: t("header.nav.home", "Home"), href: "/home" },
     { name: t("header.nav.about", "About Us"), href: "/about" },
     { name: t("header.nav.team", "Team"), href: "/team" },
-    {
-      name: t("header.nav.services", "Services"),
-      href: "/services",
-      dropdown: [
-        { name: t("header.servicesDropdown.forex", "Forex Card & Remittances"), to: "/services/forex-card-remittances" },
-        { name: t("header.servicesDropdown.accommodation", "Accommodation"), to: "/services/accommodation" },
-        { name: t("header.servicesDropdown.insurance", "Medical Insurance"), to: "/services/medical-insurance" },
-        { name: t("header.servicesDropdown.loan", "Education Loan"), to: "/services/education-loan" },
-      ],
-    },
-    { name: t("header.nav.pricing", "Pricing"), href: "/pricing" },
+    { name: t("header.nav.services", "Services"), href: "/services" },
+    { name: t("header.nav.pricing", "Process"), href: "/pricing" },
     { name: t("header.nav.coaching", "Coaching"), href: "/coaching" },
     { name: t("header.nav.contact", "Contact"), href: "/contact" },
   ];
@@ -223,9 +214,9 @@ const Header = () => {
                         aria-haspopup="true"
                         aria-expanded={activeDropdown === item.name}
                         onKeyDown={(e) => handleDropdownKey(e, item.name)}
-                        className={`flex items-center gap-1 font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-300 ${
-                          isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
-                        }`}
+                        onClick={() => item.href && navigate(item.href)}
+                        className={`flex items-center gap-1 font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-300 ${isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
+                          }`}
                       >
                         <span>{item.name}</span>
                         <ChevronDown className="w-4 h-4" />
@@ -258,9 +249,8 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`font-medium transition-colors duration-300 ${
-                        isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
-                      }`}
+                      className={`font-medium transition-colors duration-300 ${isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
+                        }`}
                     >
                       {item.name}
                     </Link>
@@ -330,9 +320,8 @@ const Header = () => {
                 <button
                   type="button"
                   onClick={() => setIsProfileMenuOpen((prev) => !prev)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
-                    isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
-                  }`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
+                    }`}
                   aria-haspopup="true"
                   aria-expanded={isProfileMenuOpen}
                   aria-label={isAdmin ? t("header.admin_dashboard", "Admin Dashboard") : t("header.profile", "Profile")}
@@ -397,9 +386,8 @@ const Header = () => {
 
               {/* Mobile Menu Button */}
               <motion.button
-                className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full focus:outline-none ${
-                  isScrolled ? "bg-white text-gray-800 shadow-sm" : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
-                }`}
+                className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full focus:outline-none ${isScrolled ? "bg-white text-gray-800 shadow-sm" : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
+                  }`}
                 onClick={() => {
                   setIsMobileMenuOpen((prev) => !prev);
                   if (!isMobileMenuOpen) setActiveDropdown(null);

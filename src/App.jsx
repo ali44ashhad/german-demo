@@ -13,7 +13,7 @@ import ForexCardRemittances from "./pages/services/ForexCardRemittances";
 import Accommodation from "./pages/services/Accommodation";
 import MedicalInsurance from "./pages/services/MedicalInsurance";
 import EducationLoan from "./pages/services/EducationLoan"; 
-import AllServices from "./pages/AllServices";
+import Services from "./pages/Services";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiesPolicy from "./pages/CookiesPolicy";
@@ -54,7 +54,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/disclaimer" element={<DisclaimerAndPolicy />} />
           <Route path="/reviews" element={<Reviews />} />
-          <Route path="/services" element={<AllServices />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/cookies" element={<CookiesPolicy />} />

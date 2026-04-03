@@ -27,44 +27,15 @@ import {
   useGetNotesBySubAdminQuery,
   useCreateOrUpdateNoteMutation,
 } from "../../store/apiSlice";
+import {
+  formatBookingDate,
+  formatBookingTimeRange,
+} from "../../utils/bookingFormatters";
 
 // Set up PDF.js worker
 if (typeof window !== "undefined") {
   pdfjs.GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.5.4.296.min.mjs`;
 }
-
-const formatDate = (isoString) => {
-  if (!isoString) return "Date TBD";
-  const date = new Date(isoString);
-  if (Number.isNaN(date.getTime())) return "Date TBD";
-  return date.toLocaleDateString(undefined, {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
-const formatTime = (isoString) => {
-  if (!isoString) return "";
-  const date = new Date(isoString);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleTimeString(undefined, {
-    hour: "numeric",
-    minute: "2-digit",
-  });
-};
-
-const formatTimeRange = (booking) => {
-  const start = booking?.timeslot?.start || booking?.date;
-  const end = booking?.timeslot?.end;
-  const startLabel = formatTime(start);
-  const endLabel = formatTime(end);
-
-  if (startLabel && endLabel) return `${startLabel} - ${endLabel}`;
-  if (startLabel) return startLabel;
-  return "Time TBD";
-};
 
 const statusBadgeClass = (status) => {
   const normalized = (status || "scheduled").toLowerCase();
@@ -350,8 +321,8 @@ const BookingNoteEditor = ({ booking, note, onSave }) => {
   };
 
   const serviceName = booking?.serviceId?.name || "Service TBD";
-  const bookingDate = formatDate(booking?.timeslot?.start || booking?.date);
-  const bookingTime = formatTimeRange(booking);
+  const bookingDate = formatBookingDate(booking?.timeslot?.start || booking?.date);
+  const bookingTime = formatBookingTimeRange(booking?.timeslot?.start, booking?.timeslot?.end);
   const status = booking?.bookingStatus || "scheduled";
 
   return (
@@ -611,7 +582,7 @@ const SubAdminStudentDetails = () => {
                         <div>
                           <p className="text-xs uppercase text-gray-400">Date of Birth</p>
                           <p className="text-gray-900 font-semibold">
-                            {formatDate(student.dateOfBirth)}
+                            {formatBookingDate(student.dateOfBirth)}
                           </p>
                         </div>
                       )}

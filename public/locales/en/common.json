@@ -1,400 +1,495 @@
 {
   "header": {
-  "nav": {
-    "home": "Home",
-    "about": "About Us",
-    "team": "Team",
-    "services": "Services",
-    "pricing": "Pricing",
-    "coaching": "Coaching",
-    "contact": "Contact"
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "team": "Team",
+      "services": "Services",
+      "process": "Process",
+      "coaching": "Coaching",
+      "contact": "Contact"
+    },
+    "servicesDropdown": {
+      "forex": "Forex Card & Remittances",
+      "accommodation": "Accommodation",
+      "insurance": "Medical Insurance",
+      "loan": "Education Loan"
+    },
+    "profile": "Profile",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
-  "servicesDropdown": {
-    "forex": "Forex Card & Remittances",
-    "accommodation": "Accommodation",
-    "insurance": "Medical Insurance",
-    "loan": "Education Loan"
+  "hero": {
+    "title_line1": "Study in Germany",
+    "title_line2": "Your Smartest Investment",
+    "subtitle": "Your Smartest Investment",
+    "description": "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
+    "cta_register": "🚀 Register yourself and book your consultation by our professional experts.",
+    "stats": [
+      {
+        "text": "High rate of admission success"
+      },
+      {
+        "text": "Efficient guidance for students"
+      },
+      {
+        "text": "Counselling for public and private universities in EU"
+      },
+      {
+        "text": "More than 40+ years of collaborative experience"
+      },
+      {
+        "text": "Industrial experienced counsellors from diverse backgrounds"
+      }
+    ],
+    "video_poster": "/assets/hero-poster.jpg",
+    "aria_hero_label": "Hero section: Study in Germany",
+    "scroll_indicator_label": "Scroll down",
+    "register_aria": "Register and book consultation"
   },
-  "profile": "Profile",
-  "open_menu": "Open menu",
-  "close_menu": "Close menu"
-}
-,
-"hero": {
-  "title_line1": "Study in Germany",
-  "title_line2": "Your Smartest Investment",
-  "subtitle": "Your Smartest Investment",
-  "description": "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
-  "cta_register": "🚀 Register yourself and book your consultation by our professional experts.",
-  "stats": [
-    {"text": "High rate of admission success"},
-    {"text": "Efficient guidance for students"},
-    {"text": "Counselling for public and private universities in EU"},
-    {"text": "More than 40+ years of collaborative experience"},
-    {"text": "Industrial experienced counsellors from diverse backgrounds"}
-  ],
-  "video_poster": "/assets/hero-poster.jpg",
-  "aria_hero_label": "Hero section: Study in Germany",
-  "scroll_indicator_label": "Scroll down",
-  "register_aria": "Register and book consultation"
-}
-,
- "why": {
-  "heading": "Why Choose",
-  "sub": "All our services are conducted entirely online — no office visits required. We stay in close communication via Email, TEAMS/Zoom, and WhatsApp to guide you at every step.",
-  "features": [
-    {
-      "key": "expert",
-      "icon": "users",
-      "title": "Expert Counsellors with Industry Insight",
-      "description": "Our team consists of seasoned professionals with extensive experience in both academics and industry, providing you with well-rounded and practical guidance.",
-      "color": "from-green-600 to-sky-600"
+  "why": {
+    "heading": "Why Choose",
+    "sub": "All our services are conducted entirely online — no office visits required. We stay in close communication via Email, TEAMS/Zoom, and WhatsApp to guide you at every step.",
+    "features": [
+      {
+        "key": "expert",
+        "icon": "users",
+        "title": "Expert Counsellors with Industry Insight",
+        "description": "Our team consists of seasoned professionals with extensive experience in both academics and industry, providing you with well-rounded and practical guidance.",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "key": "personal",
+        "icon": "check-circle",
+        "title": "Personalized Attention",
+        "description": "We work with a limited number of students per semester, ensuring each applicant receives dedicated time and support for a strong application strategy.",
+        "color": "from-yellow-500 to-orange-400"
+      },
+      {
+        "key": "levels",
+        "icon": "book-open",
+        "title": "Support Across All Academic Levels",
+        "description": "Whether you're applying for an Undergraduate, Master's, MBA, or Ph.D., we offer tailored assistance that meets the unique requirements of each program level.",
+        "color": "from-green-500 to-emerald-500"
+      },
+      {
+        "key": "fields",
+        "icon": "globe",
+        "title": "Wide Range of Study Fields",
+        "description": "Our expertise spans diverse disciplines, helping students from various academic backgrounds in finding the best-fit programs and universities.",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "key": "tuition",
+        "icon": "banknote",
+        "title": "Opportunities for Tuition-Free Education",
+        "description": "We help identify programs and institutions that offer tuition-free or low-cost education, increasing your chances of an affordable, high-quality education in Europe.",
+        "color": "from-red-500 to-rose-500"
+      },
+      {
+        "key": "endtoend",
+        "icon": "life-buoy",
+        "title": "End-to-End Support",
+        "description": "We stand by your side throughout your educational journey, from application to admission.",
+        "color": "from-indigo-500 to-blue-500"
+      }
+    ],
+    "additional_highlights": {
+      "specialization_title": "Specialization in European Admissions",
+      "specialization_text": "We focus on top universities across Europe, providing insights into regional requirements, culture, and opportunities to help you pick the right destination.",
+      "online_title": "Fully Online & Always Connected",
+      "online_text": "All services are delivered online. We'll be in touch via Email, and TEAMS/Zoom for document reviews, mock interviews, application tracking, and onboarding help."
     },
-    {
-      "key": "personal",
-      "icon": "check-circle",
-      "title": "Personalized Attention",
-      "description": "We work with a limited number of students per semester, ensuring each applicant receives dedicated time and support for a strong application strategy.",
-      "color": "from-yellow-500 to-orange-400"
-    },
-    {
-      "key": "levels",
-      "icon": "book-open",
-      "title": "Support Across All Academic Levels",
-      "description": "Whether you're applying for an Undergraduate, Master's, MBA, or Ph.D., we offer tailored assistance that meets the unique requirements of each program level.",
-      "color": "from-green-500 to-emerald-500"
-    },
-    {
-      "key": "fields",
-      "icon": "globe",
-      "title": "Wide Range of Study Fields",
-      "description": "Our expertise spans diverse disciplines, helping students from various academic backgrounds in finding the best-fit programs and universities.",
-      "color": "from-purple-500 to-pink-500"
-    },
-    {
-      "key": "tuition",
-      "icon": "banknote",
-      "title": "Opportunities for Tuition-Free Education",
-      "description": "We help identify programs and institutions that offer tuition-free or low-cost education, increasing your chances of an affordable, high-quality education in Europe.",
-      "color": "from-red-500 to-rose-500"
-    },
-    {
-      "key": "endtoend",
-      "icon": "life-buoy",
-      "title": "End-to-End Support",
-      "description": "We stand by your side throughout your educational journey, from application to admission.",
-      "color": "from-indigo-500 to-blue-500"
+    "cta": {
+      "title": "Ready to build your career roadmap?",
+      "text": "Book yourconsultation and let our experts craft a personalized plan for your European education journey.",
+      "button": "Start My Journey 🚀"
     }
-  ],
-  "additional_highlights": {
-    "specialization_title": "Specialization in European Admissions",
-    "specialization_text": "We focus on top universities across Europe, providing insights into regional requirements, culture, and opportunities to help you pick the right destination.",
-    "online_title": "Fully Online & Always Connected",
-    "online_text": "All services are delivered online. We'll be in touch via Email, and TEAMS/Zoom for document reviews, mock interviews, application tracking, and onboarding help."
   },
-  "cta": {
-    "title": "Ready to build your career roadmap?",
-    "text": "Book yourconsultation and let our experts craft a personalized plan for your European education journey.",
-    "button": "Start My Journey 🚀"
-  }
-}
-,
   "services": {
-  "header_short": "Essential Services for Germany",
-  "heading": "Additional Services",
-  "learn_more": "learn more",
-  "description": "Complete support services for students - from financial solutions to accommodation and insurance, we've got you covered for your educational journey.",
-  "list": [
-    {
-      "key": "forex",
-      "icon": "credit-card",
-      "title": "Forex Card & Remittances",
-      "description": "Multi-currency forex cards and international money transfer services with best exchange rates for students.",
-      "features": ["Multi-Currency Cards", "Zero Forex Markup", "Instant Reload", "24/7 Support"],
-      "color": "from-green-600 to-sky-600",
-      "delay": 0.1,
-      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "link": "/services/forex-card-remittances"
-    },
-    {
-      "key": "accommodation",
-      "icon": "home",
-      "title": "Accommodation",
-      "description": "Get advice on finding accommodation services.",
-      "features": ["Student Hostels", "Shared Apartments", "Studio Flats", "Homestay Options"],
-      "color": "from-green-600 to-sky-600",
-      "delay": 0.2,
-      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "link": "/services/accommodation"
-    },
-    {
-      "key": "insurance",
-      "icon": "heart",
-      "title": "Medical Insurance",
-      "description": "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
-      "features": ["Visa Compliance", "Full Coverage", "EU-Wide Validity", "Multilingual Support"],
-      "color": "from-green-600 to-sky-600",
-      "delay": 0.3,
-      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "link": "/services/medical-insurance"
-    },
-    {
-      "key": "loan",
-      "icon": "trending-up",
-      "title": "Education Loan",
-      "description": "Financial assistance for students pursuing higher education in Europe with flexible repayment options.",
-      "features": ["Collateral-Free", "Low Interest", "Flexible Tenure", "Quick Processing"],
-      "color": "from-green-600 to-sky-600",
-      "delay": 0.4,
-      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "link": "/services/education-loan"
-    }
-  ],
-  "cta": {
-    "need_support_title": "Need Comprehensive Support?",
-    "need_support_text": "Explore all our services in detail and get personalized assistance.",
-    "view_all": "View All Services"
-  }
-}
-,
-"process": {
-  "badge": "4-Step Success Process",
-  "heading": "The Eduberator Roadmap to Germany",
-  "sub": "A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.",
-  "steps": [
-    {
-      "step": 1,
-      "title": "Profile Analysis & Strategy",
-      "description": "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.",
-      "features": ["Academic Evaluation", "Career Goal Mapping", "ROI Analysis", "Timeline Planning"],
-      "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "color": "from-green-600 to-sky-600"
-    },
-    {
-      "step": 2,
-      "title": "University & Program Finalization",
-      "description": "Strategic selection from TU9, U15, and Applied Sciences universities based on your profile and German job market trends.",
-      "features": ["TU9 University Matching", "Program Research", "Admission Probability", "Backup Options"],
-      "image": "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "color": "from-green-600 to-sky-600"
-    },
-    {
-      "step": 3,
-      "title": "Application & Documentation",
-      "description": "Perfect your applications with German-style SOPs, LORs, and handle Uni-Assist VPD processing with expert guidance.",
-      "features": ["SOP Writing", "LOR Preparation", "VPD Processing", "Document Verification"],
-      "image": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "color": "from-green-600 to-sky-600"
-    },
-    {
-      "step": 4,
-      "title": "Visa & Pre-Departure",
-      "description": "Complete visa application support, blocked account setup, and cultural preparation for your educational journey.",
-      "features": ["Visa Documentation", "Blocked Account", "Health Insurance", "Cultural Briefing"],
-      "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      "color": "from-green-600 to-sky-600"
-    }
-  ],
-  "cta_title": "Ready to Start Your German Journey?",
-  "cta_button": "Start My Profile Analysis",
-  "cta_note": "Free initial consultation - No commitment required"
-}
-,
-"testimonials": {
-  "label": "TESTIMONIALS",
-  "heading": "What our students say about studying in Germany with Eduberater",
-  "pause": "Pause",
-  "resume": "Resume",
-  "list": [
-    {
-      "id": 1,
-      "name": "Aman Verma",
-      "meta": "M.Sc. Computational Science — TU Munich",
-      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
-      "text": "“Profiberater guided me through my German university application and visa process with clarity and care — my visa was approved faster than I expected. Deeply grateful!”",
-      "rating": 5
-    },
-    {
-      "id": 2,
-      "name": "Sakshi Gupta",
-      "meta": "B.Sc → M.Sc. — University of Freiburg",
-      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
-      "text": "“Their APS and language support was extremely professional — I found the right university match and received help securing a scholarship.”",
-      "rating": 5
-    },
-    {
-      "id": 3,
-      "name": "Rohit Singh",
-      "meta": "MS Applicant — RWTH Aachen (accepted)",
-      "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
-      "text": "“After multiple Germany visa refusals, Profiberater reworked my profile and strategy. They kept expectations realistic and finally helped me secure approval.”",
-      "rating": 5
-    },
-    {
-      "id": 4,
-      "name": "Neha Joshi",
-      "meta": "Preparing for Studienkolleg / Language Courses",
-      "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
-      "text": "“Transparent fees, consistent updates, and a dedicated counsellor made the entire process smooth. Highly recommended for anyone applying to Germany.”",
-      "rating": 5
-    },
-    {
-      "id": 5,
-      "name": "Ankit Sharma",
-      "meta": "MBA — Frankfurt School of Finance & Management",
-      "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
-      "text": "“The team helped refine my SOP and CV, making my MBA application much stronger. Their feedback sessions were professional and practical.”",
-      "rating": 5
-    },
-    {
-      "id": 6,
-      "name": "Priya Menon",
-      "meta": "Master’s in Environmental Engineering — TU Delft",
-      "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
-      "text": "“Their expertise in European admissions really stood out. I got admits from multiple universities and their visa guidance was spot on.”",
-      "rating": 5
-    },
-    {
-      "id": 7,
-      "name": "Vikram Desai",
-      "meta": "B.Sc Data Science — University of Hamburg",
-      "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
-      "text": "“Being a first-time international applicant, I appreciated their clarity and responsiveness. They handled every step seamlessly.”",
-      "rating": 5
-    },
-    {
-      "id": 8,
-      "name": "Ritika Bansal",
-      "meta": "Ph.D. in Biotechnology — University of Bonn",
-      "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
-      "text": "“They helped align my research interests with suitable supervisors and crafted a strong proposal. Couldn’t have done it alone!”",
-      "rating": 5
-    },
-    {
-      "id": 9,
-      "name": "Aditya Narang",
-      "meta": "M.Sc. Mechanical Engineering — TU Darmstadt",
-      "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
-      "text": "“Every step was transparent — from application shortlist to visa mock interview. I’d absolutely recommend Profiberater.”",
-      "rating": 5
-    }
-  ]
-},
- "contact": {
-  "eyebrow": "Free Consultation",
-  "heading": "Start Your German Journey Today",
-  "sub": "Get personalized guidance from Germany education experts. Book your free profile assessment and  to German universities.",
-  "get_in_touch": "Get in Touch",
-  "free_assessment": "Free Profile Assessment",
-  "thank_you_title": "Thank You!",
-  "thank_you_text": "We've received your message and will contact you within 2 hours.",
-  "form": {
-    "name": "Full Name *",
-    "email": "Email Address *",
-    "phone": "Phone Number",
-    "program": "Program Interest",
-    "message": "Your Message",
-    "submit": "Send Message & Get Free Consultation",
-    "submitting": "Sending..."
-  },
-  "contact_cards": {
-    "call": {
-      "title": "Call Us",
-      "info": "+91 98765 43210",
-      "description": "Mon-Sat, 10AM-7PM",
-      "link": "tel:+919876543210",
-      "key": "call"
-    },
-    "email": {
-      "title": "Email Us",
-      "info": "hello@eduberator.com",
-      "description": "We reply within 2 hours",
-      "link": "mailto:hello@eduberator.com",
-      "key": "email"
-    },
-    "visit": {
-      "title": "Visit Office",
-      "info": "Delhi, India",
-      "description": "Book appointment before visit",
-      "link": "#",
-      "key": "visit"
-    },
-    "hours": {
-      "title": "Office Hours",
-      "info": "10:00 AM - 7:00 PM",
-      "description": "Monday to Saturday",
-      "link": "#",
-      "key": "hours"
+    "header_short": "Essential Services for Germany",
+    "heading": "Additional Services",
+    "learn_more": "learn more",
+    "description": "Complete support services for students - from financial solutions to accommodation and insurance, we've got you covered for your educational journey.",
+    "list": [
+      {
+        "key": "forex",
+        "icon": "credit-card",
+        "title": "Forex Card & Remittances",
+        "description": "Multi-currency forex cards and international money transfer services with best exchange rates for students.",
+        "features": [
+          "Multi-Currency Cards",
+          "Zero Forex Markup",
+          "Instant Reload",
+          "24/7 Support"
+        ],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.1,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/forex-card-remittances"
+      },
+      {
+        "key": "accommodation",
+        "icon": "home",
+        "title": "Accommodation",
+        "description": "Get advice on finding accommodation services.",
+        "features": [
+          "Student Hostels",
+          "Shared Apartments",
+          "Studio Flats",
+          "Homestay Options"
+        ],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.2,
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/accommodation"
+      },
+      {
+        "key": "insurance",
+        "icon": "heart",
+        "title": "Medical Insurance",
+        "description": "Medical health insurance solutions meeting visa requirements with comprehensive coverage for international students.",
+        "features": [
+          "Visa Compliance",
+          "Full Coverage",
+          "EU-Wide Validity",
+          "Multilingual Support"
+        ],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.3,
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/medical-insurance"
+      },
+      {
+        "key": "loan",
+        "icon": "trending-up",
+        "title": "Education Loan",
+        "description": "Financial assistance for students pursuing higher education in Europe with flexible repayment options.",
+        "features": [
+          "Collateral-Free",
+          "Low Interest",
+          "Flexible Tenure",
+          "Quick Processing"
+        ],
+        "color": "from-green-600 to-sky-600",
+        "delay": 0.4,
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "link": "/services/education-loan"
+      }
+    ],
+    "cta": {
+      "need_support_title": "Need Comprehensive Support?",
+      "need_support_text": "Explore all our services in detail and get personalized assistance.",
+      "view_all": "View All Services"
     }
   },
-  "programs": [
-    "Bachelor's in Germany",
-    "Master's in Germany",
-    "STEM Programs",
-    "MBA in Germany",
-    "PhD in Germany",
-    "Language Courses"
-  ],
-  "cta_call_now": "Call Now",
-  "cta_book_meeting": "Book Meeting",
-  "status_sending": "Sending...",
-  "status_sent": "Sent"
-},
-"footer": {
-  "company": "Eduberator",
-  "about": "Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.",
-  "trust": {
-    "one": "99% Admission Success",
-    "two": "International Students Guided",
-    "three": "Germany Education Experts"
+  "process": {
+    "badge": "4-Step Success Process",
+    "heading": "The Eduberator Roadmap to Germany",
+    "sub": "A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Profile Analysis & Strategy",
+        "description": "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.",
+        "features": [
+          "Academic Evaluation",
+          "Career Goal Mapping",
+          "ROI Analysis",
+          "Timeline Planning"
+        ],
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 2,
+        "title": "University & Program Finalization",
+        "description": "Strategic selection from TU9, U15, and Applied Sciences universities based on your profile and German job market trends.",
+        "features": [
+          "TU9 University Matching",
+          "Program Research",
+          "Admission Probability",
+          "Backup Options"
+        ],
+        "image": "https://images.unsplash.com/photo-152305962303-aa56b8d6b52f?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 3,
+        "title": "Application & Documentation",
+        "description": "Perfect your applications with German-style SOPs, LORs, and handle Uni-Assist VPD processing with expert guidance.",
+        "features": [
+          "SOP Writing",
+          "LOR Preparation",
+          "VPD Processing",
+          "Document Verification"
+        ],
+        "image": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      },
+      {
+        "step": 4,
+        "title": "Visa & Pre-Departure",
+        "description": "Complete visa application support, blocked account setup, and cultural preparation for your educational journey.",
+        "features": [
+          "Visa Documentation",
+          "Blocked Account",
+          "Health Insurance",
+          "Cultural Briefing"
+        ],
+        "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
+        "color": "from-green-600 to-sky-600"
+      }
+    ],
+    "cta_title": "Ready to Start Your German Journey?",
+    "cta_button": "Start My Profile Analysis",
+    "cta_note": "Free initial consultation - No commitment required"
   },
-  "quick_links_title": "Quick Links",
-  "our_services_title": "Our Services",
-  "important_links_title": "Important Links",
-  "follow_us_title": "Follow Us",
-  "newsletter_title": "Newsletter",
+  "testimonials": {
+    "label": "TESTIMONIALS",
+    "heading": "What our students say about studying in Germany with Eduberater",
+    "pause": "Pause",
+    "resume": "Resume",
+    "list": [
+      {
+        "id": 1,
+        "name": "Aman Verma",
+        "meta": "M.Sc. Computational Science — TU Munich",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "“Profiberater guided me through my German university application and visa process with clarity and care — my visa was approved faster than I expected. Deeply grateful!”",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Sakshi Gupta",
+        "meta": "B.Sc → M.Sc. — University of Freiburg",
+        "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "“Their APS and language support was extremely professional — I found the right university match and received help securing a scholarship.”",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Rohit Singh",
+        "meta": "MS Applicant — RWTH Aachen (accepted)",
+        "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+        "text": "“After multiple Germany visa refusals, Profiberater reworked my profile and strategy. They kept expectations realistic and finally helped me secure approval.”",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Neha Joshi",
+        "meta": "Preparing for Studienkolleg / Language Courses",
+        "avatar": "https://randomuser.me/api/portraits/women/52.jpg",
+        "text": "“Transparent fees, consistent updates, and a dedicated counsellor made the entire process smooth. Highly recommended for anyone applying to Germany.”",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Ankit Sharma",
+        "meta": "MBA — Frankfurt School of Finance & Management",
+        "avatar": "https://randomuser.me/api/portraits/men/15.jpg",
+        "text": "“The team helped refine my SOP and CV, making my MBA application much stronger. Their feedback sessions were professional and practical.”",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Priya Menon",
+        "meta": "Master’s in Environmental Engineering — TU Delft",
+        "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+        "text": "“Their expertise in European admissions really stood out. I got admits from multiple universities and their visa guidance was spot on.”",
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Vikram Desai",
+        "meta": "B.Sc Data Science — University of Hamburg",
+        "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+        "text": "“Being a first-time international applicant, I appreciated their clarity and responsiveness. They handled every step seamlessly.”",
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "name": "Ritika Bansal",
+        "meta": "Ph.D. in Biotechnology — University of Bonn",
+        "avatar": "https://randomuser.me/api/portraits/women/33.jpg",
+        "text": "“They helped align my research interests with suitable supervisors and crafted a strong proposal. Couldn’t have done it alone!”",
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "name": "Aditya Narang",
+        "meta": "M.Sc. Mechanical Engineering — TU Darmstadt",
+        "avatar": "https://randomuser.me/api/portraits/men/47.jpg",
+        "text": "“Every step was transparent — from application shortlist to visa mock interview. I’d absolutely recommend Profiberater.”",
+        "rating": 5
+      }
+    ]
+  },
   "contact": {
-    "phone": "+91 98765 43210",
-    "phone_note": "Mon-Sat, 10AM-7PM",
-    "email": "hello@eduberator.com",
-    "email_note": "We reply within 2 hours",
-    "address": "Delhi, India",
-    "address_note": "Book appointment before visit"
+    "eyebrow": "Free Consultation",
+    "heading": "Start Your German Journey Today",
+    "sub": "Get personalized guidance from Germany education experts. Book your free profile assessment and  to German universities.",
+    "get_in_touch": "Get in Touch",
+    "free_assessment": "Free Profile Assessment",
+    "thank_you_title": "Thank You!",
+    "thank_you_text": "We've received your message and will contact you within 2 hours.",
+    "form": {
+      "name": "Full Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "program": "Program Interest",
+      "message": "Your Message",
+      "submit": "Send Message & Get Free Consultation",
+      "submitting": "Sending..."
+    },
+    "contact_cards": {
+      "call": {
+        "title": "Call Us",
+        "info": "+91 98765 43210",
+        "description": "Mon-Sat, 10AM-7PM",
+        "link": "tel:+919876543210",
+        "key": "call"
+      },
+      "email": {
+        "title": "Email Us",
+        "info": "hello@eduberator.com",
+        "description": "We reply within 2 hours",
+        "link": "mailto:hello@eduberator.com",
+        "key": "email"
+      },
+      "visit": {
+        "title": "Visit Office",
+        "info": "Delhi, India",
+        "description": "Book appointment before visit",
+        "link": "#",
+        "key": "visit"
+      },
+      "hours": {
+        "title": "Office Hours",
+        "info": "10:00 AM - 7:00 PM",
+        "description": "Monday to Saturday",
+        "link": "#",
+        "key": "hours"
+      }
+    },
+    "programs": [
+      "Bachelor's in Germany",
+      "Master's in Germany",
+      "STEM Programs",
+      "MBA in Germany",
+      "PhD in Germany",
+      "Language Courses"
+    ],
+    "cta_call_now": "Call Now",
+    "cta_book_meeting": "Book Meeting",
+    "status_sending": "Sending...",
+    "status_sent": "Sent"
   },
-  "quick_links": [
-    { "name": "Home", "href": "/" },
-    { "name": "About Us", "href": "/about" },
-    { "name": "Contact", "href": "/contact" },
-    { "name": "Services", "href": "/services" }
-  ],
-  "services": [
-    { "name": "Forex Card & Remittances", "to": "/services/forex-card-remittances" },
-    { "name": "Accommodation", "to": "/services/accommodation" },
-    { "name": "Medical Insurance", "to": "/services/medical-insurance" },
-    { "name": "Education Loan", "to": "/services/education-loan" }
-  ],
-  "important_links": [
-    { "name": "Disclaimer & Policy", "href": "/disclaimer" },
-    { "name": "Reviews", "href": "/reviews" },
-    { "name": "Team", "href": "/team" },
-    { "name": "Coaching", "href": "/coaching" }
-  ],
-  "social": [
-    { "provider": "facebook", "href": "#" },
-    { "provider": "twitter", "href": "#" },
-    { "provider": "instagram", "href": "#" },
-    { "provider": "linkedin", "href": "#" },
-    { "provider": "youtube", "href": "#" }
-  ],
-  "copyright_prefix": "© 2025 Eduberator. Made with",
-  "copyright_suffix": "for students worldwide.",
-  "legal": {
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "cookies": "Cookies"
-  }
-  
-},
+  "footer": {
+    "company": "Eduberator",
+    "about": "Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.",
+    "trust": {
+      "one": "99% Admission Success",
+      "two": "International Students Guided",
+      "three": "Germany Education Experts"
+    },
+    "quick_links_title": "Quick Links",
+    "our_services_title": "Our Services",
+    "important_links_title": "Important Links",
+    "follow_us_title": "Follow Us",
+    "newsletter_title": "Newsletter",
+    "contact": {
+      "phone": "+91 98765 43210",
+      "phone_note": "Mon-Sat, 10AM-7PM",
+      "email": "hello@eduberator.com",
+      "email_note": "We reply within 2 hours",
+      "address": "Delhi, India",
+      "address_note": "Book appointment before visit"
+    },
+    "quick_links": [
+      {
+        "name": "Home",
+        "href": "/"
+      },
+      {
+        "name": "About Us",
+        "href": "/about"
+      },
+      {
+        "name": "Contact",
+        "href": "/contact"
+      },
+      {
+        "name": "Services",
+        "href": "/services"
+      }
+    ],
+    "services": [
+      {
+        "name": "Forex Card & Remittances",
+        "to": "/services/forex-card-remittances"
+      },
+      {
+        "name": "Accommodation",
+        "to": "/services/accommodation"
+      },
+      {
+        "name": "Medical Insurance",
+        "to": "/services/medical-insurance"
+      },
+      {
+        "name": "Education Loan",
+        "to": "/services/education-loan"
+      }
+    ],
+    "important_links": [
+      {
+        "name": "Disclaimer & Policy",
+        "href": "/disclaimer"
+      },
+      {
+        "name": "Reviews",
+        "href": "/reviews"
+      },
+      {
+        "name": "Team",
+        "href": "/team"
+      },
+      {
+        "name": "Coaching",
+        "href": "/coaching"
+      }
+    ],
+    "social": [
+      {
+        "provider": "facebook",
+        "href": "#"
+      },
+      {
+        "provider": "twitter",
+        "href": "#"
+      },
+      {
+        "provider": "instagram",
+        "href": "#"
+      },
+      {
+        "provider": "linkedin",
+        "href": "#"
+      },
+      {
+        "provider": "youtube",
+        "href": "#"
+      }
+    ],
+    "copyright_prefix": "© 2025 Eduberator. Made with",
+    "copyright_suffix": "for students worldwide.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookies"
+    }
+  },
   "about": {
     "title": "About Profiberater",
     "hero": {
@@ -410,10 +505,22 @@
       ]
     },
     "stats": [
-      { "number": "International", "label": "Students Guided" },
-      { "number": "99%", "label": "Admission Success" },
-      { "number": "5000+", "label": "European Universities" },
-      { "number": "10+ years", "label": "Industrial Experience" }
+      {
+        "number": "International",
+        "label": "Students Guided"
+      },
+      {
+        "number": "99%",
+        "label": "Admission Success"
+      },
+      {
+        "number": "5000+",
+        "label": "European Universities"
+      },
+      {
+        "number": "10+ years",
+        "label": "Industrial Experience"
+      }
     ],
     "valuesHeading": "Our Values & Philosophy",
     "values": [
@@ -439,7 +546,6 @@
       "button": "Get Free Consultation"
     }
   },
-  
   "team": {
     "title": "Meet Our",
     "hero": {
@@ -453,7 +559,11 @@
         "education": "PhD in Biomedical Engineering",
         "experience": "10+ years in European healthcare",
         "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Life Science Research", "Higher Education in Life Sciences", "Guidance for PhD & Masters"],
+        "specialization": [
+          "Life Science Research",
+          "Higher Education in Life Sciences",
+          "Guidance for PhD & Masters"
+        ],
         "contactMail": ""
       },
       {
@@ -462,7 +572,10 @@
         "education": "Masters in International Business & Engineering",
         "experience": "12+ years Experience",
         "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Engineering Programs", "Business Programs"],
+        "specialization": [
+          "Engineering Programs",
+          "Business Programs"
+        ],
         "contactMail": ""
       },
       {
@@ -471,7 +584,11 @@
         "education": "Mechanical Engineering",
         "experience": "12+ years in Germany",
         "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Strategic Planning", "University Partnerships", "Career Development"],
+        "specialization": [
+          "Strategic Planning",
+          "University Partnerships",
+          "Career Development"
+        ],
         "contactMail": ""
       },
       {
@@ -480,7 +597,11 @@
         "education": "PhD in Biotechnology",
         "experience": "9+ years in German research",
         "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Research Programs", "Lab Placements", "Scientific Writing"],
+        "specialization": [
+          "Research Programs",
+          "Lab Placements",
+          "Scientific Writing"
+        ],
         "contactMail": ""
       },
       {
@@ -489,7 +610,11 @@
         "education": "Doctorate in Engineering",
         "experience": "11+ years academic experience",
         "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face",
-        "specialization": ["Engineering Programs", "Technical Admissions", "Research Guidance"],
+        "specialization": [
+          "Engineering Programs",
+          "Technical Admissions",
+          "Research Guidance"
+        ],
         "contactMail": ""
       }
     ],
@@ -516,8 +641,7 @@
       "sub": "Get personalized guidance from our team of experienced professionals.",
       "button": "Register yourself for counselling"
     }
-  } ,
- 
+  },
   "contactus": {
     "hero": {
       "title": "Contact",
@@ -656,17 +780,29 @@
       "subtitle": "Contact us for any clarification regarding our policies and terms.",
       "button": "Contact Legal Team"
     }
-  } ,
+  },
   "reviews": {
     "hero": {
       "title": "Student Reviews",
       "subtitle": "Hear from students who successfully made it to their dream German universities with our guidance."
     },
     "stats": [
-      { "number": "4.9/5", "label": "Average Rating" },
-      { "number": "500+", "label": "Happy Students" },
-      { "number": "99%", "label": "Recommend Us" },
-      { "number": "50+", "label": "Partner Universities" }
+      {
+        "number": "4.9/5",
+        "label": "Average Rating"
+      },
+      {
+        "number": "500+",
+        "label": "Happy Students"
+      },
+      {
+        "number": "99%",
+        "label": "Recommend Us"
+      },
+      {
+        "number": "50+",
+        "label": "Partner Universities"
+      }
     ],
     "testimonials": [
       {
@@ -992,7 +1128,6 @@
       "subtitle": "Learn about how we use cookies and similar technologies to enhance your browsing experience."
     },
     "badge": "GDPR Compliant",
-
     "cookieTypes": [
       {
         "type": "Essential Cookies",
@@ -1039,7 +1174,6 @@
         "duration": "1 year"
       }
     ],
-
     "managementSteps": [
       {
         "step": 1,
@@ -1062,7 +1196,6 @@
         "description": "Email us for specific cookie-related requests"
       }
     ],
-
     "browsers": [
       {
         "name": "Chrome",
@@ -1081,35 +1214,29 @@
         "instr": "Settings → Cookies and site permissions → Cookies and data stored"
       }
     ],
-
     "defaults": {
       "analyticsEnabled": true,
       "marketingEnabled": false
     },
-
     "headings": {
       "types": "Types of Cookies We Use",
       "management": "Managing Your Cookies",
       "browserSettings": "Browser Cookie Settings"
     },
-
     "labels": {
       "examples": "Examples:",
       "duration": "Duration:"
     },
-
     "tags": {
       "necessary": "Necessary",
       "optional": "Optional"
     },
-
     "toggles": {
       "analyticsLabel": "Analytics Cookies",
       "analyticsDescription": "Help us improve the site by seeing usage patterns.",
       "marketingLabel": "Marketing Cookies",
       "marketingDescription": "Used for showing more relevant ads across the web."
     },
-
     "meta": {
       "lastUpdated": "Last Updated: {{date}}"
     }
@@ -1120,10 +1247,22 @@
       "subtitle": "Comprehensive support services for Indian students pursuing education in Germany. From financial solutions to accommodation, we handle everything for your smooth transition."
     },
     "stats": [
-      { "number": "5000+", "label": "Forex Cards Issued" },
-      { "number": "2000+", "label": "Accommodations Arranged" },
-      { "number": "3000+", "label": "Insurance Policies" },
-      { "number": "₹100Cr+", "label": "Loans Sanctioned" }
+      {
+        "number": "5000+",
+        "label": "Forex Cards Issued"
+      },
+      {
+        "number": "2000+",
+        "label": "Accommodations Arranged"
+      },
+      {
+        "number": "3000+",
+        "label": "Insurance Policies"
+      },
+      {
+        "number": "₹100Cr+",
+        "label": "Loans Sanctioned"
+      }
     ],
     "servicesList": [
       {
@@ -1276,28 +1415,48 @@
       {
         "type": "Student Hostels",
         "price": "€250-€400/month",
-        "features": ["Fully Furnished", "WiFi Included", "Laundry Facilities", "Common Kitchen"],
+        "features": [
+          "Fully Furnished",
+          "WiFi Included",
+          "Laundry Facilities",
+          "Common Kitchen"
+        ],
         "bestFor": "First-year students",
         "image": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
       },
       {
         "type": "Shared Apartments",
         "price": "€350-€550/month",
-        "features": ["Private Room", "Shared Kitchen", "Living Area", "Bills Included"],
+        "features": [
+          "Private Room",
+          "Shared Kitchen",
+          "Living Area",
+          "Bills Included"
+        ],
         "bestFor": "Budget-conscious students",
         "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
       },
       {
         "type": "Studio Apartments",
         "price": "€450-€700/month",
-        "features": ["Private Kitchen", "Private Bathroom", "Self-Contained", "All Utilities"],
+        "features": [
+          "Private Kitchen",
+          "Private Bathroom",
+          "Self-Contained",
+          "All Utilities"
+        ],
         "bestFor": "Students preferring privacy",
         "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
       },
       {
         "type": "Homestay",
         "price": "€300-€500/month",
-        "features": ["Local Family", "Meals Included", "Cultural Immersion", "Support System"],
+        "features": [
+          "Local Family",
+          "Meals Included",
+          "Cultural Immersion",
+          "Support System"
+        ],
         "bestFor": "International students",
         "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=400&h=300&fit=crop"
       }
@@ -1308,25 +1467,41 @@
         "name": "Berlin",
         "averageRent": "€400-€600",
         "popularity": "High",
-        "studentAreas": ["Kreuzberg", "Neukölln", "Prenzlauer Berg"]
+        "studentAreas": [
+          "Kreuzberg",
+          "Neukölln",
+          "Prenzlauer Berg"
+        ]
       },
       {
         "name": "Munich",
         "averageRent": "€500-€750",
         "popularity": "Very High",
-        "studentAreas": ["Schwabing", "Maxvorstadt", "Giesing"]
+        "studentAreas": [
+          "Schwabing",
+          "Maxvorstadt",
+          "Giesing"
+        ]
       },
       {
         "name": "Hamburg",
         "averageRent": "€350-€550",
         "popularity": "High",
-        "studentAreas": ["Sternschanze", "Eimsbüttel", "Altona"]
+        "studentAreas": [
+          "Sternschanze",
+          "Eimsbüttel",
+          "Altona"
+        ]
       },
       {
         "name": "Cologne",
         "averageRent": "€300-€500",
         "popularity": "Medium",
-        "studentAreas": ["Ehrenfeld", "Sülz", "Lindenthal"]
+        "studentAreas": [
+          "Ehrenfeld",
+          "Sülz",
+          "Lindenthal"
+        ]
       }
     ],
     "averageRentLabel": "Average Rent:",
@@ -1341,27 +1516,102 @@
     }
   },
   "forexCardRemittances": {
-    "hero": { "title": "Forex Card & Remittances", "subtitle": "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying international." },
+    "hero": {
+      "title": "Forex Card & Remittances",
+      "subtitle": "Manage your international finances seamlessly with our multi-currency forex cards and competitive remittance services. Perfect for students studying international."
+    },
     "features": [
-      { "icon": "CreditCard", "title": "Multi-Currency Forex Cards", "description": "Load multiple currencies including EUR, USD, GBP on a single card for seamless transactions across Europe.", "benefits": ["Zero Forex Markup", "Instant Reload", "ATM Access", "Online Tracking"] },
-      { "icon": "Send", "title": "International Money Transfer", "description": "Fast and secure remittance services with competitive exchange rates and minimal transfer fees.", "benefits": ["Best Exchange Rates", "Quick Transfer", "Low Fees", "24/7 Support"] },
-      { "icon": "Shield", "title": "Secure & Insured", "description": "Your money is protected with advanced security features and insurance coverage.", "benefits": ["Fraud Protection", "Insurance Cover", "PIN Protection", "Emergency Support"] },
-      { "icon": "Globe", "title": "Global Acceptance", "description": "Accepted at millions of locations worldwide including ATMs, shops, and online platforms.", "benefits": ["Worldwide Acceptance", "Online Shopping", "Contactless Payments", "Mobile App"] }
+      {
+        "icon": "CreditCard",
+        "title": "Multi-Currency Forex Cards",
+        "description": "Load multiple currencies including EUR, USD, GBP on a single card for seamless transactions across Europe.",
+        "benefits": [
+          "Zero Forex Markup",
+          "Instant Reload",
+          "ATM Access",
+          "Online Tracking"
+        ]
+      },
+      {
+        "icon": "Send",
+        "title": "International Money Transfer",
+        "description": "Fast and secure remittance services with competitive exchange rates and minimal transfer fees.",
+        "benefits": [
+          "Best Exchange Rates",
+          "Quick Transfer",
+          "Low Fees",
+          "24/7 Support"
+        ]
+      },
+      {
+        "icon": "Shield",
+        "title": "Secure & Insured",
+        "description": "Your money is protected with advanced security features and insurance coverage.",
+        "benefits": [
+          "Fraud Protection",
+          "Insurance Cover",
+          "PIN Protection",
+          "Emergency Support"
+        ]
+      },
+      {
+        "icon": "Globe",
+        "title": "Global Acceptance",
+        "description": "Accepted at millions of locations worldwide including ATMs, shops, and online platforms.",
+        "benefits": [
+          "Worldwide Acceptance",
+          "Online Shopping",
+          "Contactless Payments",
+          "Mobile App"
+        ]
+      }
     ],
     "processTitle": "Simple 4-Step Process",
     "process": [
-      { "step": 1, "title": "Documentation", "description": "Submit KYC documents and application form" },
-      { "step": 2, "title": "Card Issuance", "description": "Receive your forex card within 2-3 business days" },
-      { "step": 3, "title": "Currency Load", "description": "Load desired currencies at best exchange rates" },
-      { "step": 4, "title": "Activation & Use", "description": "Activate and start using your card globally" }
+      {
+        "step": 1,
+        "title": "Documentation",
+        "description": "Submit KYC documents and application form"
+      },
+      {
+        "step": 2,
+        "title": "Card Issuance",
+        "description": "Receive your forex card within 2-3 business days"
+      },
+      {
+        "step": 3,
+        "title": "Currency Load",
+        "description": "Load desired currencies at best exchange rates"
+      },
+      {
+        "step": 4,
+        "title": "Activation & Use",
+        "description": "Activate and start using your card globally"
+      }
     ],
     "whyTitle": "Why Choose Our Forex Services?",
     "whyBenefits": [
-      { "icon": "Zap", "title": "Best Exchange Rates", "description": "Get the most competitive rates for EUR and other major currencies" },
-      { "icon": "TrendingUp", "title": "Save 3-5% on Forex", "description": "Significantly better rates compared to banks and airports" },
-      { "icon": "Shield", "title": "Complete Security", "description": "Bank-grade security with 24/7 fraud monitoring" }
+      {
+        "icon": "Zap",
+        "title": "Best Exchange Rates",
+        "description": "Get the most competitive rates for EUR and other major currencies"
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Save 3-5% on Forex",
+        "description": "Significantly better rates compared to banks and airports"
+      },
+      {
+        "icon": "Shield",
+        "title": "Complete Security",
+        "description": "Bank-grade security with 24/7 fraud monitoring"
+      }
     ],
-    "cta": { "heading": "Ready to Get Your Forex Card?", "sub": "Start your financial journey to Germany with the best forex solutions.", "button": "Apply Now" }
+    "cta": {
+      "heading": "Ready to Get Your Forex Card?",
+      "sub": "Start your financial journey to Germany with the best forex solutions.",
+      "button": "Apply Now"
+    }
   },
   "medicalInsurance": {
     "hero": {
@@ -1374,7 +1624,12 @@
         "name": "Basic Student Plan",
         "price": "€30-€40/month",
         "coverage": "Basic medical coverage",
-        "features": ["Doctor Visits", "Basic Medications", "Emergency Care", "24/7 Support"],
+        "features": [
+          "Doctor Visits",
+          "Basic Medications",
+          "Emergency Care",
+          "24/7 Support"
+        ],
         "bestFor": "Budget-conscious students",
         "popular": false
       },
@@ -1382,7 +1637,12 @@
         "name": "Comprehensive Plan",
         "price": "€50-€70/month",
         "coverage": "Full medical coverage",
-        "features": ["Hospitalization", "Dental Care", "Vision Care", "Therapy Sessions"],
+        "features": [
+          "Hospitalization",
+          "Dental Care",
+          "Vision Care",
+          "Therapy Sessions"
+        ],
         "bestFor": "Most international students",
         "popular": true
       },
@@ -1390,7 +1650,12 @@
         "name": "Premium Plan",
         "price": "€80-€100/month",
         "coverage": "Premium comprehensive coverage",
-        "features": ["Private Hospital", "Worldwide Coverage", "No Waiting Period", "Full Dental"],
+        "features": [
+          "Private Hospital",
+          "Worldwide Coverage",
+          "No Waiting Period",
+          "Full Dental"
+        ],
         "bestFor": "Students wanting premium care",
         "popular": false
       }
@@ -1419,19 +1684,31 @@
         "name": "TK (Techniker Krankenkasse)",
         "rating": 4.8,
         "students": "500,000+",
-        "features": ["English Support", "Digital Services", "Wide Network"]
+        "features": [
+          "English Support",
+          "Digital Services",
+          "Wide Network"
+        ]
       },
       {
         "name": "AOK",
         "rating": 4.6,
         "students": "400,000+",
-        "features": ["Local Offices", "Traditional Provider", "Comprehensive"]
+        "features": [
+          "Local Offices",
+          "Traditional Provider",
+          "Comprehensive"
+        ]
       },
       {
         "name": "DAK-Gesundheit",
         "rating": 4.7,
         "students": "300,000+",
-        "features": ["Modern App", "Preventive Care", "Student Discounts"]
+        "features": [
+          "Modern App",
+          "Preventive Care",
+          "Student Discounts"
+        ]
       }
     ],
     "cta": {
@@ -1462,30 +1739,70 @@
         "name": "Collateral-Free Loan",
         "amount": "Up to ₹75 Lakhs",
         "interest": "8.5% - 11.5% p.a.",
-        "features": ["No Collateral", "Moratorium Period", "Flexible Repayment", "Quick Disbursal"],
+        "features": [
+          "No Collateral",
+          "Moratorium Period",
+          "Flexible Repayment",
+          "Quick Disbursal"
+        ],
         "eligibility": "Indian students with admission"
       },
       {
         "name": "Secured Education Loan",
         "amount": "Up to ₹1.5 Crores",
         "interest": "7.5% - 9.5% p.a.",
-        "features": ["Lower Interest", "Longer Tenure", "Parent as Co-applicant", "Tax Benefits"],
+        "features": [
+          "Lower Interest",
+          "Longer Tenure",
+          "Parent as Co-applicant",
+          "Tax Benefits"
+        ],
         "eligibility": "With collateral security"
       },
       {
         "name": "German Government Loan",
         "amount": "Up to €850/month",
         "interest": "0% - 2% p.a.",
-        "features": ["Subsidized Interest", "Long Repayment", "Income-Based", "No Collateral"],
+        "features": [
+          "Subsidized Interest",
+          "Long Repayment",
+          "Income-Based",
+          "No Collateral"
+        ],
         "eligibility": "EU & International students"
       }
     ],
     "lenders": [
-      { "name": "SBI Global Ed-Vantage", "processing": "7-10 days", "margin": "Up to 15%", "special": "No margin for premier institutes" },
-      { "name": "HDFC Credila", "processing": "5-7 days", "margin": "Up to 10%", "special": "Digital process" },
-      { "name": "Axis Bank Education Loan", "processing": "10-12 days", "margin": "Up to 15%", "special": "Wide university coverage" },
-      { "name": "Prodigy Finance", "processing": "2-3 weeks", "margin": "No margin", "special": "International lenders" },
-      { "name": "Union Bank of India – Education Loan", "processing": "8-10 days", "margin": "Up to 10%", "special": "Low interest for overseas studies" }
+      {
+        "name": "SBI Global Ed-Vantage",
+        "processing": "7-10 days",
+        "margin": "Up to 15%",
+        "special": "No margin for premier institutes"
+      },
+      {
+        "name": "HDFC Credila",
+        "processing": "5-7 days",
+        "margin": "Up to 10%",
+        "special": "Digital process"
+      },
+      {
+        "name": "Axis Bank Education Loan",
+        "processing": "10-12 days",
+        "margin": "Up to 15%",
+        "special": "Wide university coverage"
+      },
+      {
+        "name": "Prodigy Finance",
+        "processing": "2-3 weeks",
+        "margin": "No margin",
+        "special": "International lenders"
+      },
+      {
+        "name": "Union Bank of India – Education Loan",
+        "processing": "8-10 days",
+        "margin": "Up to 10%",
+        "special": "Low interest for overseas studies"
+      }
     ],
     "documents": [
       "Admission letter from German university",
@@ -1551,21 +1868,33 @@
     "partnerInstitutes": [
       {
         "name": "German Language Institute",
-        "courses": ["A1-C2 German", "TestDaF Prep", "Goethe Exam"],
+        "courses": [
+          "A1-C2 German",
+          "TestDaF Prep",
+          "Goethe Exam"
+        ],
         "discount": "20%",
         "rating": 4.9,
         "students": "2000+"
       },
       {
         "name": "STEM Training Center",
-        "courses": ["TestAS Prep", "GRE/GMAT", "Technical Interviews"],
+        "courses": [
+          "TestAS Prep",
+          "GRE/GMAT",
+          "Technical Interviews"
+        ],
         "discount": "15%",
         "rating": 4.8,
         "students": "1500+"
       },
       {
         "name": "Study Abroad Academy",
-        "courses": ["IELTS Prep", "Academic Writing", "Interview Skills"],
+        "courses": [
+          "IELTS Prep",
+          "Academic Writing",
+          "Interview Skills"
+        ],
         "discount": "25%",
         "rating": 4.7,
         "students": "1800+"
@@ -1707,5 +2036,4 @@
       "button": "Register Now"
     }
   }
-
 }
