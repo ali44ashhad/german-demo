@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
-import { useLoginMutation } from '../store/apiSlice';
+import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, ArrowLeft, RefreshCw } from 'lucide-react';
+import { useLoginMutation, useResendVerificationEmailMutation } from '../store/apiSlice';
 
 const ADMIN_ROLE = 'superadmin';
 const SUBADMIN_ROLE = 'subadmin';
@@ -12,6 +12,7 @@ const Login = () => {
   const { t } = useTranslation('common');
   const navigate = useNavigate();
   const [login, { isLoading: isSubmitting }] = useLoginMutation();
+  const [resendVerification, { isLoading: isResending }] = useResendVerificationEmailMutation();
   
   const [formData, setFormData] = useState({
     email: '',
@@ -21,11 +22,15 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [showResendButton, setShowResendButton] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     setError('');
+    setResendSuccess('');
+    setShowResendButton(false);
   };
 
   const handleSubmit = async (e) => {
@@ -58,7 +63,25 @@ const Login = () => {
         }, 1500);
       }
     } catch (err) {
-      setError(err.data?.message || err.message || 'Invalid email or password. Please try again.');
+      const errorMsg = err.data?.message || err.message || 'Invalid email or password. Please try again.';
+      setError(errorMsg);
+      if (errorMsg.toLowerCase().includes('verify')) {
+        setShowResendButton(true);
+      }
+    }
+  };
+
+  const handleResend = async () => {
+    try {
+      setError('');
+      setResendSuccess('');
+      const response = await resendVerification({ email: formData.email }).unwrap();
+      if (response.success) {
+        setShowResendButton(false);
+        setResendSuccess(response.message || 'Verification link sent!');
+      }
+    } catch (err) {
+      setError(err.data?.message || 'Failed to resend verification email.');
     }
   };
 
@@ -135,12 +158,41 @@ const Login = () => {
               {/* Error Message */}
               {error && (
                 <motion.div
-                  className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3"
+                  className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3 flex-col"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-red-700 text-sm">{error}</p>
+                  <div className="flex items-start gap-3 w-full">
+                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <p className="text-red-700 text-sm flex-1">{error}</p>
+                  </div>
+                  {showResendButton && (
+                    <button
+                      type="button"
+                      onClick={handleResend}
+                      disabled={isResending}
+                      className="mt-2 w-full flex items-center justify-center gap-2 bg-white text-green-700 border border-green-200 py-2 rounded-lg font-medium hover:bg-green-50 transition shadow-sm text-sm"
+                    >
+                      {isResending ? (
+                        <RefreshCw className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Mail className="w-4 h-4" />
+                      )}
+                      {isResending ? 'Sending...' : 'Resend Verification Email'}
+                    </button>
+                  )}
+                </motion.div>
+              )}
+
+              {/* Resend Success Message */}
+              {resendSuccess && (
+                <motion.div
+                  className="bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-3"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                >
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-green-700 text-sm">{resendSuccess}</p>
                 </motion.div>
               )}
 

@@ -35,6 +35,14 @@ export const apiSlice = createApi({
       }),
     }),
 
+    resendVerificationEmail: builder.mutation({
+      query: (data) => ({
+        url: '/users/auth/resend-verification',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     login: builder.mutation({
       query: (credentials) => ({
         url: '/users/auth/login',
@@ -327,6 +335,7 @@ export const {
   // Auth hooks
   useRegisterMutation,
   useVerifyEmailMutation,
+  useResendVerificationEmailMutation,
   useLoginMutation,
   useLogoutMutation,
   useGetCurrentUserQuery,
