@@ -27,6 +27,14 @@ export const apiSlice = createApi({
       invalidatesTags: ['User'],
     }),
 
+    verifyEmail: builder.mutation({
+      query: (data) => ({
+        url: '/users/auth/verify-email',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     login: builder.mutation({
       query: (credentials) => ({
         url: '/users/auth/login',
@@ -318,6 +326,7 @@ export const apiSlice = createApi({
 export const {
   // Auth hooks
   useRegisterMutation,
+  useVerifyEmailMutation,
   useLoginMutation,
   useLogoutMutation,
   useGetCurrentUserQuery,

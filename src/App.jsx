@@ -20,6 +20,7 @@ import CookiesPolicy from "./pages/CookiesPolicy";
 import ScrollToTop from "./components/common/ScrollToTop";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import VerifyEmail from "./pages/VerifyEmail";
 import Profile from "./pages/Profile";
 import AdminRoute from "./components/common/AdminRoute";
 import SubAdminRoute from "./components/common/SubAdminRoute";
@@ -35,7 +36,7 @@ import SubAdminProfile from "./pages/subadmin/SubAdminProfile";
 
 function App() {
   const location = useLocation();
-  const hideLayoutRoutes = ["/login", "/register"];
+  const hideLayoutRoutes = ["/login", "/register", "/verify"];
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
   const isSubAdminView = location.pathname.startsWith("/subadmin");
 
@@ -69,6 +70,7 @@ function App() {
           {/* Auth Routes */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/verify" element={<VerifyEmail />} />
           <Route path="/profile" element={<Profile />} />
           <Route
             path="/admin"

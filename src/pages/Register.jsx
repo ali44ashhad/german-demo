@@ -23,6 +23,7 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const roles = [
     { value: 'user', label: 'User' },
@@ -76,9 +77,10 @@ const Register = () => {
       
       if (response.success) {
         setSuccess(true);
+        setSuccessMessage(response.message || 'Your account has been created. Redirecting to login...');
         setTimeout(() => {
           navigate('/login');
-        }, 2000);
+        }, 4000);
       }
     } catch (err) {
       setError(err.data?.message || err.message || 'Registration failed. Please try again.');
@@ -150,7 +152,7 @@ const Register = () => {
                 {t('auth.register.success.title', 'Registration Successful!')}
               </h3>
               <p className="text-gray-700 mb-6">
-                {t('auth.register.success.message', 'Your account has been created. Redirecting to login...')}
+                {successMessage}
               </p>
             </motion.div>
           ) : (
