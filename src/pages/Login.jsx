@@ -13,12 +13,12 @@ const Login = () => {
   const navigate = useNavigate();
   const [login, { isLoading: isSubmitting }] = useLoginMutation();
   const [resendVerification, { isLoading: isResending }] = useResendVerificationEmailMutation();
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -45,7 +45,7 @@ const Login = () => {
 
     try {
       const response = await login(formData).unwrap();
-      
+
       if (response.success) {
         setSuccess(true);
         // Store user data in localStorage if needed
@@ -53,7 +53,7 @@ const Login = () => {
           localStorage.setItem('user', JSON.stringify(response.user));
         }
         setTimeout(() => {
-          let targetRoute = '/home';
+          let targetRoute = '/profile';
           if (response.user?.role === ADMIN_ROLE) {
             targetRoute = '/admin';
           } else if (response.user?.role === SUBADMIN_ROLE) {

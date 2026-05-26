@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   useGetCurrentUserQuery,
   useUpdateCurrentUserProfileMutation,
@@ -7,12 +7,54 @@ import {
 } from "../store/apiSlice";
 import { CheckCircle, Loader2, RefreshCw, XCircle, Upload, X, FileText, Edit } from "lucide-react";
 import PDFPreviewModal from "../components/common/PDFPreviewModal";
+import {
+  BiodataFormSection,
+  StudentInquiryFormSection,
+  sanitizeRatedList,
+} from "../components/profile/ProfileExtendedSections";
+import { getProfilePdfFilenames } from "../utils/profilePdfFilenames";
 
 const needHelpOptions = [
   { value: "SOP", label: "Statement of Purpose (SOP)" },
   { value: "LOR", label: "Letter of Recommendation (LOR)" },
   { value: "Application Process", label: "Application Process" },
 ];
+
+const emptyBiodata = () => ({
+  professionalTitle: "",
+  citizenship: "",
+  maritalStatus: "",
+  skillset: [],
+  languages: [],
+  itSkills: [],
+  sportsAndHobbies: [],
+  education: [],
+  internshipsTheses: [],
+  experience: [],
+  keyHighlights: [],
+  declarationPlace: "",
+  signatureName: "",
+});
+
+const emptyStudentInquiry = () => ({
+  gender: "",
+  familyMembers: [],
+  educationOverview: [],
+  motivationForFurtherStudies: "",
+  targetCountries: [],
+  targetDegrees: [],
+  targetFieldsOfStudy: [],
+  englishTest: {
+    testType: "IELTS",
+    overall: "",
+    sections: { listening: "", reading: "", writing: "", speaking: "" },
+    otherNote: "",
+  },
+  additionalTestOrCertificate: "",
+  shortlistedUniversitiesList: [],
+  inquiryComments: [],
+  inquiryAdditionalServices: [],
+});
 
 const initialFormState = {
   name: "",
@@ -34,7 +76,91 @@ const initialFormState = {
   shortlistedUniversities: "",
   needHelpWith: [],
   agreedToTerms: false,
+  contactNumber: "",
+  address: "",
+  linkedInUrl: "",
+  fullLegalName: "",
+  biodata: emptyBiodata(),
+  studentInquiry: emptyStudentInquiry(),
 };
+
+function inferGenderFromLegacy(gender, sex) {
+  const g = typeof gender === "string" ? gender.trim() : "";
+  const allowed = new Set(["male", "female", "transgender", "non_binary", "prefer_not_to_say", "other"]);
+  if (g && allowed.has(g)) return g;
+  const s = (sex || "").trim().toLowerCase();
+  if (s === "male" || s === "m") return "male";
+  if (s === "female" || s === "f") return "female";
+  if (s.includes("trans")) return "transgender";
+  if (s.includes("non-binary") || s.includes("nonbinary")) return "non_binary";
+  if (s.includes("prefer") || s === "n/a") return "prefer_not_to_say";
+  if (s) return "other";
+  return "";
+}
+
+function formStateFromUser(user) {
+  if (!user) return { ...initialFormState };
+  const baseInq = emptyStudentInquiry();
+  const si = user.studentInquiry || {};
+  const et = si.englishTest || {};
+
+  let familyMembers = Array.isArray(si.familyMembers) && si.familyMembers.length ? [...si.familyMembers] : [];
+  if (!familyMembers.length && si.familyDescription?.trim()) {
+    familyMembers = [{ name: si.familyDescription.trim(), occupation: "" }];
+  }
+
+  const genderField = inferGenderFromLegacy(si.gender, si.sex);
+
+  return {
+    name: user.name || "",
+    profileImage: user.profileImage || "",
+    dateOfBirth: user.dateOfBirth ? user.dateOfBirth.substring(0, 10) : "",
+    country: user.country || "",
+    city: user.city || "",
+    highestQualification: user.highestQualification || "",
+    fieldOfStudy: user.fieldOfStudy || "",
+    graduationYear: user.graduationYear ? String(user.graduationYear) : "",
+    marksOrCGPA: user.marksOrCGPA || "",
+    targetDegreeInGermany: user.targetDegreeInGermany || "",
+    desiredCourseProgram: user.desiredCourseProgram || "",
+    preferredIntake: user.preferredIntake || "",
+    englishProficiency: user.englishProficiency || "",
+    germanLanguageLevel: user.germanLanguageLevel || "",
+    workExperience: user.workExperience || "",
+    estimatedBudget: user.estimatedBudget || "",
+    shortlistedUniversities: user.shortlistedUniversities || "",
+    needHelpWith: user.needHelpWith || [],
+    agreedToTerms: Boolean(user.agreedToTerms),
+    contactNumber: user.contactNumber || "",
+    address: user.address || "",
+    linkedInUrl: user.linkedInUrl || "",
+    fullLegalName: user.fullLegalName || "",
+    biodata: (() => {
+      const b = { ...emptyBiodata(), ...(user.biodata || {}) };
+      return {
+        ...b,
+        skillset: sanitizeRatedList(b.skillset),
+        languages: sanitizeRatedList(b.languages),
+        itSkills: sanitizeRatedList(b.itSkills),
+        sportsAndHobbies: sanitizeRatedList(b.sportsAndHobbies),
+      };
+    })(),
+    studentInquiry: {
+      ...baseInq,
+      ...si,
+      gender: genderField,
+      familyMembers: familyMembers.length ? familyMembers : baseInq.familyMembers,
+      englishTest: {
+        ...baseInq.englishTest,
+        ...et,
+        sections: {
+          ...baseInq.englishTest.sections,
+          ...(et.sections || {}),
+        },
+      },
+    },
+  };
+}
 
 const formatRole = (role) => {
   if (!role) return "";
@@ -80,45 +206,42 @@ const Profile = () => {
 
   const user = data?.user;
 
+  const apiBase = useMemo(
+    () => import.meta.env.VITE_API_BASE_URL || "http://localhost:5005/api",
+    []
+  );
+
   const [formData, setFormData] = useState(initialFormState);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [validationErrors, setValidationErrors] = useState({});
   const [showPDFPreview, setShowPDFPreview] = useState(false);
-  const [generatedPDF, setGeneratedPDF] = useState(null);
+  const [pdfUrls, setPdfUrls] = useState({ biodata: null, inquiry: null });
+  const [pdfDownloadFilenames, setPdfDownloadFilenames] = useState(() =>
+    getProfilePdfFilenames(null)
+  );
+  const [pdfActiveTab, setPdfActiveTab] = useState("biodata");
   const [isSavingPDF, setIsSavingPDF] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [showConfirmSubmitModal, setShowConfirmSubmitModal] = useState(false);
+
+  const [profileTab, setProfileTab] = useState("core");
+
+  const defaultPdfFilenames = useMemo(
+    () => getProfilePdfFilenames(user || formData),
+    [user, formData]
+  );
 
   useEffect(() => {
     if (!user) return;
 
-    setFormData({
-      name: user.name || "",
-      profileImage: user.profileImage || "",
-      dateOfBirth: user.dateOfBirth ? user.dateOfBirth.substring(0, 10) : "",
-      country: user.country || "",
-      city: user.city || "",
-      highestQualification: user.highestQualification || "",
-      fieldOfStudy: user.fieldOfStudy || "",
-      graduationYear: user.graduationYear ? String(user.graduationYear) : "",
-      marksOrCGPA: user.marksOrCGPA || "",
-      targetDegreeInGermany: user.targetDegreeInGermany || "",
-      desiredCourseProgram: user.desiredCourseProgram || "",
-      preferredIntake: user.preferredIntake || "",
-      englishProficiency: user.englishProficiency || "",
-      germanLanguageLevel: user.germanLanguageLevel || "",
-      workExperience: user.workExperience || "",
-      estimatedBudget: user.estimatedBudget || "",
-      shortlistedUniversities: user.shortlistedUniversities || "",
-      needHelpWith: user.needHelpWith || [],
-      agreedToTerms: Boolean(user.agreedToTerms),
-    });
+    setFormData(formStateFromUser(user));
     setImagePreview(user.profileImage || null);
-    
-    // Initialize edit mode: if resume exists, start in view mode; otherwise, show form
-    setIsEditMode(!user.resumePdf);
+
+    const hasPdf = Boolean(user.biodataPdf || user.studentInquiryPdf || user.resumePdf);
+    setIsEditMode(!hasPdf);
   }, [user]);
 
   const handleInputChange = (event) => {
@@ -267,6 +390,12 @@ const Profile = () => {
       shortlistedUniversities,
       needHelpWith,
       agreedToTerms,
+      contactNumber,
+      address,
+      linkedInUrl,
+      fullLegalName,
+      biodata,
+      studentInquiry,
     } = formData;
 
     const payload = {
@@ -285,6 +414,18 @@ const Profile = () => {
       estimatedBudget: estimatedBudget.trim(),
       shortlistedUniversities: shortlistedUniversities.trim(),
       agreedToTerms,
+      contactNumber: (contactNumber || "").trim(),
+      address: (address || "").trim(),
+      linkedInUrl: (linkedInUrl || "").trim(),
+      fullLegalName: (fullLegalName || "").trim(),
+      biodata: {
+        ...biodata,
+        skillset: sanitizeRatedList(biodata?.skillset),
+        languages: sanitizeRatedList(biodata?.languages),
+        itSkills: sanitizeRatedList(biodata?.itSkills),
+        sportsAndHobbies: sanitizeRatedList(biodata?.sportsAndHobbies),
+      },
+      studentInquiry,
     };
 
     if (dateOfBirth) {
@@ -307,46 +448,63 @@ const Profile = () => {
     return payload;
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
     setValidationErrors({});
 
-    // Validate mandatory fields
     if (!validateForm()) {
       setErrorMessage("Please fill in all required fields.");
       return;
     }
 
+    setShowConfirmSubmitModal(true);
+  };
+
+  const handleConfirmSubmit = async () => {
+    setErrorMessage("");
+    setSuccessMessage("");
+
     try {
       const payload = buildPayload();
       const response = await updateCurrentUserProfile(payload).unwrap();
       if (response?.success) {
-        setSuccessMessage("Profile updated successfully. Preview your resume below.");
-        setIsEditMode(false); // Exit edit mode after successful save
-        // Use backend proxy endpoint for PDF instead of direct Cloudinary URL
-        // Add cache-busting parameter to ensure we get the latest PDF
-        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5005/api';
-        const pdfUrl = response.resumePdf?.startsWith('http') 
-          ? `${API_BASE_URL}/users/auth/resume/file?t=${Date.now()}`
-          : response.resumePdf; // Fallback to base64 if it's not a URL
-        setGeneratedPDF(pdfUrl);
-        
-        // Add a small delay before opening the modal to ensure PDF is ready
-        // The PDFPreviewModal will handle retries if needed
+        setShowConfirmSubmitModal(false);
+        setSuccessMessage("Profile updated successfully. Preview your generated documents below.");
+        setIsEditMode(false);
+        const ts = Date.now();
+        const biodataProxy =
+          response.biodataPdf?.startsWith("http") || response.resumePdf?.startsWith("http")
+            ? `${apiBase}/users/auth/biodata/file?t=${ts}`
+            : response.biodataPdf || response.resumePdf;
+        const inquiryProxy = response.studentInquiryPdf?.startsWith("http")
+          ? `${apiBase}/users/auth/student-inquiry/file?t=${ts}`
+          : response.studentInquiryPdf;
+        setPdfUrls({ biodata: biodataProxy, inquiry: inquiryProxy });
+        setPdfDownloadFilenames({
+          biodata:
+            response.biodataPdfFilename ||
+            getProfilePdfFilenames(response.user || formData).biodata,
+          inquiry:
+            response.studentInquiryPdfFilename ||
+            getProfilePdfFilenames(response.user || formData).inquiry,
+        });
+        setPdfActiveTab("biodata");
         setTimeout(() => {
           setShowPDFPreview(true);
         }, 300);
-        
+
         refetch();
         if (response.user) {
           localStorage.setItem("user", JSON.stringify(response.user));
         }
       } else {
+        setShowConfirmSubmitModal(false);
         setErrorMessage(response?.message || "Unable to update profile.");
       }
     } catch (error) {
+      setShowConfirmSubmitModal(false);
       const apiMessage = error?.data?.message || error?.message;
       setErrorMessage(apiMessage || "Something went wrong while updating your profile.");
     }
@@ -357,7 +515,7 @@ const Profile = () => {
     try {
       // The PDF is already saved in the backend, we just need to close the modal
       setShowPDFPreview(false);
-      setSuccessMessage("Resume saved successfully!");
+      setSuccessMessage("Documents saved.");
       setTimeout(() => {
         setSuccessMessage("");
       }, 5000);
@@ -370,53 +528,54 @@ const Profile = () => {
 
   const handleDiscardPDF = () => {
     setShowPDFPreview(false);
-    setGeneratedPDF(null);
+    setPdfUrls({ biodata: null, inquiry: null });
     setSuccessMessage("");
   };
 
-  const handleViewResume = () => {
-    if (user?.resumePdf) {
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5005/api';
-      // Add cache-busting parameter to ensure we get the latest PDF
-      const pdfUrl = user.resumePdf.startsWith('http') 
-        ? `${API_BASE_URL}/users/auth/resume/file?t=${Date.now()}`
-        : user.resumePdf;
-      setGeneratedPDF(pdfUrl);
+  const openPdfPreview = (tab) => {
+    const ts = Date.now();
+    const names = getProfilePdfFilenames(user);
+    setPdfDownloadFilenames(names);
+    if (tab === "biodata" && (user?.biodataPdf || user?.resumePdf)) {
+      const ref = user.biodataPdf || user.resumePdf;
+      setPdfUrls({
+        biodata: ref?.startsWith("http") ? `${apiBase}/users/auth/biodata/file?t=${ts}` : ref,
+        inquiry:
+          user.studentInquiryPdf?.startsWith("http")
+            ? `${apiBase}/users/auth/student-inquiry/file?t=${ts}`
+            : user.studentInquiryPdf || null,
+      });
+      setPdfActiveTab("biodata");
+      setShowPDFPreview(true);
+    } else if (tab === "inquiry" && user?.studentInquiryPdf) {
+      const ref = user.studentInquiryPdf;
+      setPdfUrls({
+        biodata:
+          user.biodataPdf || user.resumePdf
+            ? (user.biodataPdf || user.resumePdf)?.startsWith("http")
+              ? `${apiBase}/users/auth/biodata/file?t=${ts}`
+              : user.biodataPdf || user.resumePdf
+            : null,
+        inquiry: ref?.startsWith("http") ? `${apiBase}/users/auth/student-inquiry/file?t=${ts}` : ref,
+      });
+      setPdfActiveTab("inquiry");
       setShowPDFPreview(true);
     }
   };
 
   const handleEditProfile = () => {
     setIsEditMode(true);
+    setProfileTab("core");
     setSuccessMessage("");
     setErrorMessage("");
   };
 
   const handleCancelEdit = () => {
     setIsEditMode(false);
+    setShowConfirmSubmitModal(false);
     // Reset form data to user data
     if (user) {
-      setFormData({
-        name: user.name || "",
-        profileImage: user.profileImage || "",
-        dateOfBirth: user.dateOfBirth ? user.dateOfBirth.substring(0, 10) : "",
-        country: user.country || "",
-        city: user.city || "",
-        highestQualification: user.highestQualification || "",
-        fieldOfStudy: user.fieldOfStudy || "",
-        graduationYear: user.graduationYear ? String(user.graduationYear) : "",
-        marksOrCGPA: user.marksOrCGPA || "",
-        targetDegreeInGermany: user.targetDegreeInGermany || "",
-        desiredCourseProgram: user.desiredCourseProgram || "",
-        preferredIntake: user.preferredIntake || "",
-        englishProficiency: user.englishProficiency || "",
-        germanLanguageLevel: user.germanLanguageLevel || "",
-        workExperience: user.workExperience || "",
-        estimatedBudget: user.estimatedBudget || "",
-        shortlistedUniversities: user.shortlistedUniversities || "",
-        needHelpWith: user.needHelpWith || [],
-        agreedToTerms: Boolean(user.agreedToTerms),
-      });
+      setFormData(formStateFromUser(user));
     }
     setSuccessMessage("");
     setErrorMessage("");
@@ -451,6 +610,8 @@ const Profile = () => {
       </div>
     );
   }
+
+  const hasDocuments = Boolean(user.biodataPdf || user.studentInquiryPdf || user.resumePdf);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-8">
@@ -530,55 +691,99 @@ const Profile = () => {
             </div>
 
             <div className="border-t border-gray-200 pt-10">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+              <div className="space-y-4 mb-6">
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900">
                     {isEditMode ? "Edit Your Profile" : "Your Profile"}
                   </h2>
-                  {!isEditMode && user?.resumePdf && (
+                  {!isEditMode && hasDocuments && (
                     <p className="text-gray-600 mt-2">
-                      Your resume has been generated. View it below or edit your profile to update it.
+                      Your biodata and student inquiry PDFs are ready. View them below or edit your profile to update.
                     </p>
                   )}
-                  {!isEditMode && !user?.resumePdf && (
+                  {!isEditMode && !hasDocuments && (
                     <p className="text-gray-600 mt-2">
-                      Complete your profile to generate your resume.
+                      Complete your profile to generate your documents.
                     </p>
                   )}
                   {isEditMode && (
                     <p className="text-gray-600 mt-2">
-                      Update your information below. Email and mobile number cannot be modified here.
+                      Use the tabs for core application, biodata (CV), and student inquiry. Email cannot be changed here;
+                      add your phone and address for the PDFs.
                     </p>
                   )}
                 </div>
-                {!isEditMode && user?.resumePdf && (
-                  <div className="flex flex-col sm:flex-row gap-3">
+                {!isEditMode && hasDocuments && (
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 w-full">
                     <motion.button
                       type="button"
-                      onClick={handleViewResume}
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                      onClick={() => openPdfPreview("biodata")}
+                      className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <FileText className="w-5 h-5" />
-                      View Resume
+                      <FileText className="w-5 h-5 shrink-0" />
+                      View biodata
                     </motion.button>
+                    {user?.studentInquiryPdf && (
+                      <motion.button
+                        type="button"
+                        onClick={() => openPdfPreview("inquiry")}
+                        className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-green-600 bg-white px-6 py-3 text-sm font-semibold text-green-700 hover:bg-green-50 transition-all"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <FileText className="w-5 h-5 shrink-0" />
+                        View student inquiry
+                      </motion.button>
+                    )}
                     <motion.button
                       type="button"
                       onClick={handleEditProfile}
-                      className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-all"
+                      className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-all"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Edit className="w-5 h-5" />
+                      <Edit className="w-5 h-5 shrink-0" />
                       Edit Profile
                     </motion.button>
                   </div>
                 )}
               </div>
 
-              {(!user?.resumePdf || isEditMode) && (
-                <form onSubmit={handleSubmit} className="space-y-12">
+              {(!hasDocuments || isEditMode) && (
+                <form
+                  onSubmit={handleSubmit}
+                  onKeyDown={(e) => {
+                    if (e.key !== "Enter") return;
+                    if (e.target instanceof HTMLTextAreaElement) return;
+                    e.preventDefault();
+                  }}
+                  className="space-y-12"
+                >
+                <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-4">
+                  {[
+                    { id: "core", label: "Core application" },
+                    { id: "biodata", label: "Biodata (CV)" },
+                    { id: "inquiry", label: "Student inquiry" },
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setProfileTab(tab.id)}
+                      className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+                        profileTab === tab.id
+                          ? "bg-green-600 text-white shadow"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {profileTab === "core" && (
+                <>
                 {/* Personal Details */}
                 <section>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Personal Details</h3>
@@ -726,6 +931,54 @@ const Profile = () => {
                       {validationErrors.city && (
                         <p className="mt-1 text-sm text-red-600">{validationErrors.city}</p>
                       )}
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact (for PDFs)</h3>
+                  <div className="grid gap-5 md:grid-cols-2">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                      <input
+                        type="text"
+                        name="contactNumber"
+                        value={formData.contactNumber}
+                        onChange={handleInputChange}
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        placeholder="+91 ..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Legal full name (inquiry)</label>
+                      <input
+                        type="text"
+                        name="fullLegalName"
+                        value={formData.fullLegalName}
+                        onChange={handleInputChange}
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Address (multiline)</label>
+                      <textarea
+                        name="address"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        rows={3}
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn URL</label>
+                      <input
+                        type="url"
+                        name="linkedInUrl"
+                        value={formData.linkedInUrl}
+                        onChange={handleInputChange}
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        placeholder="https://linkedin.com/in/..."
+                      />
                     </div>
                   </div>
                 </section>
@@ -1010,6 +1263,22 @@ const Profile = () => {
                     ))}
                   </div>
                 </section>
+                </>
+                )}
+
+                {profileTab === "biodata" && (
+                  <BiodataFormSection
+                    biodata={formData.biodata}
+                    onChange={(biodata) => setFormData((prev) => ({ ...prev, biodata }))}
+                  />
+                )}
+
+                {profileTab === "inquiry" && (
+                  <StudentInquiryFormSection
+                    studentInquiry={formData.studentInquiry}
+                    onChange={(studentInquiry) => setFormData((prev) => ({ ...prev, studentInquiry }))}
+                  />
+                )}
 
                 <section className="flex items-center justify-between gap-4 bg-green-50 border border-green-200 rounded-2xl px-6 py-4">
                   <label className="flex items-center gap-3 text-sm text-green-800 font-medium">
@@ -1050,30 +1319,7 @@ const Profile = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      setFormData(initialFormState);
-                      if (user) {
-                        setFormData({
-                          name: user.name || "",
-                          profileImage: user.profileImage || "",
-                          dateOfBirth: user.dateOfBirth ? user.dateOfBirth.substring(0, 10) : "",
-                          country: user.country || "",
-                          city: user.city || "",
-                          highestQualification: user.highestQualification || "",
-                          fieldOfStudy: user.fieldOfStudy || "",
-                          graduationYear: user.graduationYear ? String(user.graduationYear) : "",
-                          marksOrCGPA: user.marksOrCGPA || "",
-                          targetDegreeInGermany: user.targetDegreeInGermany || "",
-                          desiredCourseProgram: user.desiredCourseProgram || "",
-                          preferredIntake: user.preferredIntake || "",
-                          englishProficiency: user.englishProficiency || "",
-                          germanLanguageLevel: user.germanLanguageLevel || "",
-                          workExperience: user.workExperience || "",
-                          estimatedBudget: user.estimatedBudget || "",
-                          shortlistedUniversities: user.shortlistedUniversities || "",
-                          needHelpWith: user.needHelpWith || [],
-                          agreedToTerms: Boolean(user.agreedToTerms),
-                        });
-                      }
+                      if (user) setFormData(formStateFromUser(user));
                     }}
                     className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-all"
                     disabled={isUpdating}
@@ -1104,11 +1350,111 @@ const Profile = () => {
         </div>
       </div>
 
+      {/* Confirm save modal */}
+      <AnimatePresence>
+        {showConfirmSubmitModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => !isUpdating && setShowConfirmSubmitModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-3xl shadow-2xl max-w-md w-full"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="confirm-save-title"
+            >
+              <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+                <h2 id="confirm-save-title" className="text-xl font-bold text-gray-900">
+                  Save profile changes?
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmSubmitModal(false)}
+                  disabled={isUpdating}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5 text-gray-500" />
+                </button>
+              </div>
+              <div className="p-6 space-y-4">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Your profile details will be saved. Biodata and student inquiry documents may be
+                  regenerated from your updated information.
+                </p>
+                <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmSubmitModal(false)}
+                    disabled={isUpdating}
+                    className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors disabled:opacity-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleConfirmSubmit}
+                    disabled={isUpdating}
+                    className="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white rounded-xl font-semibold hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {isUpdating ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Saving...
+                      </>
+                    ) : (
+                      "Confirm & save"
+                    )}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* PDF Preview Modal */}
       <PDFPreviewModal
         isOpen={showPDFPreview}
         onClose={() => setShowPDFPreview(false)}
-        pdfDataUrl={generatedPDF}
+        pdfDataUrl={pdfActiveTab === "biodata" ? pdfUrls.biodata : pdfUrls.inquiry}
+        title={pdfActiveTab === "biodata" ? "Biodata preview" : "Student inquiry preview"}
+        downloadFilename={
+          pdfActiveTab === "biodata"
+            ? pdfDownloadFilenames.biodata || defaultPdfFilenames.biodata
+            : pdfDownloadFilenames.inquiry || defaultPdfFilenames.inquiry
+        }
+        headerSlot={
+          pdfUrls.biodata && pdfUrls.inquiry ? (
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setPdfActiveTab("biodata")}
+                className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${
+                  pdfActiveTab === "biodata" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                Biodata
+              </button>
+              <button
+                type="button"
+                onClick={() => setPdfActiveTab("inquiry")}
+                className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${
+                  pdfActiveTab === "inquiry" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                Student inquiry
+              </button>
+            </div>
+          ) : null
+        }
         onSave={handleSavePDF}
         onDiscard={handleDiscardPDF}
         isLoading={isSavingPDF}

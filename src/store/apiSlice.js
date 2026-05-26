@@ -303,20 +303,20 @@ export const apiSlice = createApi({
     }),
 
     // ==================== NOTE ENDPOINTS ====================
-    getNoteByBookingId: builder.query({
+    getNotesByBookingId: builder.query({
       query: (bookingId) => `/notes/booking/${bookingId}`,
       providesTags: (result, error, bookingId) => [{ type: 'Note', id: bookingId }],
     }),
 
     getNotesBySubAdmin: builder.query({
-      query: ({ page = 1, limit = 100 } = {}) => ({
+      query: ({ page = 1, limit = 100, userId } = {}) => ({
         url: '/notes',
-        params: { page, limit },
+        params: { page, limit, ...(userId ? { userId } : {}) },
       }),
       providesTags: ['Note'],
     }),
 
-    createOrUpdateNote: builder.mutation({
+    createNote: builder.mutation({
       query: ({ bookingId, content }) => ({
         url: '/notes',
         method: 'POST',
@@ -324,6 +324,29 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: (result, error, { bookingId }) => [
         { type: 'Note', id: bookingId },
+        'Note',
+      ],
+    }),
+
+    updateNote: builder.mutation({
+      query: ({ noteId, content }) => ({
+        url: `/notes/${noteId}`,
+        method: 'PATCH',
+        body: { content },
+      }),
+      invalidatesTags: (result, error, { bookingId }) => [
+        ...(bookingId ? [{ type: 'Note', id: bookingId }] : []),
+        'Note',
+      ],
+    }),
+
+    deleteNote: builder.mutation({
+      query: ({ noteId }) => ({
+        url: `/notes/${noteId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (result, error, { bookingId }) => [
+        ...(bookingId ? [{ type: 'Note', id: bookingId }] : []),
         'Note',
       ],
     }),
@@ -376,8 +399,10 @@ export const {
   // Dashboard hooks
   useGetDashboardStatsQuery,
   // Note hooks
-  useGetNoteByBookingIdQuery,
+  useGetNotesByBookingIdQuery,
   useGetNotesBySubAdminQuery,
-  useCreateOrUpdateNoteMutation,
+  useCreateNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
 } = apiSlice;
 

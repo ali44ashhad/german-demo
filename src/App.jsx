@@ -33,6 +33,7 @@ import SubAdminConsultations from "./pages/subadmin/SubAdminConsultations";
 import SubAdminStudents from "./pages/subadmin/SubAdminStudents";
 import SubAdminStudentDetails from "./pages/subadmin/SubAdminStudentDetails";
 import SubAdminProfile from "./pages/subadmin/SubAdminProfile";
+import StudentJourney from "./pages/StudentJourney";
 
 function App() {
   const location = useLocation();
@@ -56,6 +57,7 @@ function App() {
           <Route path="/disclaimer" element={<DisclaimerAndPolicy />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<StudentJourney />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/cookies" element={<CookiesPolicy />} />

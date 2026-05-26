@@ -6,6 +6,7 @@
       "team": "Team",
       "services": "Services",
       "process": "Process",
+      "pricing": "Process",
       "coaching": "Coaching",
       "contact": "Contact"
     },
@@ -243,7 +244,175 @@
     ],
     "cta_title": "Ready to Start Your German Journey?",
     "cta_button": "Start My Profile Analysis",
-    "cta_note": "Free initial consultation - No commitment required"
+    "cta_note": "Free initial consultation - No commitment required",
+    "viewFullJourney": "View the complete student journey"
+  },
+  "studentJourney": {
+    "hero": {
+      "badge": "Your step-by-step guide",
+      "title": "Student",
+      "titleHighlight": "Journey",
+      "subtitle": "Follow this visual roadmap from your first contact through consultation, decision, and full application support."
+    },
+    "nav": {
+      "phase1": "Phase 1: Getting Started",
+      "phase2": "Phase 2: After Consultation"
+    },
+    "legend": {
+      "student": "Your steps",
+      "platform": "Our team & platform",
+      "decision": "Your decision",
+      "warning": "If you choose not to proceed"
+    },
+    "actions": {
+      "register": "Register now",
+      "login": "Log in",
+      "profile": "Go to profile",
+      "contact": "Contact us",
+      "coaching": "View coaching partners"
+    },
+    "phase1": {
+      "badge": "Phase 1",
+      "title": "Getting Started & Booking Consultation",
+      "description": "From first contact to your confirmed consultation appointment.",
+      "steps": [
+        {
+          "id": "approach",
+          "title": "Approach Eduberator",
+          "body": "You discover our services through Eduberator and decide to begin your study-abroad journey with us."
+        },
+        {
+          "id": "register",
+          "title": "Register your account",
+          "body": "Create your account with email (username) and password. Two-step verification (2SV) is completed via both email and mobile number for security.",
+          "bullets": [
+            "Email used as username",
+            "Password setup",
+            "2SV: email + mobile verification"
+          ]
+        },
+        {
+          "id": "login",
+          "title": "Log in to your profile",
+          "body": "After registration, log in anytime to access your personal student dashboard and continue your journey."
+        },
+        {
+          "id": "upload",
+          "title": "Upload & submit your profile data",
+          "body": "Fill in your details, review and edit as needed, then acknowledge that the information is true before saving and sending.",
+          "bullets": [
+            "Review and edit your data before submission",
+            "Acknowledge data accuracy",
+            "PDF of your filled form is emailed to you",
+            "Profile is locked after submission — edits require admin authorization"
+          ]
+        },
+        {
+          "id": "payment",
+          "title": "Pay consultation charges",
+          "body": "Pay the standard basic consultation fee — the same rate applies to all students before booking your session."
+        },
+        {
+          "id": "appointment",
+          "title": "Book your consultation appointment",
+          "body": "Choose an available slot or request an appointment if none are open online.",
+          "subSteps": [
+            {
+              "title": "Slots available",
+              "body": "Select a slot and confirm. You receive a thank-you email with Zoom link, appointment details, and an .ics calendar file. The slot is blocked on your profile and the counsellor's calendar."
+            },
+            {
+              "title": "No slots available",
+              "body": "Use the one-click request option. An automatic message is sent to admin and you, so we can arrange a suitable time."
+            }
+          ]
+        },
+        {
+          "id": "counsellorCalendar",
+          "title": "Counsellor receives confirmation",
+          "body": "Your counsellor gets the same email with the .ics file to add to their calendar. The appointment is blocked in their profile, and they can manage their own availability slots."
+        },
+        {
+          "id": "mobileApps",
+          "title": "Access on mobile apps",
+          "body": "All of these functions will be available on iOS and Android apps for students later on."
+        }
+      ]
+    },
+    "phase2": {
+      "title": "After Your Initial Consultation",
+      "description": "What happens once counselling is complete — including your 15-day decision window.",
+      "preSteps": [
+        {
+          "id": "counsellorOverview",
+          "title": "Counsellor reviews your profile",
+          "body": "Once you complete your online profile, your counsellor has a full overview of your data during counselling, plus a notepad section to record notes with date and time stamps."
+        },
+        {
+          "id": "counsellingDone",
+          "title": "Initial counselling completed",
+          "body": "After your first consultation session, you have clear guidance on your next steps and options."
+        },
+        {
+          "id": "decisionWindow",
+          "title": "15 days to decide",
+          "body": "You receive 15 days to decide whether to proceed with your full application through our team."
+        }
+      ],
+      "decision": {
+        "yesLabel": "YES — Proceed with us",
+        "noLabel": "NO — Do not proceed"
+      },
+      "noOutcome": {
+        "title": "Consultation fee policy",
+        "body": "Your consultation charges cover the initial counselling session and are non-refundable if you choose not to proceed with the full application."
+      },
+      "yesSteps": [
+        {
+          "id": "deposit",
+          "title": "60% deposit & digital agreement",
+          "body": "You have one week to pay 60% of the total fees and sign the digital agreement, which is saved under your profile section."
+        },
+        {
+          "id": "documents",
+          "title": "Upload documents & improve profile",
+          "body": "Upload all required documents digitally and update your profile with any additional information needed."
+        },
+        {
+          "id": "recounselling",
+          "title": "Re-counselling for colleges & documents",
+          "body": "A follow-up counselling session helps you select colleges and receive document guidance tailored to your choices."
+        },
+        {
+          "id": "partnerships",
+          "title": "Partnership program benefits",
+          "body": "If needed, access partner programs for IELTS, TOEFL preparation, German language courses, and LOI support.",
+          "bullets": [
+            "IELTS preparation",
+            "TOEFL preparation",
+            "German language courses",
+            "Letter of Intent (LOI) support"
+          ]
+        },
+        {
+          "id": "tracking",
+          "title": "Track applications per college",
+          "body": "Once applications are submitted, view progress for each college in your profile. Status is updated regularly by admins and our back-office team.",
+          "progressColleges": [
+            { "name": "TU Munich — M.Sc. Informatics", "percent": 68 },
+            { "name": "RWTH Aachen — M.Sc. Data Science", "percent": 47 },
+            { "name": "Uni Stuttgart — M.Sc. Mechanical", "percent": 91 },
+            { "name": "TU Berlin — M.Sc. Energy Eng.", "percent": 32 }
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to begin?",
+      "subtitle": "Start with registration and book your consultation with our professional experts.",
+      "register": "Register now",
+      "login": "Already registered? Log in"
+    }
   },
   "testimonials": {
     "label": "TESTIMONIALS",

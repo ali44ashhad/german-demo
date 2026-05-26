@@ -16,6 +16,8 @@ import {
   ChevronUp,
   CheckCircle,
   X,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -25,7 +27,9 @@ import {
   useGetAllBookingsQuery,
   useGetCurrentUserQuery,
   useGetNotesBySubAdminQuery,
-  useCreateOrUpdateNoteMutation,
+  useCreateNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
 } from "../../store/apiSlice";
 import {
   formatBookingDate,
@@ -286,35 +290,169 @@ const EmbeddedPDFViewer = ({ pdfUrl }) => {
   );
 };
 
-// Note Editor Component for a Booking
-const BookingNoteEditor = ({ booking, note, onSave }) => {
-  const [content, setContent] = useState(note?.content || "");
-  const [originalContent, setOriginalContent] = useState(note?.content || "");
-  const [isExpanded, setIsExpanded] = useState(false);
+const getNoteAuthorId = (note) =>
+  String(note?.authorId?._id || note?.authorId || "");
+
+const getNoteAuthorName = (note) =>
+  note?.authorId?.name || note?.authorId?.email || "Unknown";
+
+const authorRoleLabel = (role) => {
+  if (role === "superadmin") return "Admin";
+  if (role === "subadmin") return "Counselor";
+  return role || "Staff";
+};
+
+const formatNoteTimestamp = (date) => {
+  if (!date) return "";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleString(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+};
+
+const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editContent, setEditContent] = useState(note?.content || "");
   const [isSaving, setIsSaving] = useState(false);
-  const [createOrUpdateNote] = useCreateOrUpdateNoteMutation();
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [updateNote] = useUpdateNoteMutation();
+  const [deleteNote] = useDeleteNoteMutation();
 
-  useEffect(() => {
-    const noteContent = note?.content || "";
-    setContent(noteContent);
-    setOriginalContent(noteContent);
-  }, [note]);
+  const authorId = getNoteAuthorId(note);
+  const canModify = currentUserId && authorId === String(currentUserId);
 
-  const hasChanges = content.trim() !== originalContent.trim();
-
-  const handleSave = async () => {
-    if (!content.trim() && !note) return; // Don't save empty notes if no note exists
-
+  const handleUpdate = async () => {
+    if (!editContent.trim()) return;
     setIsSaving(true);
     try {
-      await createOrUpdateNote({
-        bookingId: booking._id,
-        content: content.trim(),
+      await updateNote({
+        noteId: note._id,
+        content: editContent.trim(),
+        bookingId,
       }).unwrap();
-      setOriginalContent(content.trim());
+      setIsEditing(false);
       onSave?.();
     } catch (error) {
-      console.error("Failed to save note:", error);
+      console.error("Failed to update note:", error);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!window.confirm("Delete this note?")) return;
+    setIsDeleting(true);
+    try {
+      await deleteNote({ noteId: note._id, bookingId }).unwrap();
+      onSave?.();
+    } catch (error) {
+      console.error("Failed to delete note:", error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  return (
+    <div className="rounded-lg border border-gray-100 bg-gray-50 p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm font-semibold text-gray-900">
+            {getNoteAuthorName(note)}
+          </span>
+          <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 font-medium">
+            {authorRoleLabel(note?.authorId?.role)}
+          </span>
+        </div>
+        <span className="text-xs text-gray-500">
+          {formatNoteTimestamp(note?.createdAt)}
+        </span>
+      </div>
+
+      {isEditing ? (
+        <div className="space-y-2">
+          <textarea
+            value={editContent}
+            onChange={(e) => setEditContent(e.target.value)}
+            className="w-full min-h-[80px] p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <div className="flex justify-end gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setIsEditing(false);
+                setEditContent(note?.content || "");
+              }}
+              className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleUpdate}
+              disabled={isSaving || !editContent.trim()}
+              className="inline-flex items-center gap-1 px-3 py-1.5 text-sm rounded-lg bg-green-600 text-white disabled:opacity-60"
+            >
+              {isSaving ? <Loader2 className="w-3 h-3 animate-spin" /> : <Save className="w-3 h-3" />}
+              Save
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <p className="text-sm text-gray-700 whitespace-pre-wrap">{note?.content}</p>
+          {canModify && (
+            <div className="flex gap-2 mt-2">
+              <button
+                type="button"
+                onClick={() => setIsEditing(true)}
+                className="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-green-700"
+              >
+                <Pencil className="w-3 h-3" />
+                Edit
+              </button>
+              <button
+                type="button"
+                onClick={handleDelete}
+                disabled={isDeleting}
+                className="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-red-600 disabled:opacity-60"
+              >
+                {isDeleting ? (
+                  <Loader2 className="w-3 h-3 animate-spin" />
+                ) : (
+                  <Trash2 className="w-3 h-3" />
+                )}
+                Delete
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
+
+const BookingNoteEditor = ({ booking, notes = [], currentUserId, onSave }) => {
+  const [draft, setDraft] = useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [createNote] = useCreateNoteMutation();
+
+  const bookingId = String(booking._id || booking.id);
+
+  const handleAddNote = async () => {
+    if (!draft.trim()) return;
+    setIsSaving(true);
+    try {
+      await createNote({
+        bookingId: booking._id || booking.id,
+        content: draft.trim(),
+      }).unwrap();
+      setDraft("");
+      onSave?.();
+    } catch (error) {
+      console.error("Failed to add note:", error);
     } finally {
       setIsSaving(false);
     }
@@ -324,10 +462,14 @@ const BookingNoteEditor = ({ booking, note, onSave }) => {
   const bookingDate = formatBookingDate(booking?.timeslot?.start || booking?.date);
   const bookingTime = formatBookingTimeRange(booking?.timeslot?.start, booking?.timeslot?.end);
   const status = booking?.bookingStatus || "scheduled";
+  const sortedNotes = [...notes].sort(
+    (a, b) => new Date(b?.createdAt || 0) - new Date(a?.createdAt || 0)
+  );
 
   return (
     <div className="border border-gray-200 rounded-xl overflow-hidden">
       <button
+        type="button"
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
       >
@@ -341,6 +483,9 @@ const BookingNoteEditor = ({ booking, note, onSave }) => {
               {status.toUpperCase()}
             </span>
             <span className="text-sm font-semibold text-gray-900">{serviceName}</span>
+            {sortedNotes.length > 0 && (
+              <span className="text-xs text-gray-500">({sortedNotes.length})</span>
+            )}
           </div>
           <div className="flex items-center gap-3 text-xs text-gray-600">
             <span className="flex items-center gap-1">
@@ -361,34 +506,50 @@ const BookingNoteEditor = ({ booking, note, onSave }) => {
       </button>
 
       {isExpanded && (
-        <div className="p-4 bg-white border-t border-gray-200">
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Add notes for this booking..."
-            className="w-full min-h-[250px] p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-y"
-          />
-          {hasChanges && (
-            <div className="flex justify-end mt-3">
+        <div className="p-4 bg-white border-t border-gray-200 space-y-4">
+          {sortedNotes.length === 0 ? (
+            <p className="text-sm text-gray-500">No notes yet for this booking.</p>
+          ) : (
+            <div className="space-y-3 max-h-[280px] overflow-y-auto pr-1">
+              {sortedNotes.map((note) => (
+                <NoteThreadItem
+                  key={note._id}
+                  note={note}
+                  currentUserId={currentUserId}
+                  bookingId={bookingId}
+                  onSave={onSave}
+                />
+              ))}
+            </div>
+          )}
+          <div className="border-t border-gray-100 pt-3 space-y-2">
+            <textarea
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              placeholder="Write a new note..."
+              className="w-full min-h-[100px] p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-y"
+            />
+            <div className="flex justify-end">
               <button
-                onClick={handleSave}
-                disabled={isSaving}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold hover:shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                type="button"
+                onClick={handleAddNote}
+                disabled={isSaving || !draft.trim()}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-green-600 to-sky-600 text-white text-sm font-semibold hover:shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isSaving ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Saving...
+                    Adding...
                   </>
                 ) : (
                   <>
                     <Save className="w-4 h-4" />
-                    Save Note
+                    Add note
                   </>
                 )}
               </button>
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>
@@ -426,8 +587,8 @@ const SubAdminStudentDetails = () => {
     isLoading: isNotesLoading,
     refetch: refetchNotes,
   } = useGetNotesBySubAdminQuery(
-    { page: 1, limit: 1000 },
-    { skip: !subAdminId }
+    { page: 1, limit: 1000, userId: studentId },
+    { skip: !subAdminId || !studentId }
   );
 
   const student = studentData?.user;
@@ -442,8 +603,7 @@ const SubAdminStudentDetails = () => {
     );
   }, [bookingsData, studentId, subAdminId]);
 
-  // Create a map of bookingId to note (only for this student's bookings)
-  const notesByBookingId = useMemo(() => {
+  const notesListByBookingId = useMemo(() => {
     if (!notesData?.notes || !studentBookings.length) return {};
     const studentBookingIds = new Set(
       studentBookings.map((booking) => String(booking._id || booking.id))
@@ -451,28 +611,31 @@ const SubAdminStudentDetails = () => {
     const map = {};
     notesData.notes.forEach((note) => {
       const bookingId = note?.bookingId?._id || note?.bookingId;
-      if (bookingId && studentBookingIds.has(String(bookingId))) {
-        map[String(bookingId)] = note;
+      const key = bookingId ? String(bookingId) : "";
+      if (key && studentBookingIds.has(key)) {
+        if (!map[key]) map[key] = [];
+        map[key].push(note);
       }
     });
     return map;
   }, [notesData, studentBookings]);
 
-  // Get resume PDF URL
-  const resumePdfUrl = useMemo(() => {
-    if (!student?.resumePdf) return null;
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5010/api";
-    // If it's a Cloudinary URL, use it directly
-    if (student.resumePdf.startsWith("http") && !student.resumePdf.includes("/api/")) {
-      return student.resumePdf;
-    }
-    // If it's a base64 data URL, use it directly
-    if (student.resumePdf.startsWith("data:")) {
-      return student.resumePdf;
-    }
-    // Otherwise, try to use backend endpoint (may need to be implemented)
-    return `${API_BASE_URL}/users/auth/resume/file?t=${Date.now()}`;
-  }, [student?.resumePdf]);
+  // Student PDFs (Cloudinary URLs work for subadmin embed; legacy resumePdf counts as biodata)
+  const biodataPdfUrl = useMemo(() => {
+    const raw = student?.biodataPdf || student?.resumePdf;
+    if (!raw) return null;
+    if (raw.startsWith("http") && !raw.includes("/api/")) return raw;
+    if (raw.startsWith("data:")) return raw;
+    return null;
+  }, [student?.biodataPdf, student?.resumePdf]);
+
+  const studentInquiryPdfUrl = useMemo(() => {
+    const raw = student?.studentInquiryPdf;
+    if (!raw) return null;
+    if (raw.startsWith("http") && !raw.includes("/api/")) return raw;
+    if (raw.startsWith("data:")) return raw;
+    return null;
+  }, [student?.studentInquiryPdf]);
 
   const isLoading = isUserLoading || isStudentLoading || isBookingsLoading || isNotesLoading;
 
@@ -742,15 +905,29 @@ const SubAdminStudentDetails = () => {
               </div>
             </motion.div>
 
-            {/* Resume PDF */}
+            {/* Student PDFs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+              className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6 space-y-8"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Resume</h3>
-              <EmbeddedPDFViewer pdfUrl={resumePdfUrl} />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Biodata</h3>
+                {biodataPdfUrl ? (
+                  <EmbeddedPDFViewer pdfUrl={biodataPdfUrl} />
+                ) : (
+                  <p className="text-gray-500 text-sm">No biodata PDF available yet.</p>
+                )}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Student inquiry</h3>
+                {studentInquiryPdfUrl ? (
+                  <EmbeddedPDFViewer pdfUrl={studentInquiryPdfUrl} />
+                ) : (
+                  <p className="text-gray-500 text-sm">No student inquiry PDF available yet.</p>
+                )}
+              </div>
             </motion.div>
           </div>
 
@@ -776,7 +953,8 @@ const SubAdminStudentDetails = () => {
                     <BookingNoteEditor
                       key={booking._id || booking.id}
                       booking={booking}
-                      note={notesByBookingId[String(booking._id || booking.id)]}
+                      notes={notesListByBookingId[String(booking._id || booking.id)] || []}
+                      currentUserId={subAdminId}
                       onSave={handleNoteSave}
                     />
                   ))}

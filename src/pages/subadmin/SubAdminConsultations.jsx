@@ -1,10 +1,12 @@
 import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, Loader2, Package, User, Video } from "lucide-react";
+import { Calendar, Clock, Loader2, Package, User, Video, FileText } from "lucide-react";
 import {
   useGetAllBookingsQuery,
   useGetAllZoomSessionsQuery,
   useGetCurrentUserQuery,
+  useGetNotesBySubAdminQuery,
 } from "../../store/apiSlice";
 import {
   formatBookingDate,
@@ -29,7 +31,32 @@ const statusBadgeClass = (status) => {
   }
 };
 
-const ConsultationCard = ({ booking }) => {
+const getNoteAuthorName = (note) =>
+  note?.authorId?.name || note?.authorId?.email || "Unknown";
+
+const authorRoleLabel = (role) => {
+  if (role === "superadmin") return "Admin";
+  if (role === "subadmin") return "Counselor";
+  return role || "Staff";
+};
+
+const formatNoteTimestamp = (date) => {
+  if (!date) return "";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleString(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+};
+
+const truncateText = (text, max = 120) => {
+  if (!text) return "";
+  const t = String(text).trim();
+  return t.length <= max ? t : `${t.slice(0, max)}…`;
+};
+
+const ConsultationCard = ({ booking, notes = [] }) => {
   const bookingId = booking?._id || booking?.id;
   const {
     data: zoomSessionsData,
@@ -74,9 +101,14 @@ const ConsultationCard = ({ booking }) => {
   const isZoomPending = isZoomSessionsLoading || isZoomSessionsFetching;
   const status = booking?.bookingStatus || "scheduled";
   const userName = booking?.userId?.name || "Unassigned user";
+  const studentId = booking?.userId?._id || booking?.userId;
   const serviceName = booking?.serviceId?.name || "Service TBD";
   const amount = typeof booking?.amount === "number" ? booking.amount.toFixed(2) : null;
   const startDate = getStartDate(booking);
+
+  const previewNotes = [...notes]
+    .sort((a, b) => new Date(b?.createdAt || 0) - new Date(a?.createdAt || 0))
+    .slice(0, 2);
 
   return (
     <motion.div
@@ -133,8 +165,34 @@ const ConsultationCard = ({ booking }) => {
             </div>
           </div>
         </div>
-        {booking?.notes && (
-          <p className="rounded-xl bg-gray-50 p-4 text-sm text-gray-500">{booking.notes}</p>
+
+        {previewNotes.length > 0 && (
+          <div className="rounded-xl bg-gray-50 p-4 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wide">
+              <FileText className="w-3.5 h-3.5" />
+              Recent notes
+            </div>
+            {previewNotes.map((note) => (
+              <div key={note._id} className="text-sm border-t border-gray-200/80 pt-2 first:border-0 first:pt-0">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-1">
+                  <span className="font-medium text-gray-700">{getNoteAuthorName(note)}</span>
+                  <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-700">
+                    {authorRoleLabel(note?.authorId?.role)}
+                  </span>
+                  <span>{formatNoteTimestamp(note?.createdAt)}</span>
+                </div>
+                <p className="text-gray-600">{truncateText(note?.content)}</p>
+              </div>
+            ))}
+            {studentId && (
+              <Link
+                to={`/subadmin/students/view/${studentId}`}
+                className="inline-block text-xs font-semibold text-sky-600 hover:underline"
+              >
+                View all notes on student profile
+              </Link>
+            )}
+          </div>
         )}
       </div>
     </motion.div>
@@ -157,6 +215,24 @@ const SubAdminConsultations = () => {
     { page: 1, limit: 100, subAdminId },
     { skip: !subAdminId }
   );
+
+  const { data: notesData } = useGetNotesBySubAdminQuery(
+    { page: 1, limit: 500 },
+    { skip: !subAdminId }
+  );
+
+  const notesByBookingId = useMemo(() => {
+    if (!notesData?.notes) return {};
+    const map = {};
+    notesData.notes.forEach((note) => {
+      const bookingId = note?.bookingId?._id || note?.bookingId;
+      const key = bookingId ? String(bookingId) : "";
+      if (!key) return;
+      if (!map[key]) map[key] = [];
+      map[key].push(note);
+    });
+    return map;
+  }, [notesData]);
 
   const upcomingConsultations = useMemo(() => {
     if (!bookingsData?.bookings) return [];
@@ -219,12 +295,16 @@ const SubAdminConsultations = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-              {upcomingConsultations.map((booking, index) => (
-                <ConsultationCard
-                  key={booking?._id || `${getStartDate(booking) || "booking"}-${index}`}
-                  booking={booking}
-                />
-              ))}
+              {upcomingConsultations.map((booking, index) => {
+                const id = String(booking?._id || booking?.id || "");
+                return (
+                  <ConsultationCard
+                    key={booking?._id || `${getStartDate(booking) || "booking"}-${index}`}
+                    booking={booking}
+                    notes={notesByBookingId[id] || []}
+                  />
+                );
+              })}
             </div>
           )}
         </motion.div>
@@ -234,4 +314,3 @@ const SubAdminConsultations = () => {
 };
 
 export default SubAdminConsultations;
-

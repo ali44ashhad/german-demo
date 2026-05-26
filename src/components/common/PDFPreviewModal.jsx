@@ -12,7 +12,17 @@ if (typeof window !== "undefined") {
   pdfjs.GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.5.4.296.min.mjs`;
 }
 
-const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoading = false }) => {
+const PDFPreviewModal = ({
+  isOpen,
+  onClose,
+  pdfDataUrl,
+  onSave,
+  onDiscard,
+  isLoading = false,
+  title = "Document preview",
+  downloadFilename = "document.pdf",
+  headerSlot = null,
+}) => {
   const [numPages, setNumPages] = React.useState(null);
   const [pageNumber, setPageNumber] = React.useState(1);
   const [scale, setScale] = React.useState(1.0);
@@ -30,6 +40,12 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
       setPdfError(null);
     }
   }, [isOpen]);
+
+  // Reset page when switching documents (e.g. biodata ↔ inquiry tabs)
+  React.useEffect(() => {
+    setPageNumber(1);
+    setNumPages(null);
+  }, [pdfDataUrl]);
 
   // Fetch PDF with credentials if it's a backend URL
   React.useEffect(() => {
@@ -167,8 +183,9 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
     };
   }, [pdfDataUrl, isOpen, retryKey]);
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const onDocumentLoadSuccess = ({ numPages: loadedPages }) => {
+    setNumPages(loadedPages);
+    setPageNumber((prev) => Math.min(Math.max(1, prev), loadedPages || 1));
   };
 
   const handleDownload = () => {
@@ -176,7 +193,7 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
     if (urlToDownload) {
       const link = document.createElement("a");
       link.href = urlToDownload;
-      link.download = "resume.pdf";
+      link.download = downloadFilename;
       // If it's a Cloudinary URL (starts with http), open in new tab and download
       // If it's a data URL or blob URL, use the download attribute
       if (urlToDownload.startsWith("http") && !urlToDownload.startsWith("blob:")) {
@@ -202,7 +219,10 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900">Resume Preview</h2>
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+              {headerSlot}
+            </div>
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -235,10 +255,14 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
             ) : isLoadingPdf ? (
               <div className="flex flex-col items-center justify-center p-8">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mb-4"></div>
-                <p className="text-gray-600">Loading resume PDF...</p>
+                <p className="text-gray-600">Loading PDF...</p>
                 <p className="text-sm text-gray-500 mt-2">This may take a few moments</p>
               </div>
-            ) : (pdfDataUrl || pdfBlobUrl) ? (
+            ) : !pdfDataUrl ? (
+              <div className="flex flex-col items-center justify-center p-8 text-gray-600">
+                <p>No PDF URL available.</p>
+              </div>
+            ) : (
               <div className="space-y-4 w-full flex flex-col items-center">
                 <Document
                   key={pdfBlobUrl || pdfDataUrl} // Force re-render when PDF URL changes
@@ -305,10 +329,6 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
                   </div>
                 )}
               </div>
-            ) : (
-              <div className="flex items-center justify-center p-8">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
-              </div>
             )}
           </div>
 
@@ -343,7 +363,7 @@ const PDFPreviewModal = ({ isOpen, onClose, pdfDataUrl, onSave, onDiscard, isLoa
                 ) : (
                   <>
                     <Save className="w-5 h-5" />
-                    Save Resume
+                    Save
                   </>
                 )}
               </button>
