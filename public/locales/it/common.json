@@ -183,12 +183,35 @@
       "need_support_title": "Hai Bisogno di Supporto Completo?",
       "need_support_text": "Esplora tutti i nostri servizi in dettaglio e ricevi assistenza personalizzata.",
       "view_all": "Vedi Tutti i Servizi"
+    },
+    "shortTermVisa": {
+      "title": "Visto di breve durata",
+      "intro": "In aggiunta ai nostri servizi di consulenza educativa, offriamo assistenza con le seguenti categorie di visto:",
+      "categories": [
+        "Visto di transito aeroportuale",
+        "Visto per affari",
+        "Visti per fiere commerciali",
+        "Visto per scienziato ospite",
+        "Visti per formazione",
+        "Visto turistico",
+        "Visto per visita",
+        "Visti per trattamento medico",
+        "Visti per cultura / sport / religione"
+      ],
+      "thankYou": "Grazie per la sua richiesta. Al momento, siamo in grado di fornire solo servizi per visti di breve durata. Se ha bisogno di assistenza per la domanda di un visto di breve durata, saremo lieti di aiutarla.",
+      "additionalServicesOfferedLabel": "Servizi aggiuntivi offerti:",
+      "partnershipText": "Abbiamo partnership con diverse banche e istituti finanziari che offrono servizi di cambio valuta. Grazie alla nostra rete, possiamo aiutarla a ottenere i tassi più competitivi e la migliore offerta per le sue esigenze."
     }
   },
   "process": {
     "badge": "Processo di Successo in 4 Fasi",
     "heading": "La Roadmap Eduberater per l'Europa",
     "sub": "Un processo collaudato in 4 fasi che ha aiutato gli studenti a raggiungere con successo le università dei loro sogni.",
+    "titlePrefix": "Il nostro percorso in 4 fasi:",
+    "titleMain": "Un processo chiaro",
+    "accordionSub": "Clicca su ogni fase per scoprire come ti guidiamo verso l'università dei tuoi sogni in Europa.",
+    "stepLabel": "Fase {{step}}",
+    "showLess": "Mostra meno",
     "steps": [
       {
         "step": 1,

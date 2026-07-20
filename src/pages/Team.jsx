@@ -245,16 +245,11 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  Users,
-  Award,
-  Briefcase,
-  Mail,
   GraduationCap,
-  Linkedin
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useAuthRedirect } from '../utils/useAuthRedirect';
 
 const FALLBACK = {
   hero: {
@@ -312,20 +307,6 @@ const FALLBACK = {
       specialization: ['Engineering Programs', 'Technical Admissions', 'Research Guidance']
     }
   ],
-  expertiseAreas: [
-    {
-      field: 'COEP & Automobile',
-      description: 'Specialized guidance for automotive engineering and COEP programs'
-    },
-    {
-      field: 'SAP & IT',
-      description: 'Expert consultation for SAP certifications and IT programs'
-    },
-    {
-      field: 'STEM Programs',
-      description: 'Comprehensive support for Science, Technology, Engineering, and Mathematics'
-    }
-  ],
   cta: {
     heading: 'Ready to Work With Our Experts?',
     sub: 'Get personalized guidance from our team of experienced professionals.',
@@ -333,17 +314,15 @@ const FALLBACK = {
   }
 };
 
-const ICONS = [Users, Award, Briefcase, GraduationCap];
-
 const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const navigate = useNavigate();
 
   // Try to read arrays/objects from i18n, fall back gracefully
   const rawHero = t('team.hero', { returnObjects: true, defaultValue: {} });
   const rawMembers = t('team.members', { returnObjects: true, defaultValue: [] });
-  const rawExpertise = t('team.expertiseAreas', { returnObjects: true, defaultValue: [] });
   const rawCta = t('team.cta', { returnObjects: true, defaultValue: {} });
 
   const hero = (rawHero && Object.keys(rawHero).length) ? rawHero : FALLBACK.hero;
@@ -354,12 +333,6 @@ const Team = () => {
     members = Object.keys(rawMembers).sort().map(k => rawMembers[k]);
   }
   if (!members.length) members = FALLBACK.members;
-
-  let expertise = Array.isArray(rawExpertise) ? rawExpertise : [];
-  if (!expertise.length && rawExpertise && typeof rawExpertise === 'object') {
-    expertise = Object.keys(rawExpertise).sort().map(k => rawExpertise[k]);
-  }
-  if (!expertise.length) expertise = FALLBACK.expertiseAreas;
 
   const cta = (rawCta && Object.keys(rawCta).length) ? rawCta : FALLBACK.cta;
 
@@ -474,42 +447,6 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Expertise Areas */}
-      <section className="py-20 bg-white/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('team.expertiseHeading', 'Our Expertise Areas')}</h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">{t('team.expertiseSub', 'Specialized guidance across diverse academic and professional fields')}</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {expertise.map((area, idx) => {
-              const Icon = ICONS[idx] || ICONS[0];
-              return (
-                <motion.div
-                  key={idx}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-all duration-300 text-center"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: 0.2 + idx * 0.08 }}
-                  whileHover={{ y: -6 }}
-                >
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{area.field}</h3>
-                  <p className="text-gray-700 leading-relaxed">{area.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -532,12 +469,7 @@ const Team = () => {
             className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={(e) => {
-              if (!requireAuth()) {
-                e.preventDefault();
-                return;
-              }
-            }}
+            onClick={() => navigate('/register')}
           >
             {cta.button}
           </motion.button>

@@ -183,12 +183,35 @@
       "need_support_title": "¿Necesitas Soporte Integral?",
       "need_support_text": "Explora todos nuestros servicios en detalle y obtén asistencia personalizada.",
       "view_all": "Ver Todos los Servicios"
+    },
+    "shortTermVisa": {
+      "title": "Visa de corta duración",
+      "intro": "Además de nuestros servicios de asesoramiento educativo, ofrecemos asistencia con las siguientes categorías de visado:",
+      "categories": [
+        "Visa de tránsito por aeropuerto",
+        "Visa de negocios",
+        "Visados para ferias comerciales",
+        "Visas de científico invitado",
+        "Visas de formación",
+        "Visas de turista",
+        "Visas de visita",
+        "Visas para tratamiento médico",
+        "Visados de cultura, deporte o religioso"
+      ],
+      "thankYou": "Gracias por su consulta. En la actualidad, solo podemos ofrecer servicios para visados de corta duración. Si necesita ayuda con la solicitud de un visado de corta duración, estaremos encantados de ayudarle.",
+      "additionalServicesOfferedLabel": "Servicios adicionales ofrecidos:",
+      "partnershipText": "Contamos con alianzas con varios bancos e instituciones financieras que ofrecen servicios de cambio de divisas. A través de nuestra red, podemos ayudarle a obtener las tarifas más competitivas y la mejor oferta para sus requisitos."
     }
   },
   "process": {
     "badge": "Proceso de Éxito en 4 Pasos",
     "heading": "La Hoja de Ruta Eduberater hacia Europa",
     "sub": "Un proceso probado de 4 pasos que ha ayudado a estudiantes a llegar con éxito a las universidades de sus sueños.",
+    "titlePrefix": "Nuestro viaje en 4 pasos:",
+    "titleMain": "Un proceso claro",
+    "accordionSub": "Haz clic en cada etapa para descubrir cómo te guiamos hacia la universidad de tus sueños en Europa.",
+    "stepLabel": "Paso {{step}}",
+    "showLess": "Mostrar menos",
     "steps": [
       {
         "step": 1,

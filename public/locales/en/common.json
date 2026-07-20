@@ -183,12 +183,35 @@
       "need_support_title": "Need Comprehensive Support?",
       "need_support_text": "Explore all our services in detail and get personalized assistance.",
       "view_all": "View All Services"
+    },
+    "shortTermVisa": {
+      "title": "Short Term Visa",
+      "intro": "In addition to our education consulting services, we offer assistance with the following visa categories:",
+      "categories": [
+        "Airport transit visa",
+        "Business visa",
+        "Trade fair visas",
+        "Guest Scientist visas",
+        "Training visas",
+        "Tourist visas",
+        "Visit visas",
+        "Medical treatment visas",
+        "Culture / Sport / Religious - visas"
+      ],
+      "thankYou": "Thank you for your inquiry. At present, we are only able to provide services for short-term visas. If you require assistance with a short-term visa application, we would be pleased to assist you.",
+      "additionalServicesOfferedLabel": "Additional services offered:",
+      "partnershipText": "We have partnerships with multiple banks and financial institutions that offer foreign exchange services. Through our network, we can help you secure the most competitive rates and the best deal for your requirements."
     }
   },
   "process": {
     "badge": "4-Step Success Process",
     "heading": "The Eduberater Roadmap to Europe",
     "sub": "A proven 4-step process that has helped students successfully reach their dream universities.",
+    "titlePrefix": "Our 4-Step Journey:",
+    "titleMain": "A Clear Process",
+    "accordionSub": "Click on each stage to reveal more information about how we guide you to your dream university in Europe.",
+    "stepLabel": "Step {{step}}",
+    "showLess": "Show Less",
     "steps": [
       {
         "step": 1,

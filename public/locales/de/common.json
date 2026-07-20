@@ -183,12 +183,35 @@
       "need_support_title": "Benötigst du umfassende Unterstützung?",
       "need_support_text": "Entdecke all unsere Dienstleistungen im Detail und erhalte persönliche Hilfe.",
       "view_all": "Alle Dienstleistungen ansehen"
+    },
+    "shortTermVisa": {
+      "title": "Kurzzeitvisum",
+      "intro": "Zusätzlich zu unseren Beratungsleistungen im Bildungsbereich bieten wir Unterstützung bei den folgenden Visakategorien:",
+      "categories": [
+        "Flughafentransitvisum",
+        "Geschäftsvisum",
+        "Messevisum",
+        "Visum für Gastwissenschaftler",
+        "Ausbildungsvisum",
+        "Touristenvisum",
+        "Besuchsvisum",
+        "Visum für medizinische Behandlungen",
+        "Kultur-, Sport- und religiöse Visa"
+      ],
+      "thankYou": "Vielen Dank für Ihre Anfrage. Derzeit können wir jedoch nur Dienstleistungen für Kurzzeitvisa anbieten. Wenn Sie Unterstützung bei der Beantragung eines Kurzzeitvisums benötigen, unterstützen wir Sie gerne.",
+      "additionalServicesOfferedLabel": "Zusätzliche Dienstleistungen angeboten:",
+      "partnershipText": "Wir haben Partnerschaften mit mehreren Banken und Finanzinstituten, die Devisen- bzw. Fremdwährungsdienste anbieten. Über unser Netzwerk können wir Ihnen helfen, die wettbewerbsfähigsten Konditionen sowie das beste Angebot für Ihre Anforderungen zu erhalten."
     }
   },
   "process": {
     "badge": "4-Schritte-Erfolgsprozess",
     "heading": "Die Eduberater-Roadmap nach Europa",
     "sub": "Ein bewährter 4-Schritte-Prozess, der Studierenden geholfen hat, erfolgreich ihre Traumuniversitäten zu erreichen.",
+    "titlePrefix": "Unsere 4-Schritte-Reise:",
+    "titleMain": "Ein klarer Prozess",
+    "accordionSub": "Klicken Sie auf jede Phase, um mehr darüber zu erfahren, wie wir Sie zu Ihrer Traumuniversität in Europa begleiten.",
+    "stepLabel": "Schritt {{step}}",
+    "showLess": "Weniger anzeigen",
     "steps": [
       {
         "step": 1,

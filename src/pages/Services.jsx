@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
-import { CreditCard, Home, Heart, TrendingUp, ArrowRight } from "lucide-react";
+import { CreditCard, Home, Heart, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Services = () => {
@@ -35,6 +34,13 @@ const Services = () => {
       to: "/services/education-loan"
     }
   ];
+
+  const shortTermVisaCategories = t("services.shortTermVisa.categories", {
+    returnObjects: true
+  });
+  const visaCategories = Array.isArray(shortTermVisaCategories)
+    ? shortTermVisaCategories
+    : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50">
@@ -91,32 +97,58 @@ const Services = () => {
               {fallbackServices.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <Link to={service.to} key={index}>
-                    <motion.div
-                      className="bg-white rounded-2xl h-full p-6 border border-sky-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group cursor-pointer"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="w-14 h-14 rounded-xl bg-sky-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                        <Icon className="w-7 h-7" />
-                      </div>
+                  <motion.div
+                    key={index}
+                    className="bg-white rounded-2xl h-full p-6 border border-sky-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-sky-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                      <Icon className="w-7 h-7" />
+                    </div>
 
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
-                        {service.title}
-                      </h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                      {service.title}
+                    </h3>
 
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-                        {service.description}
-                      </p>
-
-                      <div className="flex items-center text-emerald-600 font-semibold group-hover:gap-2 transition-all duration-300 text-sm">
-                        Learn More <ArrowRight className="w-4 h-4 ml-1" />
-                      </div>
-                    </motion.div>
-                  </Link>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                      {service.description}
+                    </p>
+                  </motion.div>
                 );
               })}
+            </div>
+
+            <div className="mt-12 bg-white rounded-2xl border border-sky-100 shadow-sm p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                <span className="bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent">
+                  {t("services.shortTermVisa.title")}
+                </span>
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                {t("services.shortTermVisa.intro")}
+              </p>
+
+              <ul className="space-y-2 text-gray-700 text-sm mb-5 list-disc list-inside marker:text-emerald-600">
+                {visaCategories.map((cat, idx) => (
+                  <li key={`${cat}_${idx}`}>{cat}</li>
+                ))}
+              </ul>
+
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                {t("services.shortTermVisa.thankYou")}
+              </p>
+
+              <div className="rounded-xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-emerald-50 p-5 md:p-6">
+                <div className="text-emerald-700 font-semibold mb-2 text-sm">
+                  {t("services.shortTermVisa.additionalServicesOfferedLabel")}
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {t("services.shortTermVisa.partnershipText")}
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

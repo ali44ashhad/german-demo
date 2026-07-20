@@ -183,12 +183,35 @@
       "need_support_title": "Besoin d'un Soutien Complet ?",
       "need_support_text": "Explorez tous nos services en détail et obtenez une assistance personnalisée.",
       "view_all": "Voir Tous les Services"
+    },
+    "shortTermVisa": {
+      "title": "Visa de courte durée",
+      "intro": "En plus de nos services de conseil en éducation, nous proposons une assistance pour les catégories de visas suivantes :",
+      "categories": [
+        "Visa de transit par aéroport",
+        "Visa d’affaires",
+        "Visas pour foires commerciales",
+        "Visa pour chercheur invité",
+        "Visa de formation",
+        "Visa touristique",
+        "Visa de visite",
+        "Visas pour traitement médical",
+        "Visas culturels / sportifs / religieux"
+      ],
+      "thankYou": "Merci pour votre demande. À l'heure actuelle, nous ne pouvons fournir des services que pour les visas de courte durée. Si vous avez besoin d'aide pour une demande de visa de courte durée, nous serons heureux de vous assister.",
+      "additionalServicesOfferedLabel": "Services supplémentaires proposés :",
+      "partnershipText": "Nous avons des partenariats avec plusieurs banques et établissements financiers qui proposent des services de change de devises. Grâce à notre réseau, nous pouvons vous aider à obtenir les taux les plus compétitifs et la meilleure offre pour vos besoins."
     }
   },
   "process": {
     "badge": "Processus de Réussite en 4 Étapes",
     "heading": "La Feuille de Route Eduberater vers l'Europe",
     "sub": "Un processus éprouvé en 4 étapes qui a aidé des étudiants à atteindre avec succès les universités de leurs rêves.",
+    "titlePrefix": "Notre parcours en 4 étapes :",
+    "titleMain": "Un processus clair",
+    "accordionSub": "Cliquez sur chaque étape pour en savoir plus sur la façon dont nous vous accompagnons vers l'université de vos rêves en Europe.",
+    "stepLabel": "Étape {{step}}",
+    "showLess": "Afficher moins",
     "steps": [
       {
         "step": 1,
