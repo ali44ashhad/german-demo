@@ -364,12 +364,10 @@ import {
   Search,
   FileText,
   Shield,
-  ArrowRight,
   CheckCircle,
   Sparkles
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const FALLBACK_STEPS = [
   {
@@ -638,7 +636,7 @@ const Process = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {t('process.heading') ?? 'The Eduberator Roadmap to Germany'}
+              {t('process.heading') ?? 'The Eduberater Roadmap to Europe'}
               <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent"> </span>
             </motion.h2>
 
@@ -648,7 +646,7 @@ const Process = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {t('process.sub') ?? 'A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.'}
+              {t('process.sub') ?? 'A proven 4-step process that has helped students successfully reach their dream universities.'}
             </motion.p>
           </motion.div>
         </div>
@@ -760,21 +758,6 @@ const Process = () => {
           </motion.div>
         </div>
       </div>
-
-        <motion.div
-          className="text-center mt-12 px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <Link
-            to="/pricing"
-            className="inline-flex items-center justify-center gap-2 min-h-[48px] px-8 py-3 rounded-xl bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold hover:opacity-90 transition-opacity"
-          >
-            {t('process.viewFullJourney', 'View the complete student journey')}
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </motion.div>
 
         {/* CTA Section */}
         {/* <motion.div className="text-center" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8, delay: 0.8 }}>

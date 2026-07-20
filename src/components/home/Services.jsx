@@ -441,7 +441,7 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <Star className="w-5 h-5 text-green-600" />
-            <span className="text-green-700 font-semibold">{t('services.header_short') || 'Essential Services for Germany'}</span>
+            <span className="text-green-700 font-semibold">{t('services.header_short') || 'Essential Services'}</span>
           </motion.div>
 
           <motion.h2

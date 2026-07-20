@@ -50,6 +50,7 @@
   },
   "why": {
     "heading": "Pourquoi Choisir",
+    "brand": "Eduberater",
     "sub": "Tous nos services sont réalisés entièrement en ligne - aucune visite au bureau requise. Nous restons en communication étroite par Email, TEAMS/Zoom et WhatsApp pour vous guider à chaque étape.",
     "features": [
       {
@@ -91,7 +92,7 @@
         "key": "endtoend",
         "icon": "life-buoy",
         "title": "Accompagnement Complet",
-        "description": "De la candidature à l'intégration et l'installation, nous sommes à vos côtés tout au long de votre parcours éducatif.",
+        "description": "Nous sommes à vos côtés tout au long de votre parcours éducatif, de la candidature au visa.",
         "color": "from-indigo-500 to-blue-500"
       }
     ],
@@ -108,7 +109,7 @@
     }
   },
   "services": {
-    "header_short": "Services Essentiels pour l'Allemagne",
+    "header_short": "Services Essentiels",
     "heading": "Nos Services Principaux",
     "learn_more": "en savoir plus",
     "description": "Services de soutien complets pour les étudiants indiens - des solutions financières au logement et à l'assurance, nous avons tout prévu pour votre voyage en Allemagne.",
@@ -186,8 +187,8 @@
   },
   "process": {
     "badge": "Processus de Réussite en 4 Étapes",
-    "heading": "La Feuille de Route Eduberator vers l'Allemagne",
-    "sub": "Un processus éprouvé en 4 étapes qui a aidé plus de 500 étudiants à atteindre avec succès leurs universités allemandes de rêve. Nous gérons la complexité pendant que vous vous concentrez sur votre préparation.",
+    "heading": "La Feuille de Route Eduberater vers l'Europe",
+    "sub": "Un processus éprouvé en 4 étapes qui a aidé des étudiants à atteindre avec succès les universités de leurs rêves.",
     "steps": [
       {
         "step": 1,
@@ -249,7 +250,7 @@
   },
   "testimonials": {
     "label": "TÉMOIGNAGES",
-    "heading": "Ce que nos étudiants disent sur les études en Allemagne avec Profiberater",
+    "heading": "Ce que nos étudiants disent sur les études en Europe avec Eduberater",
     "pause": "Pause",
     "resume": "Reprendre",
     "list": [
@@ -336,19 +337,48 @@
     "thank_you_title": "Merci !",
     "thank_you_text": "Nous avons reçu votre message et vous contacterons dans les 2 heures.",
     "form": {
-      "name": "Nom Complet *",
-      "email": "Adresse Email *",
-      "phone": "Numéro de Téléphone",
-      "program": "Intérêt pour le Programme",
-      "message": "Votre Message",
-      "submit": "Envoyer Message & Obtenir Consultation Gratuite",
-      "submitting": "Envoi en cours..."
+      "heading": "Formulaire de contact",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "E-mail",
+      "phone": "Numéro de téléphone",
+      "country": "Pays de résidence",
+      "service_interest": "Service d'intérêt",
+      "please_select": "Veuillez sélectionner",
+      "service_interest_hint": "Veuillez sélectionner une option dans le menu déroulant.",
+      "description": "Brève description de la demande",
+      "consent": "Je consens par la présente à recevoir des communications par e-mail de la part d'Eduberater concernant ma demande d'immigration et toute mise à jour ou information connexe.",
+      "privacy_note_title": "Note de confidentialité :",
+      "privacy_note_before_links": "En soumettant ce formulaire, vous acceptez notre ",
+      "privacy_policy_link": "Politique de confidentialité",
+      "terms_link": "Conditions générales",
+      "privacy_note_after_links": ". Nous respectons votre vie privée et n'utiliserons les informations que vous fournissez que pour répondre à votre demande et fournir les informations et services que vous demandez.",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "countries": [
+        { "value": "IN", "label": "Inde" },
+        { "value": "DE", "label": "Allemagne" },
+        { "value": "US", "label": "États-Unis" },
+        { "value": "GB", "label": "Royaume-Uni" },
+        { "value": "CA", "label": "Canada" },
+        { "value": "AU", "label": "Australie" },
+        { "value": "FR", "label": "France" },
+        { "value": "IT", "label": "Italie" },
+        { "value": "ES", "label": "Espagne" },
+        { "value": "CN", "label": "Chine" },
+        { "value": "AE", "label": "Émirats arabes unis" },
+        { "value": "SG", "label": "Singapour" },
+        { "value": "NL", "label": "Pays-Bas" },
+        { "value": "AT", "label": "Autriche" },
+        { "value": "CH", "label": "Suisse" },
+        { "value": "OTHER", "label": "Autre" }
+      ]
     },
     "contact_cards": {
       "call": {
         "title": "Appelez-nous",
         "info": "+91 98765 43210",
-        "description": "Lun-Sam, 10h-19h",
+        "description": "Lun-Ven, 10h-18h",
         "link": "tel:+919876543210",
         "key": "call"
       },
@@ -402,7 +432,7 @@
     "newsletter_title": "Newsletter",
     "contact": {
       "phone": "+91 98765 43210",
-      "phone_note": "Lun-Sam, 10h-19h",
+      "phone_note": "Lun-Ven, 10h-18h",
       "email": "hello@eduberator.com",
       "email_note": "Nous répondons sous 2 heures",
       "address": "Delhi, Inde",
@@ -648,14 +678,14 @@
   "contactus": {
     "hero": {
       "title": "Contactez-nous",
-      "subtitle": "Prenez contact avec nos experts en éducation en Allemagne. Nous sommes là pour vous accompagner dans votre projet d’études à l’étranger."
+      "subtitle": "Notre équipe expérimentée est là pour vous guider à chaque étape de votre parcours d'immigration. Inscrivez-vous dès aujourd'hui pour recevoir des conseils personnalisés, un accompagnement d'experts et un soutien fiable adapté à vos objectifs."
     },
     "contactInfo": [
       {
         "icon": "Phone",
         "title": "Appelez-nous",
         "info": "+91 98765 43210",
-        "description": "Lun-Sam, 10h00 - 19h00",
+        "description": "Lun-Ven, 10h00 - 18h00",
         "color": "from-green-600 to-sky-600",
         "link": "tel:+919876543210"
       },
@@ -714,12 +744,29 @@
       ]
     },
     "cta": {
-      "heading": "Prêt à commencer votre aventure en Allemagne ?",
-      "sub": "Contactez-nous dès aujourd’hui et faites le premier pas vers votre rêve d’étudier en Allemagne.",
-      "whatsapp": "Contactez-nous sur WhatsApp",
-      "call": "Appelez maintenant"
+      "heading": "Prêt à commencer votre voyage ?",
+      "sub": "Contactez-nous dès aujourd'hui et faites le premier pas vers la réalisation de votre rêve d'étudier en Europe.",
+      "sub2": "Nos experts sont là pour vous accompagner à chaque étape de votre parcours.",
+      "button": "S'inscrire"
     },
-    "getInTouch": "Entrer en contact"
+    "getInTouch": "Entrer en contact",
+    "community": {
+      "paragraphs": [
+        "Rejoignez notre communauté grandissante sur les réseaux sociaux et faites le prochain pas vers votre rêve européen ! 🌍 ✨",
+        "Connectez-vous avec d'autres candidats, partagez votre parcours migratoire et restez informé des dernières actualités en matière d'immigration, des conseils d'experts et des informations précieuses de notre équipe.",
+        "Chez Eduberater, nous sommes plus qu'un service d'immigration — nous sommes une communauté engagée à vous accompagner à chaque étape. Suivez-nous, interagissez avec notre contenu et partagez vos étapes importantes avec",
+        "Votre rêve est notre mission. Ensemble, faisons de votre installation en Europe un voyage fluide, confiant et inoubliable."
+      ],
+      "hashtag": "#eduberater",
+      "socialHeading": "Votre voyage commence en restant connecté.",
+      "social": [
+        { "provider": "facebook", "href": "#" },
+        { "provider": "twitter", "href": "#" },
+        { "provider": "linkedin", "href": "#" },
+        { "provider": "youtube", "href": "#" },
+        { "provider": "instagram", "href": "#" }
+      ]
+    }
   },
   "disclaimer": {
     "hero": {

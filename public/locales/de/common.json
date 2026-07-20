@@ -50,6 +50,7 @@
   },
   "why": {
     "heading": "Warum wählen",
+    "brand": "Eduberater",
     "sub": "Alle unsere Dienstleistungen werden vollständig online angeboten – keine Bürobesuche erforderlich. Wir bleiben per E-Mail, TEAMS/Zoom und WhatsApp in engem Kontakt, um dich in jedem Schritt zu begleiten.",
     "features": [
       {
@@ -91,7 +92,7 @@
         "key": "endtoend",
         "icon": "life-buoy",
         "title": "Rundum-Betreuung",
-        "description": "Von der Bewerbung bis zur Ankunft und Eingewöhnung – wir begleiten dich auf deinem gesamten Bildungsweg.",
+        "description": "Wir begleiten dich auf deinem gesamten Bildungsweg – von der Bewerbung bis zum Visum.",
         "color": "from-indigo-500 to-blue-500"
       }
     ],
@@ -108,7 +109,7 @@
     }
   },
   "services": {
-    "header_short": "Essenzielle Leistungen für Deutschland",
+    "header_short": "Essenzielle Leistungen",
     "heading": "Unsere Kern-Dienstleistungen",
     "learn_more": "mehr erfahren",
     "description": "Komplette Unterstützungsleistungen für indische Studierende – von finanziellen Lösungen bis hin zu Unterkunft und Versicherung, wir haben alles für deine Reise nach Deutschland abgedeckt.",
@@ -186,8 +187,8 @@
   },
   "process": {
     "badge": "4-Schritte-Erfolgsprozess",
-    "heading": "Die Eduberator-Roadmap nach Deutschland",
-    "sub": "Ein bewährter 4-Schritte-Prozess, der über 500 Studierende erfolgreich an ihre Traum-Universitäten in Deutschland gebracht hat. Wir übernehmen die Komplexität – du konzentrierst dich auf deine Vorbereitung.",
+    "heading": "Die Eduberater-Roadmap nach Europa",
+    "sub": "Ein bewährter 4-Schritte-Prozess, der Studierenden geholfen hat, erfolgreich ihre Traumuniversitäten zu erreichen.",
     "steps": [
       {
         "step": 1,
@@ -249,7 +250,7 @@
   },
   "testimonials": {
     "label": "TESTIMONIALS",
-    "heading": "Was unsere Studierenden über das Studium in Deutschland mit Profiberater sagen",
+    "heading": "Was unsere Studierenden über das Studium in Europa mit Eduberater sagen",
     "pause": "Pause",
     "resume": "Fortsetzen",
     "list": [
@@ -336,19 +337,48 @@
     "thank_you_title": "Vielen Dank!",
     "thank_you_text": "Wir haben deine Nachricht erhalten und werden dich innerhalb von 2 Stunden kontaktieren.",
     "form": {
-      "name": "Vollständiger Name *",
-      "email": "E-Mail Adresse *",
+      "heading": "Kontaktformular",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
       "phone": "Telefonnummer",
-      "program": "Programm Interesse",
-      "message": "Deine Nachricht",
-      "submit": "Nachricht senden & kostenlose Beratung erhalten",
-      "submitting": "Senden…"
+      "country": "Wohnsitzland",
+      "service_interest": "Service-Interesse",
+      "please_select": "Bitte wählen",
+      "service_interest_hint": "Bitte wählen Sie eine Option aus dem Dropdown-Menü aus.",
+      "description": "Kurze Beschreibung der Anfrage",
+      "consent": "Ich erkläre mich hiermit damit einverstanden, E-Mail-Mitteilungen von Eduberater bezüglich meiner Einwanderungsanfrage und damit zusammenhängender Aktualisierungen oder Informationen zu erhalten.",
+      "privacy_note_title": "Datenschutzhinweis:",
+      "privacy_note_before_links": "Mit dem Absenden dieses Formulars erklären Sie sich mit unserer ",
+      "privacy_policy_link": "Datenschutzrichtlinie",
+      "terms_link": "Allgemeinen Geschäftsbedingungen",
+      "privacy_note_after_links": " einverstanden. Wir respektieren Ihre Privatsphäre und verwenden die von Ihnen bereitgestellten Informationen nur, um auf Ihre Anfrage zu antworten und die von Ihnen angeforderten Informationen und Dienstleistungen bereitzustellen.",
+      "submit": "Nachricht senden",
+      "submitting": "Senden…",
+      "countries": [
+        { "value": "IN", "label": "Indien" },
+        { "value": "DE", "label": "Deutschland" },
+        { "value": "US", "label": "Vereinigte Staaten" },
+        { "value": "GB", "label": "Vereinigtes Königreich" },
+        { "value": "CA", "label": "Kanada" },
+        { "value": "AU", "label": "Australien" },
+        { "value": "FR", "label": "Frankreich" },
+        { "value": "IT", "label": "Italien" },
+        { "value": "ES", "label": "Spanien" },
+        { "value": "CN", "label": "China" },
+        { "value": "AE", "label": "Vereinigte Arabische Emirate" },
+        { "value": "SG", "label": "Singapur" },
+        { "value": "NL", "label": "Niederlande" },
+        { "value": "AT", "label": "Österreich" },
+        { "value": "CH", "label": "Schweiz" },
+        { "value": "OTHER", "label": "Sonstiges" }
+      ]
     },
     "contact_cards": {
       "call": {
         "title": "Ruf uns an",
         "info": "+91 98765 43210",
-        "description": "Mo-Sa, 10 Uhr-19 Uhr",
+        "description": "Mo-Fr, 10 Uhr-18 Uhr",
         "link": "tel:+919876543210",
         "key": "call"
       },
@@ -402,7 +432,7 @@
     "newsletter_title": "Newsletter",
     "contact": {
       "phone": "+91 98765 43210",
-      "phone_note": "Mo-Sa, 10 Uhr-19 Uhr",
+      "phone_note": "Mo-Fr, 10 Uhr-18 Uhr",
       "email": "hello@eduberator.com",
       "email_note": "Wir antworten innerhalb von 2 Stunden",
       "address": "Delhi, Indien",
@@ -648,14 +678,14 @@
   "contactus": {
     "hero": {
       "title": "Kontakt",
-      "subtitle": "Nehmen Sie Kontakt mit unseren Experten für Bildung in Deutschland auf. Wir helfen Ihnen gerne bei Ihrem Auslandsstudium."
+      "subtitle": "Unser erfahrenes Team begleitet Sie durch jeden Schritt Ihrer Einwanderungsreise. Registrieren Sie sich noch heute, um persönliche Beratung, fachkundige Unterstützung und vertrauenswürdige Hilfe zu erhalten, die auf Ihre Ziele zugeschnitten ist."
     },
     "contactInfo": [
       {
         "icon": "Phone",
         "title": "Rufen Sie uns an",
         "info": "+91 98765 43210",
-        "description": "Montag–Samstag, 10:00–19:00 Uhr",
+        "description": "Montag–Freitag, 10:00–18:00 Uhr",
         "color": "from-green-600 to-sky-600",
         "link": "tel:+919876543210"
       },
@@ -714,12 +744,29 @@
       ]
     },
     "cta": {
-      "heading": "Bereit, Ihre Reise nach Deutschland zu beginnen?",
-      "sub": "Kontaktieren Sie uns noch heute und machen Sie den ersten Schritt zu Ihrer Traum-Ausbildung in Deutschland.",
-      "whatsapp": "Jetzt auf WhatsApp schreiben",
-      "call": "Jetzt anrufen"
+      "heading": "Bereit, deine Reise zu starten?",
+      "sub": "Kontaktieren Sie uns noch heute und machen Sie den ersten Schritt, Ihren Traum vom Studium in Europa zu verwirklichen.",
+      "sub2": "Unsere Experten begleiten Sie durch jede Phase Ihrer Reise.",
+      "button": "Registrieren"
     },
-    "getInTouch": "Kontakt aufnehmen"
+    "getInTouch": "Kontakt aufnehmen",
+    "community": {
+      "paragraphs": [
+        "Werden Sie Teil unserer wachsenden Community in den sozialen Medien und machen Sie den nächsten Schritt zu Ihrem europäischen Traum! 🌍 ✨",
+        "Vernetzen Sie sich mit anderen Bewerbern, teilen Sie Ihre Migrationsgeschichte und bleiben Sie informiert über die neuesten Einwanderungsupdates, Expertentipps und wertvolle Einblicke von unserem Team.",
+        "Bei Eduberater sind wir mehr als ein Einwanderungsdienst – wir sind eine Community, die Sie in jedem Schritt unterstützt. Folgen Sie uns, interagieren Sie mit unseren Inhalten und teilen Sie Ihre Meilensteine mit",
+        "Ihr Traum ist unsere Mission. Gemeinsam gestalten wir Ihren Umzug nach Europa reibungslos, selbstbewusst und unvergesslich."
+      ],
+      "hashtag": "#eduberater",
+      "socialHeading": "Ihre Reise beginnt damit, in Verbindung zu bleiben.",
+      "social": [
+        { "provider": "facebook", "href": "#" },
+        { "provider": "twitter", "href": "#" },
+        { "provider": "linkedin", "href": "#" },
+        { "provider": "youtube", "href": "#" },
+        { "provider": "instagram", "href": "#" }
+      ]
+    }
   },
   "disclaimer": {
     "hero": {

@@ -178,6 +178,7 @@ import {
   LifeBuoy,
   MessageCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const ICONS = {
@@ -236,7 +237,7 @@ const DEFAULT_FEATURES = [
     icon: LifeBuoy,
     title: 'End-to-End Support',
     description:
-      "We stand by your side throughout your educational journey, from application to admission.",
+      "We stand by your side throughout your educational journey, from application to visa.",
     color: 'from-indigo-500 to-blue-500'
   }
 ];
@@ -311,7 +312,7 @@ const WhyChooseUs = () => {
           >
             {t('why.heading') ? t('why.heading').split('{brand}')[0] : 'Why Choose '}
             <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">
-             {" "} {t('footer.company') || ' Eduberator'}
+             {" "} {t('why.brand') || 'Eduberater'}
             </span>
           </motion.h2>
 {/* 
@@ -392,9 +393,12 @@ const WhyChooseUs = () => {
                 { (cta.text) || 'Book your consultation and let our experts craft a personalized plan for your European education journey.'}
               </p>
             </div>
-            <button className="px-6 py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all mt-4 md:mt-0">
+            <Link
+              to="/register"
+              className="px-6 py-3 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-lg transition-all mt-4 md:mt-0 inline-block text-center"
+            >
               { (cta.button) || 'Start My Journey 🚀' }
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

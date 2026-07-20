@@ -50,6 +50,7 @@
   },
   "why": {
     "heading": "Why Choose",
+    "brand": "Eduberater",
     "sub": "All our services are conducted entirely online — no office visits required. We stay in close communication via Email, TEAMS/Zoom, and WhatsApp to guide you at every step.",
     "features": [
       {
@@ -91,7 +92,7 @@
         "key": "endtoend",
         "icon": "life-buoy",
         "title": "End-to-End Support",
-        "description": "We stand by your side throughout your educational journey, from application to admission.",
+        "description": "We stand by your side throughout your educational journey, from application to visa.",
         "color": "from-indigo-500 to-blue-500"
       }
     ],
@@ -108,7 +109,7 @@
     }
   },
   "services": {
-    "header_short": "Essential Services for Germany",
+    "header_short": "Essential Services",
     "heading": "Additional Services",
     "learn_more": "learn more",
     "description": "Complete support services for students - from financial solutions to accommodation and insurance, we've got you covered for your educational journey.",
@@ -186,8 +187,8 @@
   },
   "process": {
     "badge": "4-Step Success Process",
-    "heading": "The Eduberator Roadmap to Germany",
-    "sub": "A proven 4-step process that has helped 500+ students successfully reach their dream German universities. We handle the complexity while you focus on your preparation.",
+    "heading": "The Eduberater Roadmap to Europe",
+    "sub": "A proven 4-step process that has helped students successfully reach their dream universities.",
     "steps": [
       {
         "step": 1,
@@ -416,7 +417,7 @@
   },
   "testimonials": {
     "label": "TESTIMONIALS",
-    "heading": "What our students say about studying in Germany with Eduberater",
+    "heading": "What our students say about studying in Europe with Eduberater",
     "pause": "Pause",
     "resume": "Resume",
     "list": [
@@ -503,19 +504,48 @@
     "thank_you_title": "Thank You!",
     "thank_you_text": "We've received your message and will contact you within 2 hours.",
     "form": {
-      "name": "Full Name *",
-      "email": "Email Address *",
+      "heading": "Contact form",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
       "phone": "Phone Number",
-      "program": "Program Interest",
-      "message": "Your Message",
-      "submit": "Send Message & Get Free Consultation",
-      "submitting": "Sending..."
+      "country": "Country of Residence",
+      "service_interest": "Service Interest",
+      "please_select": "Please Select",
+      "service_interest_hint": "Please select an option from the dropdown menu.",
+      "description": "Brief description of the enquiry",
+      "consent": "I hereby consent to receive email communications from Eduberater concerning my immigration inquiry and any related updates or information.",
+      "privacy_note_title": "Privacy Note:",
+      "privacy_note_before_links": "By submitting this form, you agree to our ",
+      "privacy_policy_link": "Privacy Policy",
+      "terms_link": "Terms & Conditions",
+      "privacy_note_after_links": ". We respect your privacy and will use the information you provide only to respond to your inquiry and provide the information and services you request.",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "countries": [
+        { "value": "IN", "label": "India" },
+        { "value": "DE", "label": "Germany" },
+        { "value": "US", "label": "United States" },
+        { "value": "GB", "label": "United Kingdom" },
+        { "value": "CA", "label": "Canada" },
+        { "value": "AU", "label": "Australia" },
+        { "value": "FR", "label": "France" },
+        { "value": "IT", "label": "Italy" },
+        { "value": "ES", "label": "Spain" },
+        { "value": "CN", "label": "China" },
+        { "value": "AE", "label": "United Arab Emirates" },
+        { "value": "SG", "label": "Singapore" },
+        { "value": "NL", "label": "Netherlands" },
+        { "value": "AT", "label": "Austria" },
+        { "value": "CH", "label": "Switzerland" },
+        { "value": "OTHER", "label": "Other" }
+      ]
     },
     "contact_cards": {
       "call": {
         "title": "Call Us",
         "info": "+91 98765 43210",
-        "description": "Mon-Sat, 10AM-7PM",
+        "description": "Mon-Fri, 10AM-6PM",
         "link": "tel:+919876543210",
         "key": "call"
       },
@@ -569,7 +599,7 @@
     "newsletter_title": "Newsletter",
     "contact": {
       "phone": "+91 98765 43210",
-      "phone_note": "Mon-Sat, 10AM-7PM",
+      "phone_note": "Mon-Fri, 10AM-6PM",
       "email": "hello@eduberator.com",
       "email_note": "We reply within 2 hours",
       "address": "Delhi, India",
@@ -814,14 +844,14 @@
   "contactus": {
     "hero": {
       "title": "Contact",
-      "subtitle": "Get in touch with our Germany education experts. We're here to help you with your study abroad journey."
+      "subtitle": "Our experienced team is here to guide you through every step of your immigration journey. Register today to receive personalized advice, expert guidance, and trusted support tailored to your goals."
     },
     "contactInfo": [
       {
         "icon": "Phone",
         "title": "Call Us",
         "info": "+91 98765 43210",
-        "description": "Mon-Sat, 10AM-7PM",
+        "description": "Mon-Fri, 10AM-6PM",
         "color": "from-green-600 to-sky-600",
         "link": "tel:+919876543210"
       },
@@ -880,12 +910,29 @@
       ]
     },
     "cta": {
-      "heading": "Ready to Start Your German Journey?",
-      "sub": "Contact us today and take the first step towards your dream education in Germany.",
-      "whatsapp": "WhatsApp Now",
-      "call": "Call Now"
+      "heading": "Ready to Start Your Journey?",
+      "sub": "Contact us today and take the first step toward achieving your dream of studying in Europe.",
+      "sub2": "Our experts are here to guide you through every stage of your journey.",
+      "button": "Register"
     },
-    "getInTouch": "Get In Touch"
+    "getInTouch": "Get In Touch",
+    "community": {
+      "paragraphs": [
+        "Join our growing community on social media and take the next step toward your European dream! 🌍 ✨",
+        "Connect with fellow aspirants, share your migration journey, and stay informed with the latest immigration updates, expert tips, and valuable insights from our team.",
+        "At Eduberater, we're more than an immigration service—we're a community committed to supporting you every step of the way. Follow us, engage with our content, and share your milestones using",
+        "Your dream is our mission. Together, let's make your move to Europe a smooth, confident, and unforgettable journey."
+      ],
+      "hashtag": "#eduberater",
+      "socialHeading": "Your Journey Begins with Staying Connected.",
+      "social": [
+        { "provider": "facebook", "href": "#" },
+        { "provider": "twitter", "href": "#" },
+        { "provider": "linkedin", "href": "#" },
+        { "provider": "youtube", "href": "#" },
+        { "provider": "instagram", "href": "#" }
+      ]
+    }
   },
   "disclaimer": {
     "hero": {

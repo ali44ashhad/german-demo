@@ -50,6 +50,7 @@
   },
   "why": {
     "heading": "为什么选择",
+    "brand": "Eduberater",
     "sub": "我们所有服务完全在线进行——无需到访办公室。我们通过电子邮件、TEAMS/Zoom和WhatsApp保持密切沟通，在每一步为您提供指导。",
     "features": [
       {
@@ -91,7 +92,7 @@
         "key": "endtoend",
         "icon": "life-buoy",
         "title": "端到端支持",
-        "description": "从申请到入学安排，我们在您的整个教育旅程中始终与您同在。",
+        "description": "从申请到签证，我们在您的整个教育旅程中始终与您同在。",
         "color": "from-indigo-500 to-blue-500"
       }
     ],
@@ -108,7 +109,7 @@
     }
   },
   "services": {
-    "header_short": "德国留学必备服务",
+    "header_short": "必备服务",
     "heading": "我们的核心服务",
     "learn_more": "了解更多",
     "description": "为印度学生提供完整的支持服务——从金融解决方案到住宿和保险，我们为您的德国之旅提供全方位保障。",
@@ -186,8 +187,8 @@
   },
   "process": {
     "badge": "4步成功流程",
-    "heading": "Eduberator德国留学路线图",
-    "sub": "经过验证的4步流程，已帮助500多名学生成功进入他们梦想的德国大学。我们处理复杂性，您专注于准备。",
+    "heading": "Eduberater欧洲留学路线图",
+    "sub": "经过验证的4步流程，已帮助学生成功进入他们梦想的大学。",
     "steps": [
       {
         "step": 1,
@@ -249,7 +250,7 @@
   },
   "testimonials": {
     "label": "学生评价",
-    "heading": "学生们对通过Profiberater留学德国的评价",
+    "heading": "学生们对通过Eduberater在欧洲留学的评价",
     "pause": "暂停",
     "resume": "继续",
     "list": [
@@ -336,19 +337,48 @@
     "thank_you_title": "谢谢您！",
     "thank_you_text": "我们已收到您的消息，将在2小时内与您联系。",
     "form": {
-      "name": "姓名 *",
-      "email": "邮箱地址 *",
+      "heading": "联系表单",
+      "first_name": "名",
+      "last_name": "姓",
+      "email": "电子邮箱",
       "phone": "电话号码",
-      "program": "项目兴趣",
-      "message": "您的留言",
-      "submit": "发送消息并获取免费咨询",
-      "submitting": "发送中..."
+      "country": "居住国家",
+      "service_interest": "感兴趣的服务",
+      "please_select": "请选择",
+      "service_interest_hint": "请从下拉菜单中选择一项。",
+      "description": "简要描述您的咨询",
+      "consent": "我在此同意接收 Eduberater 就我的移民咨询及相关更新或信息发送的电子邮件。",
+      "privacy_note_title": "隐私说明：",
+      "privacy_note_before_links": "提交此表单即表示您同意我们的",
+      "privacy_policy_link": "隐私政策",
+      "terms_link": "条款与条件",
+      "privacy_note_after_links": "。我们尊重您的隐私，仅将您提供的信息用于回复您的咨询并提供您所请求的信息和服务。",
+      "submit": "发送消息",
+      "submitting": "发送中...",
+      "countries": [
+        { "value": "IN", "label": "印度" },
+        { "value": "DE", "label": "德国" },
+        { "value": "US", "label": "美国" },
+        { "value": "GB", "label": "英国" },
+        { "value": "CA", "label": "加拿大" },
+        { "value": "AU", "label": "澳大利亚" },
+        { "value": "FR", "label": "法国" },
+        { "value": "IT", "label": "意大利" },
+        { "value": "ES", "label": "西班牙" },
+        { "value": "CN", "label": "中国" },
+        { "value": "AE", "label": "阿联酋" },
+        { "value": "SG", "label": "新加坡" },
+        { "value": "NL", "label": "荷兰" },
+        { "value": "AT", "label": "奥地利" },
+        { "value": "CH", "label": "瑞士" },
+        { "value": "OTHER", "label": "其他" }
+      ]
     },
     "contact_cards": {
       "call": {
         "title": "电话联系我们",
         "info": "+91 98765 43210",
-        "description": "周一至周六 10:00-19:00",
+        "description": "周一至周五 10:00-18:00",
         "link": "tel:+919876543210",
         "key": "call"
       },
@@ -402,7 +432,7 @@
     "newsletter_title": "新闻通讯",
     "contact": {
       "phone": "+91 98765 43210",
-      "phone_note": "周一至周六 10:00-19:00",
+      "phone_note": "周一至周五 10:00-18:00",
       "email": "hello@eduberator.com",
       "email_note": "2小时内回复",
       "address": "印度德里",
@@ -648,14 +678,14 @@
   "contactus": {
     "hero": {
       "title": "联系我们",
-      "subtitle": "与我们德国教育专家取得联系。我们将全程协助您实现留学德国的梦想。"
+      "subtitle": "我们经验丰富的团队将在您移民之旅的每一步为您提供指导。立即注册，获取个性化建议、专业指导和值得信赖的支持，助您实现目标。"
     },
     "contactInfo": [
       {
         "icon": "Phone",
         "title": "致电我们",
         "info": "+91 98765 43210",
-        "description": "周一至周六，上午10点至晚上7点",
+        "description": "周一至周五，上午10点至下午6点",
         "color": "from-green-600 to-sky-600",
         "link": "tel:+919876543210"
       },
@@ -714,12 +744,29 @@
       ]
     },
     "cta": {
-      "heading": "准备好开启您的德国留学之旅了吗？",
-      "sub": "立即联系我们，迈出实现德国留学梦想的第一步。",
-      "whatsapp": "立即通过 WhatsApp 联系",
-      "call": "立即致电"
+      "heading": "准备好开启您的旅程了吗？",
+      "sub": "立即联系我们，迈出实现您在欧洲留学梦想的第一步。",
+      "sub2": "我们的专家将在您旅程的每个阶段为您提供指导。",
+      "button": "注册"
     },
-    "getInTouch": "保持联系"
+    "getInTouch": "保持联系",
+    "community": {
+      "paragraphs": [
+        "加入我们在社交媒体上不断壮大的社区，向您的欧洲梦想迈出下一步！🌍 ✨",
+        "与志同道合的伙伴交流，分享您的移民历程，并及时了解最新的移民资讯、专家建议以及我们团队提供的宝贵见解。",
+        "在 Eduberater，我们不仅仅是移民服务机构——我们是一个致力于在每一步支持您的社区。关注我们，参与我们的内容互动，并使用",
+        "您的梦想是我们的使命。让我们携手，使您移居欧洲的旅程顺畅、自信且难忘。"
+      ],
+      "hashtag": "#eduberater",
+      "socialHeading": "您的旅程从保持联系开始。",
+      "social": [
+        { "provider": "facebook", "href": "#" },
+        { "provider": "twitter", "href": "#" },
+        { "provider": "linkedin", "href": "#" },
+        { "provider": "youtube", "href": "#" },
+        { "provider": "instagram", "href": "#" }
+      ]
+    }
   },
   "disclaimer": {
     "hero": {

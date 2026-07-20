@@ -348,7 +348,7 @@ const Footer = () => {
 
   const contact = footer.contact || {};
   const contactPhone = contact.phone || '+91 98765 43210';
-  const contactPhoneNote = contact.phone_note || 'Mon-Sat, 10AM-7PM';
+  const contactPhoneNote = contact.phone_note || 'Mon-Fri, 10AM-6PM';
   const contactEmail = contact.email || 'hello@eduberator.com';
   const contactEmailNote = contact.email_note || 'We reply within 2 hours';
   const contactAddress = contact.address || 'Delhi, India';
