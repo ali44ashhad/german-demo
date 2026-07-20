@@ -493,9 +493,9 @@
     }
   },
   "about": {
-    "title": "关于 Profiberater",
+    "title": "关于 Eduberater",
     "hero": {
-      "heading": "关于 Profiberater",
+      "heading": "关于 Eduberater",
       "subHeading": "我们是一支经验丰富的专业团队，来自印度，已在欧洲生活和工作十多年。这种独特的文化理解与国际经验的结合，使我们能够以前所未有的方式支持印度学生。"
     },
     "story": {
@@ -520,15 +520,15 @@
         "label": "合作德国大学"
       },
       {
-        "number": "10+",
-        "label": "行业经验年数"
+        "number": "40年",
+        "label": "协作经验"
       }
     ],
     "valuesHeading": "我们的价值观与理念",
     "values": [
       {
         "title": "我们的使命",
-        "description": "通过个性化咨询与我们在教育行业的深厚经验，引导并支持你追求自己的热情。",
+        "description": "通过个性化咨询与我们在多元化行业的深厚经验，引导并支持你追求自己的热情。",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -544,8 +544,8 @@
     ],
     "cta": {
       "heading": "准备好开启你的旅程了吗？",
-      "sub": "让我们帮助你实现赴德留学的梦想。",
-      "button": "获取免费咨询"
+      "sub": "让我们帮助你实现你的教育梦想。",
+      "button": "注册预约咨询"
     }
   },
   "team": {

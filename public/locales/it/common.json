@@ -493,9 +493,9 @@
     }
   },
   "about": {
-    "title": "Chi Siamo - Profiberater",
+    "title": "Chi siamo - Eduberater",
     "hero": {
-      "heading": "Chi Siamo - Profiberater",
+      "heading": "Chi siamo - Eduberater",
       "subHeading": "Siamo un team di professionisti esperti, originari dell'India e residenti in Europa da oltre un decennio. Questa combinazione unica di comprensione culturale ed esperienza internazionale ci consente di supportare gli studenti indiani come nessun altro."
     },
     "story": {
@@ -520,15 +520,15 @@
         "label": "Università Tedesche"
       },
       {
-        "number": "10+",
-        "label": "Anni di Esperienza"
+        "number": "40 anni",
+        "label": "Esperienza collaborativa"
       }
     ],
     "valuesHeading": "I Nostri Valori e la Nostra Filosofia",
     "values": [
       {
         "title": "La Nostra Missione",
-        "description": "Guidarti e supportarti nel perseguire la tua passione attraverso consulenze personalizzate e la nostra profonda esperienza nel settore dell'istruzione.",
+        "description": "Guidarti e supportarti nel perseguire la tua passione attraverso consulenze personalizzate e la nostra profonda esperienza in settori diversi.",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -544,8 +544,8 @@
     ],
     "cta": {
       "heading": "Pronto a Iniziare il Tuo Viaggio?",
-      "sub": "Lascia che ti aiutiamo a trasformare il tuo sogno di studiare in Germania in realtà.",
-      "button": "Richiedi una Consulenza Gratuita"
+      "sub": "Lascia che ti aiutiamo a trasformare il tuo sogno educativo in realtà.",
+      "button": "Registrati per una consulenza"
     }
   },
   "team": {

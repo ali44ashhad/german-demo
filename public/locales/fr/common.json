@@ -493,9 +493,9 @@
     }
   },
   "about": {
-    "title": "À propos de Profiberater",
+    "title": "À propos d'Eduberater",
     "hero": {
-      "heading": "À propos de Profiberater",
+      "heading": "À propos d'Eduberater",
       "subHeading": "Nous sommes une équipe de professionnels expérimentés, originaires de l'Inde et vivant en Europe depuis plus de dix ans. Cette combinaison unique de compréhension culturelle et d'expérience internationale nous permet de soutenir les étudiants indiens comme personne d'autre."
     },
     "story": {
@@ -520,15 +520,15 @@
         "label": "Universités allemandes"
       },
       {
-        "number": "10+",
-        "label": "Années d'expérience"
+        "number": "40 ans",
+        "label": "Expérience collaborative"
       }
     ],
     "valuesHeading": "Nos Valeurs et Philosophie",
     "values": [
       {
         "title": "Notre Mission",
-        "description": "Vous guider et vous soutenir dans la poursuite de votre passion grâce à un accompagnement personnalisé et notre solide expérience dans le domaine de l’éducation.",
+        "description": "Vous guider et vous soutenir dans la poursuite de votre passion grâce à un accompagnement personnalisé et notre solide expérience dans divers secteurs.",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -544,8 +544,8 @@
     ],
     "cta": {
       "heading": "Prêt à commencer votre voyage ?",
-      "sub": "Laissez-nous vous aider à transformer votre rêve d’étudier en Allemagne en réalité.",
-      "button": "Obtenir une consultation gratuite"
+      "sub": "Laissez-nous vous aider à transformer votre rêve d’éducation en réalité.",
+      "button": "S'inscrire pour une consultation"
     }
   },
   "team": {

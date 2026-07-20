@@ -197,12 +197,12 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useAuthRedirect } from '../utils/useAuthRedirect';
+import { useNavigate } from 'react-router-dom';
 
 const FALLBACK = {
-  title: 'About Profiberater',
+  title: 'About Eduberater',
   hero: {
-    heading: 'About Profiberater',
+    heading: 'About Eduberater',
     subHeading:
       "We are a team of seasoned professionals, originally from India and now living and working across Europe for over a decade. This unique blend of cultural understanding and international experience allows us to support Indian students like no one else can."
   },
@@ -218,14 +218,14 @@ const FALLBACK = {
     { number: 'International', label: 'Students Guided' },
     { number: '99%', label: 'Admission Success' },
     { number: '5000+', label: 'European Universities' },
-    { number: '10+ years', label: 'Industrial Experience' }
+    { number: '40 years', label: 'Collaborative Experience' }
   ],
   valuesHeading: 'Our Values & Philosophy',
   values: [
     {
       title: 'Our Mission',
       description:
-        'At Eduberater, our mission is to guide and support students in pursuing their passion through personalized counselling and our deep experience in the education industry. We are committed to empowering your academic and career journey with expert advice and genuine care.',
+        'At Eduberater, our mission is to guide and support students in pursuing their passion through personalized counselling and our deep experience in diverse industries. We are committed to empowering your academic and career journey with expert advice and genuine care.',
       color: 'from-green-600 to-sky-600'
     },
     {
@@ -243,8 +243,8 @@ const FALLBACK = {
   ],
   cta: {
     heading: 'Ready to Start Your Journey?',
-    sub: 'Let us help you turn your German education dream into reality.',
-    button: 'Get Free Consultation'
+    sub: 'Let us help you turn your education dream into reality.',
+    button: 'Register for a consultation'
   }
 };
 
@@ -254,6 +254,7 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
   const { t } = useTranslation('common');
+  const navigate = useNavigate();
 
   // read objects/arrays from i18n; returnObjects:true allows arrays/objects
   const rawTitle = t('about.title', { defaultValue: '' });
@@ -415,15 +416,11 @@ const About = () => {
             {cta.sub}
           </motion.p>
           <motion.button
+            type="button"
             className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              if (!requireAuth()) {
-                e.preventDefault();
-                return;
-              }
-            }}
+            onClick={() => navigate('/register')}
           >
             {cta.button}
           </motion.button>

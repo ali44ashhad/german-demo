@@ -493,9 +493,9 @@
     }
   },
   "about": {
-    "title": "Über Profiberater",
+    "title": "Über Eduberater",
     "hero": {
-      "heading": "Über Profiberater",
+      "heading": "Über Eduberater",
       "subHeading": "Wir sind ein Team erfahrener Fachleute, ursprünglich aus Indien und seit über einem Jahrzehnt in Europa lebend und arbeitend. Diese einzigartige Kombination aus kulturellem Verständnis und internationaler Erfahrung ermöglicht es uns, indische Studierende wie niemand sonst zu unterstützen."
     },
     "story": {
@@ -520,15 +520,15 @@
         "label": "Deutsche Universitäten"
       },
       {
-        "number": "10+",
-        "label": "Jahre Erfahrung"
+        "number": "40 Jahre",
+        "label": "Gemeinsame Erfahrung"
       }
     ],
     "valuesHeading": "Unsere Werte & Philosophie",
     "values": [
       {
         "title": "Unsere Mission",
-        "description": "Dich zu begleiten und zu unterstützen, damit du deiner Leidenschaft folgen kannst, durch personalisierte Beratung und unsere umfangreiche Erfahrung im Bildungsbereich.",
+        "description": "Dich zu begleiten und zu unterstützen, damit du deiner Leidenschaft folgen kannst, durch personalisierte Beratung und unsere umfangreiche Erfahrung in verschiedenen Branchen.",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -544,8 +544,8 @@
     ],
     "cta": {
       "heading": "Bereit, deine Reise zu starten?",
-      "sub": "Lass uns dir helfen, deinen Traum vom Studium in Deutschland Wirklichkeit werden zu lassen.",
-      "button": "Kostenlose Beratung erhalten"
+      "sub": "Lass uns dir helfen, deinen Bildungstraum Wirklichkeit werden zu lassen.",
+      "button": "Für eine Beratung registrieren"
     }
   },
   "team": {

@@ -660,9 +660,9 @@
     }
   },
   "about": {
-    "title": "About Profiberater",
+    "title": "About Eduberater",
     "hero": {
-      "heading": "About Profiberater",
+      "heading": "About Eduberater",
       "subHeading": "We are a team of seasoned professionals, originally from India and now living and working across Europe for over a decade. This unique blend of cultural understanding and international experience allows us to support Indian students like no one else can."
     },
     "story": {
@@ -687,15 +687,15 @@
         "label": "European Universities"
       },
       {
-        "number": "10+ years",
-        "label": "Industrial Experience"
+        "number": "40 years",
+        "label": "Collaborative Experience"
       }
     ],
     "valuesHeading": "Our Values & Philosophy",
     "values": [
       {
         "title": "Our Mission",
-        "description": "At Eduberater, our mission is to guide and support students in pursuing your passion through personalized counselling and our deep experience in the education industry. We are committed to empowering your academic and career journey with expert advice and genuine care.",
+        "description": "At Eduberater, our mission is to guide and support students in pursuing your passion through personalized counselling and our deep experience in diverse industries. We are committed to empowering your academic and career journey with expert advice and genuine care.",
         "color": "from-green-600 to-sky-600"
       },
       {
@@ -711,8 +711,8 @@
     ],
     "cta": {
       "heading": "Ready to Start Your Journey?",
-      "sub": "Let us help you turn your German education dream into reality.",
-      "button": "Get Free Consultation"
+      "sub": "Let us help you turn your education dream into reality.",
+      "button": "Register for a consultation"
     }
   },
   "team": {
