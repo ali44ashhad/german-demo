@@ -39,7 +39,7 @@
 //   ];
 
 //   const benefits = [
-//     "Exclusive discounts for Profiberater students",
+//     "Exclusive discounts for Eduberater students",
 //     "Proven track record of success",
 //     "Experienced certified trainers", 
 //     "Flexible batch timings",
@@ -383,11 +383,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   BookOpen,
-  Users,
-  Award,
-  Clock,
   CheckCircle,
-  Star,
   ArrowRight
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -433,35 +429,12 @@ const FALLBACK = {
   accessReqText:
     "Access to our partner program is available only after you register with us. Once registered, you will be able to view and connect with our training partners directly through your personal profile.",
   benefits: [
-    "Exclusive discounts for Profiberater students",
+    "Exclusive discounts for Eduberater students",
     "Proven track record of success",
     "Experienced certified trainers",
     "Flexible batch timings",
     "Personalized attention",
     "Regular progress tracking"
-  ],
-  partnerInstitutes: [
-    {
-      name: "German Language Institute",
-      courses: ["A1-C2 German", "TestDaF Prep", "Goethe Exam"],
-      discount: "20%",
-      rating: 4.9,
-      students: "2000+"
-    },
-    {
-      name: "STEM Training Center",
-      courses: ["TestAS Prep", "GRE/GMAT", "Technical Interviews"],
-      discount: "15%",
-      rating: 4.8,
-      students: "1500+"
-    },
-    {
-      name: "Study Abroad Academy",
-      courses: ["IELTS Prep", "Academic Writing", "Interview Skills"],
-      discount: "25%",
-      rating: 4.7,
-      students: "1800+"
-    }
   ],
   table: {
     headers: [
@@ -563,51 +536,6 @@ const FALLBACK = {
         types:
           "S: 4-5 types, W: 4 types, R: 7-8 types, L: 4-5 types",
         count: "Total 50-58"
-      },
-      {
-        exam: "CELPIP",
-        full: "Canadian English Language Proficiency Index Program",
-        purpose: "Student visa (Canada); Permanent Residence (Canada)",
-        modules:
-          "Reading, Listening, Speaking, Writing [individual and integrated]",
-        duration: "3 hours",
-        modes: "Only at a Test Centre, Only Computer-delivered",
-        sessions: "Single session",
-        avail: "Weekends, 2 slots a day",
-        reg: "One business day before the test, Depends on seat availability",
-        wait: "5 days",
-        scoring:
-          "Both human and automated, Overall: out of levels 3-12, Individual modules: out of levels 3-12",
-        results: "4-5 days",
-        validity: "2 years",
-        cost: "₹ 12,500",
-        types:
-          "L: 6 types, 38+ MCQs, R: 4 types, 38+ MCQs, S: 2 types, W: 8 types",
-        count:
-          "L: 6 parts, 38+ MCQs, R: 4 parts, 38+ MCQs, W: 2 parts, 2 questions, S: 8 parts, 8 questions"
-      },
-      {
-        exam: "CAEL",
-        full: "Canadian Academic English Language",
-        purpose:
-          "College admissions (Canada); Student Visa (only CAEL at test centre) (Canada)",
-        modules:
-          "Speaking, Reading, Listening, Academic Unit A, Academic Unit B",
-        duration: "3.5 hours",
-        modes: "At a Test Centre and At Home, Only Computer-delivered",
-        sessions: "Single session",
-        avail: "Weekends",
-        reg: "One business day before the test, Depends on seat availability",
-        wait: "4 days",
-        scoring:
-          "Both human and automated, Overall: out of Band 90, Individual modules: out of Band 90",
-        results: "8 days",
-        validity: "2 years",
-        cost: "₹ 12,500",
-        types:
-          "S: 3 types, R: 2 types + 1 R+S Integrated, L: 2 types + 1 L+S Integrated, W: 2 types (R+L+W Integrated)",
-        count:
-          "S: 3 questions, R: 14-25 MCQs + 1 R+S question, L: 14-25 MCQs + 1 L+S question, W: 44-60 MCQs + 2 R+L+W question"
       }
     ]
   },
@@ -617,6 +545,13 @@ const FALLBACK = {
     button: "Register Now"
   }
 };
+
+const EXCLUDED_EXAMS = new Set(["CELPIP", "CAEL"]);
+
+const TABLE_HEADER_CLASS =
+  "px-3 py-2 text-left align-top text-[11px] sm:text-xs font-bold leading-tight border-b border-sky-500/30";
+const TABLE_CELL_CLASS =
+  "px-3 py-2 text-left align-top text-[11px] sm:text-xs text-gray-700 leading-snug border-b border-sky-100";
 
 const Coaching = () => {
   const ref = useRef(null);
@@ -631,16 +566,15 @@ const Coaching = () => {
   const accessReqText =
     typeof raw.accessReqText === "string" ? raw.accessReqText : FALLBACK.accessReqText;
   const benefits = normalizeArray(raw.benefits, FALLBACK.benefits);
-  const partnerInstitutes = normalizeArray(raw.partnerInstitutes, FALLBACK.partnerInstitutes).map(
-    (p) => ({ ...p, courses: normalizeArray(p.courses, []) })
-  );
-
   // table: pull from i18n with safe fallbacks
   const table = isObject(raw.table) ? raw.table : FALLBACK.table;
   const tableHeaders =
     Array.isArray(table.headers) && table.headers.length ? table.headers : FALLBACK.table.headers;
-  const tableRows =
+  const tableRowsRaw =
     Array.isArray(table.rows) && table.rows.length ? table.rows : FALLBACK.table.rows;
+  const tableRows = tableRowsRaw.filter(
+    (row) => !EXCLUDED_EXAMS.has(String(row.exam ?? "").toUpperCase())
+  );
 
   const cta = isObject(raw.cta) ? raw.cta : FALLBACK.cta;
 
@@ -689,7 +623,7 @@ const Coaching = () => {
       {/* Main Content */}
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -743,54 +677,6 @@ const Coaching = () => {
               </div>
             </motion.div>
           </div>
-
-          {/* Partner Institutes */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-              {headings.ourPartners}
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {partnerInstitutes.map((institute, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm hover:shadow-md transition-all duration-300"
-                  whileHover={{ y: -10 }}
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-gray-900">{institute.name}</h3>
-                    <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-bold">
-                      {institute.discount} OFF
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 mb-4">
-                    {institute.courses.map((course, courseIndex) => (
-                      <div key={courseIndex} className="flex items-center gap-2 text-gray-700 text-sm">
-                        <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
-                        {course}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between items-center text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-amber-400" />
-                      <span>{institute.rating}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4 text-emerald-600" />
-                      <span>{institute.students}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -804,19 +690,19 @@ const Coaching = () => {
             {headings.compGuideTitle}
           </h2>
 
-          <div className="h-[100%] overflow-auto mt-10 md:mt-10">
-            <div className="rounded-2xl overflow-hidden border border-sky-200 shadow-sm">
-              <div className="max-h-[500px] overflow-auto">
-                <table className="w-full min-w-[1200px]">
-                  <thead className="sticky top-0 z-20 bg-sky-600 text-left font-semibold text-white">
+          <div className="mt-10 text-left">
+            <div className="rounded-2xl overflow-hidden border border-sky-200 shadow-sm bg-white">
+              <div className="overflow-x-auto overflow-y-visible">
+                <table className="w-full min-w-[1100px] border-collapse">
+                  <thead className="sticky top-0 z-20 bg-sky-600 text-white">
                     <tr>
                       {tableHeaders.map((h, i) => (
                         <th
                           key={i}
                           className={
                             i === 0
-                              ? "min-w-[120px] sticky left-0 z-30 font-bold text-left border-r border-sky-200 p-3 bg-sky-700"
-                              : "min-w-[200px] font-bold text-left p-3"
+                              ? `${TABLE_HEADER_CLASS} sticky left-0 z-30 min-w-[7rem] w-[7rem] bg-sky-700 border-r border-sky-500/40 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)]`
+                              : `${TABLE_HEADER_CLASS} min-w-[10rem]`
                           }
                         >
                           {h}
@@ -827,25 +713,32 @@ const Coaching = () => {
 
                   <tbody>
                     {tableRows.map((row, rIdx) => (
-                      <tr key={rIdx} className="odd:bg-white even:bg-sky-50">
-                        <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">
+                      <tr
+                        key={rIdx}
+                        className={rIdx % 2 === 0 ? "bg-white" : "bg-sky-50/80"}
+                      >
+                        <td
+                          className={`${TABLE_CELL_CLASS} sticky left-0 z-10 font-semibold text-gray-900 whitespace-nowrap border-r border-sky-200/80 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.06)] ${
+                            rIdx % 2 === 0 ? "bg-white" : "bg-sky-50"
+                          }`}
+                        >
                           {row.exam}
                         </td>
-                        <td className="p-3">{row.full}</td>
-                        <td className="p-3">{row.purpose}</td>
-                        <td className="p-3">{row.modules}</td>
-                        <td className="p-3">{row.duration}</td>
-                        <td className="p-3">{row.modes}</td>
-                        <td className="p-3">{row.sessions}</td>
-                        <td className="p-3">{row.avail}</td>
-                        <td className="p-3">{row.reg}</td>
-                        <td className="p-3">{row.wait}</td>
-                        <td className="p-3">{row.scoring}</td>
-                        <td className="p-3">{row.results}</td>
-                        <td className="p-3">{row.validity}</td>
-                        <td className="p-3">{row.cost}</td>
-                        <td className="p-3">{row.types}</td>
-                        <td className="p-3">{row.count}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.full}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.purpose}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.modules}</td>
+                        <td className={`${TABLE_CELL_CLASS} whitespace-nowrap`}>{row.duration}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.modes}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.sessions}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.avail}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.reg}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.wait}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.scoring}</td>
+                        <td className={`${TABLE_CELL_CLASS} whitespace-nowrap`}>{row.results}</td>
+                        <td className={`${TABLE_CELL_CLASS} whitespace-nowrap`}>{row.validity}</td>
+                        <td className={`${TABLE_CELL_CLASS} whitespace-nowrap`}>{row.cost}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.types}</td>
+                        <td className={TABLE_CELL_CLASS}>{row.count}</td>
                       </tr>
                     ))}
                   </tbody>
