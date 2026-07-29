@@ -387,6 +387,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 // helpers
 const isObject = (v) => v && typeof v === "object" && !Array.isArray(v);
@@ -556,6 +557,7 @@ const TABLE_CELL_CLASS =
 const Coaching = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const navigate = useNavigate();
   const { t } = useTranslation("common");
 
   const raw = t("coaching", { returnObjects: true, defaultValue: {} });
@@ -768,6 +770,8 @@ const Coaching = () => {
             {headings.ctaSub}
           </motion.p>
           <motion.button
+            type="button"
+            onClick={() => navigate("/register")}
             className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-emerald-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

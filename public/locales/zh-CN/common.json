@@ -379,22 +379,70 @@
       "submit": "发送消息",
       "submitting": "发送中...",
       "countries": [
-        { "value": "IN", "label": "印度" },
-        { "value": "DE", "label": "德国" },
-        { "value": "US", "label": "美国" },
-        { "value": "GB", "label": "英国" },
-        { "value": "CA", "label": "加拿大" },
-        { "value": "AU", "label": "澳大利亚" },
-        { "value": "FR", "label": "法国" },
-        { "value": "IT", "label": "意大利" },
-        { "value": "ES", "label": "西班牙" },
-        { "value": "CN", "label": "中国" },
-        { "value": "AE", "label": "阿联酋" },
-        { "value": "SG", "label": "新加坡" },
-        { "value": "NL", "label": "荷兰" },
-        { "value": "AT", "label": "奥地利" },
-        { "value": "CH", "label": "瑞士" },
-        { "value": "OTHER", "label": "其他" }
+        {
+          "value": "IN",
+          "label": "印度"
+        },
+        {
+          "value": "DE",
+          "label": "德国"
+        },
+        {
+          "value": "US",
+          "label": "美国"
+        },
+        {
+          "value": "GB",
+          "label": "英国"
+        },
+        {
+          "value": "CA",
+          "label": "加拿大"
+        },
+        {
+          "value": "AU",
+          "label": "澳大利亚"
+        },
+        {
+          "value": "FR",
+          "label": "法国"
+        },
+        {
+          "value": "IT",
+          "label": "意大利"
+        },
+        {
+          "value": "ES",
+          "label": "西班牙"
+        },
+        {
+          "value": "CN",
+          "label": "中国"
+        },
+        {
+          "value": "AE",
+          "label": "阿联酋"
+        },
+        {
+          "value": "SG",
+          "label": "新加坡"
+        },
+        {
+          "value": "NL",
+          "label": "荷兰"
+        },
+        {
+          "value": "AT",
+          "label": "奥地利"
+        },
+        {
+          "value": "CH",
+          "label": "瑞士"
+        },
+        {
+          "value": "OTHER",
+          "label": "其他"
+        }
       ]
     },
     "contact_cards": {
@@ -783,11 +831,26 @@
       "hashtag": "#eduberater",
       "socialHeading": "您的旅程从保持联系开始。",
       "social": [
-        { "provider": "facebook", "href": "#" },
-        { "provider": "twitter", "href": "#" },
-        { "provider": "linkedin", "href": "#" },
-        { "provider": "youtube", "href": "#" },
-        { "provider": "instagram", "href": "#" }
+        {
+          "provider": "facebook",
+          "href": "#"
+        },
+        {
+          "provider": "twitter",
+          "href": "#"
+        },
+        {
+          "provider": "linkedin",
+          "href": "#"
+        },
+        {
+          "provider": "youtube",
+          "href": "#"
+        },
+        {
+          "provider": "instagram",
+          "href": "#"
+        }
       ]
     }
   },
@@ -2117,14 +2180,13 @@
       "subtitle": "跟随这份可视化路线图，从首次联系到咨询、决策及全程申请支持。"
     },
     "nav": {
-      "phase1": "第一阶段：入门",
+      "phase1": "第一阶段：咨询前",
       "phase2": "第二阶段：咨询之后"
     },
     "legend": {
-      "student": "您的步骤",
-      "platform": "我们的团队与平台",
-      "decision": "您的决定",
-      "warning": "若您选择不继续"
+      "initialConsultation": "初次咨询",
+      "yourDecision": "您的决定",
+      "afterDecision": "决定之后"
     },
     "actions": {
       "register": "立即注册",
@@ -2135,7 +2197,7 @@
     },
     "phase1": {
       "badge": "第一阶段",
-      "title": "入门与预约咨询",
+      "title": "咨询前",
       "description": "从首次联系到确认咨询预约。",
       "steps": [
         {
@@ -2161,12 +2223,13 @@
         {
           "id": "upload",
           "title": "上传并提交个人资料",
-          "body": "填写详细信息，按需审阅和编辑，确认信息真实后保存并提交。",
+          "body": "",
           "bullets": [
-            "提交前审阅并编辑数据",
-            "确认数据准确性",
-            "填写的表单 PDF 将发送至您的邮箱",
-            "提交后资料锁定 — 修改需管理员授权"
+            "A. 填写所有必填信息。",
+            "B. 核对全部内容是否准确。",
+            "C. 更正任何错误。",
+            "D. 确认信息真实无误。",
+            "E. 保存并提交表单。（已填表单的 PDF 将发送至您的邮箱）"
           ]
         },
         {
@@ -2181,25 +2244,31 @@
           "subSteps": [
             {
               "title": "有空档",
-              "body": "选择时段并确认。您将收到含 Zoom 链接、预约详情和 .ics 日历文件的感谢邮件。该时段将在您的资料和顾问日历中锁定。"
+              "body": "选择一个最适合您日程的可用预约时段。"
             },
             {
               "title": "无空档",
-              "body": "使用一键申请选项。系统自动向管理员和您发送消息，以便安排合适时间。"
+              "body": "",
+              "bullets": [
+                "点击一键申请按钮。",
+                "系统会自动通知管理员。",
+                "管理员将联系您，或为您安排合适的可用预约。"
+              ]
             }
           ]
         },
         {
           "id": "counsellorCalendar",
-          "title": "顾问收到确认",
-          "body": "顾问收到相同邮件及 .ics 文件以加入日历。预约在其资料中锁定，并可自行管理可用时段。"
-        },
-        {
-          "id": "mobileApps",
-          "title": "移动端访问",
-          "body": "这些功能日后将在 iOS 和 Android 学生应用中提供。"
+          "title": "收到确认",
+          "body": "预约确认后，您和顾问都会收到同一封含预约详情的确认邮件。"
         }
       ]
+    },
+    "cta": {
+      "title": "准备开始了吗？",
+      "subtitle": "从注册开始，预约我们的专业专家咨询。",
+      "register": "立即注册",
+      "login": "已注册？登录"
     },
     "phase2": {
       "title": "初次咨询之后",
@@ -2217,8 +2286,12 @@
         },
         {
           "id": "decisionWindow",
-          "title": "15 天决策期",
-          "body": "您有 15 天时间决定是否通过我们的团队继续完整申请流程。"
+          "title": "您的决定很重要",
+          "body": "",
+          "bullets": [
+            "在此阶段之后，您有 15 天时间做出决定。",
+            "如果选择继续，您可以通过团队完成完整申请流程。"
+          ]
         }
       ],
       "decision": {
@@ -2233,12 +2306,18 @@
         {
           "id": "deposit",
           "title": "60% 定金与数字协议",
-          "body": "您有一周时间支付总费用的 60% 并签署数字协议，协议保存在您的资料区域。"
+          "body": "",
+          "bullets": [
+            "决定继续使用该服务。",
+            "签署数字协议。",
+            "立即支付总费用的 60%。",
+            "已签署的协议会自动保存到您的资料中。"
+          ]
         },
         {
           "id": "documents",
-          "title": "上传文件并完善资料",
-          "body": "以数字方式上传所有必需文件，并用所需补充信息更新资料。"
+          "title": "上传补充文件并完善您的资料。",
+          "body": "以数字方式上传所有必需文件，并用可能需要的补充信息更新资料。"
         },
         {
           "id": "recounselling",
@@ -2248,7 +2327,7 @@
         {
           "id": "partnerships",
           "title": "合作项目权益",
-          "body": "如有需要，可使用合作伙伴项目进行 IELTS、TOEFL 备考、德语课程及 LOI 支持。",
+          "body": "如有需要，可通过我们的合作伙伴项目享受 IELTS 与 TOEFL 备考、德语课程及意向书 (LOI) 支持的专属优惠。",
           "bullets": [
             "IELTS 备考",
             "TOEFL 备考",
@@ -2258,34 +2337,10 @@
         },
         {
           "id": "tracking",
-          "title": "按院校跟踪申请",
-          "body": "提交申请后，可在资料中查看各院校进度。状态由管理员和后台团队定期更新。",
-          "progressColleges": [
-            {
-              "name": "TU Munich — M.Sc. Informatics",
-              "percent": 68
-            },
-            {
-              "name": "RWTH Aachen — M.Sc. Data Science",
-              "percent": 47
-            },
-            {
-              "name": "Uni Stuttgart — M.Sc. Mechanical",
-              "percent": 91
-            },
-            {
-              "name": "TU Berlin — M.Sc. Energy Eng.",
-              "percent": 32
-            }
-          ]
+          "title": "成功申请",
+          "body": "申请成功提交后，您可以在个人资料中跟踪每所院校申请的进度与状态。"
         }
       ]
-    },
-    "cta": {
-      "title": "准备开始了吗？",
-      "subtitle": "从注册开始，预约我们的专业专家咨询。",
-      "register": "立即注册",
-      "login": "已注册？登录"
     }
   }
 }

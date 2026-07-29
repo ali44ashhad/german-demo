@@ -1,8 +1,7 @@
 const LEGEND_ITEMS = [
-  { key: "student", className: "bg-sky-100 border-sky-300" },
-  { key: "platform", className: "bg-emerald-100 border-emerald-300" },
-  { key: "decision", className: "bg-gray-100 border-gray-300" },
-  { key: "warning", className: "bg-orange-100 border-orange-300" },
+  { key: "initialConsultation", className: "bg-sky-100 border-sky-300" },
+  { key: "yourDecision", className: "bg-amber-100 border-amber-300" },
+  { key: "afterDecision", className: "bg-emerald-100 border-emerald-300" },
 ];
 
 const JourneyLegend = ({ labels = {} }) => {

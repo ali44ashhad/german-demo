@@ -279,14 +279,13 @@
       "subtitle": "Follow this visual roadmap from your first contact through consultation, decision, and full application support."
     },
     "nav": {
-      "phase1": "Phase 1: Getting Started",
+      "phase1": "Phase 1: Before Consultation",
       "phase2": "Phase 2: After Consultation"
     },
     "legend": {
-      "student": "Your steps",
-      "platform": "Our team & platform",
-      "decision": "Your decision",
-      "warning": "If you choose not to proceed"
+      "initialConsultation": "Initial Consultation",
+      "yourDecision": "Your Decision",
+      "afterDecision": "After Decision"
     },
     "actions": {
       "register": "Register now",
@@ -297,7 +296,7 @@
     },
     "phase1": {
       "badge": "Phase 1",
-      "title": "Getting Started & Booking Consultation",
+      "title": "Before Consultation",
       "description": "From first contact to your confirmed consultation appointment.",
       "steps": [
         {
@@ -323,12 +322,13 @@
         {
           "id": "upload",
           "title": "Upload & submit your profile data",
-          "body": "Fill in your details, review and edit as needed, then acknowledge that the information is true before saving and sending.",
+          "body": "",
           "bullets": [
-            "Review and edit your data before submission",
-            "Acknowledge data accuracy",
-            "PDF of your filled form is emailed to you",
-            "Profile is locked after submission — edits require admin authorization"
+            "A. Fill in all required details.",
+            "B. Review everything for accuracy.",
+            "C. Edit any mistakes.",
+            "D. Acknowledge (confirm) that the information is true.",
+            "E. Save and submit the form. (PDF of your filled form is emailed to you)"
           ]
         },
         {
@@ -343,25 +343,31 @@
           "subSteps": [
             {
               "title": "Slots available",
-              "body": "Select a slot and confirm. You receive a thank-you email with Zoom link, appointment details, and an .ics calendar file. The slot is blocked on your profile and the counsellor's calendar."
+              "body": "Select one of the available appointment slots that best suits your schedule."
             },
             {
               "title": "No slots available",
-              "body": "Use the one-click request option. An automatic message is sent to admin and you, so we can arrange a suitable time."
+              "body": "",
+              "bullets": [
+                "Click the one-click request button.",
+                "The system automatically notifies the administrator.",
+                "The administrator will contact you or arrange an available appointment that works for you."
+              ]
             }
           ]
         },
         {
           "id": "counsellorCalendar",
-          "title": "Counsellor receives confirmation",
-          "body": "Your counsellor gets the same email with the .ics file to add to their calendar. The appointment is blocked in their profile, and they can manage their own availability slots."
-        },
-        {
-          "id": "mobileApps",
-          "title": "Access on mobile apps",
-          "body": "All of these functions will be available on iOS and Android apps for students later on."
+          "title": "Receive confirmation",
+          "body": "After your appointment is confirmed, both you and your counsellor will receive the same confirmation email with the appointment details."
         }
       ]
+    },
+    "cta": {
+      "title": "Ready to begin?",
+      "subtitle": "Start with registration and book your consultation with our professional experts.",
+      "register": "Register now",
+      "login": "Already registered? Log in"
     },
     "phase2": {
       "title": "After Your Initial Consultation",
@@ -379,8 +385,12 @@
         },
         {
           "id": "decisionWindow",
-          "title": "15 days to decide",
-          "body": "You receive 15 days to decide whether to proceed with your full application through our team."
+          "title": "Your decision matters",
+          "body": "",
+          "bullets": [
+            "After this stage, you have 15 days to make your decision.",
+            "If you choose to proceed, you can continue with the full application process through the team."
+          ]
         }
       ],
       "decision": {
@@ -395,12 +405,18 @@
         {
           "id": "deposit",
           "title": "60% deposit & digital agreement",
-          "body": "You have one week to pay 60% of the total fees and sign the digital agreement, which is saved under your profile section."
+          "body": "",
+          "bullets": [
+            "Decide to proceed with the service.",
+            "Sign the digital agreement.",
+            "Pay 60% of the total fee right away.",
+            "The signed agreement is automatically saved in your profile."
+          ]
         },
         {
           "id": "documents",
-          "title": "Upload documents & improve profile",
-          "body": "Upload all required documents digitally and update your profile with any additional information needed."
+          "title": "Upload additional documents and improve your profile.",
+          "body": "Upload all required documents digitally and update your profile with any additional information that may be needed."
         },
         {
           "id": "recounselling",
@@ -410,7 +426,7 @@
         {
           "id": "partnerships",
           "title": "Partnership program benefits",
-          "body": "If needed, access partner programs for IELTS, TOEFL preparation, German language courses, and LOI support.",
+          "body": "If needed, take advantage of exclusive offers through our partner programs for IELTS and TOEFL preparation, German language courses, and Letter of Intent (LOI) support.",
           "bullets": [
             "IELTS preparation",
             "TOEFL preparation",
@@ -420,22 +436,10 @@
         },
         {
           "id": "tracking",
-          "title": "Track applications per college",
-          "body": "Once applications are submitted, view progress for each college in your profile. Status is updated regularly by admins and our back-office team.",
-          "progressColleges": [
-            { "name": "TU Munich — M.Sc. Informatics", "percent": 68 },
-            { "name": "RWTH Aachen — M.Sc. Data Science", "percent": 47 },
-            { "name": "Uni Stuttgart — M.Sc. Mechanical", "percent": 91 },
-            { "name": "TU Berlin — M.Sc. Energy Eng.", "percent": 32 }
-          ]
+          "title": "Successful application",
+          "body": "Once your applications have been successfully submitted, you can track the progress and status of each college application in your profile."
         }
       ]
-    },
-    "cta": {
-      "title": "Ready to begin?",
-      "subtitle": "Start with registration and book your consultation with our professional experts.",
-      "register": "Register now",
-      "login": "Already registered? Log in"
     }
   },
   "testimonials": {
@@ -546,22 +550,70 @@
       "submit": "Send Message",
       "submitting": "Sending...",
       "countries": [
-        { "value": "IN", "label": "India" },
-        { "value": "DE", "label": "Germany" },
-        { "value": "US", "label": "United States" },
-        { "value": "GB", "label": "United Kingdom" },
-        { "value": "CA", "label": "Canada" },
-        { "value": "AU", "label": "Australia" },
-        { "value": "FR", "label": "France" },
-        { "value": "IT", "label": "Italy" },
-        { "value": "ES", "label": "Spain" },
-        { "value": "CN", "label": "China" },
-        { "value": "AE", "label": "United Arab Emirates" },
-        { "value": "SG", "label": "Singapore" },
-        { "value": "NL", "label": "Netherlands" },
-        { "value": "AT", "label": "Austria" },
-        { "value": "CH", "label": "Switzerland" },
-        { "value": "OTHER", "label": "Other" }
+        {
+          "value": "IN",
+          "label": "India"
+        },
+        {
+          "value": "DE",
+          "label": "Germany"
+        },
+        {
+          "value": "US",
+          "label": "United States"
+        },
+        {
+          "value": "GB",
+          "label": "United Kingdom"
+        },
+        {
+          "value": "CA",
+          "label": "Canada"
+        },
+        {
+          "value": "AU",
+          "label": "Australia"
+        },
+        {
+          "value": "FR",
+          "label": "France"
+        },
+        {
+          "value": "IT",
+          "label": "Italy"
+        },
+        {
+          "value": "ES",
+          "label": "Spain"
+        },
+        {
+          "value": "CN",
+          "label": "China"
+        },
+        {
+          "value": "AE",
+          "label": "United Arab Emirates"
+        },
+        {
+          "value": "SG",
+          "label": "Singapore"
+        },
+        {
+          "value": "NL",
+          "label": "Netherlands"
+        },
+        {
+          "value": "AT",
+          "label": "Austria"
+        },
+        {
+          "value": "CH",
+          "label": "Switzerland"
+        },
+        {
+          "value": "OTHER",
+          "label": "Other"
+        }
       ]
     },
     "contact_cards": {
@@ -949,11 +1001,26 @@
       "hashtag": "#eduberater",
       "socialHeading": "Your Journey Begins with Staying Connected.",
       "social": [
-        { "provider": "facebook", "href": "#" },
-        { "provider": "twitter", "href": "#" },
-        { "provider": "linkedin", "href": "#" },
-        { "provider": "youtube", "href": "#" },
-        { "provider": "instagram", "href": "#" }
+        {
+          "provider": "facebook",
+          "href": "#"
+        },
+        {
+          "provider": "twitter",
+          "href": "#"
+        },
+        {
+          "provider": "linkedin",
+          "href": "#"
+        },
+        {
+          "provider": "youtube",
+          "href": "#"
+        },
+        {
+          "provider": "instagram",
+          "href": "#"
+        }
       ]
     }
   },

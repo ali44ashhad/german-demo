@@ -49,7 +49,9 @@ const FlowStepCard = ({
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 pr-4">
             {title}
           </h3>
-          <p className="text-gray-700 leading-relaxed mb-4">{body}</p>
+          {body ? (
+            <p className="text-gray-700 leading-relaxed mb-4">{body}</p>
+          ) : null}
 
           {bullets.length > 0 && (
             <ul className="space-y-2 mb-4">
@@ -64,19 +66,37 @@ const FlowStepCard = ({
 
           {subSteps.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-              {subSteps.map((sub, i) => (
-                <div
-                  key={i}
-                  className="bg-white/70 rounded-2xl p-4 border border-sky-100"
-                >
-                  <p className="font-semibold text-gray-900 text-sm mb-1">
-                    {sub.title}
-                  </p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {sub.body}
-                  </p>
-                </div>
-              ))}
+              {subSteps.map((sub, i) => {
+                const subBullets = Array.isArray(sub.bullets) ? sub.bullets : [];
+                return (
+                  <div
+                    key={i}
+                    className="bg-white/70 rounded-2xl p-4 border border-sky-100"
+                  >
+                    <p className="font-semibold text-gray-900 text-sm mb-1">
+                      {sub.title}
+                    </p>
+                    {sub.body ? (
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {sub.body}
+                      </p>
+                    ) : null}
+                    {subBullets.length > 0 && (
+                      <ul className="space-y-1.5 mt-2">
+                        {subBullets.map((item, j) => (
+                          <li
+                            key={j}
+                            className="flex items-start gap-2 text-sm text-gray-600"
+                          >
+                            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
 

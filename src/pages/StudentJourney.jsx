@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion as Motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Route, Sparkles, ArrowRight } from "lucide-react";
@@ -45,10 +45,9 @@ const StudentJourney = () => {
   );
 
   const legendLabels = {
-    student: t("studentJourney.legend.student"),
-    platform: t("studentJourney.legend.platform"),
-    decision: t("studentJourney.legend.decision"),
-    warning: t("studentJourney.legend.warning"),
+    initialConsultation: t("studentJourney.legend.initialConsultation"),
+    yourDecision: t("studentJourney.legend.yourDecision"),
+    afterDecision: t("studentJourney.legend.afterDecision"),
   };
 
   const actionLabels = {
@@ -68,6 +67,8 @@ const StudentJourney = () => {
     title: t("studentJourney.phase2.noOutcome.title"),
     body: t("studentJourney.phase2.noOutcome.body"),
   };
+
+  const yesStartIndex = phase1Steps.length + phase2PreSteps.length + 1;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
@@ -89,7 +90,7 @@ const StudentJourney = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
+          <Motion.div
             className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 mb-6"
             initial={reducedMotion ? false : { opacity: 0, scale: 0.9 }}
             animate={
@@ -105,9 +106,9 @@ const StudentJourney = () => {
             <span className="text-white font-semibold">
               {t("studentJourney.hero.badge")}
             </span>
-          </motion.div>
+          </Motion.div>
 
-          <motion.h1
+          <Motion.h1
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg"
             initial={reducedMotion ? false : { opacity: 0, y: 40 }}
             animate={
@@ -123,9 +124,9 @@ const StudentJourney = () => {
             <span className="bg-gradient-to-r from-green-300 to-sky-300 bg-clip-text text-transparent">
               {t("studentJourney.hero.titleHighlight")}
             </span>
-          </motion.h1>
+          </Motion.h1>
 
-          <motion.p
+          <Motion.p
             className="text-lg sm:text-xl text-sky-50 max-w-3xl mx-auto leading-relaxed drop-shadow-md mb-8"
             initial={reducedMotion ? false : { opacity: 0, y: 24 }}
             animate={
@@ -138,9 +139,9 @@ const StudentJourney = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             {t("studentJourney.hero.subtitle")}
-          </motion.p>
+          </Motion.p>
 
-          <motion.nav
+          <Motion.nav
             className="flex flex-wrap justify-center gap-3"
             initial={reducedMotion ? false : { opacity: 0, y: 16 }}
             animate={
@@ -165,11 +166,11 @@ const StudentJourney = () => {
             >
               {t("studentJourney.nav.phase2")}
             </a>
-          </motion.nav>
+          </Motion.nav>
         </div>
       </section>
 
-      {/* Phase 1 */}
+      {/* Phase 1: Before Consultation */}
       <section id="phase1" className="py-16 sm:py-20 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -228,6 +229,7 @@ const StudentJourney = () => {
               noOutcome={phase2NoOutcome}
               yesSteps={phase2YesSteps}
               actionLabels={actionLabels}
+              yesStartIndex={yesStartIndex}
               reducedMotion={reducedMotion}
             />
           </div>
@@ -237,7 +239,7 @@ const StudentJourney = () => {
       {/* CTA */}
       <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
+          <Motion.div
             className="bg-gradient-to-r from-green-600 to-sky-600 rounded-3xl p-8 sm:p-12 text-white shadow-xl"
             initial={reducedMotion ? false : { opacity: 0, y: 24 }}
             whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
@@ -265,7 +267,7 @@ const StudentJourney = () => {
                 {t("studentJourney.cta.login")}
               </Link>
             </div>
-          </motion.div>
+          </Motion.div>
         </div>
       </section>
     </div>

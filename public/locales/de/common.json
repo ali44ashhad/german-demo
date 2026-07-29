@@ -379,22 +379,70 @@
       "submit": "Nachricht senden",
       "submitting": "Senden…",
       "countries": [
-        { "value": "IN", "label": "Indien" },
-        { "value": "DE", "label": "Deutschland" },
-        { "value": "US", "label": "Vereinigte Staaten" },
-        { "value": "GB", "label": "Vereinigtes Königreich" },
-        { "value": "CA", "label": "Kanada" },
-        { "value": "AU", "label": "Australien" },
-        { "value": "FR", "label": "Frankreich" },
-        { "value": "IT", "label": "Italien" },
-        { "value": "ES", "label": "Spanien" },
-        { "value": "CN", "label": "China" },
-        { "value": "AE", "label": "Vereinigte Arabische Emirate" },
-        { "value": "SG", "label": "Singapur" },
-        { "value": "NL", "label": "Niederlande" },
-        { "value": "AT", "label": "Österreich" },
-        { "value": "CH", "label": "Schweiz" },
-        { "value": "OTHER", "label": "Sonstiges" }
+        {
+          "value": "IN",
+          "label": "Indien"
+        },
+        {
+          "value": "DE",
+          "label": "Deutschland"
+        },
+        {
+          "value": "US",
+          "label": "Vereinigte Staaten"
+        },
+        {
+          "value": "GB",
+          "label": "Vereinigtes Königreich"
+        },
+        {
+          "value": "CA",
+          "label": "Kanada"
+        },
+        {
+          "value": "AU",
+          "label": "Australien"
+        },
+        {
+          "value": "FR",
+          "label": "Frankreich"
+        },
+        {
+          "value": "IT",
+          "label": "Italien"
+        },
+        {
+          "value": "ES",
+          "label": "Spanien"
+        },
+        {
+          "value": "CN",
+          "label": "China"
+        },
+        {
+          "value": "AE",
+          "label": "Vereinigte Arabische Emirate"
+        },
+        {
+          "value": "SG",
+          "label": "Singapur"
+        },
+        {
+          "value": "NL",
+          "label": "Niederlande"
+        },
+        {
+          "value": "AT",
+          "label": "Österreich"
+        },
+        {
+          "value": "CH",
+          "label": "Schweiz"
+        },
+        {
+          "value": "OTHER",
+          "label": "Sonstiges"
+        }
       ]
     },
     "contact_cards": {
@@ -783,11 +831,26 @@
       "hashtag": "#eduberater",
       "socialHeading": "Ihre Reise beginnt damit, in Verbindung zu bleiben.",
       "social": [
-        { "provider": "facebook", "href": "#" },
-        { "provider": "twitter", "href": "#" },
-        { "provider": "linkedin", "href": "#" },
-        { "provider": "youtube", "href": "#" },
-        { "provider": "instagram", "href": "#" }
+        {
+          "provider": "facebook",
+          "href": "#"
+        },
+        {
+          "provider": "twitter",
+          "href": "#"
+        },
+        {
+          "provider": "linkedin",
+          "href": "#"
+        },
+        {
+          "provider": "youtube",
+          "href": "#"
+        },
+        {
+          "provider": "instagram",
+          "href": "#"
+        }
       ]
     }
   },
@@ -2117,14 +2180,13 @@
       "subtitle": "Folgen Sie dieser visuellen Roadmap vom ersten Kontakt bis zur Beratung, Entscheidung und vollständigen Bewerbungsunterstützung."
     },
     "nav": {
-      "phase1": "Phase 1: Erste Schritte",
+      "phase1": "Phase 1: Vor der Beratung",
       "phase2": "Phase 2: Nach der Beratung"
     },
     "legend": {
-      "student": "Ihre Schritte",
-      "platform": "Unser Team & Plattform",
-      "decision": "Ihre Entscheidung",
-      "warning": "Wenn Sie nicht fortfahren"
+      "initialConsultation": "Erstberatung",
+      "yourDecision": "Ihre Entscheidung",
+      "afterDecision": "Nach der Entscheidung"
     },
     "actions": {
       "register": "Jetzt registrieren",
@@ -2135,7 +2197,7 @@
     },
     "phase1": {
       "badge": "Phase 1",
-      "title": "Erste Schritte & Beratung buchen",
+      "title": "Vor der Beratung",
       "description": "Vom ersten Kontakt bis zum bestätigten Beratungstermin.",
       "steps": [
         {
@@ -2161,12 +2223,13 @@
         {
           "id": "upload",
           "title": "Profildaten hochladen & absenden",
-          "body": "Tragen Sie Ihre Angaben ein, prüfen und bearbeiten Sie sie bei Bedarf und bestätigen Sie anschließend die Richtigkeit, bevor Sie speichern und absenden.",
+          "body": "",
           "bullets": [
-            "Daten vor dem Absenden prüfen und bearbeiten",
-            "Richtigkeit der Angaben bestätigen",
-            "PDF Ihres ausgefüllten Formulars per E-Mail",
-            "Profil nach Absenden gesperrt — Änderungen nur mit Admin-Freigabe"
+            "A. Alle erforderlichen Angaben ausfüllen.",
+            "B. Alles auf Richtigkeit prüfen.",
+            "C. Etwaige Fehler korrigieren.",
+            "D. Bestätigen, dass die Angaben wahrheitsgemäß sind.",
+            "E. Formular speichern und absenden. (PDF Ihres ausgefüllten Formulars wird Ihnen per E-Mail zugesandt)"
           ]
         },
         {
@@ -2181,25 +2244,31 @@
           "subSteps": [
             {
               "title": "Termine verfügbar",
-              "body": "Wählen Sie einen Termin und bestätigen Sie. Sie erhalten eine Dankes-E-Mail mit Zoom-Link, Termindetails und einer .ics-Kalenderdatei. Der Termin wird in Ihrem Profil und im Kalender des Beraters blockiert."
+              "body": "Wählen Sie einen der verfügbaren Termine, der am besten zu Ihrem Zeitplan passt."
             },
             {
               "title": "Keine Termine verfügbar",
-              "body": "Nutzen Sie die Ein-Klick-Anfrage. Eine automatische Nachricht geht an Admin und Sie, damit wir einen passenden Termin vereinbaren können."
+              "body": "",
+              "bullets": [
+                "Klicken Sie auf die Ein-Klick-Anfrage-Schaltfläche.",
+                "Das System benachrichtigt automatisch den Administrator.",
+                "Der Administrator wird Sie kontaktieren oder einen passenden Termin für Sie vereinbaren."
+              ]
             }
           ]
         },
         {
           "id": "counsellorCalendar",
-          "title": "Berater erhält Bestätigung",
-          "body": "Ihr Berater erhält dieselbe E-Mail mit der .ics-Datei für seinen Kalender. Der Termin wird in seinem Profil blockiert; er kann seine Verfügbarkeiten selbst verwalten."
-        },
-        {
-          "id": "mobileApps",
-          "title": "Zugang über mobile Apps",
-          "body": "Alle diese Funktionen werden künftig auch in iOS- und Android-Apps für Studierende verfügbar sein."
+          "title": "Bestätigung erhalten",
+          "body": "Nach Bestätigung Ihres Termins erhalten sowohl Sie als auch Ihr Berater dieselbe Bestätigungs-E-Mail mit den Termindetails."
         }
       ]
+    },
+    "cta": {
+      "title": "Bereit zu starten?",
+      "subtitle": "Beginnen Sie mit der Registrierung und buchen Sie Ihre Beratung.",
+      "register": "Jetzt registrieren",
+      "login": "Bereits registriert? Anmelden"
     },
     "phase2": {
       "title": "Nach Ihrer Erstberatung",
@@ -2217,8 +2286,12 @@
         },
         {
           "id": "decisionWindow",
-          "title": "15 Tage zur Entscheidung",
-          "body": "Sie haben 15 Tage Zeit zu entscheiden, ob Sie die vollständige Bewerbung über unser Team fortsetzen möchten."
+          "title": "Ihre Entscheidung zählt",
+          "body": "",
+          "bullets": [
+            "Nach diesem Schritt haben Sie 15 Tage Zeit, Ihre Entscheidung zu treffen.",
+            "Wenn Sie fortfahren möchten, können Sie den vollständigen Bewerbungsprozess über das Team fortsetzen."
+          ]
         }
       ],
       "decision": {
@@ -2233,12 +2306,18 @@
         {
           "id": "deposit",
           "title": "60 % Anzahlung & digitale Vereinbarung",
-          "body": "Sie haben eine Woche Zeit, 60 % der Gesamtgebühr zu zahlen und die digitale Vereinbarung zu unterzeichnen, die in Ihrem Profil gespeichert wird."
+          "body": "",
+          "bullets": [
+            "Entscheiden Sie sich, den Service fortzusetzen.",
+            "Unterzeichnen Sie die digitale Vereinbarung.",
+            "Zahlen Sie sofort 60 % der Gesamtgebühr.",
+            "Die unterzeichnete Vereinbarung wird automatisch in Ihrem Profil gespeichert."
+          ]
         },
         {
           "id": "documents",
-          "title": "Dokumente hochladen & Profil verbessern",
-          "body": "Laden Sie alle erforderlichen Dokumente digital hoch und ergänzen Sie Ihr Profil mit weiteren benötigten Informationen."
+          "title": "Zusätzliche Dokumente hochladen und Ihr Profil verbessern.",
+          "body": "Laden Sie alle erforderlichen Dokumente digital hoch und ergänzen Sie Ihr Profil mit weiteren Informationen, die möglicherweise benötigt werden."
         },
         {
           "id": "recounselling",
@@ -2248,7 +2327,7 @@
         {
           "id": "partnerships",
           "title": "Vorteile von Partnerprogrammen",
-          "body": "Bei Bedarf nutzen Sie Partnerprogramme für IELTS-, TOEFL-Vorbereitung, Deutschkurse und LOI-Unterstützung.",
+          "body": "Bei Bedarf nutzen Sie exklusive Angebote über unsere Partnerprogramme für IELTS- und TOEFL-Vorbereitung, Deutschkurse und Unterstützung beim Letter of Intent (LOI).",
           "bullets": [
             "IELTS-Vorbereitung",
             "TOEFL-Vorbereitung",
@@ -2258,34 +2337,10 @@
         },
         {
           "id": "tracking",
-          "title": "Bewerbungen pro Hochschule verfolgen",
-          "body": "Nach Einreichung der Bewerbungen sehen Sie den Fortschritt jeder Hochschule in Ihrem Profil. Der Status wird regelmäßig von Admins und unserem Backoffice aktualisiert.",
-          "progressColleges": [
-            {
-              "name": "TU Munich — M.Sc. Informatics",
-              "percent": 68
-            },
-            {
-              "name": "RWTH Aachen — M.Sc. Data Science",
-              "percent": 47
-            },
-            {
-              "name": "Uni Stuttgart — M.Sc. Mechanical",
-              "percent": 91
-            },
-            {
-              "name": "TU Berlin — M.Sc. Energy Eng.",
-              "percent": 32
-            }
-          ]
+          "title": "Erfolgreiche Bewerbung",
+          "body": "Sobald Ihre Bewerbungen erfolgreich eingereicht wurden, können Sie den Fortschritt und Status jeder Hochschulbewerbung in Ihrem Profil verfolgen."
         }
       ]
-    },
-    "cta": {
-      "title": "Bereit zu starten?",
-      "subtitle": "Beginnen Sie mit der Registrierung und buchen Sie Ihre Beratung.",
-      "register": "Jetzt registrieren",
-      "login": "Bereits registriert? Anmelden"
     }
   }
 }

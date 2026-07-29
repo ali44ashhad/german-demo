@@ -379,22 +379,70 @@
       "submit": "Enviar mensaje",
       "submitting": "Enviando...",
       "countries": [
-        { "value": "IN", "label": "India" },
-        { "value": "DE", "label": "Alemania" },
-        { "value": "US", "label": "Estados Unidos" },
-        { "value": "GB", "label": "Reino Unido" },
-        { "value": "CA", "label": "Canadá" },
-        { "value": "AU", "label": "Australia" },
-        { "value": "FR", "label": "Francia" },
-        { "value": "IT", "label": "Italia" },
-        { "value": "ES", "label": "España" },
-        { "value": "CN", "label": "China" },
-        { "value": "AE", "label": "Emiratos Árabes Unidos" },
-        { "value": "SG", "label": "Singapur" },
-        { "value": "NL", "label": "Países Bajos" },
-        { "value": "AT", "label": "Austria" },
-        { "value": "CH", "label": "Suiza" },
-        { "value": "OTHER", "label": "Otro" }
+        {
+          "value": "IN",
+          "label": "India"
+        },
+        {
+          "value": "DE",
+          "label": "Alemania"
+        },
+        {
+          "value": "US",
+          "label": "Estados Unidos"
+        },
+        {
+          "value": "GB",
+          "label": "Reino Unido"
+        },
+        {
+          "value": "CA",
+          "label": "Canadá"
+        },
+        {
+          "value": "AU",
+          "label": "Australia"
+        },
+        {
+          "value": "FR",
+          "label": "Francia"
+        },
+        {
+          "value": "IT",
+          "label": "Italia"
+        },
+        {
+          "value": "ES",
+          "label": "España"
+        },
+        {
+          "value": "CN",
+          "label": "China"
+        },
+        {
+          "value": "AE",
+          "label": "Emiratos Árabes Unidos"
+        },
+        {
+          "value": "SG",
+          "label": "Singapur"
+        },
+        {
+          "value": "NL",
+          "label": "Países Bajos"
+        },
+        {
+          "value": "AT",
+          "label": "Austria"
+        },
+        {
+          "value": "CH",
+          "label": "Suiza"
+        },
+        {
+          "value": "OTHER",
+          "label": "Otro"
+        }
       ]
     },
     "contact_cards": {
@@ -783,11 +831,26 @@
       "hashtag": "#eduberater",
       "socialHeading": "Tu viaje comienza manteniéndote conectado.",
       "social": [
-        { "provider": "facebook", "href": "#" },
-        { "provider": "twitter", "href": "#" },
-        { "provider": "linkedin", "href": "#" },
-        { "provider": "youtube", "href": "#" },
-        { "provider": "instagram", "href": "#" }
+        {
+          "provider": "facebook",
+          "href": "#"
+        },
+        {
+          "provider": "twitter",
+          "href": "#"
+        },
+        {
+          "provider": "linkedin",
+          "href": "#"
+        },
+        {
+          "provider": "youtube",
+          "href": "#"
+        },
+        {
+          "provider": "instagram",
+          "href": "#"
+        }
       ]
     }
   },
@@ -2117,14 +2180,13 @@
       "subtitle": "Sigue esta hoja de ruta visual desde tu primer contacto hasta la consulta, la decisión y el apoyo completo en tu solicitud."
     },
     "nav": {
-      "phase1": "Fase 1: Primeros pasos",
+      "phase1": "Fase 1: Antes de la consulta",
       "phase2": "Fase 2: Después de la consulta"
     },
     "legend": {
-      "student": "Tus pasos",
-      "platform": "Nuestro equipo y plataforma",
-      "decision": "Tu decisión",
-      "warning": "Si decides no continuar"
+      "initialConsultation": "Consulta inicial",
+      "yourDecision": "Tu decisión",
+      "afterDecision": "Después de la decisión"
     },
     "actions": {
       "register": "Registrarse ahora",
@@ -2135,7 +2197,7 @@
     },
     "phase1": {
       "badge": "Fase 1",
-      "title": "Primeros pasos y reserva de consulta",
+      "title": "Antes de la consulta",
       "description": "Desde el primer contacto hasta tu cita de consulta confirmada.",
       "steps": [
         {
@@ -2161,12 +2223,13 @@
         {
           "id": "upload",
           "title": "Subir y enviar datos del perfil",
-          "body": "Completa tus datos, revísalos y edítalos si es necesario, y confirma que la información es correcta antes de guardar y enviar.",
+          "body": "",
           "bullets": [
-            "Revisar y editar datos antes del envío",
-            "Confirmar exactitud de los datos",
-            "PDF del formulario rellenado por correo",
-            "Perfil bloqueado tras el envío — ediciones requieren autorización del admin"
+            "A. Completa todos los datos obligatorios.",
+            "B. Revisa todo para comprobar la exactitud.",
+            "C. Corrige cualquier error.",
+            "D. Confirma que la información es verdadera.",
+            "E. Guarda y envía el formulario. (Se te envía por correo el PDF del formulario rellenado)"
           ]
         },
         {
@@ -2181,25 +2244,31 @@
           "subSteps": [
             {
               "title": "Horarios disponibles",
-              "body": "Selecciona un horario y confirma. Recibes un correo de agradecimiento con enlace Zoom, detalles de la cita y archivo .ics. El horario se bloquea en tu perfil y en el calendario del asesor."
+              "body": "Selecciona uno de los horarios disponibles que mejor se adapte a tu agenda."
             },
             {
               "title": "Sin horarios disponibles",
-              "body": "Usa la opción de solicitud con un clic. Se envía un mensaje automático al admin y a ti para acordar un horario adecuado."
+              "body": "",
+              "bullets": [
+                "Haz clic en el botón de solicitud con un clic.",
+                "El sistema notifica automáticamente al administrador.",
+                "El administrador te contactará o concertará una cita disponible que te convenga."
+              ]
             }
           ]
         },
         {
           "id": "counsellorCalendar",
-          "title": "El asesor recibe la confirmación",
-          "body": "Tu asesor recibe el mismo correo con el archivo .ics para su calendario. La cita se bloquea en su perfil y puede gestionar sus propios horarios disponibles."
-        },
-        {
-          "id": "mobileApps",
-          "title": "Acceso en apps móviles",
-          "body": "Todas estas funciones estarán disponibles más adelante en apps iOS y Android para estudiantes."
+          "title": "Recibir confirmación",
+          "body": "Tras confirmar tu cita, tanto tú como tu asesor recibiréis el mismo correo de confirmación con los detalles de la cita."
         }
       ]
+    },
+    "cta": {
+      "title": "¿Listo para empezar?",
+      "subtitle": "Comienza con el registro y reserva tu consulta con nuestros expertos profesionales.",
+      "register": "Registrarse ahora",
+      "login": "¿Ya registrado? Iniciar sesión"
     },
     "phase2": {
       "title": "Después de tu consulta inicial",
@@ -2217,8 +2286,12 @@
         },
         {
           "id": "decisionWindow",
-          "title": "15 días para decidir",
-          "body": "Tienes 15 días para decidir si continúas con la solicitud completa a través de nuestro equipo."
+          "title": "Tu decisión importa",
+          "body": "",
+          "bullets": [
+            "Después de esta etapa, tienes 15 días para tomar tu decisión.",
+            "Si eliges continuar, puedes seguir con el proceso completo de solicitud a través del equipo."
+          ]
         }
       ],
       "decision": {
@@ -2233,12 +2306,18 @@
         {
           "id": "deposit",
           "title": "Depósito del 60 % y acuerdo digital",
-          "body": "Tienes una semana para pagar el 60 % de las tarifas totales y firmar el acuerdo digital, que se guarda en tu sección de perfil."
+          "body": "",
+          "bullets": [
+            "Decide continuar con el servicio.",
+            "Firma el acuerdo digital.",
+            "Paga de inmediato el 60 % de la tarifa total.",
+            "El acuerdo firmado se guarda automáticamente en tu perfil."
+          ]
         },
         {
           "id": "documents",
-          "title": "Subir documentos y mejorar el perfil",
-          "body": "Sube todos los documentos requeridos de forma digital y actualiza tu perfil con la información adicional necesaria."
+          "title": "Sube documentos adicionales y mejora tu perfil.",
+          "body": "Sube todos los documentos requeridos de forma digital y actualiza tu perfil con cualquier información adicional que pueda ser necesaria."
         },
         {
           "id": "recounselling",
@@ -2248,7 +2327,7 @@
         {
           "id": "partnerships",
           "title": "Beneficios de programas asociados",
-          "body": "Si lo necesitas, accede a programas asociados para preparación IELTS, TOEFL, cursos de alemán y apoyo LOI.",
+          "body": "Si lo necesitas, aprovecha ofertas exclusivas a través de nuestros programas asociados de preparación IELTS y TOEFL, cursos de alemán y apoyo con la Letter of Intent (LOI).",
           "bullets": [
             "Preparación IELTS",
             "Preparación TOEFL",
@@ -2258,34 +2337,10 @@
         },
         {
           "id": "tracking",
-          "title": "Seguimiento de solicitudes por universidad",
-          "body": "Una vez enviadas las solicitudes, consulta el progreso de cada universidad en tu perfil. El estado se actualiza regularmente por admins y nuestro equipo de back-office.",
-          "progressColleges": [
-            {
-              "name": "TU Munich — M.Sc. Informatics",
-              "percent": 68
-            },
-            {
-              "name": "RWTH Aachen — M.Sc. Data Science",
-              "percent": 47
-            },
-            {
-              "name": "Uni Stuttgart — M.Sc. Mechanical",
-              "percent": 91
-            },
-            {
-              "name": "TU Berlin — M.Sc. Energy Eng.",
-              "percent": 32
-            }
-          ]
+          "title": "Solicitud exitosa",
+          "body": "Una vez que tus solicitudes se hayan enviado correctamente, puedes seguir el progreso y el estado de cada solicitud universitaria en tu perfil."
         }
       ]
-    },
-    "cta": {
-      "title": "¿Listo para empezar?",
-      "subtitle": "Comienza con el registro y reserva tu consulta con nuestros expertos profesionales.",
-      "register": "Registrarse ahora",
-      "login": "¿Ya registrado? Iniciar sesión"
     }
   }
 }
