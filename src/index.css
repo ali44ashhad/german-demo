@@ -1,1 +1,66 @@
 @import "tailwindcss";
+
+/* Class-based dark mode (Tailwind v4) — toggled via `html.dark` */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Semantic theme tokens (additive — existing hardcoded utilities stay).
+  Light defaults on :root; .dark overrides when ThemeProvider / FOUC script
+  adds the `dark` class to <html>.
+
+  Utilities: bg-background, bg-surface, bg-muted, bg-header,
+             text-foreground, text-muted-foreground, border-border
+*/
+:root {
+  --background: #f0f9ff; /* soft sky tint (sky-50) */
+  --surface: #ffffff;
+  --muted: #f8fafc; /* slate-50 / near gray-50 */
+  --foreground: #111827; /* gray-900 */
+  --muted-foreground: #4b5563; /* gray-600 */
+  --border: #e5e7eb; /* gray-200 */
+  --header: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0f172a; /* slate-900 */
+  --surface: #1e293b; /* slate-800 — elevated */
+  --muted: #1e293b;
+  --foreground: #f8fafc; /* near-white */
+  --muted-foreground: #cbd5e1; /* slate-300 — readable secondary text on dark surfaces */
+  --border: #334155; /* slate-700 */
+  --header: #1e293b;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-header: var(--header);
+}
+
+/* Document shell — unscrolled / empty areas follow theme tokens */
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Subtle theme switch — colors only; avoid animating layout */
+body,
+header {
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  header {
+    transition: none;
+  }
+}

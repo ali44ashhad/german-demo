@@ -7,7 +7,7 @@ const SubAdminHome = () => {
   const user = data?.user;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-5xl mx-auto space-y-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -28,9 +28,9 @@ const SubAdminHome = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6 text-gray-700"
+          className="bg-surface rounded-3xl border border-border shadow-lg p-6 text-muted-foreground"
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Getting Started</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-4">Getting Started</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>Check today&apos;s consultations to prepare your meeting notes.</li>
             <li>Update student status to keep the superadmin informed.</li>

@@ -105,7 +105,7 @@
 //           ].map((stat, index) => (
 //             <motion.div
 //               key={index}
-//               className="text-center p-4 sm:p-5 bg-white/20 rounded-xl border border-blue-100/30 backdrop-blur-sm"
+//               className="text-center p-4 sm:p-5 bg-white/20 dark:bg-white/10 rounded-xl border border-blue-100/30 dark:border-white/20 backdrop-blur-sm"
 //               whileHover={{ scale: 1.04, y: -6 }}
 //               transition={{ type: "spring", stiffness: 300 }}
 //             >
@@ -126,7 +126,7 @@
 //         animate={{ y: [0, 10, 0] }}
 //         transition={{ duration: 2, repeat: Infinity }}
 //       >
-//         <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-blue-200 rounded-full flex justify-center bg-white/20">
+//         <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-blue-200 dark:border-white/40 rounded-full flex justify-center bg-white/20 dark:bg-white/10">
 //           <motion.div
 //             className="w-1 h-3 bg-blue-100 rounded-full mt-2"
 //             animate={{ y: [0, 12, 0] }}
@@ -228,9 +228,9 @@ const Hero = () => {
           Your browser does not support the video tag.
         </video>
 
-        {/* Gradient & Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-400/40 via-blue-500/30 to-sky-700/50 mix-blend-multiply" />
-        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+        {/* Gradient & Overlay — keep light text on video; deepen tint slightly in dark for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-400/40 via-blue-500/30 to-sky-700/50 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
+        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-black/40 to-transparent dark:from-black/55 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -299,7 +299,7 @@ const Hero = () => {
             return (
               <motion.div
                 key={index}
-                className="text-center p-4 sm:p-5 bg-white/20 rounded-xl border border-blue-100/30 backdrop-blur-sm"
+                className="text-center p-4 sm:p-5 bg-white/20 dark:bg-white/10 rounded-xl border border-blue-100/30 dark:border-white/20 backdrop-blur-sm"
                 whileHover={{ scale: 1.04, y: -6 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -320,7 +320,7 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-blue-200 rounded-full flex justify-center bg-white/20" role="img" aria-hidden>
+        <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-blue-200 dark:border-white/40 rounded-full flex justify-center bg-white/20 dark:bg-white/10" role="img" aria-hidden>
           <motion.div
             className="w-1 h-3 bg-blue-100 rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}

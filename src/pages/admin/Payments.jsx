@@ -74,10 +74,10 @@ const initialPayments = [
 ];
 
 const statusStyles = {
-  Completed: "bg-emerald-100 text-emerald-700",
-  Pending: "bg-amber-100 text-amber-700",
-  Failed: "bg-rose-100 text-rose-700",
-  Refunded: "bg-sky-100 text-sky-700",
+  Completed: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300",
+  Pending: "bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300",
+  Failed: "bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300",
+  Refunded: "bg-sky-100 text-sky-700 dark:bg-sky-950/50 dark:text-sky-300",
 };
 
 const paymentStatuses = ["Completed", "Pending", "Failed", "Refunded"];
@@ -290,7 +290,7 @@ const Payments = () => {
       render: (value) => (
         <span
           className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${
-            statusStyles[value] || "bg-gray-100 text-gray-700"
+            statusStyles[value] || "bg-muted text-foreground"
           }`}
         >
           {value}
@@ -314,7 +314,7 @@ const Payments = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -379,25 +379,25 @@ const Payments = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 onClick={(event) => event.stopPropagation()}
-                className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-surface rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               >
-                <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                <div className="p-6 border-b border-border flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-foreground">
                     {editingPayment ? "Edit Payment" : "Record Payment"}
                   </h2>
                   <button
                     onClick={() => setIsModalOpen(false)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-muted rounded-lg transition-colors"
                     aria-label="Close modal"
                   >
-                    <X className="w-5 h-5 text-gray-500" />
+                    <X className="w-5 h-5 text-muted-foreground" />
                   </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Transaction ID
                       </label>
                       <input
@@ -410,12 +410,12 @@ const Payments = () => {
                           }))
                         }
                         placeholder="e.g. PAY-202311-010"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Student Name *
                       </label>
                       <input
@@ -428,12 +428,12 @@ const Payments = () => {
                             studentName: event.target.value,
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Email *
                       </label>
                       <input
@@ -446,12 +446,12 @@ const Payments = () => {
                             email: event.target.value,
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Amount (EUR) *
                       </label>
                       <input
@@ -466,12 +466,12 @@ const Payments = () => {
                             amount: event.target.value,
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Currency *
                       </label>
                       <input
@@ -484,12 +484,12 @@ const Payments = () => {
                             currency: event.target.value.toUpperCase(),
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent uppercase"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500 uppercase"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Status *
                       </label>
                       <select
@@ -501,7 +501,7 @@ const Payments = () => {
                             status: event.target.value,
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         {paymentStatuses.map((status) => (
                           <option key={status} value={status}>
@@ -512,7 +512,7 @@ const Payments = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Payment Method *
                       </label>
                       <select
@@ -524,7 +524,7 @@ const Payments = () => {
                             method: event.target.value,
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         {paymentMethods.map((method) => (
                           <option key={method} value={method}>
@@ -536,7 +536,7 @@ const Payments = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-muted-foreground mb-2">
                       Notes
                     </label>
                     <textarea
@@ -548,7 +548,7 @@ const Payments = () => {
                           notes: event.target.value,
                         }))
                       }
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       placeholder="Add any internal remarks or next steps..."
                     />
                   </div>
@@ -557,7 +557,7 @@ const Payments = () => {
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(false)}
-                      className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+                      className="flex-1 px-6 py-3 border border-border text-foreground rounded-xl font-semibold hover:bg-muted transition-colors"
                     >
                       Cancel
                     </button>

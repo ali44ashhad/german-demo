@@ -45,15 +45,15 @@ const statusBadgeClass = (status) => {
   const normalized = (status || "scheduled").toLowerCase();
   switch (normalized) {
     case "completed":
-      return "bg-green-100 text-green-700";
+      return "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300";
     case "cancelled":
-      return "bg-red-100 text-red-700";
+      return "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300";
     case "no-show":
-      return "bg-orange-100 text-orange-700";
+      return "bg-orange-100 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300";
     case "rescheduled":
-      return "bg-purple-100 text-purple-700";
+      return "bg-purple-100 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300";
     default:
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300";
   }
 };
 
@@ -187,26 +187,26 @@ const EmbeddedPDFViewer = ({ pdfUrl }) => {
 
   if (!pdfUrl) {
     return (
-      <div className="flex items-center justify-center p-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
+      <div className="flex items-center justify-center p-12 bg-muted rounded-xl border-2 border-dashed border-border">
         <div className="text-center">
-          <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600">No resume available</p>
+          <FileText className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+          <p className="text-muted-foreground">No resume available</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
+    <div className="bg-muted rounded-xl border border-border p-4">
       {pdfError ? (
-        <div className="flex flex-col items-center justify-center p-8 text-red-600">
+        <div className="flex flex-col items-center justify-center p-8 text-red-600 dark:text-red-400">
           <p className="text-lg font-semibold mb-2">Failed to load PDF</p>
-          <p className="text-sm text-gray-600 text-center">{pdfError}</p>
+          <p className="text-sm text-muted-foreground text-center">{pdfError}</p>
         </div>
       ) : isLoadingPdf ? (
         <div className="flex flex-col items-center justify-center p-8">
-          <Loader2 className="w-8 h-8 animate-spin text-gray-500 mb-2" />
-          <p className="text-gray-600">Loading resume PDF...</p>
+          <Loader2 className="w-8 h-8 animate-spin text-muted-foreground mb-2" />
+          <p className="text-muted-foreground">Loading resume PDF...</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -221,11 +221,11 @@ const EmbeddedPDFViewer = ({ pdfUrl }) => {
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={
                   <div className="flex items-center justify-center p-8">
-                    <Loader2 className="w-8 h-8 animate-spin text-gray-500" />
+                    <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
                   </div>
                 }
                 error={
-                  <div className="flex flex-col items-center justify-center p-8 text-red-600">
+                  <div className="flex flex-col items-center justify-center p-8 text-red-600 dark:text-red-400">
                     <p>Failed to render PDF. Please try again.</p>
                   </div>
                 }
@@ -243,23 +243,23 @@ const EmbeddedPDFViewer = ({ pdfUrl }) => {
           </div>
 
           {numPages && (
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-border">
               <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setPageNumber((prev) => Math.max(1, prev - 1))}
                     disabled={pageNumber <= 1}
-                    className="px-3 py-1.5 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm whitespace-nowrap"
+                    className="px-3 py-1.5 rounded-lg bg-surface border border-border text-foreground hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm whitespace-nowrap"
                   >
                     Previous
                   </button>
-                  <span className="text-sm text-gray-600 whitespace-nowrap">
+                  <span className="text-sm text-muted-foreground whitespace-nowrap">
                     Page {pageNumber} of {numPages}
                   </span>
                   <button
                     onClick={() => setPageNumber((prev) => Math.min(numPages, prev + 1))}
                     disabled={pageNumber >= numPages}
-                    className="px-3 py-1.5 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm whitespace-nowrap"
+                    className="px-3 py-1.5 rounded-lg bg-surface border border-border text-foreground hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm whitespace-nowrap"
                   >
                     Next
                   </button>
@@ -267,16 +267,16 @@ const EmbeddedPDFViewer = ({ pdfUrl }) => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setScale((prev) => Math.max(0.5, prev - 0.25))}
-                    className="px-2 py-1.5 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors text-sm"
+                    className="px-2 py-1.5 rounded-lg bg-surface border border-border text-foreground hover:opacity-80 transition-colors text-sm"
                   >
                     -
                   </button>
-                  <span className="text-sm text-gray-600 w-12 text-center whitespace-nowrap">
+                  <span className="text-sm text-muted-foreground w-12 text-center whitespace-nowrap">
                     {Math.round(scale * 100)}%
                   </span>
                   <button
                     onClick={() => setScale((prev) => Math.min(2, prev + 0.25))}
-                    className="px-2 py-1.5 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors text-sm"
+                    className="px-2 py-1.5 rounded-lg bg-surface border border-border text-foreground hover:opacity-80 transition-colors text-sm"
                   >
                     +
                   </button>
@@ -355,17 +355,17 @@ const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
   };
 
   return (
-    <div className="rounded-lg border border-gray-100 bg-gray-50 p-3">
+    <div className="rounded-lg border border-border bg-muted p-3">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm font-semibold text-gray-900">
+          <span className="text-sm font-semibold text-foreground">
             {getNoteAuthorName(note)}
           </span>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 font-medium">
+          <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-950/50 dark:text-sky-300 font-medium">
             {authorRoleLabel(note?.authorId?.role)}
           </span>
         </div>
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-muted-foreground">
           {formatNoteTimestamp(note?.createdAt)}
         </span>
       </div>
@@ -375,7 +375,7 @@ const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
           <textarea
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
-            className="w-full min-h-[80px] p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full min-h-[80px] p-2 text-sm border border-border rounded-lg bg-surface text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500/40"
           />
           <div className="flex justify-end gap-2">
             <button
@@ -384,7 +384,7 @@ const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
                 setIsEditing(false);
                 setEditContent(note?.content || "");
               }}
-              className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900"
+              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
             >
               Cancel
             </button>
@@ -401,13 +401,13 @@ const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
         </div>
       ) : (
         <>
-          <p className="text-sm text-gray-700 whitespace-pre-wrap">{note?.content}</p>
+          <p className="text-sm text-muted-foreground whitespace-pre-wrap">{note?.content}</p>
           {canModify && (
             <div className="flex gap-2 mt-2">
               <button
                 type="button"
                 onClick={() => setIsEditing(true)}
-                className="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-green-700"
+                className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-green-700 dark:hover:text-green-400"
               >
                 <Pencil className="w-3 h-3" />
                 Edit
@@ -416,7 +416,7 @@ const NoteThreadItem = ({ note, currentUserId, bookingId, onSave }) => {
                 type="button"
                 onClick={handleDelete}
                 disabled={isDeleting}
-                className="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-red-600 disabled:opacity-60"
+                className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-red-600 dark:text-red-400 disabled:opacity-60"
               >
                 {isDeleting ? (
                   <Loader2 className="w-3 h-3 animate-spin" />
@@ -467,11 +467,11 @@ const BookingNoteEditor = ({ booking, notes = [], currentUserId, onSave }) => {
   );
 
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
+    <div className="border border-border rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
+        className="w-full flex items-center justify-between p-4 bg-muted hover:bg-muted transition-colors"
       >
         <div className="flex-1 text-left">
           <div className="flex items-center gap-2 mb-1">
@@ -482,12 +482,12 @@ const BookingNoteEditor = ({ booking, notes = [], currentUserId, onSave }) => {
             >
               {status.toUpperCase()}
             </span>
-            <span className="text-sm font-semibold text-gray-900">{serviceName}</span>
+            <span className="text-sm font-semibold text-foreground">{serviceName}</span>
             {sortedNotes.length > 0 && (
-              <span className="text-xs text-gray-500">({sortedNotes.length})</span>
+              <span className="text-xs text-muted-foreground">({sortedNotes.length})</span>
             )}
           </div>
-          <div className="flex items-center gap-3 text-xs text-gray-600">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />
               {bookingDate}
@@ -499,16 +499,16 @@ const BookingNoteEditor = ({ booking, notes = [], currentUserId, onSave }) => {
           </div>
         </div>
         {isExpanded ? (
-          <ChevronUp className="w-5 h-5 text-gray-500" />
+          <ChevronUp className="w-5 h-5 text-muted-foreground" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-gray-500" />
+          <ChevronDown className="w-5 h-5 text-muted-foreground" />
         )}
       </button>
 
       {isExpanded && (
-        <div className="p-4 bg-white border-t border-gray-200 space-y-4">
+        <div className="p-4 bg-surface border-t border-border space-y-4">
           {sortedNotes.length === 0 ? (
-            <p className="text-sm text-gray-500">No notes yet for this booking.</p>
+            <p className="text-sm text-muted-foreground">No notes yet for this booking.</p>
           ) : (
             <div className="space-y-3 max-h-[280px] overflow-y-auto pr-1">
               {sortedNotes.map((note) => (
@@ -522,12 +522,12 @@ const BookingNoteEditor = ({ booking, notes = [], currentUserId, onSave }) => {
               ))}
             </div>
           )}
-          <div className="border-t border-gray-100 pt-3 space-y-2">
+          <div className="border-t border-border pt-3 space-y-2">
             <textarea
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               placeholder="Write a new note..."
-              className="w-full min-h-[100px] p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-y"
+              className="w-full min-h-[100px] p-3 text-sm border border-border rounded-lg bg-surface text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500 resize-y"
             />
             <div className="flex justify-end">
               <button
@@ -641,17 +641,17 @@ const SubAdminStudentDetails = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-gray-500" />
+      <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
       </div>
     );
   }
 
   if (isStudentError || !student) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-red-600 text-lg font-semibold mb-2">Student not found</p>
+          <p className="text-red-600 dark:text-red-400 text-lg font-semibold mb-2">Student not found</p>
           <button
             onClick={() => navigate("/subadmin/students")}
             className="text-sky-600 hover:underline"
@@ -670,7 +670,7 @@ const SubAdminStudentDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 pt-24 pb-8 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 pt-24 pb-8 px-4 sm:px-6 lg:px-10">
       <Toast
         message={toastMessage}
         isVisible={showToast}
@@ -685,7 +685,7 @@ const SubAdminStudentDetails = () => {
         >
           <button
             onClick={() => navigate("/subadmin/students")}
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Students</span>
@@ -705,14 +705,14 @@ const SubAdminStudentDetails = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+              className="bg-surface rounded-3xl border border-border shadow-lg p-6"
             >
-              <div className="flex items-center gap-6 pb-6 border-b border-gray-200">
+              <div className="flex items-center gap-6 pb-6 border-b border-border">
                 {student.profileImage ? (
                   <img
                     src={student.profileImage}
                     alt={student.name}
-                    className="w-20 h-20 rounded-full object-cover border-4 border-gray-200"
+                    className="w-20 h-20 rounded-full object-cover border-4 border-border"
                   />
                 ) : (
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-sky-400 flex items-center justify-center">
@@ -720,13 +720,13 @@ const SubAdminStudentDetails = () => {
                   </div>
                 )}
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">{student.name}</h2>
-                  <div className="flex items-center gap-2 mt-1 text-gray-600">
+                  <h2 className="text-2xl font-bold text-foreground">{student.name}</h2>
+                  <div className="flex items-center gap-2 mt-1 text-muted-foreground">
                     <Mail className="w-4 h-4" />
                     <span>{student.email}</span>
                   </div>
                   {student.contactNumber && (
-                    <div className="flex items-center gap-2 mt-1 text-gray-600">
+                    <div className="flex items-center gap-2 mt-1 text-muted-foreground">
                       <Phone className="w-4 h-4" />
                       <span>{student.contactNumber}</span>
                     </div>
@@ -739,58 +739,58 @@ const SubAdminStudentDetails = () => {
                 {/* Personal Information */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">Personal Information</h4>
-                    <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground">Personal Information</h4>
+                    <div className="bg-muted rounded-xl p-4 space-y-3">
                       {student.dateOfBirth && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Date of Birth</p>
-                          <p className="text-gray-900 font-semibold">
+                          <p className="text-xs uppercase text-muted-foreground">Date of Birth</p>
+                          <p className="text-foreground font-semibold">
                             {formatBookingDate(student.dateOfBirth)}
                           </p>
                         </div>
                       )}
                       {student.country && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Country</p>
-                          <p className="text-gray-900 font-semibold">{student.country}</p>
+                          <p className="text-xs uppercase text-muted-foreground">Country</p>
+                          <p className="text-foreground font-semibold">{student.country}</p>
                         </div>
                       )}
                       {student.city && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">City</p>
-                          <p className="text-gray-900 font-semibold">{student.city}</p>
+                          <p className="text-xs uppercase text-muted-foreground">City</p>
+                          <p className="text-foreground font-semibold">{student.city}</p>
                         </div>
                       )}
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">Academic Information</h4>
-                    <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground">Academic Information</h4>
+                    <div className="bg-muted rounded-xl p-4 space-y-3">
                       {student.highestQualification && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Highest Qualification</p>
-                          <p className="text-gray-900 font-semibold">
+                          <p className="text-xs uppercase text-muted-foreground">Highest Qualification</p>
+                          <p className="text-foreground font-semibold">
                             {student.highestQualification}
                           </p>
                         </div>
                       )}
                       {student.fieldOfStudy && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Field of Study</p>
-                          <p className="text-gray-900 font-semibold">{student.fieldOfStudy}</p>
+                          <p className="text-xs uppercase text-muted-foreground">Field of Study</p>
+                          <p className="text-foreground font-semibold">{student.fieldOfStudy}</p>
                         </div>
                       )}
                       {student.graduationYear && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Graduation Year</p>
-                          <p className="text-gray-900 font-semibold">{student.graduationYear}</p>
+                          <p className="text-xs uppercase text-muted-foreground">Graduation Year</p>
+                          <p className="text-foreground font-semibold">{student.graduationYear}</p>
                         </div>
                       )}
                       {student.marksOrCGPA && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Marks/CGPA</p>
-                          <p className="text-gray-900 font-semibold">{student.marksOrCGPA}</p>
+                          <p className="text-xs uppercase text-muted-foreground">Marks/CGPA</p>
+                          <p className="text-foreground font-semibold">{student.marksOrCGPA}</p>
                         </div>
                       )}
                     </div>
@@ -802,28 +802,28 @@ const SubAdminStudentDetails = () => {
                   student.desiredCourseProgram ||
                   student.preferredIntake) && (
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">Germany Plans</h4>
-                    <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground">Germany Plans</h4>
+                    <div className="bg-muted rounded-xl p-4 space-y-3">
                       {student.targetDegreeInGermany && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Target Degree</p>
-                          <p className="text-gray-900 font-semibold">
+                          <p className="text-xs uppercase text-muted-foreground">Target Degree</p>
+                          <p className="text-foreground font-semibold">
                             {student.targetDegreeInGermany}
                           </p>
                         </div>
                       )}
                       {student.desiredCourseProgram && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Desired Course</p>
-                          <p className="text-gray-900 font-semibold">
+                          <p className="text-xs uppercase text-muted-foreground">Desired Course</p>
+                          <p className="text-foreground font-semibold">
                             {student.desiredCourseProgram}
                           </p>
                         </div>
                       )}
                       {student.preferredIntake && (
                         <div>
-                          <p className="text-xs uppercase text-gray-400">Preferred Intake</p>
-                          <p className="text-gray-900 font-semibold">{student.preferredIntake}</p>
+                          <p className="text-xs uppercase text-muted-foreground">Preferred Intake</p>
+                          <p className="text-foreground font-semibold">{student.preferredIntake}</p>
                         </div>
                       )}
                     </div>
@@ -834,20 +834,20 @@ const SubAdminStudentDetails = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   {(student.englishProficiency || student.germanLanguageLevel) && (
                     <div className="space-y-4">
-                      <h4 className="text-lg font-semibold text-gray-900">Language Proficiency</h4>
-                      <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                      <h4 className="text-lg font-semibold text-foreground">Language Proficiency</h4>
+                      <div className="bg-muted rounded-xl p-4 space-y-3">
                         {student.englishProficiency && (
                           <div>
-                            <p className="text-xs uppercase text-gray-400">English</p>
-                            <p className="text-gray-900 font-semibold">
+                            <p className="text-xs uppercase text-muted-foreground">English</p>
+                            <p className="text-foreground font-semibold">
                               {student.englishProficiency}
                             </p>
                           </div>
                         )}
                         {student.germanLanguageLevel && (
                           <div>
-                            <p className="text-xs uppercase text-gray-400">German</p>
-                            <p className="text-gray-900 font-semibold">
+                            <p className="text-xs uppercase text-muted-foreground">German</p>
+                            <p className="text-foreground font-semibold">
                               {student.germanLanguageLevel}
                             </p>
                           </div>
@@ -860,24 +860,24 @@ const SubAdminStudentDetails = () => {
                     student.estimatedBudget ||
                     student.shortlistedUniversities) && (
                     <div className="space-y-4">
-                      <h4 className="text-lg font-semibold text-gray-900">Additional Information</h4>
-                      <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                      <h4 className="text-lg font-semibold text-foreground">Additional Information</h4>
+                      <div className="bg-muted rounded-xl p-4 space-y-3">
                         {student.workExperience && (
                           <div>
-                            <p className="text-xs uppercase text-gray-400">Work Experience</p>
-                            <p className="text-gray-900 font-semibold">{student.workExperience}</p>
+                            <p className="text-xs uppercase text-muted-foreground">Work Experience</p>
+                            <p className="text-foreground font-semibold">{student.workExperience}</p>
                           </div>
                         )}
                         {student.estimatedBudget && (
                           <div>
-                            <p className="text-xs uppercase text-gray-400">Estimated Budget</p>
-                            <p className="text-gray-900 font-semibold">{student.estimatedBudget}</p>
+                            <p className="text-xs uppercase text-muted-foreground">Estimated Budget</p>
+                            <p className="text-foreground font-semibold">{student.estimatedBudget}</p>
                           </div>
                         )}
                         {student.shortlistedUniversities && (
                           <div>
-                            <p className="text-xs uppercase text-gray-400">Shortlisted Universities</p>
-                            <p className="text-gray-900 font-semibold">
+                            <p className="text-xs uppercase text-muted-foreground">Shortlisted Universities</p>
+                            <p className="text-foreground font-semibold">
                               {student.shortlistedUniversities}
                             </p>
                           </div>
@@ -889,12 +889,12 @@ const SubAdminStudentDetails = () => {
 
                 {student.needHelpWith && student.needHelpWith.length > 0 && (
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">Needs Help With</h4>
+                    <h4 className="text-lg font-semibold text-foreground">Needs Help With</h4>
                     <div className="flex flex-wrap gap-2">
                       {student.needHelpWith.map((item, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold"
+                          className="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300 rounded-full text-sm font-semibold"
                         >
                           {item}
                         </span>
@@ -910,22 +910,22 @@ const SubAdminStudentDetails = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6 space-y-8"
+              className="bg-surface rounded-3xl border border-border shadow-lg p-6 space-y-8"
             >
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Biodata</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Biodata</h3>
                 {biodataPdfUrl ? (
                   <EmbeddedPDFViewer pdfUrl={biodataPdfUrl} />
                 ) : (
-                  <p className="text-gray-500 text-sm">No biodata PDF available yet.</p>
+                  <p className="text-muted-foreground text-sm">No biodata PDF available yet.</p>
                 )}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Student inquiry</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Student inquiry</h3>
                 {studentInquiryPdfUrl ? (
                   <EmbeddedPDFViewer pdfUrl={studentInquiryPdfUrl} />
                 ) : (
-                  <p className="text-gray-500 text-sm">No student inquiry PDF available yet.</p>
+                  <p className="text-muted-foreground text-sm">No student inquiry PDF available yet.</p>
                 )}
               </div>
             </motion.div>
@@ -938,12 +938,12 @@ const SubAdminStudentDetails = () => {
             transition={{ delay: 0.3 }}
             className="lg:col-span-1"
           >
-            <div className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6 sticky top-6 flex flex-col lg:h-[calc(100vh-120px)] min-h-[400px] lg:min-h-0">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Notes</h3>
+            <div className="bg-surface rounded-3xl border border-border shadow-lg p-6 sticky top-6 flex flex-col lg:h-[calc(100vh-120px)] min-h-[400px] lg:min-h-0">
+              <h3 className="text-xl font-bold text-foreground mb-4">Notes</h3>
               {studentBookings.length === 0 ? (
-                <div className="text-center py-8 text-gray-500 flex-1 flex items-center justify-center">
+                <div className="text-center py-8 text-muted-foreground flex-1 flex items-center justify-center">
                   <div>
-                    <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                    <FileText className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
                     <p>No bookings found for this student</p>
                   </div>
                 </div>

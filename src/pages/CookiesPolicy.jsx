@@ -70,7 +70,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 ">
 //         <div className="absolute inset-0">
@@ -84,7 +84,7 @@
 //           />
 
 //           {/* Bluish overlay kept as requested */}
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
 //         </div>
 
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -107,13 +107,13 @@
 //           </motion.p>
 
 //           <motion.div 
-//             className="inline-flex items-center gap-2 bg-green-50/30 border border-green-100 rounded-full px-6 py-3"
+//             className="inline-flex items-center gap-2 bg-green-50/30 dark:bg-muted/50 border border-border rounded-full px-6 py-3"
 //             initial={{ opacity: 0, scale: 0.8 }}
 //             animate={{ opacity: 1, scale: 1 }}
 //             transition={{ duration: 0.6, delay: 0.4 }}
 //           >
-//             <Cookie className="w-5 h-5 text-cyan-500" />
-//             <span className="text-cyan-500 font-semibold">GDPR Compliant</span>
+//             <Cookie className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />
+//             <span className="text-cyan-500 dark:text-cyan-400 font-semibold">GDPR Compliant</span>
 //           </motion.div>
 //         </div>
 //       </section>
@@ -123,7 +123,7 @@
 //       <section ref={ref} className="py-20">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -134,15 +134,15 @@
 //             {cookieTypes.map((cookie, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+//                 className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
 //               >
 //                 <div className="flex items-center justify-between mb-4">
-//                   <h3 className="text-xl font-bold text-gray-900">{cookie.type}</h3>
+//                   <h3 className="text-xl font-bold text-foreground">{cookie.type}</h3>
 //                   {cookie.necessary ? (
-//                     <span className="bg-green-600/10 text-green-600 px-3 py-1 rounded-full text-sm font-bold">
+//                     <span className="bg-green-600/10 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm font-bold">
 //                       Necessary
 //                     </span>
 //                   ) : (
@@ -152,19 +152,19 @@
 //                   )}
 //                 </div>
 
-//                 <p className="text-gray-700 mb-4">{cookie.description}</p>
+//                 <p className="text-muted-foreground mb-4">{cookie.description}</p>
 
 //                 <div className="space-y-2 mb-4">
-//                   <h4 className="text-green-600 font-semibold">Examples:</h4>
+//                   <h4 className="text-green-600 dark:text-green-400 font-semibold">Examples:</h4>
 //                   {cookie.examples.map((example, exampleIndex) => (
-//                     <div key={exampleIndex} className="flex items-center gap-2 text-gray-700 text-sm">
-//                       <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+//                     <div key={exampleIndex} className="flex items-center gap-2 text-muted-foreground text-sm">
+//                       <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                       {example}
 //                     </div>
 //                   ))}
 //                 </div>
 
-//                 <div className="text-sm text-gray-600">
+//                 <div className="text-sm text-muted-foreground">
 //                   Duration: {cookie.duration}
 //                 </div>
 //               </motion.div>
@@ -174,10 +174,10 @@
 //       </section>
 
 //       {/* Cookie Management */}
-//       <section className="py-20 bg-white/40">
+//       <section className="py-20 bg-surface/40">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -188,7 +188,7 @@
 //             {managementSteps.map((step, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="text-center bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+//                 className="text-center bg-surface rounded-2xl p-6 border border-border shadow-sm"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
@@ -196,38 +196,38 @@
 //                 <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
 //                   {step.step}
 //                 </div>
-//                 <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-//                 <p className="text-gray-700 text-sm">{step.description}</p>
+//                 <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+//                 <p className="text-muted-foreground text-sm">{step.description}</p>
 //               </motion.div>
 //             ))}
 //           </div>
 
 //           {/* Browser Instructions */}
 //           <motion.div
-//             className="mt-12 bg-gradient-to-r from-green-50 to-sky-50 rounded-2xl p-8 border border-green-100"
+//             className="mt-12 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 rounded-2xl p-8 border border-border"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //             transition={{ duration: 0.8, delay: 0.6 }}
 //           >
-//             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//               <Eye className="w-6 h-6 text-cyan-500" />
+//             <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+//               <Eye className="w-6 h-6 text-cyan-500 dark:text-cyan-400" />
 //               Browser Cookie Settings
 //             </h3>
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-muted-foreground">
 //               <div>
-//                 <h4 className="text-green-600 font-semibold mb-2">Chrome</h4>
+//                 <h4 className="text-green-600 dark:text-green-400 font-semibold mb-2">Chrome</h4>
 //                 <p className="text-sm">Settings → Privacy and security → Cookies and other site data</p>
 //               </div>
 //               <div>
-//                 <h4 className="text-green-600 font-semibold mb-2">Firefox</h4>
+//                 <h4 className="text-green-600 dark:text-green-400 font-semibold mb-2">Firefox</h4>
 //                 <p className="text-sm">Options → Privacy & Security → Cookies and Site Data</p>
 //               </div>
 //               <div>
-//                 <h4 className="text-green-600 font-semibold mb-2">Safari</h4>
+//                 <h4 className="text-green-600 dark:text-green-400 font-semibold mb-2">Safari</h4>
 //                 <p className="text-sm">Preferences → Privacy → Cookies and website data</p>
 //               </div>
 //               <div>
-//                 <h4 className="text-green-600 font-semibold mb-2">Edge</h4>
+//                 <h4 className="text-green-600 dark:text-green-400 font-semibold mb-2">Edge</h4>
 //                 <p className="text-sm">Settings → Cookies and site permissions → Cookies and data stored</p>
 //               </div>
 //             </div>
@@ -365,7 +365,7 @@ const CookiesPolicy = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-30 ">
         <div className="absolute inset-0">
@@ -378,7 +378,7 @@ const CookiesPolicy = () => {
               backgroundPosition: "center"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -401,13 +401,13 @@ const CookiesPolicy = () => {
           </motion.p>
 
           <motion.div
-            className="inline-flex items-center gap-2 bg-green-50/30 border border-green-100 rounded-full px-6 py-3"
+            className="inline-flex items-center gap-2 bg-green-50/30 dark:bg-muted/50 border border-border rounded-full px-6 py-3"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Cookie className="w-5 h-5 text-cyan-500" />
-            <span className="text-cyan-500 font-semibold">{badge}</span>
+            <Cookie className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />
+            <span className="text-cyan-500 dark:text-cyan-400 font-semibold">{badge}</span>
           </motion.div>
         </div>
       </section>
@@ -416,7 +416,7 @@ const CookiesPolicy = () => {
       <section ref={ref} className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -427,15 +427,15 @@ const CookiesPolicy = () => {
             {cookieTypes.map((cookie, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+                className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">{cookie.type}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{cookie.type}</h3>
                   {cookie.necessary ? (
-                    <span className="bg-green-600/10 text-green-600 px-3 py-1 rounded-full text-sm font-bold">
+                    <span className="bg-green-600/10 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm font-bold">
                       {t("cookies.tags.necessary", { defaultValue: "Necessary" })}
                     </span>
                   ) : (
@@ -445,21 +445,21 @@ const CookiesPolicy = () => {
                   )}
                 </div>
 
-                <p className="text-gray-700 mb-4">{cookie.description}</p>
+                <p className="text-muted-foreground mb-4">{cookie.description}</p>
 
                 <div className="space-y-2 mb-4">
-                  <h4 className="text-green-600 font-semibold">
+                  <h4 className="text-green-600 dark:text-green-400 font-semibold">
                     {t("cookies.labels.examples", { defaultValue: "Examples:" })}
                   </h4>
                   {normalizeArray(cookie.examples, []).map((example, exampleIndex) => (
-                    <div key={exampleIndex} className="flex items-center gap-2 text-gray-700 text-sm">
-                      <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <div key={exampleIndex} className="flex items-center gap-2 text-muted-foreground text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
                       {example}
                     </div>
                   ))}
                 </div>
 
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-muted-foreground">
                   {t("cookies.labels.duration", { defaultValue: "Duration:" })} {cookie.duration}
                 </div>
               </motion.div>
@@ -469,10 +469,10 @@ const CookiesPolicy = () => {
       </section>
 
       {/* Cookie Management */}
-      <section className="py-20 bg-white/40">
+      <section className="py-20 bg-surface/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -483,7 +483,7 @@ const CookiesPolicy = () => {
             {managementSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="text-center bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+                className="text-center bg-surface rounded-2xl p-6 border border-border shadow-sm"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: 0.12 + index * 0.08 }}
@@ -491,28 +491,28 @@ const CookiesPolicy = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                   {step.step}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-700 text-sm">{step.description}</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                <p className="text-muted-foreground text-sm">{step.description}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Browser Instructions */}
           <motion.div
-            className="mt-12 bg-gradient-to-r from-green-50 to-sky-50 rounded-2xl p-8 border border-green-100"
+            className="mt-12 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 rounded-2xl p-8 border border-border"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Eye className="w-6 h-6 text-cyan-500" />
+            <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <Eye className="w-6 h-6 text-cyan-500 dark:text-cyan-400" />
               {t("cookies.headings.browserSettings", { defaultValue: "Browser Cookie Settings" })}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-muted-foreground">
               {browsers.map((b, i) => (
                 <div key={i}>
-                  <h4 className="text-green-600 font-semibold mb-2">{b.name}</h4>
+                  <h4 className="text-green-600 dark:text-green-400 font-semibold mb-2">{b.name}</h4>
                   <p className="text-sm">{b.instr}</p>
                 </div>
               ))}
@@ -521,41 +521,41 @@ const CookiesPolicy = () => {
 
           {/* Toggles use descriptions from cookieTypes (or explicit toggles keys) */}
           <motion.div
-            className="mt-10 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col gap-4"
+            className="mt-10 bg-surface rounded-2xl p-6 border border-border shadow-sm flex flex-col gap-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-semibold text-gray-900">{t("cookies.cookieTypes.analyticsLabel", { defaultValue: "Analytics Cookies" })}</div>
-                <div className="text-sm text-gray-600">{analyticsDesc}</div>
+                <div className="text-sm font-semibold text-foreground">{t("cookies.cookieTypes.analyticsLabel", { defaultValue: "Analytics Cookies" })}</div>
+                <div className="text-sm text-muted-foreground">{analyticsDesc}</div>
               </div>
               <button
                 onClick={() => setAnalyticsEnabled(s => !s)}
-                className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-50"
+                className="p-2 rounded-full bg-surface border border-border shadow-sm hover:bg-muted"
                 aria-pressed={analyticsEnabled}
               >
-                {analyticsEnabled ? <ToggleRight className="w-6 h-6 text-green-600" /> : <ToggleLeft className="w-6 h-6 text-gray-400" />}
+                {analyticsEnabled ? <ToggleRight className="w-6 h-6 text-green-600 dark:text-green-400" /> : <ToggleLeft className="w-6 h-6 text-gray-400" />}
               </button>
             </div>
 
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-semibold text-gray-900">{t("cookies.cookieTypes.marketingLabel", { defaultValue: "Marketing Cookies" })}</div>
-                <div className="text-sm text-gray-600">{marketingDesc}</div>
+                <div className="text-sm font-semibold text-foreground">{t("cookies.cookieTypes.marketingLabel", { defaultValue: "Marketing Cookies" })}</div>
+                <div className="text-sm text-muted-foreground">{marketingDesc}</div>
               </div>
               <button
                 onClick={() => setMarketingEnabled(s => !s)}
-                className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-50"
+                className="p-2 rounded-full bg-surface border border-border shadow-sm hover:bg-muted"
                 aria-pressed={marketingEnabled}
               >
-                {marketingEnabled ? <ToggleRight className="w-6 h-6 text-green-600" /> : <ToggleLeft className="w-6 h-6 text-gray-400" />}
+                {marketingEnabled ? <ToggleRight className="w-6 h-6 text-green-600 dark:text-green-400" /> : <ToggleLeft className="w-6 h-6 text-gray-400" />}
               </button>
             </div>
           </motion.div>
 
-          <div className="mt-8 text-center text-sm text-gray-600">
+          <div className="mt-8 text-center text-sm text-muted-foreground">
             <span className="text-yellow-500 font-semibold">
               {t("cookies.meta.lastUpdated", { defaultValue: FALLBACK.meta.lastUpdated, date: formattedDate })}
             </span>

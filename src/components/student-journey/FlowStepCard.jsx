@@ -23,7 +23,7 @@ const FlowStepCard = ({
 
   return (
     <motion.article
-      className={`relative rounded-3xl p-6 sm:p-8 border shadow-sm hover:shadow-md transition-shadow ${styles.card}`}
+      className={`relative rounded-3xl p-6 sm:p-8 border shadow-sm hover:shadow-md dark:shadow-black/30 dark:hover:shadow-black/40 transition-shadow ${styles.card}`}
       initial={reducedMotion ? false : { opacity: 0, y: 24 }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -46,18 +46,18 @@ const FlowStepCard = ({
         )}
 
         <div className="flex-1 min-w-0">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 pr-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 pr-4">
             {title}
           </h3>
           {body ? (
-            <p className="text-gray-700 leading-relaxed mb-4">{body}</p>
+            <p className="text-muted-foreground leading-relaxed mb-4">{body}</p>
           ) : null}
 
           {bullets.length > 0 && (
             <ul className="space-y-2 mb-4">
               {bullets.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -71,13 +71,13 @@ const FlowStepCard = ({
                 return (
                   <div
                     key={i}
-                    className="bg-white/70 rounded-2xl p-4 border border-sky-100"
+                    className="bg-white/70 dark:bg-slate-900/50 rounded-2xl p-4 border border-sky-100 dark:border-sky-800/60"
                   >
-                    <p className="font-semibold text-gray-900 text-sm mb-1">
+                    <p className="font-semibold text-foreground text-sm mb-1">
                       {sub.title}
                     </p>
                     {sub.body ? (
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {sub.body}
                       </p>
                     ) : null}
@@ -86,9 +86,9 @@ const FlowStepCard = ({
                         {subBullets.map((item, j) => (
                           <li
                             key={j}
-                            className="flex items-start gap-2 text-sm text-gray-600"
+                            className="flex items-start gap-2 text-sm text-muted-foreground"
                           >
-                            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}

@@ -10,12 +10,12 @@ import { useTranslation } from 'react-i18next';
 import { useAuthRedirect } from '../../utils/useAuthRedirect';
 
 const INPUT_CLASS =
-  'w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300';
+  'w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 dark:focus:border-green-500 transition-all duration-300';
 
 const FormLabel = ({ htmlFor, children, required = false }) => (
-  <label htmlFor={htmlFor} className="block text-gray-700 text-sm font-medium mb-2">
+  <label htmlFor={htmlFor} className="block text-muted-foreground text-sm font-medium mb-2">
     {children}
-    {required && <span className="text-red-500"> *</span>}
+    {required && <span className="text-red-500 dark:text-red-400"> *</span>}
   </label>
 );
 
@@ -71,7 +71,7 @@ const ContactInquiryForm = ({
 }) => {
   const compact = variant === 'compact';
   const inputClass = compact
-    ? 'w-full bg-white border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300'
+    ? 'w-full bg-surface border border-border rounded-lg px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 dark:focus:border-green-500 transition-all duration-300'
     : INPUT_CLASS;
   const { t } = useTranslation('common');
   const { requireAuth } = useAuthRedirect();
@@ -127,8 +127,8 @@ const ContactInquiryForm = ({
   const fid = (name) => `${idPrefix}-${name}`;
 
   const shellClass = compact
-    ? 'bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm'
-    : 'bg-white rounded-3xl p-8 border border-gray-100 shadow-sm';
+    ? 'bg-surface rounded-2xl p-5 sm:p-6 border border-border shadow-sm dark:shadow-black/20'
+    : 'bg-surface rounded-3xl p-8 border border-border shadow-sm dark:shadow-black/20';
 
   return (
     <div className={`${shellClass} ${className}`.trim()}>
@@ -146,10 +146,10 @@ const ContactInquiryForm = ({
           >
             <CheckCircle className="w-10 h-10 text-white" />
           </motion.div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('contact.thank_you_title')}</h3>
-          <p className="text-gray-700 mb-6">{t('contact.thank_you_text')}</p>
+          <h3 className="text-2xl font-bold text-foreground mb-4">{t('contact.thank_you_title')}</h3>
+          <p className="text-muted-foreground mb-6">{t('contact.thank_you_text')}</p>
           <motion.div
-            className="w-full bg-gray-200 rounded-full h-2"
+            className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 4, ease: 'linear' }}
@@ -160,7 +160,7 @@ const ContactInquiryForm = ({
       ) : (
         <>
           <h3
-            className={`font-bold text-gray-900 ${compact ? 'text-xl mb-4' : 'text-2xl mb-6'}`}
+            className={`font-bold text-foreground ${compact ? 'text-xl mb-4' : 'text-2xl mb-6'}`}
           >
             {t('contact.form.heading')}
           </h3>
@@ -277,7 +277,7 @@ const ContactInquiryForm = ({
               </select>
               <p
                 id={fid('service-hint')}
-                className={`mt-2 text-sm ${showServiceHint ? 'text-red-600' : 'text-gray-500'}`}
+                className={`mt-2 text-sm ${showServiceHint ? 'text-red-600 dark:text-red-400' : 'text-muted-foreground'}`}
               >
                 {t('contact.form.service_interest_hint')}
               </p>
@@ -306,30 +306,30 @@ const ContactInquiryForm = ({
                   checked={formData.emailConsent}
                   onChange={handleChange}
                   required
-                  className="mt-1 h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-600"
+                  className="mt-1 h-4 w-4 rounded border-border text-green-600 focus:ring-green-600"
                 />
                 <span
-                  className={`text-gray-700 leading-relaxed ${compact ? 'text-xs' : 'text-sm'}`}
+                  className={`text-muted-foreground leading-relaxed ${compact ? 'text-xs' : 'text-sm'}`}
                 >
                   {t('contact.form.consent')}
                 </span>
               </label>
 
               <div
-                className={`text-gray-600 leading-relaxed ${compact ? 'text-xs' : 'text-sm'}`}
+                className={`text-muted-foreground leading-relaxed ${compact ? 'text-xs' : 'text-sm'}`}
               >
                 {!compact && (
-                  <p className="font-semibold text-gray-800 mb-1">
+                  <p className="font-semibold text-foreground mb-1">
                     {t('contact.form.privacy_note_title')}
                   </p>
                 )}
                 <p>
                   {t('contact.form.privacy_note_before_links')}
-                  <Link to="/privacy" className="text-green-600 hover:underline font-medium">
+                  <Link to="/privacy" className="text-green-600 dark:text-green-400 hover:underline font-medium">
                     {t('contact.form.privacy_policy_link')}
                   </Link>
                   {' & '}
-                  <Link to="/terms" className="text-green-600 hover:underline font-medium">
+                  <Link to="/terms" className="text-green-600 dark:text-green-400 hover:underline font-medium">
                     {t('contact.form.terms_link')}
                   </Link>
                   {t('contact.form.privacy_note_after_links')}

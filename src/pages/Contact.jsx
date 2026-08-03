@@ -102,7 +102,7 @@
 //   };
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-20 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -149,7 +149,7 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
 //               transition={{ duration: 0.8 }}
 //             >
-//               <h2 className="text-4xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+//               <h2 className="text-4xl font-bold text-foreground mb-8">Get In Touch</h2>
               
 //               <div className="space-y-6 mb-8">
 //                 {contactInfo.map((contact, index) => (
@@ -159,7 +159,7 @@
 //                     className="block group"
 //                     whileHover={{ x: 5 }}
 //                   >
-//                     <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+//                     <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300">
 //                       <div className="flex items-center gap-4">
 //                         <motion.div
 //                           className={`w-14 h-14 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center text-white`}
@@ -173,13 +173,13 @@
 //                         </motion.div>
                         
 //                         <div className="flex-1 text-left">
-//                           <h4 className="text-lg font-semibold text-gray-900 mb-1">
+//                           <h4 className="text-lg font-semibold text-foreground mb-1">
 //                             {contact.title}
 //                           </h4>
-//                           <p className="text-green-600 font-medium mb-1">
+//                           <p className="text-green-600 dark:text-green-400 font-medium mb-1">
 //                             {contact.info}
 //                           </p>
-//                           <p className="text-gray-700 text-sm">
+//                           <p className="text-muted-foreground text-sm">
 //                             {contact.description}
 //                           </p>
 //                         </div>
@@ -190,9 +190,9 @@
 //               </div>
 
 //               {/* Why Choose Us */}
-//               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-//                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                   <Target className="w-5 h-5 text-green-600" />
+//               <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm">
+//                 <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+//                   <Target className="w-5 h-5 text-green-600 dark:text-green-400" />
 //                   Why Choose Profiberater?
 //                 </h3>
 //                 <div className="space-y-2">
@@ -202,8 +202,8 @@
 //                     "End-to-End Support",
 //                     "Germany-Specific Expertise"
 //                   ].map((item, index) => (
-//                     <div key={index} className="flex items-center gap-3 text-gray-700">
-//                       <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+//                     <div key={index} className="flex items-center gap-3 text-muted-foreground">
+//                       <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                       <span className="text-sm">{item}</span>
 //                     </div>
 //                   ))}
@@ -217,7 +217,7 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
 //               transition={{ duration: 0.8, delay: 0.2 }}
 //             >
-//               <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+//               <div className="bg-surface rounded-3xl p-8 border border-border shadow-sm">
 //                 {isSubmitted ? (
 //                   <motion.div
 //                     className="text-center py-12"
@@ -235,10 +235,10 @@
 //                     >
 //                       <CheckCircle className="w-10 h-10 text-white" />
 //                     </motion.div>
-//                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
+//                     <h3 className="text-2xl font-bold text-foreground mb-4">
 //                       Thank You!
 //                     </h3>
-//                     <p className="text-gray-700 mb-6">
+//                     <p className="text-muted-foreground mb-6">
 //                       We've received your message and will contact you within 2 hours.
 //                     </p>
 //                     <motion.div
@@ -252,7 +252,7 @@
 //                   </motion.div>
 //                 ) : (
 //                   <>
-//                     <h3 className="text-2xl font-bold text-gray-900 mb-6">
+//                     <h3 className="text-2xl font-bold text-foreground mb-6">
 //                       Free Consultation Form
 //                     </h3>
                     
@@ -263,7 +263,7 @@
 //                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //                           transition={{ duration: 0.5, delay: 0.3 }}
 //                         >
-//                           <label className="block text-gray-700 text-sm font-medium mb-2">
+//                           <label className="block text-muted-foreground text-sm font-medium mb-2">
 //                             Full Name *
 //                           </label>
 //                           <input
@@ -272,7 +272,7 @@
 //                             value={formData.name}
 //                             onChange={handleChange}
 //                             required
-//                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 focus:bg-white transition-all duration-300"
+//                             className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 focus:bg-surface transition-all duration-300"
 //                             placeholder="Enter your name"
 //                           />
 //                         </motion.div>
@@ -282,7 +282,7 @@
 //                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //                           transition={{ duration: 0.5, delay: 0.4 }}
 //                         >
-//                           <label className="block text-gray-700 text-sm font-medium mb-2">
+//                           <label className="block text-muted-foreground text-sm font-medium mb-2">
 //                             Email Address *
 //                           </label>
 //                           <input
@@ -291,7 +291,7 @@
 //                             value={formData.email}
 //                             onChange={handleChange}
 //                             required
-//                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 focus:bg-white transition-all duration-300"
+//                             className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 focus:bg-surface transition-all duration-300"
 //                             placeholder="Enter your email"
 //                           />
 //                         </motion.div>
@@ -303,7 +303,7 @@
 //                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //                           transition={{ duration: 0.5, delay: 0.5 }}
 //                         >
-//                           <label className="block text-gray-700 text-sm font-medium mb-2">
+//                           <label className="block text-muted-foreground text-sm font-medium mb-2">
 //                             Phone Number
 //                           </label>
 //                           <input
@@ -311,7 +311,7 @@
 //                             name="phone"
 //                             value={formData.phone}
 //                             onChange={handleChange}
-//                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 focus:bg-white transition-all duration-300"
+//                             className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 focus:bg-surface transition-all duration-300"
 //                             placeholder="+91 98765 43210"
 //                           />
 //                         </motion.div>
@@ -321,14 +321,14 @@
 //                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //                           transition={{ duration: 0.5, delay: 0.6 }}
 //                         >
-//                           <label className="block text-gray-700 text-sm font-medium mb-2">
+//                           <label className="block text-muted-foreground text-sm font-medium mb-2">
 //                             Service Interest
 //                           </label>
 //                           <select
 //                             name="service"
 //                             value={formData.service}
 //                             onChange={handleChange}
-//                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-green-600 focus:bg-white transition-all duration-300"
+//                             className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-green-600 focus:bg-surface transition-all duration-300"
 //                           >
 //                             <option value="">Select service</option>
 //                             {services.map((service, index) => (
@@ -345,7 +345,7 @@
 //                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //                         transition={{ duration: 0.5, delay: 0.7 }}
 //                       >
-//                         <label className="block text-gray-700 text-sm font-medium mb-2">
+//                         <label className="block text-muted-foreground text-sm font-medium mb-2">
 //                           Your Message
 //                         </label>
 //                         <textarea
@@ -353,7 +353,7 @@
 //                           value={formData.message}
 //                           onChange={handleChange}
 //                           rows="4"
-//                           className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 focus:bg-white transition-all duration-300 resize-none"
+//                           className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 focus:bg-surface transition-all duration-300 resize-none"
 //                           placeholder="Tell us about your academic background and goals..."
 //                         />
 //                       </motion.div>
@@ -392,17 +392,17 @@
 //       </section>
 
 //       {/* CTA Section */}
-//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50">
+//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-6"
+//             className="text-4xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           >
 //             Ready to Start Your German Journey?
 //           </motion.h2>
 //           <motion.p 
-//             className="text-xl text-gray-700 mb-8"
+//             className="text-xl text-muted-foreground mb-8"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ delay: 0.2 }}
@@ -608,7 +608,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -620,7 +620,7 @@ const Contact = () => {
               backgroundPosition: 'center'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
         <div className="relative z-10 max-w-6xl py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
@@ -648,10 +648,10 @@ const Contact = () => {
       <section ref={ref} className="py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 lg:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               {t('contactus.getInTouch', 'Get In Touch')}
             </h2>
-            <p className="mt-3 text-gray-600 max-w-2xl">
+            <p className="mt-3 text-muted-foreground max-w-2xl">
               {hero.subtitle}
             </p>
           </div>
@@ -675,7 +675,7 @@ const Contact = () => {
                       className="block group h-full"
                       whileHover={{ y: -2 }}
                     >
-                      <div className="h-full bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-green-100 transition-all duration-300">
+                      <div className="h-full bg-surface rounded-2xl p-5 sm:p-6 border border-border shadow-sm hover:shadow-md hover:border-border transition-all duration-300">
                         <div className="flex flex-col gap-4">
                           <motion.div
                             className={`w-12 h-12 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center text-white shrink-0`}
@@ -686,13 +686,13 @@ const Contact = () => {
                           </motion.div>
 
                           <div className="text-left min-w-0">
-                            <h4 className="text-base font-semibold text-gray-900 mb-1">
+                            <h4 className="text-base font-semibold text-foreground mb-1">
                               {contact.title}
                             </h4>
-                            <p className="text-green-600 font-medium text-sm mb-1 break-words">
+                            <p className="text-green-600 dark:text-green-400 font-medium text-sm mb-1 break-words">
                               {contact.info}
                             </p>
-                            <p className="text-gray-600 text-sm leading-snug">{contact.description}</p>
+                            <p className="text-muted-foreground text-sm leading-snug">{contact.description}</p>
                           </div>
                         </div>
                       </div>
@@ -702,25 +702,25 @@ const Contact = () => {
               </div>
 
               <motion.div
-                className="mt-8 pt-8 border-t border-gray-200 text-left"
+                className="mt-8 pt-8 border-t border-border text-left"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
               >
-                <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                   {community.paragraphs.slice(0, 2).map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>
                   ))}
                   <p>
                     {community.paragraphs[2]}{' '}
-                    <strong className="font-bold text-gray-900">{community.hashtag}</strong>
+                    <strong className="font-bold text-foreground">{community.hashtag}</strong>
                   </p>
                   {community.paragraphs.slice(3).map((paragraph, idx) => (
                     <p key={`rest-${idx}`}>{paragraph}</p>
                   ))}
                 </div>
 
-                <h3 className="mt-8 text-lg sm:text-xl font-bold text-gray-900">
+                <h3 className="mt-8 text-lg sm:text-xl font-bold text-foreground">
                   {community.socialHeading}
                 </h3>
 
@@ -770,15 +770,15 @@ const Contact = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50">
+      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 className="text-4xl font-bold text-gray-900 mb-6" initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}>
+          <motion.h2 className="text-4xl font-bold text-foreground mb-6" initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}>
             {cta.heading}
           </motion.h2>
-          <motion.p className="text-xl text-gray-700 mb-4" initial={{ opacity: 0, y: 16 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }} transition={{ delay: 0.12 }}>
+          <motion.p className="text-xl text-muted-foreground mb-4" initial={{ opacity: 0, y: 16 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }} transition={{ delay: 0.12 }}>
             {cta.sub}
           </motion.p>
-          <motion.p className="text-xl text-gray-700 mb-8" initial={{ opacity: 0, y: 16 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }} transition={{ delay: 0.18 }}>
+          <motion.p className="text-xl text-muted-foreground mb-8" initial={{ opacity: 0, y: 16 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }} transition={{ delay: 0.18 }}>
             {cta.sub2 || FALLBACK.cta.sub2}
           </motion.p>
 

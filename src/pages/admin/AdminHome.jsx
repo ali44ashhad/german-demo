@@ -25,7 +25,7 @@ const AdminHome = () => {
 
   if (isLoading && !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
         <Loader2 className="w-12 h-12 animate-spin text-green-600" />
       </div>
     );
@@ -101,7 +101,7 @@ const AdminHome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-6xl mx-auto space-y-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -127,13 +127,13 @@ const AdminHome = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+                className="bg-surface rounded-3xl border border-border shadow-lg p-6"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center text-white shadow-lg`}>
                   <Icon className="w-6 h-6" />
                 </div>
-                <p className="mt-4 text-sm uppercase tracking-wide text-gray-500">{card.title}</p>
-                <p className="mt-2 text-3xl font-bold text-gray-900">{card.value}</p>
+                <p className="mt-4 text-sm uppercase tracking-wide text-muted-foreground">{card.title}</p>
+                <p className="mt-2 text-3xl font-bold text-foreground">{card.value}</p>
                 <p className="mt-2 text-xs font-semibold text-green-600">{card.change} vs last week</p>
               </motion.div>
             );
@@ -145,10 +145,10 @@ const AdminHome = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+            className="bg-surface rounded-3xl border border-border shadow-lg p-6"
           >
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Upcoming Consultation Slots</h2>
+              <h2 className="text-xl font-semibold text-foreground">Upcoming Consultation Slots</h2>
               <span className="text-sm text-green-600 font-semibold">View calendar</span>
             </div>
             <div className="space-y-4">
@@ -156,15 +156,15 @@ const AdminHome = () => {
                 upcomingSessions.map((session, index) => (
                   <div
                     key={session.id || `session-${index}`}
-                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 hover:border-green-200 hover:bg-green-50 transition-colors"
+                    className="rounded-2xl border border-border bg-muted px-4 py-3 hover:border-green-400/50 hover:bg-green-50 dark:hover:bg-green-950/30 transition-colors"
                   >
-                    <p className="text-sm font-semibold text-gray-900">{session.applicant}</p>
-                    <p className="text-sm text-gray-600">{session.program}</p>
+                    <p className="text-sm font-semibold text-foreground">{session.applicant}</p>
+                    <p className="text-sm text-muted-foreground">{session.program}</p>
                     <p className="text-xs text-green-600 mt-1">{session.date}</p>
                   </div>
                 ))
               ) : (
-                <div className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-center text-gray-500">
+                <div className="rounded-2xl border border-border bg-muted px-4 py-3 text-center text-muted-foreground">
                   <p className="text-sm">No upcoming consultations scheduled</p>
                 </div>
               )}
@@ -175,18 +175,18 @@ const AdminHome = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+            className="bg-surface rounded-3xl border border-border shadow-lg p-6"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Today&apos;s Highlights</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">Today&apos;s Highlights</h2>
             <ul className="space-y-4">
               {highlights.map((item) => (
-                <li key={item.title} className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
-                  <p className="text-sm font-semibold text-gray-900">{item.title}</p>
-                  <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                <li key={item.title} className="rounded-2xl border border-border bg-muted px-4 py-3">
+                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 rounded-2xl bg-gradient-to-r from-green-100 to-sky-100 px-4 py-4 text-sm text-green-900">
+            <div className="mt-6 rounded-2xl bg-gradient-to-r from-green-100 to-sky-100 dark:from-green-950/40 dark:to-sky-950/40 px-4 py-4 text-sm text-green-900 dark:text-green-200">
               Tip: Invite your sub-admins to update student progress daily to keep insights fresh.
             </div>
           </motion.div>
@@ -198,29 +198,29 @@ const AdminHome = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6"
+            className="bg-surface rounded-3xl border border-border shadow-lg p-6"
           >
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Recent Users</h2>
+              <h2 className="text-xl font-semibold text-foreground">Recent Users</h2>
               <span className="text-sm text-green-600 font-semibold">Last 5 registrations</span>
             </div>
             <div className="space-y-3">
               {stats.recentUsers.map((user) => (
                 <div
                   key={user._id}
-                  className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 hover:border-green-200 hover:bg-green-50 transition-colors"
+                  className="rounded-2xl border border-border bg-muted px-4 py-3 hover:border-green-400/50 hover:bg-green-50 dark:hover:bg-green-950/30 transition-colors"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">{user.name}</p>
-                      <p className="text-xs text-gray-600 mt-1">{user.email}</p>
+                      <p className="text-sm font-semibold text-foreground">{user.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{user.email}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-muted-foreground">
                         {formatBookingDate(user.createdAt)}
                       </p>
                       {user.country && (
-                        <p className="text-xs text-gray-400 mt-1">{user.country}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{user.country}</p>
                       )}
                     </div>
                   </div>

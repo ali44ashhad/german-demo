@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LogIn, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, ArrowLeft, RefreshCw } from 'lucide-react';
 import { useLoginMutation, useResendVerificationEmailMutation } from '../store/apiSlice';
+import ThemeToggle from '../components/common/ThemeToggle';
 
 const ADMIN_ROLE = 'superadmin';
 const SUBADMIN_ROLE = 'subadmin';
@@ -86,7 +87,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-20 px-4 sm:px-6 lg:px-8 relative">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-20 px-4 sm:px-6 lg:px-8 relative">
       {/* Back to Home Button */}
       <motion.div
         className="absolute top-6 left-4 sm:left-6 lg:left-8"
@@ -96,12 +97,15 @@ const Login = () => {
       >
         <Link
           to="/home"
-          className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-green-600 transition-colors duration-300 rounded-lg hover:bg-white/50"
+          className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 rounded-lg hover:bg-muted"
         >
           <ArrowLeft className="w-5 h-5" />
           <span className="font-medium">{t('auth.backToHome', 'Back to Home')}</span>
         </Link>
       </motion.div>
+      <div className="absolute top-6 right-4 sm:right-6 lg:right-8 z-10">
+        <ThemeToggle />
+      </div>
       <div className="max-w-md mx-auto">
         {/* Header */}
         <motion.div
@@ -117,17 +121,17 @@ const Login = () => {
           >
             <LogIn className="w-8 h-8 text-white" />
           </motion.div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
             {t('auth.login.title', 'Welcome Back')}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             {t('auth.login.subtitle', 'Sign in to continue your German education journey')}
           </p>
         </motion.div>
 
         {/* Form Card */}
         <motion.div
-          className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg"
+          className="bg-surface rounded-3xl p-8 border border-border shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -146,10 +150,10 @@ const Login = () => {
               >
                 <CheckCircle className="w-10 h-10 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 {t('auth.login.success.title', 'Login Successful!')}
               </h3>
-              <p className="text-gray-700 mb-6">
+              <p className="text-muted-foreground mb-6">
                 {t('auth.login.success.message', 'Redirecting to home page...')}
               </p>
             </motion.div>
@@ -158,20 +162,20 @@ const Login = () => {
               {/* Error Message */}
               {error && (
                 <motion.div
-                  className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3 flex-col"
+                  className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-start gap-3 flex-col"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
                   <div className="flex items-start gap-3 w-full">
-                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                    <p className="text-red-700 text-sm flex-1">{error}</p>
+                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                    <p className="text-red-700 dark:text-red-300 text-sm flex-1">{error}</p>
                   </div>
                   {showResendButton && (
                     <button
                       type="button"
                       onClick={handleResend}
                       disabled={isResending}
-                      className="mt-2 w-full flex items-center justify-center gap-2 bg-white text-green-700 border border-green-200 py-2 rounded-lg font-medium hover:bg-green-50 transition shadow-sm text-sm"
+                      className="mt-2 w-full flex items-center justify-center gap-2 bg-surface text-green-700 dark:text-green-400 border border-border py-2 rounded-lg font-medium hover:bg-green-50 dark:hover:bg-muted transition shadow-sm text-sm"
                     >
                       {isResending ? (
                         <RefreshCw className="w-4 h-4 animate-spin" />
@@ -187,29 +191,29 @@ const Login = () => {
               {/* Resend Success Message */}
               {resendSuccess && (
                 <motion.div
-                  className="bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-3"
+                  className="bg-green-50 dark:bg-muted border border-border rounded-xl p-4 flex items-start gap-3"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-green-700 text-sm">{resendSuccess}</p>
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-green-700 dark:text-green-400 text-sm">{resendSuccess}</p>
                 </motion.div>
               )}
 
               {/* Email */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.login.form.email', 'Email Address')} *
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.login.form.emailPlaceholder', 'Enter your email')}
                   />
                 </div>
@@ -217,24 +221,24 @@ const Login = () => {
 
               {/* Password */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.login.form.password', 'Password')} *
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-12 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-12 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.login.form.passwordPlaceholder', 'Enter your password')}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -245,7 +249,7 @@ const Login = () => {
               <div className="flex justify-end">
                 <Link
                   to="#"
-                  className="text-sm text-green-600 hover:text-green-700 font-medium transition-colors"
+                  className="text-sm text-green-600 dark:text-green-400 hover:text-green-700 dark:text-green-400 font-medium transition-colors"
                 >
                   {t('auth.login.forgotPassword', 'Forgot Password?')}
                 </Link>
@@ -280,11 +284,11 @@ const Login = () => {
 
           {/* Register Link */}
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               {t('auth.login.dontHaveAccount', "Don't have an account?")}{' '}
               <Link
                 to="/register"
-                className="text-green-600 font-semibold hover:text-green-700 transition-colors"
+                className="text-green-600 dark:text-green-400 font-semibold hover:text-green-700 dark:text-green-400 transition-colors"
               >
                 {t('auth.login.registerLink', 'Register here')}
               </Link>

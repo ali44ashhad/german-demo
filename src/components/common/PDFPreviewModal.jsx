@@ -215,30 +215,30 @@ const PDFPreviewModal = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col"
+          className="bg-surface rounded-2xl shadow-2xl dark:shadow-black/50 w-full max-w-4xl max-h-[90vh] flex flex-col"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <div className="flex items-center justify-between p-6 border-b border-border">
             <div className="flex flex-wrap items-center gap-3">
-              <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+              <h2 className="text-2xl font-bold text-foreground">{title}</h2>
               {headerSlot}
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="p-2 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 dark:focus-visible:ring-sky-600"
               aria-label="Close"
             >
-              <X className="w-6 h-6 text-gray-600" />
+              <X className="w-6 h-6" />
             </button>
           </div>
 
-          {/* PDF Viewer */}
-          <div className="flex-1 overflow-auto bg-gray-50 flex items-start justify-center pt-8 pb-6 px-6">
+          {/* PDF Viewer — keep page canvas area neutral; theme only chrome around it */}
+          <div className="flex-1 overflow-auto bg-muted flex items-start justify-center pt-8 pb-6 px-6">
             {pdfError ? (
-              <div className="flex flex-col items-center justify-center p-8 text-red-600">
+              <div className="flex flex-col items-center justify-center p-8 text-red-600 dark:text-red-400">
                 <XCircle className="w-12 h-12 mb-4" />
                 <p className="text-lg font-semibold mb-2">Failed to load PDF</p>
-                <p className="text-sm text-gray-600 text-center max-w-md">{pdfError}</p>
+                <p className="text-sm text-muted-foreground text-center max-w-md">{pdfError}</p>
                 <button
                   onClick={() => {
                     setPdfError(null);
@@ -255,11 +255,11 @@ const PDFPreviewModal = ({
             ) : isLoadingPdf ? (
               <div className="flex flex-col items-center justify-center p-8">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mb-4"></div>
-                <p className="text-gray-600">Loading PDF...</p>
-                <p className="text-sm text-gray-500 mt-2">This may take a few moments</p>
+                <p className="text-muted-foreground">Loading PDF...</p>
+                <p className="text-sm text-muted-foreground/80 mt-2">This may take a few moments</p>
               </div>
             ) : !pdfDataUrl ? (
-              <div className="flex flex-col items-center justify-center p-8 text-gray-600">
+              <div className="flex flex-col items-center justify-center p-8 text-muted-foreground">
                 <p>No PDF URL available.</p>
               </div>
             ) : (
@@ -274,7 +274,7 @@ const PDFPreviewModal = ({
                     </div>
                   }
                   error={
-                    <div className="flex flex-col items-center justify-center p-8 text-red-600">
+                    <div className="flex flex-col items-center justify-center p-8 text-red-600 dark:text-red-400">
                       <XCircle className="w-12 h-12 mb-4" />
                       <p>Failed to render PDF. Please try again.</p>
                     </div>
@@ -295,33 +295,35 @@ const PDFPreviewModal = ({
                     <button
                       onClick={() => setPageNumber((prev) => Math.max(1, prev - 1))}
                       disabled={pageNumber <= 1}
-                      className="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-2 rounded-lg bg-surface border border-border text-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       Previous
                     </button>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-muted-foreground">
                       Page {pageNumber} of {numPages}
                     </span>
                     <button
                       onClick={() => setPageNumber((prev) => Math.min(numPages, prev + 1))}
                       disabled={pageNumber >= numPages}
-                      className="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-2 rounded-lg bg-surface border border-border text-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       Next
                     </button>
                     <div className="flex items-center gap-2 ml-4">
                       <button
                         onClick={() => setScale((prev) => Math.max(0.5, prev - 0.25))}
-                        className="px-3 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
+                        className="px-3 py-2 rounded-lg bg-surface border border-border text-foreground hover:bg-muted transition-colors"
+                        aria-label="Zoom out"
                       >
                         -
                       </button>
-                      <span className="text-sm text-gray-600 w-16 text-center">
+                      <span className="text-sm text-muted-foreground w-16 text-center">
                         {Math.round(scale * 100)}%
                       </span>
                       <button
                         onClick={() => setScale((prev) => Math.min(2, prev + 0.25))}
-                        className="px-3 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
+                        className="px-3 py-2 rounded-lg bg-surface border border-border text-foreground hover:bg-muted transition-colors"
+                        aria-label="Zoom in"
                       >
                         +
                       </button>
@@ -333,10 +335,10 @@ const PDFPreviewModal = ({
           </div>
 
           {/* Footer Actions */}
-          <div className="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50">
+          <div className="flex items-center justify-between p-6 border-t border-border bg-muted">
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 bg-white text-gray-700 font-semibold hover:bg-gray-50 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-surface text-muted-foreground font-semibold hover:bg-muted transition-all"
             >
               <Download className="w-5 h-5" />
               Download
@@ -345,7 +347,7 @@ const PDFPreviewModal = ({
               <button
                 onClick={onDiscard}
                 disabled={isLoading}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-red-300 bg-white text-red-700 font-semibold hover:bg-red-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-red-300 dark:border-red-800 bg-surface text-red-700 dark:text-red-400 font-semibold hover:bg-red-50 dark:hover:bg-red-950/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <XCircle className="w-5 h-5" />
                 Discard

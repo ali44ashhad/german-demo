@@ -5,13 +5,13 @@ const SearchBar = ({ value, onChange, placeholder = "Search..." }) => {
   return (
     <div className="flex-1 max-w-md">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
         <input
           type="text"
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="w-full pl-10 pr-4 py-3 bg-surface text-foreground placeholder:text-muted-foreground border border-border rounded-xl focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600 focus:border-transparent"
         />
       </div>
     </div>
@@ -19,4 +19,3 @@ const SearchBar = ({ value, onChange, placeholder = "Search..." }) => {
 };
 
 export default SearchBar;
-

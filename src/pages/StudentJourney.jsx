@@ -6,11 +6,15 @@ import { Route, Sparkles, ArrowRight } from "lucide-react";
 import JourneyLegend from "../components/student-journey/JourneyLegend";
 import FlowTimeline from "../components/student-journey/FlowTimeline";
 import DecisionBranch from "../components/student-journey/DecisionBranch";
-import FlowConnector from "../components/student-journey/FlowConnector";
 import {
   PHASE1_STEP_CONFIG,
   PHASE2_PRE_BRANCH_CONFIG,
 } from "../components/student-journey/journeyData";
+
+const PRE_DECISION_STEP_CONFIG = [
+  ...PHASE1_STEP_CONFIG,
+  ...PHASE2_PRE_BRANCH_CONFIG,
+];
 
 const normalizeArray = (value, fallback = []) => {
   if (Array.isArray(value)) return value;
@@ -68,25 +72,26 @@ const StudentJourney = () => {
     body: t("studentJourney.phase2.noOutcome.body"),
   };
 
-  const yesStartIndex = phase1Steps.length + phase2PreSteps.length + 1;
+  const preDecisionSteps = [...phase1Steps, ...phase2PreSteps];
+  const yesStartIndex = preDecisionSteps.length + 1;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
-      {/* Hero */}
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
+      {/* Hero — white/light text stays on image overlay; do not apply theme foreground */}
       <section
         ref={heroRef}
         className="relative py-20 sm:py-28 overflow-hidden"
       >
         <div className="absolute inset-0">
           <div
-            className="absolute inset-0 opacity-70"
+            className="absolute inset-0 opacity-70 dark:opacity-50"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&w=1920&h=1080&fit=crop')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply dark:from-sky-700/70 dark:via-cyan-800/60 dark:to-emerald-900/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -170,25 +175,30 @@ const StudentJourney = () => {
         </div>
       </section>
 
-      {/* Phase 1: Before Consultation */}
+      {/* Continuous journey through before-consultation steps */}
       <section id="phase1" className="py-16 sm:py-20 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 text-green-600 font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold mb-3">
               <Route className="w-5 h-5" />
               {t("studentJourney.phase1.badge")}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               {t("studentJourney.phase1.title")}
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               {t("studentJourney.phase1.description")}
             </p>
           </div>
           <JourneyLegend labels={legendLabels} />
+          <div className="text-center mb-10">
+            <h3 className="text-3xl sm:text-4xl font-bold text-foreground">
+              {t("studentJourney.legend.initialConsultation")}
+            </h3>
+          </div>
           <FlowTimeline
-            steps={phase1Steps}
-            stepConfigs={PHASE1_STEP_CONFIG}
+            steps={preDecisionSteps}
+            stepConfigs={PRE_DECISION_STEP_CONFIG}
             actionLabels={actionLabels}
             startIndex={1}
             reducedMotion={reducedMotion}
@@ -196,43 +206,20 @@ const StudentJourney = () => {
         </div>
       </section>
 
-      {/* Phase 2 */}
+      {/* Decision branch */}
       <section
         id="phase2"
-        className="py-16 sm:py-20 scroll-mt-24 bg-white/40"
+        className="py-16 sm:py-20 scroll-mt-24 bg-white/40 dark:bg-slate-900/40"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {t("studentJourney.phase2.title")}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              {t("studentJourney.phase2.description")}
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto mb-4">
-            <FlowConnector reducedMotion={reducedMotion} />
-          </div>
-
-          <FlowTimeline
-            steps={phase2PreSteps}
-            stepConfigs={PHASE2_PRE_BRANCH_CONFIG}
+          <DecisionBranch
+            decision={phase2Decision}
+            noOutcome={phase2NoOutcome}
+            yesSteps={phase2YesSteps}
             actionLabels={actionLabels}
-            startIndex={phase1Steps.length + 1}
+            yesStartIndex={yesStartIndex}
             reducedMotion={reducedMotion}
           />
-
-          <div className="mt-12">
-            <DecisionBranch
-              decision={phase2Decision}
-              noOutcome={phase2NoOutcome}
-              yesSteps={phase2YesSteps}
-              actionLabels={actionLabels}
-              yesStartIndex={yesStartIndex}
-              reducedMotion={reducedMotion}
-            />
-          </div>
         </div>
       </section>
 

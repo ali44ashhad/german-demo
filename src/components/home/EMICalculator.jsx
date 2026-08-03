@@ -47,54 +47,54 @@
 //       initial={{ opacity: 0, y: 12 }}
 //       animate={{ opacity: 1, y: 0 }}
 //       transition={{ duration: 0.45 }}
-//       className={`bg-white rounded-2xl p-6 shadow-md border border-gray-100 ${className}`}
+//       className={`bg-surface rounded-2xl p-6 shadow-md border border-border ${className}`}
 //     >
-//       <h3 className="text-lg font-bold text-gray-900 mb-1">Quick EMI Calculator</h3>
-//       <p className="text-sm text-gray-600 mb-4">
+//       <h3 className="text-lg font-bold text-foreground mb-1">Quick EMI Calculator</h3>
+//       <p className="text-sm text-muted-foreground mb-4">
 //         Estimate monthly EMI for education loans. Results use standard monthly-compounding EMI formula.
 //       </p>
 
 //       {/* Inputs */}
 //       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
 //         <div>
-//           <label className="block text-xs text-gray-500 mb-1">Loan Amount (₹)</label>
+//           <label className="block text-xs text-muted-foreground mb-1">Loan Amount (₹)</label>
 //           <input
 //             type="number"
 //             min={0}
 //             value={principal}
 //             onChange={(e) => setPrincipal(Number(e.target.value || 0))}
-//             className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+//             className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
 //           />
 //         </div>
 
 //         <div>
-//           <label className="block text-xs text-gray-500 mb-1">Interest Rate (% p.a.)</label>
+//           <label className="block text-xs text-muted-foreground mb-1">Interest Rate (% p.a.)</label>
 //           <input
 //             type="number"
 //             step="0.05"
 //             min={0}
 //             value={annualRate}
 //             onChange={(e) => setAnnualRate(Number(e.target.value || 0))}
-//             className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+//             className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
 //           />
 //         </div>
 
 //         <div>
-//           <label className="block text-xs text-gray-500 mb-1">Tenure (years)</label>
+//           <label className="block text-xs text-muted-foreground mb-1">Tenure (years)</label>
 //           <input
 //             type="number"
 //             min={0.5}
 //             step="0.5"
 //             value={tenureYears}
 //             onChange={(e) => setTenureYears(Number(e.target.value || 0))}
-//             className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+//             className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
 //           />
 //         </div>
 //       </div>
 
 //       {/* Slider for tenure (optional extra UI) */}
 //       <div className="mb-4">
-//         <label className="text-xs text-gray-500">Adjust Tenure: {tenureYears} years</label>
+//         <label className="text-xs text-muted-foreground">Adjust Tenure: {tenureYears} years</label>
 //         <input
 //           type="range"
 //           min={1}
@@ -108,31 +108,31 @@
 
 //       {/* Results */}
 //       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-//         <div className="bg-sky-50/60 p-4 rounded-lg text-center border border-sky-100">
-//           <div className="text-sm text-gray-600">Monthly EMI</div>
-//           <div className="text-xl font-bold text-gray-900 mt-1">₹{formatINR(Math.round(emi))}</div>
+//         <div className="bg-sky-50/60 dark:bg-muted p-4 rounded-lg text-center border border-border">
+//           <div className="text-sm text-muted-foreground">Monthly EMI</div>
+//           <div className="text-xl font-bold text-foreground mt-1">₹{formatINR(Math.round(emi))}</div>
 //         </div>
 
-//         <div className="bg-white p-4 rounded-lg text-center border border-gray-100">
-//           <div className="text-sm text-gray-600">Total Payment</div>
-//           <div className="text-lg font-semibold text-gray-900 mt-1">₹{formatINR(Math.round(totalPayment))}</div>
+//         <div className="bg-surface p-4 rounded-lg text-center border border-border">
+//           <div className="text-sm text-muted-foreground">Total Payment</div>
+//           <div className="text-lg font-semibold text-foreground mt-1">₹{formatINR(Math.round(totalPayment))}</div>
 //         </div>
 
-//         <div className="bg-white p-4 rounded-lg text-center border border-gray-100">
-//           <div className="text-sm text-gray-600">Total Interest</div>
-//           <div className="text-lg font-semibold text-gray-900 mt-1">₹{formatINR(Math.round(totalInterest))}</div>
+//         <div className="bg-surface p-4 rounded-lg text-center border border-border">
+//           <div className="text-sm text-muted-foreground">Total Interest</div>
+//           <div className="text-lg font-semibold text-foreground mt-1">₹{formatINR(Math.round(totalInterest))}</div>
 //         </div>
 //       </div>
 
 //       {/* Small detail row */}
-//       <div className="mt-4 text-sm text-gray-600 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+//       <div className="mt-4 text-sm text-muted-foreground flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
 //         <div>Principal: ₹{formatINR(principal)}</div>
 //         <div>Rate (monthly): {(monthlyRate * 100).toFixed(4)}%</div>
 //         <div>Tenure: {months} months</div>
 //       </div>
 
      
-//       <div className="mt-4 text-xs text-gray-500">
+//       <div className="mt-4 text-xs text-muted-foreground">
 //         <strong>Note:</strong> For your example inputs (₹20,00,000 · 9.5% p.a. · 10 years) this calculator shows ₹{formatINR(Math.round(emi))} as Monthly EMI using the standard formula.
 //       </div>
 
@@ -240,52 +240,52 @@ const EMICalculator = ({ className = "" }) => {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className={`bg-white rounded-2xl p-6 shadow-md border border-gray-100 ${className}`}
+      className={`bg-surface rounded-2xl p-6 shadow-md border border-border ${className}`}
     >
-      <h3 className="text-lg font-bold text-gray-900 mb-1">{L.title}</h3>
-      <p className="text-sm text-gray-600 mb-4">{L.subtitle}</p>
+      <h3 className="text-lg font-bold text-foreground mb-1">{L.title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{L.subtitle}</p>
 
       {/* Inputs */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <div>
-          <label className="block text-xs text-gray-500 mb-1">{L.loanAmount}</label>
+          <label className="block text-xs text-muted-foreground mb-1">{L.loanAmount}</label>
           <input
             type="number"
             min={0}
             value={principal}
             onChange={(e) => setPrincipal(Number(e.target.value || 0))}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+            className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
           />
         </div>
 
         <div>
-          <label className="block text-xs text-gray-500 mb-1">{L.rate}</label>
+          <label className="block text-xs text-muted-foreground mb-1">{L.rate}</label>
           <input
             type="number"
             step="0.05"
             min={0}
             value={annualRate}
             onChange={(e) => setAnnualRate(Number(e.target.value || 0))}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+            className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
           />
         </div>
 
         <div>
-          <label className="block text-xs text-gray-500 mb-1">{L.tenure}</label>
+          <label className="block text-xs text-muted-foreground mb-1">{L.tenure}</label>
           <input
             type="number"
             min={0.5}
             step={0.5}
             value={tenureYears}
             onChange={(e) => setTenureYears(Number(e.target.value || 0))}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-300"
+            className="w-full px-3 py-2 rounded-lg border border-border bg-muted text-foreground focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700"
           />
         </div>
       </div>
 
       {/* Slider for tenure */}
       <div className="mb-4">
-        <label className="text-xs text-gray-500">
+        <label className="text-xs text-muted-foreground">
           {L.adjustTenure} {tenureYears} years
         </label>
         <input
@@ -301,30 +301,30 @@ const EMICalculator = ({ className = "" }) => {
 
       {/* Results */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-sky-50/60 p-4 rounded-lg text-center border border-sky-100">
-          <div className="text-sm text-gray-600">{L.monthlyEMI}</div>
-          <div className="text-xl font-bold text-gray-900 mt-1">
+        <div className="bg-sky-50/60 dark:bg-muted p-4 rounded-lg text-center border border-border">
+          <div className="text-sm text-muted-foreground">{L.monthlyEMI}</div>
+          <div className="text-xl font-bold text-foreground mt-1">
             ₹{formatINR(Math.round(emi))}
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-lg text-center border border-gray-100">
-          <div className="text-sm text-gray-600">{L.totalPaymentLabel}</div>
-          <div className="text-lg font-semibold text-gray-900 mt-1">
+        <div className="bg-surface p-4 rounded-lg text-center border border-border">
+          <div className="text-sm text-muted-foreground">{L.totalPaymentLabel}</div>
+          <div className="text-lg font-semibold text-foreground mt-1">
             ₹{formatINR(Math.round(totalPayment))}
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-lg text-center border border-gray-100">
-          <div className="text-sm text-gray-600">{L.totalInterestLabel}</div>
-          <div className="text-lg font-semibold text-gray-900 mt-1">
+        <div className="bg-surface p-4 rounded-lg text-center border border-border">
+          <div className="text-sm text-muted-foreground">{L.totalInterestLabel}</div>
+          <div className="text-lg font-semibold text-foreground mt-1">
             ₹{formatINR(Math.round(totalInterest))}
           </div>
         </div>
       </div>
 
       {/* Small detail row */}
-      <div className="mt-4 text-sm text-gray-600 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div className="mt-4 text-sm text-muted-foreground flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
           {L.principal} ₹{formatINR(principal)}
         </div>
@@ -336,7 +336,7 @@ const EMICalculator = ({ className = "" }) => {
         </div>
       </div>
 
-      <div className="mt-4 text-xs text-gray-500">
+      <div className="mt-4 text-xs text-muted-foreground">
         <strong>{L.notePrefix}</strong>{" "}
         {L.noteText.replace(
           "{emi}",

@@ -6,6 +6,7 @@ import ReactCountryFlag from "react-country-flag";
 import logo from "../../assets/logo.png";
 import { Menu, X, ChevronDown, User } from "lucide-react";
 import { useLogoutMutation, useGetCurrentUserQuery } from "../../store/apiSlice";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const { t, i18n } = useTranslation("common");
@@ -126,7 +127,7 @@ const Header = () => {
     { name: t("header.nav.about", "About Us"), href: "/about" },
     { name: t("header.nav.team", "Team"), href: "/team" },
     { name: t("header.nav.services", "Services"), href: "/services" },
-    { name: t("header.nav.pricing", "Process"), href: "/pricing" },
+    { name: t("header.nav.process", "Process"), href: "/process" },
     { name: t("header.nav.coaching", "Coaching"), href: "/coaching" },
     { name: t("header.nav.contact", "Contact"), href: "/contact" },
   ];
@@ -182,7 +183,7 @@ const Header = () => {
     <>
       <motion.header
         aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-sky-50"}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md dark:shadow-black/40" : "bg-background"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
@@ -215,8 +216,11 @@ const Header = () => {
                         aria-expanded={activeDropdown === item.name}
                         onKeyDown={(e) => handleDropdownKey(e, item.name)}
                         onClick={() => item.href && navigate(item.href)}
-                        className={`flex items-center gap-1 font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-300 ${isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
-                          }`}
+                        className={`flex items-center gap-1 font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-300 dark:focus:ring-sky-700 ${
+                          isActiveLink(item.href)
+                            ? "text-green-600 dark:text-green-400"
+                            : "text-foreground/80 hover:text-green-600 dark:hover:text-green-400"
+                        }`}
                       >
                         <span>{item.name}</span>
                         <ChevronDown className="w-4 h-4" />
@@ -225,7 +229,7 @@ const Header = () => {
                       <AnimatePresence>
                         {activeDropdown === item.name && (
                           <motion.div
-                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                            className="absolute top-full left-0 mt-2 w-56 bg-surface rounded-2xl border border-border shadow-2xl overflow-hidden z-50"
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
@@ -236,7 +240,7 @@ const Header = () => {
                                 <Link
                                   key={dropdownItem.to}
                                   to={dropdownItem.to}
-                                  className="block px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-xl text-sm transition-all"
+                                  className="block px-4 py-3 text-muted-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-xl text-sm transition-all"
                                 >
                                   {dropdownItem.name}
                                 </Link>
@@ -249,8 +253,11 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`font-medium transition-colors duration-300 ${isScrolled ? (isActiveLink(item.href) ? "text-green-600" : "text-gray-800 hover:text-green-600") : "text-gray-700 hover:text-green-500"
-                        }`}
+                      className={`font-medium transition-colors duration-300 ${
+                        isActiveLink(item.href)
+                          ? "text-green-600 dark:text-green-400"
+                          : "text-foreground/80 hover:text-green-600 dark:hover:text-green-400"
+                      }`}
                     >
                       {item.name}
                     </Link>
@@ -259,8 +266,12 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Right Side - Language selector, Profile & Mobile Menu */}
+            {/* Right Side - Theme, Language, Profile & Mobile Menu */}
             <div className="flex items-center gap-2">
+              <div className="hidden lg:block">
+                <ThemeToggle />
+              </div>
+
               {/* Language button (compact on small screens, expanded on md+) */}
               <div className="relative  hidden md:block">
                 <button
@@ -268,7 +279,7 @@ const Header = () => {
                   onKeyDown={(e) => handleDropdownKey(e, "lang")}
                   aria-haspopup="true"
                   aria-expanded={activeDropdown === "lang"}
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-white/90 border border-gray-200 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-white/90 border border-gray-200 text-foreground hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300 dark:bg-slate-800/90 dark:border-slate-600 dark:focus:ring-sky-700"
                   title={t("header.language_toggle", "Change language")}
                 >
                   {/* SVG flag */}
@@ -288,7 +299,7 @@ const Header = () => {
                 <AnimatePresence>
                   {activeDropdown === "lang" && (
                     <motion.div
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                      className="absolute right-0 mt-2 w-48 bg-surface rounded-2xl border border-border shadow-2xl overflow-hidden z-50"
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
@@ -299,7 +310,7 @@ const Header = () => {
                           <button
                             key={lang.code}
                             onClick={() => changeLanguage(lang.code)}
-                            className={`w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm flex items-center gap-3 ${lang.code === currentLang ? "font-semibold bg-gray-50" : ""}`}
+                            className={`w-full text-left px-3 py-2 rounded-lg hover:bg-muted transition-colors text-sm flex items-center gap-3 text-foreground ${lang.code === currentLang ? "font-semibold bg-muted" : ""}`}
                           >
                             <ReactCountryFlag countryCode={lang.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={lang.label} />
                             <span className="truncate">{lang.label}</span>
@@ -320,8 +331,11 @@ const Header = () => {
                 <button
                   type="button"
                   onClick={() => setIsProfileMenuOpen((prev) => !prev)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
-                    }`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
+                    isScrolled
+                      ? "bg-gradient-to-r from-green-600 to-sky-600 text-white"
+                      : "bg-white/90 dark:bg-slate-800/90 text-green-700 dark:text-green-400 hover:scale-105"
+                  }`}
                   aria-haspopup="true"
                   aria-expanded={isProfileMenuOpen}
                   aria-label={isAdmin ? t("header.admin_dashboard", "Admin Dashboard") : t("header.profile", "Profile")}
@@ -332,7 +346,7 @@ const Header = () => {
                 <AnimatePresence>
                   {isProfileMenuOpen && (
                     <motion.div
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                      className="absolute right-0 mt-2 w-48 bg-surface rounded-2xl border border-border shadow-2xl overflow-hidden z-50"
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
@@ -343,7 +357,7 @@ const Header = () => {
                           <>
                             <Link
                               to={profilePath}
-                              className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-foreground/80 hover:bg-muted transition-colors"
                               onClick={() => setIsProfileMenuOpen(false)}
                             >
                               {t("header.profile", "Profile")}
@@ -352,7 +366,7 @@ const Header = () => {
                               type="button"
                               onClick={handleLogout}
                               disabled={isLoggingOut}
-                              className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-between disabled:opacity-60"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 transition-colors flex items-center justify-between disabled:opacity-60"
                             >
                               {t("header.logout", "Logout")}
                               {isLoggingOut && (
@@ -364,14 +378,14 @@ const Header = () => {
                           <>
                             <Link
                               to="/login"
-                              className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-foreground/80 hover:bg-muted transition-colors"
                               onClick={() => setIsProfileMenuOpen(false)}
                             >
                               {t("header.login", "Login")}
                             </Link>
                             <Link
                               to="/register"
-                              className="px-3 py-2 rounded-xl text-sm font-medium text-green-600 hover:bg-green-50 transition-colors"
+                              className="px-3 py-2 rounded-xl text-sm font-medium text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-950/40 transition-colors"
                               onClick={() => setIsProfileMenuOpen(false)}
                             >
                               {t("header.register", "Register")}
@@ -386,8 +400,11 @@ const Header = () => {
 
               {/* Mobile Menu Button */}
               <motion.button
-                className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full focus:outline-none ${isScrolled ? "bg-white text-gray-800 shadow-sm" : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
-                  }`}
+                className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full focus:outline-none ${
+                  isScrolled
+                    ? "bg-surface text-foreground shadow-sm border border-border"
+                    : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
+                }`}
                 onClick={() => {
                   setIsMobileMenuOpen((prev) => !prev);
                   if (!isMobileMenuOpen) setActiveDropdown(null);
@@ -407,7 +424,7 @@ const Header = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-md"
+              className="lg:hidden bg-surface/95 backdrop-blur-md border-t border-border shadow-md"
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -419,7 +436,7 @@ const Header = () => {
                     {item.dropdown ? (
                       <>
                         <button
-                          className="w-full flex justify-between items-center px-4 py-2 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-all focus:outline-none"
+                          className="w-full flex justify-between items-center px-4 py-2 text-foreground font-medium rounded-lg hover:bg-muted transition-all focus:outline-none"
                           onClick={() => setActiveDropdown((prev) => (prev === item.name ? null : item.name))}
                           aria-expanded={activeDropdown === item.name}
                         >
@@ -440,7 +457,7 @@ const Header = () => {
                                 <Link
                                   key={dropdownItem.to}
                                   to={dropdownItem.to}
-                                  className="block px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-lg text-sm transition-all"
+                                  className="block px-4 py-2 text-muted-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
                                   onClick={() => {
                                     setIsMobileMenuOpen(false);
                                     setActiveDropdown(null);
@@ -456,7 +473,7 @@ const Header = () => {
                     ) : (
                       <Link
                         to={item.href}
-                        className="block px-4 py-2 text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-lg text-sm transition-all"
+                        className="block px-4 py-2 text-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -465,9 +482,13 @@ const Header = () => {
                   </div>
                 ))}
 
-                {/* Mobile language selector - full buttons with SVG flags */}
-                <div className="pt-3 border-t border-gray-100">
-                  <div className="text-sm font-medium px-4 py-2">{t("languages.select", "Language")}</div>
+                {/* Mobile theme + language */}
+                <div className="pt-3 border-t border-border">
+                  <div className="flex items-center justify-between px-4 py-2">
+                    <span className="text-sm font-medium text-foreground">{t("header.theme", "Theme")}</span>
+                    <ThemeToggle />
+                  </div>
+                  <div className="text-sm font-medium px-4 py-2 text-foreground">{t("languages.select", "Language")}</div>
                   <div className="flex flex-wrap gap-2 px-4 pb-3">
                     {availableLangs.map((l) => (
                       <button
@@ -476,7 +497,11 @@ const Header = () => {
                           changeLanguage(l.code);
                           setIsMobileMenuOpen(false);
                         }}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm border ${currentLang === l.code ? "bg-green-50 border-green-200 font-semibold" : "bg-white border-gray-200"}`}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm border text-foreground ${
+                          currentLang === l.code
+                            ? "bg-green-50 border-green-200 font-semibold dark:bg-green-950/40 dark:border-green-800"
+                            : "bg-surface border-border"
+                        }`}
                       >
                         <ReactCountryFlag countryCode={l.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={l.label} />
                         <span>{l.label}</span>

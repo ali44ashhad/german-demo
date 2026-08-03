@@ -5,7 +5,7 @@
       "about": "Über uns",
       "team": "Team",
       "services": "Dienstleistungen",
-      "pricing": "Ablauf",
+      "process": "Ablauf",
       "coaching": "Coaching",
       "contact": "Kontakt"
     },
@@ -17,7 +17,10 @@
     },
     "profile": "Profil",
     "open_menu": "Menü öffnen",
-    "close_menu": "Menü schließen"
+    "close_menu": "Menü schließen",
+    "theme": "Design",
+    "theme_to_dark": "Zum dunklen Design wechseln",
+    "theme_to_light": "Zum hellen Design wechseln"
   },
   "hero": {
     "title_line1": "Studieren in Deutschland",

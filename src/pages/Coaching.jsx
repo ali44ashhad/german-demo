@@ -48,7 +48,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-20 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -61,7 +61,7 @@
 //             }}
 //           />
 //           {/* Unified Bluish-Green Overlay */}
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply" />
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply dark:from-sky-700/70 dark:via-cyan-800/60 dark:to-emerald-900/70" />
 //         </div>
         
 //         <div className="relative z-10 max-w-7xl py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -94,25 +94,25 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
 //               transition={{ duration: 0.8 }}
 //             >
-//               <h2 className="text-4xl font-bold text-gray-900 mb-6">Premium Training Partners</h2>
-//               <div className="space-y-4 text-gray-700 mb-8">
+//               <h2 className="text-4xl font-bold text-foreground mb-6">Premium Training Partners</h2>
+//               <div className="space-y-4 text-muted-foreground mb-8">
 //                 <p className="leading-relaxed">
 //                   While we do not provide training directly, we have partnerships with well-established professional institutes that have a strong track record of successfully training students.
 //                 </p>
 //                 <p className="leading-relaxed">
 //                   These institutes are known for guiding learners effectively to achieve higher scores, which in turn enhances their profiles and supports their admission process.
 //                 </p>
-//                 <p className="leading-relaxed font-semibold text-emerald-700">
+//                 <p className="leading-relaxed font-semibold text-emerald-700 dark:text-emerald-400">
 //                   By applying for admission through us, you may also become eligible for exclusive discounts.
 //                 </p>
 //               </div>
 
-//               <div className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm">
-//                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                   <BookOpen className="w-6 h-6 text-emerald-600" />
+//               <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm">
+//                 <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+//                   <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
 //                   Access Requirements
 //                 </h3>
-//                 <p className="text-gray-700">
+//                 <p className="text-muted-foreground">
 //                   Access to our partner program is available only after you register with us. Once registered, you will be able to view and connect with our training partners directly through your personal profile.
 //                 </p>
 //               </div>
@@ -123,8 +123,8 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
 //               transition={{ duration: 0.8, delay: 0.2 }}
 //             >
-//               <div className="bg-white rounded-2xl p-8 border border-sky-100 shadow-sm">
-//                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits</h3>
+//               <div className="bg-surface rounded-2xl p-8 border border-border shadow-sm">
+//                 <h3 className="text-2xl font-bold text-foreground mb-6">Key Benefits</h3>
 //                 <div className="space-y-4">
 //                   {benefits.map((benefit, index) => (
 //                     <motion.div
@@ -134,8 +134,8 @@
 //                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
 //                       transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
 //                     >
-//                       <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-//                       <span className="text-gray-700">{benefit}</span>
+//                       <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+//                       <span className="text-muted-foreground">{benefit}</span>
 //                     </motion.div>
 //                   ))}
 //                 </div>
@@ -149,38 +149,38 @@
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //             transition={{ duration: 0.8, delay: 0.4 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Our Training Partners</h2>
+//             <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Our Training Partners</h2>
             
 //             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 //               {partnerInstitutes.map((institute, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm hover:shadow-md transition-all duration-300"
+//                   className="bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300"
 //                   whileHover={{ y: -10 }}
 //                 >
 //                   <div className="flex justify-between items-start mb-4">
-//                     <h3 className="text-xl font-bold text-gray-900">{institute.name}</h3>
-//                     <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-bold">
+//                     <h3 className="text-xl font-bold text-foreground">{institute.name}</h3>
+//                     <div className="bg-emerald-50 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-sm font-bold">
 //                       {institute.discount} OFF
 //                     </div>
 //                   </div>
 
 //                   <div className="space-y-3 mb-4">
 //                     {institute.courses.map((course, courseIndex) => (
-//                       <div key={courseIndex} className="flex items-center gap-2 text-gray-700 text-sm">
+//                       <div key={courseIndex} className="flex items-center gap-2 text-muted-foreground text-sm">
 //                         <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
 //                         {course}
 //                       </div>
 //                     ))}
 //                   </div>
 
-//                   <div className="flex justify-between items-center text-sm text-gray-600">
+//                   <div className="flex justify-between items-center text-sm text-muted-foreground">
 //                     <div className="flex items-center gap-1">
 //                       <Star className="w-4 h-4 text-amber-400" />
 //                       <span>{institute.rating}</span>
 //                     </div>
 //                     <div className="flex items-center gap-1">
-//                       <Users className="w-4 h-4 text-emerald-600" />
+//                       <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
 //                       <span>{institute.students}</span>
 //                     </div>
 //                   </div>
@@ -192,18 +192,18 @@
 //       </section>
 
 //       {/* Comparative Tests Table (added) */}
-//       <section className="py-12 bg-gradient-to-b from-white via-sky-50 to-white">
+//       <section className="py-12 bg-gradient-to-b from-white via-sky-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
 //         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h2 className="text-emerald-700 text-sm font-semibold not-italic leading-[normal] tracking-[2.8px] md:text-xl md:tracking-[4px]">Comparative Guide to English Proficiency Tests</h2>
-//           <h2 className="max-w-[340px] md:max-w-none md:text-5xl text-gray-900 font-extrabold not-italic !leading-[1.42] tracking-[normal] text-[1.75rem] mt-4">Essential Info for Test-Takers</h2>
+//           <h2 className="text-emerald-700 dark:text-emerald-400 text-sm font-semibold not-italic leading-[normal] tracking-[2.8px] md:text-xl md:tracking-[4px]">Comparative Guide to English Proficiency Tests</h2>
+//           <h2 className="max-w-[340px] md:max-w-none md:text-5xl text-foreground font-extrabold not-italic !leading-[1.42] tracking-[normal] text-[1.75rem] mt-4">Essential Info for Test-Takers</h2>
 
 //           <div className="h-[100%] overflow-auto mt-10 md:mt-10">
-//             <div className="rounded-2xl overflow-hidden border border-sky-200 shadow-sm">
+//             <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
 //               <div className="max-h-[500px] overflow-auto">
 //                 <table className="w-full min-w-[1200px]">
 //                   <thead className="sticky top-0 z-20 bg-sky-600 text-left font-semibold text-white">
 //                     <tr>
-//                       <th className="min-w-[120px] sticky left-0 z-30 font-bold text-left border-r border-sky-200 p-3 bg-sky-700">Exam Name</th>
+//                       <th className="min-w-[120px] sticky left-0 z-30 font-bold text-left border-r border-border p-3 bg-sky-700">Exam Name</th>
 //                       <th className="min-w-[200px] font-bold text-left p-3">Full Name</th>
 //                       <th className="min-w-[200px] font-bold text-left p-3">Purpose</th>
 //                       <th className="min-w-[200px] font-bold text-left p-3">Modules &amp; Skills Tested</th>
@@ -223,8 +223,8 @@
 //                   </thead>
 
 //                   <tbody>
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">PTE</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">PTE</td>
 //                       <td className="p-3">Pearson Test of English</td>
 //                       <td className="p-3">Student visa; college admissions</td>
 //                       <td className="p-3">Speaking &amp; Writing, Reading, Listening</td>
@@ -242,8 +242,8 @@
 //                       <td className="p-3">Total 52-73, S: 25-31, W: 2-4, R: 13-18, L: 12-20</td>
 //                     </tr>
 
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">IELTS</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">IELTS</td>
 //                       <td className="p-3">International English Language Testing System</td>
 //                       <td className="p-3">Student visa; college admissions</td>
 //                       <td className="p-3">Listening, Reading, Writing, Speaking</td>
@@ -262,8 +262,8 @@
 //                       <td className="p-3">L: 40, R: 40, W: 2, S: (P1: 9-10; P2: 1; P3: 5-6)</td>
 //                     </tr>
 
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">TOEFL</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">TOEFL</td>
 //                       <td className="p-3">Test of English as a Foreign Language</td>
 //                       <td className="p-3">Student visa; college admissions</td>
 //                       <td className="p-3">Reading, Listening, Speaking, Writing</td>
@@ -281,8 +281,8 @@
 //                       <td className="p-3">R: 20, L: 28, S: 4, W: 2</td>
 //                     </tr>
 
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">DUOLINGO</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">DUOLINGO</td>
 //                       <td className="p-3">Duolingo English Test [Adaptive Test]</td>
 //                       <td className="p-3">College admissions</td>
 //                       <td className="p-3">Literacy - read and write, Comprehension - read and listen, Production - write and speak, Conversation - listen and speak [individual and integrated]</td>
@@ -300,8 +300,8 @@
 //                       <td className="p-3">Total 50-58</td>
 //                     </tr>
 
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">CELPIP</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">CELPIP</td>
 //                       <td className="p-3">Canadian English Language Proficiency Index Program</td>
 //                       <td className="p-3">Student visa (Canada); Permanent Residence (Canada)</td>
 //                       <td className="p-3">Reading, Listening, Speaking, Writing [individual and integrated]</td>
@@ -319,8 +319,8 @@
 //                       <td className="p-3">L: 6 parts, 38+ MCQs, R: 4 parts, 38+ MCQs, W: 2 parts, 2 questions, S: 8 parts, 8 questions</td>
 //                     </tr>
 
-//                     <tr className="odd:bg-white even:bg-sky-50">
-//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-sky-200 p-3">CAEL</td>
+//                     <tr className="odd:bg-surface even:bg-sky-50">
+//                       <td className="sticky left-0 font-bold z-10 text-left bg-sky-100 border-y border-border p-3">CAEL</td>
 //                       <td className="p-3">Canadian Academic English Language</td>
 //                       <td className="p-3">College admissions (Canada); Student Visa (only CAEL at test centre) (Canada)</td>
 //                       <td className="p-3">Speaking, Reading, Listening, Academic Unit A, Academic Unit B</td>
@@ -349,14 +349,14 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-6"
+//             className="text-4xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           >
 //             Ready to Access Premium Training?
 //           </motion.h2>
 //           <motion.p 
-//             className="text-xl text-gray-700 mb-8"
+//             className="text-xl text-muted-foreground mb-8"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ delay: 0.2 }}
@@ -550,9 +550,9 @@ const FALLBACK = {
 const EXCLUDED_EXAMS = new Set(["CELPIP", "CAEL"]);
 
 const TABLE_HEADER_CLASS =
-  "px-3 py-2 text-left align-top text-[11px] sm:text-xs font-bold leading-tight border-b border-sky-500/30";
+  "px-3 py-2 text-left align-top text-[11px] sm:text-xs font-bold leading-tight border-b border-border text-gray-700 dark:text-sky-100";
 const TABLE_CELL_CLASS =
-  "px-3 py-2 text-left align-top text-[11px] sm:text-xs text-gray-700 leading-snug border-b border-sky-100";
+  "px-3 py-2 text-left align-top text-[11px] sm:text-xs text-muted-foreground leading-snug border-b border-border";
 
 const Coaching = () => {
   const ref = useRef(null);
@@ -581,7 +581,7 @@ const Coaching = () => {
   const cta = isObject(raw.cta) ? raw.cta : FALLBACK.cta;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -595,7 +595,7 @@ const Coaching = () => {
             }}
           />
           {/* Unified Bluish-Green Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply dark:from-sky-700/70 dark:via-cyan-800/60 dark:to-emerald-900/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -631,23 +631,23 @@ const Coaching = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-foreground mb-6">
                 {headings.premiumPartners}
               </h2>
-              <div className="space-y-4 text-gray-700 mb-8">
+              <div className="space-y-4 text-muted-foreground mb-8">
                 <p className="leading-relaxed">{paras[0]}</p>
                 <p className="leading-relaxed">{paras[1]}</p>
-                <p className="leading-relaxed font-semibold text-emerald-700">
+                <p className="leading-relaxed font-semibold text-emerald-700 dark:text-emerald-400">
                   {paras[2]}
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <BookOpen className="w-6 h-6 text-emerald-600" />
+              <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   {headings.accessReq}
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   {accessReqText}
                 </p>
               </div>
@@ -658,8 +658,8 @@ const Coaching = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="bg-white rounded-2xl p-8 border border-sky-100 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <div className="bg-surface rounded-2xl p-8 border border-border shadow-sm">
+                <h3 className="text-2xl font-bold text-foreground mb-6">
                   {headings.keyBenefits}
                 </h3>
                 <div className="space-y-4">
@@ -671,8 +671,8 @@ const Coaching = () => {
                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     >
-                      <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                      <span className="text-gray-700">{benefit}</span>
+                      <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                      <span className="text-muted-foreground">{benefit}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -683,27 +683,27 @@ const Coaching = () => {
       </section>
 
       {/* Comparative Tests Table */}
-      <section className="py-12 bg-gradient-to-b from-white via-sky-50 to-white">
+      <section className="py-12 bg-gradient-to-b from-white via-sky-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-emerald-700 text-sm font-semibold not-italic leading-[normal] tracking-[2.8px] md:text-xl md:tracking-[4px]">
+          <h2 className="text-emerald-700 dark:text-emerald-400 text-sm font-semibold not-italic leading-[normal] tracking-[2.8px] md:text-xl md:tracking-[4px]">
             {headings.compGuideKicker}
           </h2>
-          <h2 className="max-w-[340px] md:max-w-none md:text-5xl text-gray-900 font-extrabold not-italic !leading-[1.42] tracking-[normal] text-[1.75rem] mt-4">
+          <h2 className="max-w-[340px] md:max-w-none md:text-5xl text-foreground font-extrabold not-italic !leading-[1.42] tracking-[normal] text-[1.75rem] mt-4">
             {headings.compGuideTitle}
           </h2>
 
           <div className="mt-10 text-left">
-            <div className="rounded-2xl overflow-hidden border border-sky-200 shadow-sm bg-white">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-surface">
               <div className="overflow-x-auto overflow-y-visible">
                 <table className="w-full min-w-[1100px] border-collapse">
-                  <thead className="sticky top-0 z-20 bg-sky-600 text-white">
+                  <thead className="sticky top-0 z-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-sky-950 dark:to-slate-800">
                     <tr>
                       {tableHeaders.map((h, i) => (
                         <th
                           key={i}
                           className={
                             i === 0
-                              ? `${TABLE_HEADER_CLASS} sticky left-0 z-30 min-w-[7rem] w-[7rem] bg-sky-700 border-r border-sky-500/40 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)]`
+                              ? `${TABLE_HEADER_CLASS} sticky left-0 z-30 min-w-[7rem] w-[7rem] bg-green-50 dark:bg-sky-950 border-r border-border shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)]`
                               : `${TABLE_HEADER_CLASS} min-w-[10rem]`
                           }
                         >
@@ -717,11 +717,11 @@ const Coaching = () => {
                     {tableRows.map((row, rIdx) => (
                       <tr
                         key={rIdx}
-                        className={rIdx % 2 === 0 ? "bg-white" : "bg-sky-50/80"}
+                        className={`hover:bg-muted transition-colors ${rIdx % 2 === 0 ? "bg-surface" : "bg-sky-50/40 dark:bg-slate-900/40"}`}
                       >
                         <td
-                          className={`${TABLE_CELL_CLASS} sticky left-0 z-10 font-semibold text-gray-900 whitespace-nowrap border-r border-sky-200/80 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.06)] ${
-                            rIdx % 2 === 0 ? "bg-white" : "bg-sky-50"
+                          className={`${TABLE_CELL_CLASS} sticky left-0 z-10 font-semibold text-foreground whitespace-nowrap border-r border-border/80 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.06)] ${
+                            rIdx % 2 === 0 ? "bg-surface" : "bg-sky-50/40 dark:bg-slate-900/40"
                           }`}
                         >
                           {row.exam}
@@ -755,14 +755,14 @@ const Coaching = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-6"
+            className="text-4xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           >
             {headings.ctaTitle}
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-700 mb-8"
+            className="text-xl text-muted-foreground mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.2 }}

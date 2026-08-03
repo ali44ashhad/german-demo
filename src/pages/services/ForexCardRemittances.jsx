@@ -50,7 +50,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -94,7 +94,7 @@
 //             {features.map((feature, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+//                 className="bg-surface rounded-2xl p-8 border border-border shadow-sm hover:shadow-lg transition-all duration-300"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -105,15 +105,15 @@
 //                     <feature.icon className="w-6 h-6 text-white" />
 //                   </div>
 //                   <div>
-//                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-//                     <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+//                     <h3 className="text-2xl font-bold text-foreground mb-2">{feature.title}</h3>
+//                     <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
 //                   </div>
 //                 </div>
 
 //                 <div className="grid grid-cols-2 gap-2">
 //                   {feature.benefits.map((benefit, benefitIndex) => (
-//                     <div key={benefitIndex} className="flex items-center gap-2 text-sm text-gray-700">
-//                       <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+//                     <div key={benefitIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
+//                       <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                       <span>{benefit}</span>
 //                     </div>
 //                   ))}
@@ -124,12 +124,12 @@
 
 //           {/* Process Section */}
 //           <motion.div
-//             className="bg-green-50 rounded-3xl p-8 border border-green-100 shadow-sm"
+//             className="bg-green-50 dark:bg-muted rounded-3xl p-8 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //             transition={{ duration: 0.8, delay: 0.4 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Simple 4-Step Process</h2>
+//             <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Simple 4-Step Process</h2>
             
 //             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
 //               {process.map((step, index) => (
@@ -141,8 +141,8 @@
 //                   <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
 //                     {step.step}
 //                   </div>
-//                   <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-//                   <p className="text-gray-700 text-sm">{step.description}</p>
+//                   <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+//                   <p className="text-muted-foreground text-sm">{step.description}</p>
 //                 </motion.div>
 //               ))}
 //             </div>
@@ -150,14 +150,14 @@
 //         </div>
 //       </section>
  
-//       <section className="py-20 bg-green-50/30">
+//       <section className="py-20 bg-green-50/30 dark:bg-muted/50">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.div
 //             className="text-center mb-16"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Our Forex Services?</h2>
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Why Choose Our Forex Services?</h2>
 //           </motion.div>
 
 //           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -176,8 +176,8 @@
 //                 <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
 //                   <benefit.icon className="w-8 h-8 text-white" />
 //                 </div>
-//                 <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-//                 <p className="text-gray-700">{benefit.description}</p>
+//                 <h3 className="text-xl font-bold text-foreground mb-4">{benefit.title}</h3>
+//                 <p className="text-muted-foreground">{benefit.description}</p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -188,12 +188,12 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.div
-//             className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+//             className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Get Your Forex Card?</h2>
-//             <p className="text-xl text-gray-700 mb-8">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Ready to Get Your Forex Card?</h2>
+//             <p className="text-xl text-muted-foreground mb-8">
 //               Start your financial journey to Germany with the best forex solutions.
 //             </p>
 //             <motion.button
@@ -344,7 +344,7 @@ export default function ForexCardRemittances() {
   const cta = isObject(raw.cta) ? raw.cta : FALLBACK.cta;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -357,7 +357,7 @@ export default function ForexCardRemittances() {
               backgroundPosition: "center",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -390,7 +390,7 @@ export default function ForexCardRemittances() {
               return (
                 <motion.div
                   key={i}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="bg-surface rounded-2xl p-8 border border-border shadow-sm hover:shadow-lg transition-all duration-300"
                   initial={{ opacity: 0, y: 50 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
@@ -401,15 +401,15 @@ export default function ForexCardRemittances() {
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                      <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{feature.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
                     {feature.benefits.map((b, bi) => (
-                      <div key={bi} className="flex items-center gap-2 text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <div key={bi} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
                         <span>{b}</span>
                       </div>
                     ))}
@@ -421,12 +421,12 @@ export default function ForexCardRemittances() {
 
           {/* Process */}
           <motion.div
-            className="bg-green-50 rounded-3xl p-8 border border-green-100 shadow-sm"
+            className="bg-green-50 dark:bg-muted rounded-3xl p-8 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">
               {processTitle}
             </h2>
 
@@ -436,8 +436,8 @@ export default function ForexCardRemittances() {
                   <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                     {step.step}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-700 text-sm">{step.description}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -446,14 +446,14 @@ export default function ForexCardRemittances() {
       </section>
 
       {/* Why Choose */}
-      <section className="py-20 bg-green-50/30">
+      <section className="py-20 bg-green-50/30 dark:bg-muted/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{whyTitle}</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-6">{whyTitle}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -470,8 +470,8 @@ export default function ForexCardRemittances() {
                   <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{b.title}</h3>
-                  <p className="text-gray-700">{b.description}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-4">{b.title}</h3>
+                  <p className="text-muted-foreground">{b.description}</p>
                 </motion.div>
               );
             })}
@@ -483,12 +483,12 @@ export default function ForexCardRemittances() {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+            className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{cta.heading}</h2>
-            <p className="text-xl text-gray-700 mb-8">{cta.sub}</p>
+            <h2 className="text-4xl font-bold text-foreground mb-6">{cta.heading}</h2>
+            <p className="text-xl text-muted-foreground mb-8">{cta.sub}</p>
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}

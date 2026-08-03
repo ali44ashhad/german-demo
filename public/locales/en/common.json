@@ -6,7 +6,6 @@
       "team": "Team",
       "services": "Services",
       "process": "Process",
-      "pricing": "Process",
       "coaching": "Coaching",
       "contact": "Contact"
     },
@@ -18,7 +17,10 @@
     },
     "profile": "Profile",
     "open_menu": "Open menu",
-    "close_menu": "Close menu"
+    "close_menu": "Close menu",
+    "theme": "Theme",
+    "theme_to_dark": "Switch to dark theme",
+    "theme_to_light": "Switch to light theme"
   },
   "hero": {
     "title_line1": "Study in Germany",

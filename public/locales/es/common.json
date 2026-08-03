@@ -5,7 +5,7 @@
       "about": "Nosotros",
       "team": "Equipo",
       "services": "Servicios",
-      "pricing": "Proceso",
+      "process": "Proceso",
       "coaching": "Coaching",
       "contact": "Contacto"
     },
@@ -17,7 +17,10 @@
     },
     "profile": "Perfil",
     "open_menu": "Abrir menú",
-    "close_menu": "Cerrar menú"
+    "close_menu": "Cerrar menú",
+    "theme": "Tema",
+    "theme_to_dark": "Cambiar a tema oscuro",
+    "theme_to_light": "Cambiar a tema claro"
   },
   "hero": {
     "title_line1": "Estudiar en Alemania",

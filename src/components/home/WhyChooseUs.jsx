@@ -64,13 +64,13 @@
 //   return (
 //     <section
 //       ref={ref}
-//       className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 py-16 md:py-20 lg:py-28"
+//       className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-16 md:py-20 lg:py-28"
 //     >
 //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //         {/* Heading */}
 //         <div className="max-w-3xl mx-auto text-center mb-12">
 //           <motion.h2
-//             className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
+//             className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.7 }}
@@ -81,7 +81,7 @@
 //             </span>
 //           </motion.h2>
 //           <motion.p
-//             className="mt-6 text-base md:text-lg text-gray-700 leading-relaxed"
+//             className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed"
 //             initial={{ opacity: 0, y: 16 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
 //             transition={{ duration: 0.7, delay: 0.1 }}
@@ -99,14 +99,14 @@
 //         >
 //           {features.map((f, i) => (
 //             <motion.div key={i} variants={itemVariants} className="group">
-//               <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+//               <div className="relative bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
 //                 <div
 //                   className={`w-14 h-14 rounded-xl bg-gradient-to-r ${f.color} p-3 mb-4 flex items-center justify-center shadow-inner`}
 //                 >
 //                   <f.icon className="w-6 h-6 text-white" />
 //                 </div>
-//                 <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{f.title}</h3>
-//                 <p className="text-gray-600 text-sm md:text-base leading-relaxed mt-auto">{f.description}</p>
+//                 <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">{f.title}</h3>
+//                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed mt-auto">{f.description}</p>
 //               </div>
 //             </motion.div>
 //           ))}
@@ -119,21 +119,21 @@
 //           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           transition={{ duration: 0.7, delay: 0.2 }}
 //         >
-//           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-start gap-4">
+//           <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm flex items-start gap-4">
 //             <Globe className="w-8 h-8 text-green-600 flex-shrink-0" />
 //             <div>
-//               <h4 className="text-lg font-semibold text-gray-900">Specialization in European Admissions</h4>
-//               <p className="text-gray-600 text-sm md:text-base">
+//               <h4 className="text-lg font-semibold text-foreground">Specialization in European Admissions</h4>
+//               <p className="text-muted-foreground text-sm md:text-base">
 //                 We focus on top universities across Europe, providing insights into regional requirements, culture, and opportunities to help you pick the right destination.
 //               </p>
 //             </div>
 //           </div>
 
-//           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-start gap-4">
+//           <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm flex items-start gap-4">
 //             <MessageCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
 //             <div>
-//               <h4 className="text-lg font-semibold text-gray-900">Fully Online & Always Connected</h4>
-//               <p className="text-gray-600 text-sm md:text-base">
+//               <h4 className="text-lg font-semibold text-foreground">Fully Online & Always Connected</h4>
+//               <p className="text-muted-foreground text-sm md:text-base">
 //                 All services are delivered online. We'll be in touch via Email, TEAMS/Zoom, and WhatsApp for document reviews, mock interviews, application tracking, and onboarding help.
 //               </p>
 //             </div>
@@ -147,10 +147,10 @@
 //           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 //           transition={{ duration: 0.6 }}
 //         >
-//           <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+//           <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-surface rounded-2xl p-6 border border-border shadow-sm">
 //             <div className="text-left flex-1">
-//               <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Ready to build your roadmap?</h3>
-//               <p className="text-gray-600 text-sm md:text-base mt-2">
+//               <h3 className="text-2xl md:text-3xl font-bold text-foreground">Ready to build your roadmap?</h3>
+//               <p className="text-muted-foreground text-sm md:text-base mt-2">
 //                 Book a free consultation and let our experts craft a personalized plan for your European education journey.
 //               </p>
 //             </div>
@@ -297,7 +297,7 @@ const WhyChooseUs = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 py-16 md:py-20 lg:py-28"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-16 md:py-20 lg:py-28"
       aria-labelledby="why-choose-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -305,7 +305,7 @@ const WhyChooseUs = () => {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <motion.h2
             id="why-choose-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7 }}
@@ -317,7 +317,7 @@ const WhyChooseUs = () => {
           </motion.h2>
 {/* 
           <motion.p
-            className="mt-6 text-base md:text-lg text-gray-700 leading-relaxed"
+            className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -337,14 +337,14 @@ const WhyChooseUs = () => {
             const Icon = f.icon || DEFAULT_FEATURES[i].icon || Users;
             return (
               <motion.div key={f.key ?? i} variants={itemVariants} className="group">
-                <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
                   <div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-r ${f.color} p-3 mb-4 flex items-center justify-center shadow-inner`}
                   >
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 min-h-[3rem] md:min-h-[3.5rem]">{f.title}</h3>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mt-2">{f.description}</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 min-h-[3rem] md:min-h-[3.5rem]">{f.title}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed mt-2">{f.description}</p>
                 </div>
               </motion.div>
             );
@@ -358,21 +358,21 @@ const WhyChooseUs = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-start gap-4">
-            <Globe className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm flex items-start gap-4">
+            <Globe className="w-8 h-8 text-green-600 dark:text-green-400 flex-shrink-0" />
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">{add.specialization_title || 'Specialization in European Admissions'}</h4>
-              <p className="text-gray-600 text-sm md:text-base">
+              <h4 className="text-lg font-semibold text-foreground">{add.specialization_title || 'Specialization in European Admissions'}</h4>
+              <p className="text-muted-foreground text-sm md:text-base">
                 {add.specialization_text || 'We focus on top universities across Europe, providing insights into regional requirements, culture, and opportunities to help you pick the right destination.'}
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-start gap-4">
-            <MessageCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <div className="bg-surface rounded-2xl p-6 border border-border shadow-sm flex items-start gap-4">
+            <MessageCircle className="w-8 h-8 text-green-600 dark:text-green-400 flex-shrink-0" />
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">{add.online_title || 'Fully Online & Always Connected'}</h4>
-              <p className="text-gray-600 text-sm md:text-base">
+              <h4 className="text-lg font-semibold text-foreground">{add.online_title || 'Fully Online & Always Connected'}</h4>
+              <p className="text-muted-foreground text-sm md:text-base">
                 {add.online_text || "All services are delivered online. We'll be in touch via Email, and TEAMS/Zoom for document reviews, mock interviews, application tracking, and onboarding help."}
               </p>
             </div>
@@ -386,10 +386,10 @@ const WhyChooseUs = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-surface rounded-2xl p-6 border border-border shadow-sm">
             <div className="text-left flex-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{(cta.title) || 'Ready to build your career roadmap?'}</h3>
-              <p className="text-gray-600 text-sm md:text-base mt-2">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground">{(cta.title) || 'Ready to build your career roadmap?'}</h3>
+              <p className="text-muted-foreground text-sm md:text-base mt-2">
                 { (cta.text) || 'Book your consultation and let our experts craft a personalized plan for your European education journey.'}
               </p>
             </div>

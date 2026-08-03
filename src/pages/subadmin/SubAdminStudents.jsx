@@ -27,15 +27,15 @@ const statusBadgeClass = (status) => {
   const normalized = (status || "scheduled").toLowerCase();
   switch (normalized) {
     case "completed":
-      return "bg-green-100 text-green-700";
+      return "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300";
     case "cancelled":
-      return "bg-red-100 text-red-700";
+      return "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300";
     case "no-show":
-      return "bg-orange-100 text-orange-700";
+      return "bg-orange-100 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300";
     case "rescheduled":
-      return "bg-purple-100 text-purple-700";
+      return "bg-purple-100 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300";
     default:
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300";
   }
 };
 
@@ -51,7 +51,7 @@ const StudentCard = ({ student, onViewDetails, onViewBookings }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      className="flex h-full flex-col rounded-2xl border border-gray-100 p-6 shadow-sm transition-shadow hover:shadow-md bg-white"
+      className="flex h-full flex-col rounded-2xl border border-border p-6 shadow-sm transition-shadow hover:shadow-md bg-surface"
     >
       <div className="space-y-4">
         <div className="flex items-center gap-4">
@@ -59,7 +59,7 @@ const StudentCard = ({ student, onViewDetails, onViewBookings }) => {
             <img
               src={profileImage}
               alt={name}
-              className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+              className="w-16 h-16 rounded-full object-cover border-2 border-border"
             />
           ) : (
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-sky-400 flex items-center justify-center">
@@ -67,11 +67,11 @@ const StudentCard = ({ student, onViewDetails, onViewBookings }) => {
             </div>
           )}
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
+            <h3 className="text-lg font-semibold text-foreground">{name}</h3>
           </div>
         </div>
 
-        <div className="space-y-2 text-sm text-gray-600">
+        <div className="space-y-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-sky-600" />
             <span className="truncate">{email}</span>
@@ -94,7 +94,7 @@ const StudentCard = ({ student, onViewDetails, onViewBookings }) => {
           </button>
           <button
             onClick={() => onViewBookings(student)}
-            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-200"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-muted px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:opacity-80"
           >
             <FileText className="w-4 h-4" />
             View Bookings
@@ -139,29 +139,29 @@ const StudentBookingsModal = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-surface rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           >
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white z-10">
+            <div className="p-6 border-b border-border flex items-center justify-between sticky top-0 bg-surface z-10">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">Bookings</h2>
-                <p className="text-sm text-gray-600 mt-1">
+                <h2 className="text-2xl font-bold text-foreground">Bookings</h2>
+                <p className="text-sm text-muted-foreground mt-1">
                   {student?.name || "Student"} - {studentBookings.length} booking
                   {studentBookings.length !== 1 ? "s" : ""}
                 </p>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-muted rounded-lg transition-colors"
               >
-                <X className="w-5 h-5 text-gray-500" />
+                <X className="w-5 h-5 text-muted-foreground" />
               </button>
             </div>
 
             <div className="p-6">
               {studentBookings.length === 0 ? (
                 <div className="text-center py-16">
-                  <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">No bookings found for this student</p>
+                  <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground">No bookings found for this student</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -177,7 +177,7 @@ const StudentBookingsModal = ({
                         key={booking?._id || booking?.id}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow"
+                        className="border border-border rounded-xl p-4 hover:shadow-md transition-shadow"
                       >
                         <div className="flex flex-wrap items-center gap-3 mb-3">
                           <span
@@ -188,12 +188,12 @@ const StudentBookingsModal = ({
                             {status.toUpperCase()}
                           </span>
                           {amount && (
-                            <span className="text-sm font-semibold text-gray-700">
+                            <span className="text-sm font-semibold text-muted-foreground">
                               ₹{amount}
                             </span>
                           )}
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
                           <div className="flex items-center gap-2">
                             <Calendar className="h-4 w-4 text-sky-600" />
                             <span>{formatBookingDate(startDate)}</span>
@@ -208,8 +208,8 @@ const StudentBookingsModal = ({
                           </div>
                         </div>
                         {booking?.notes && (
-                          <div className="mt-3 pt-3 border-t border-gray-100">
-                            <p className="text-sm text-gray-500">{booking.notes}</p>
+                          <div className="mt-3 pt-3 border-t border-border">
+                            <p className="text-sm text-muted-foreground">{booking.notes}</p>
                           </div>
                         )}
                       </motion.div>
@@ -303,7 +303,7 @@ const SubAdminStudents = () => {
   const isLoading = isUserLoading || isUserFetching || isBookingsLoading || isBookingsFetching;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-6xl mx-auto space-y-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -323,36 +323,36 @@ const SubAdminStudents = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-white rounded-3xl border border-gray-100 shadow-lg p-8"
+          className="bg-surface rounded-3xl border border-border shadow-lg p-8"
         >
           {/* Search Bar */}
           <div className="mb-6">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Search students by name or email..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-border rounded-xl bg-surface text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
               />
             </div>
           </div>
 
           {isLoading ? (
-            <div className="flex items-center justify-center py-16 text-gray-500">
+            <div className="flex items-center justify-center py-16 text-muted-foreground">
               <Loader2 className="w-6 h-6 mr-3 animate-spin" />
               Loading students...
             </div>
           ) : filteredStudents.length === 0 ? (
             <div className="text-center py-16 space-y-4">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 text-sky-600">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 text-sky-600 dark:bg-sky-950/50 dark:text-sky-300">
                 <User className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-semibold text-gray-900">
+              <h2 className="text-2xl font-semibold text-foreground">
                 {debouncedSearch.trim() ? "No students found" : "No students yet"}
               </h2>
-              <p className="text-gray-600 max-w-md mx-auto">
+              <p className="text-muted-foreground max-w-md mx-auto">
                 {debouncedSearch.trim()
                   ? "Try adjusting your search query."
                   : "Students will appear here once they have bookings with you."}

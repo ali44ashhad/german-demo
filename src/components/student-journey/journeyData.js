@@ -18,36 +18,36 @@ import {
   Users,
 } from "lucide-react";
 
-/** Card color variants for the student journey flow. */
+/** Card color variants for the student journey flow (light + dark). */
 export const VARIANT_STYLES = {
   /** Steps 1–10: shared light blue */
   student: {
-    card: "bg-sky-100/90 border-sky-200",
+    card: "bg-sky-100/90 border-sky-200 dark:bg-sky-950/50 dark:border-sky-800",
     badge: "from-sky-400 to-sky-600",
-    iconBg: "bg-sky-50 text-sky-700",
+    iconBg: "bg-sky-50 text-sky-700 dark:bg-sky-900/60 dark:text-sky-300",
   },
   /** Step 11: decision window — light yellow */
   decisionHighlight: {
-    card: "bg-amber-100/90 border-amber-200",
+    card: "bg-amber-100/90 border-amber-200 dark:bg-amber-950/45 dark:border-amber-800",
     badge: "from-amber-400 to-amber-500",
-    iconBg: "bg-amber-50 text-amber-700",
+    iconBg: "bg-amber-50 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300",
   },
   /** After 11 on the YES path — green */
   success: {
-    card: "bg-emerald-100/90 border-emerald-200",
+    card: "bg-emerald-100/90 border-emerald-200 dark:bg-emerald-950/45 dark:border-emerald-800",
     badge: "from-emerald-500 to-green-600",
-    iconBg: "bg-emerald-50 text-emerald-700",
+    iconBg: "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300",
   },
   /** After NO — red */
   warning: {
-    card: "bg-red-100/90 border-red-200",
+    card: "bg-red-100/90 border-red-200 dark:bg-red-950/45 dark:border-red-800",
     badge: "from-red-500 to-rose-600",
-    iconBg: "bg-red-50 text-red-700",
+    iconBg: "bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-300",
   },
   decision: {
-    card: "bg-white border-gray-200",
+    card: "bg-white border-gray-200 dark:bg-surface dark:border-border",
     badge: "from-green-600 to-sky-600",
-    iconBg: "bg-gray-100 text-gray-700",
+    iconBg: "bg-gray-100 text-gray-700 dark:bg-muted dark:text-muted-foreground",
   },
 };
 

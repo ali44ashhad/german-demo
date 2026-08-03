@@ -19,15 +19,15 @@ const statusBadgeClass = (status) => {
   const normalized = (status || "scheduled").toLowerCase();
   switch (normalized) {
     case "completed":
-      return "bg-green-100 text-green-700";
+      return "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300";
     case "cancelled":
-      return "bg-red-100 text-red-700";
+      return "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300";
     case "no-show":
-      return "bg-orange-100 text-orange-700";
+      return "bg-orange-100 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300";
     case "rescheduled":
-      return "bg-purple-100 text-purple-700";
+      return "bg-purple-100 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300";
     default:
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300";
   }
 };
 
@@ -115,11 +115,11 @@ const ConsultationCard = ({ booking, notes = [] }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      className="flex h-full flex-col justify-between rounded-2xl border border-gray-100 p-6 shadow-sm transition-shadow hover:shadow-md"
+      className="flex h-full flex-col justify-between rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="space-y-4">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 text-lg font-semibold text-gray-900">
+          <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
             <User className="w-5 h-5 text-green-600" />
             {userName}
           </div>
@@ -129,7 +129,7 @@ const ConsultationCard = ({ booking, notes = [] }) => {
             {status.toUpperCase()}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-3 text-sm text-gray-600 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 text-sm text-muted-foreground sm:grid-cols-2">
           <div className="flex items-center gap-2 rounded-xl px-3 py-2">
             <Calendar className="h-4 w-4 text-sky-600" />
             <span>{formatBookingDate(startDate)}</span>
@@ -155,33 +155,33 @@ const ConsultationCard = ({ booking, notes = [] }) => {
                   Join Zoom
                 </a>
               ) : isZoomPending ? (
-                <div className="inline-flex items-center gap-2 text-xs text-gray-500">
+                <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                   <Loader2 className="h-4 w-4 animate-spin" />
                   <span>Preparing meeting...</span>
                 </div>
               ) : (
-                <span className="text-xs text-gray-500">Zoom link not available yet</span>
+                <span className="text-xs text-muted-foreground">Zoom link not available yet</span>
               )}
             </div>
           </div>
         </div>
 
         {previewNotes.length > 0 && (
-          <div className="rounded-xl bg-gray-50 p-4 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wide">
+          <div className="rounded-xl bg-muted p-4 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
               <FileText className="w-3.5 h-3.5" />
               Recent notes
             </div>
             {previewNotes.map((note) => (
-              <div key={note._id} className="text-sm border-t border-gray-200/80 pt-2 first:border-0 first:pt-0">
-                <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-1">
-                  <span className="font-medium text-gray-700">{getNoteAuthorName(note)}</span>
-                  <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-700">
+              <div key={note._id} className="text-sm border-t border-border/80 pt-2 first:border-0 first:pt-0">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-1">
+                  <span className="font-medium text-muted-foreground">{getNoteAuthorName(note)}</span>
+                  <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-700 dark:bg-sky-950/50 dark:text-sky-300">
                     {authorRoleLabel(note?.authorId?.role)}
                   </span>
                   <span>{formatNoteTimestamp(note?.createdAt)}</span>
                 </div>
-                <p className="text-gray-600">{truncateText(note?.content)}</p>
+                <p className="text-muted-foreground">{truncateText(note?.content)}</p>
               </div>
             ))}
             {studentId && (
@@ -257,7 +257,7 @@ const SubAdminConsultations = () => {
   const isLoading = isUserLoading || isUserFetching || isBookingsLoading || isBookingsFetching;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-6xl mx-auto space-y-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -276,20 +276,20 @@ const SubAdminConsultations = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-white rounded-3xl border border-gray-100 shadow-lg p-8"
+          className="bg-surface rounded-3xl border border-border shadow-lg p-8"
         >
           {isLoading ? (
-            <div className="flex items-center justify-center py-16 text-gray-500">
+            <div className="flex items-center justify-center py-16 text-muted-foreground">
               <Loader2 className="w-6 h-6 mr-3 animate-spin" />
               Loading your upcoming consultations...
             </div>
           ) : upcomingConsultations.length === 0 ? (
             <div className="text-center py-16 space-y-4">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 text-sky-600">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 text-sky-600 dark:bg-sky-950/50 dark:text-sky-300">
                 <Calendar className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-semibold text-gray-900">No upcoming consultations</h2>
-              <p className="text-gray-600 max-w-md mx-auto">
+              <h2 className="text-2xl font-semibold text-foreground">No upcoming consultations</h2>
+              <p className="text-muted-foreground max-w-md mx-auto">
                 You don&apos;t have any scheduled consultations right now. New sessions will appear here as soon as they&apos;re booked.
               </p>
             </div>

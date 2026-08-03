@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { UserPlus, Mail, Lock, User, Phone, Eye, EyeOff, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
 import { useRegisterMutation } from '../store/apiSlice';
+import ThemeToggle from '../components/common/ThemeToggle';
 
 const Register = () => {
   const { t } = useTranslation('common');
@@ -88,7 +89,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-20 px-4 sm:px-6 lg:px-8 relative">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-20 px-4 sm:px-6 lg:px-8 relative">
       {/* Back to Home Button */}
       <motion.div
         className="absolute top-6 left-4 sm:left-6 lg:left-8"
@@ -98,12 +99,15 @@ const Register = () => {
       >
         <Link
           to="/home"
-          className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-green-600 transition-colors duration-300 rounded-lg hover:bg-white/50"
+          className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 rounded-lg hover:bg-muted"
         >
           <ArrowLeft className="w-5 h-5" />
           <span className="font-medium">{t('auth.backToHome', 'Back to Home')}</span>
         </Link>
       </motion.div>
+      <div className="absolute top-6 right-4 sm:right-6 lg:right-8 z-10">
+        <ThemeToggle />
+      </div>
       <div className="max-w-md mx-auto">
         {/* Header */}
         <motion.div
@@ -119,17 +123,17 @@ const Register = () => {
           >
             <UserPlus className="w-8 h-8 text-white" />
           </motion.div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
             {t('auth.register.title', 'Create Your Account')}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             {t('auth.register.subtitle', 'Join us and start your German education journey')}
           </p>
         </motion.div>
 
         {/* Form Card */}
         <motion.div
-          className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg"
+          className="bg-surface rounded-3xl p-8 border border-border shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -148,10 +152,10 @@ const Register = () => {
               >
                 <CheckCircle className="w-10 h-10 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 {t('auth.register.success.title', 'Registration Successful!')}
               </h3>
-              <p className="text-gray-700 mb-6">
+              <p className="text-muted-foreground mb-6">
                 {successMessage}
               </p>
             </motion.div>
@@ -160,29 +164,29 @@ const Register = () => {
               {/* Error Message */}
               {error && (
                 <motion.div
-                  className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3"
+                  className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-start gap-3"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-red-700 text-sm">{error}</p>
+                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-red-700 dark:text-red-300 text-sm">{error}</p>
                 </motion.div>
               )}
 
               {/* Name */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.name', 'Full Name')} *
                 </label>
                 <div className="relative">
-                  <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.register.form.namePlaceholder', 'Enter your full name')}
                   />
                 </div>
@@ -190,18 +194,18 @@ const Register = () => {
 
               {/* Email */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.email', 'Email Address')} *
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.register.form.emailPlaceholder', 'Enter your email')}
                   />
                 </div>
@@ -209,17 +213,17 @@ const Register = () => {
 
               {/* Contact Number */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.contactNumber', 'Contact Number')}
                 </label>
                 <div className="relative">
-                  <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type="tel"
                     name="contactNumber"
                     value={formData.contactNumber}
                     onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.register.form.contactPlaceholder', '+91 12345 67890')}
                   />
                 </div>
@@ -227,7 +231,7 @@ const Register = () => {
 
               {/* Role */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.role', 'Role')} *
                 </label>
                 <select
@@ -235,7 +239,7 @@ const Register = () => {
                   value={formData.role}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-green-600 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-surface border border-border rounded-xl text-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                 >
                   {roles.map((role) => (
                     <option key={role.value} value={role.value}>
@@ -247,24 +251,24 @@ const Register = () => {
 
               {/* Password */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.password', 'Password')} *
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-12 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-12 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.register.form.passwordPlaceholder', 'Enter your password')}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -273,24 +277,24 @@ const Register = () => {
 
               {/* Confirm Password */}
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-2">
+                <label className="block text-muted-foreground text-sm font-medium mb-2">
                   {t('auth.register.form.confirmPassword', 'Confirm Password')} *
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-12 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300"
+                    className="w-full pl-12 pr-12 py-3 bg-surface border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
                     placeholder={t('auth.register.form.confirmPasswordPlaceholder', 'Confirm your password')}
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -326,11 +330,11 @@ const Register = () => {
 
           {/* Login Link */}
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               {t('auth.register.alreadyHaveAccount', 'Already have an account?')}{' '}
               <Link
                 to="/login"
-                className="text-green-600 font-semibold hover:text-green-700 transition-colors"
+                className="text-green-600 dark:text-green-400 font-semibold hover:text-green-700 dark:text-green-400 transition-colors"
               >
                 {t('auth.register.loginLink', 'Login here')}
               </Link>

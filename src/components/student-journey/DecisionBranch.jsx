@@ -25,20 +25,20 @@ const DecisionBranch = ({
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex items-center justify-center gap-3 p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-200">
-          <ThumbsUp className="w-8 h-8 text-emerald-600" />
-          <span className="text-xl font-bold text-emerald-800">{yesLabel}</span>
+        <div className="flex items-center justify-center gap-3 p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-800">
+          <ThumbsUp className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+          <span className="text-xl font-bold text-emerald-800 dark:text-emerald-200">{yesLabel}</span>
         </div>
-        <div className="flex items-center justify-center gap-3 p-6 rounded-3xl bg-red-50 border-2 border-red-200">
-          <ThumbsDown className="w-8 h-8 text-red-600" />
-          <span className="text-xl font-bold text-red-800">{noLabel}</span>
+        <div className="flex items-center justify-center gap-3 p-6 rounded-3xl bg-red-50 border-2 border-red-200 dark:bg-red-950/40 dark:border-red-800">
+          <ThumbsDown className="w-8 h-8 text-red-600 dark:text-red-400" />
+          <span className="text-xl font-bold text-red-800 dark:text-red-200">{noLabel}</span>
         </div>
       </Motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {/* YES: left column on desktop; below NO on mobile */}
         <div className="order-2 lg:order-1">
-          <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-4 text-center lg:text-left">
+          <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide mb-4 text-center lg:text-left">
             {yesLabel}
           </p>
           <div className="space-y-0">
@@ -82,7 +82,7 @@ const DecisionBranch = ({
 
         {/* NO: right column on desktop; above YES on mobile */}
         <div className="order-1 lg:order-2">
-          <p className="text-sm font-semibold text-red-700 uppercase tracking-wide mb-4 text-center lg:text-left">
+          <p className="text-sm font-semibold text-red-700 dark:text-red-400 uppercase tracking-wide mb-4 text-center lg:text-left">
             {noLabel}
           </p>
           <FlowStepCard

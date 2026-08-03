@@ -43,7 +43,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-20 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -89,8 +89,8 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
 //               transition={{ duration: 0.8 }}
 //             >
-//               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-//               <div className="space-y-4 text-gray-700">
+//               <h2 className="text-4xl font-bold text-foreground mb-6">Our Story</h2>
+//               <div className="space-y-4 text-muted-foreground">
 //                 <p className="leading-relaxed">
 //                   Having started our own journeys as international students 10–15 years ago, we have first-hand knowledge of the challenges, decisions, and transitions involved. Today, we are established professionals across diverse industries and domains in Europe.
 //                 </p>
@@ -110,9 +110,9 @@
 //               transition={{ duration: 0.8, delay: 0.2 }}
 //             >
 //               {stats.map((stat, index) => (
-//                 <div key={index} className="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm">
-//                   <div className="text-2xl md:text-3xl font-bold text-green-600 mb-2">{stat.number}</div>
-//                   <div className="text-gray-700 text-sm">{stat.label}</div>
+//                 <div key={index} className="bg-surface rounded-2xl p-6 text-center border border-border shadow-sm">
+//                   <div className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{stat.number}</div>
+//                   <div className="text-muted-foreground text-sm">{stat.label}</div>
 //                 </div>
 //               ))}
 //             </motion.div>
@@ -128,14 +128,14 @@
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Values & Philosophy</h2>
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Our Values & Philosophy</h2>
 //           </motion.div>
 
 //           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 //             {values.map((value, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-all duration-300"
+//                 className="bg-surface rounded-2xl p-8 border border-border hover:shadow-md transition-all duration-300"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -144,8 +144,8 @@
 //                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${value.color} flex items-center justify-center mb-6 shadow-inner`}>
 //                   <value.icon className="w-8 h-8 text-white" />
 //                 </div>
-//                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-//                 <p className="text-gray-700 leading-relaxed">{value.description}</p>
+//                 <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
+//                 <p className="text-muted-foreground leading-relaxed">{value.description}</p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -156,14 +156,14 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-6"
+//             className="text-4xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           >
 //             Ready to Start Your Journey?
 //           </motion.h2>
 //           <motion.p 
-//             className="text-lg text-gray-700 mb-8"
+//             className="text-lg text-muted-foreground mb-8"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ delay: 0.2 }}
@@ -287,7 +287,7 @@ const About = () => {
   const cta = (rawCta && Object.keys(rawCta).length) ? rawCta : FALLBACK.cta;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -300,7 +300,7 @@ const About = () => {
               backgroundPosition: 'center'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -333,10 +333,10 @@ const About = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-foreground mb-6">
                 {story.heading}
               </h2>
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-4 text-muted-foreground">
                 {(Array.isArray(story.paragraphs) ? story.paragraphs : FALLBACK.story.paragraphs).map((p, i) => (
                   <p className="leading-relaxed" key={i}>
                     {p}
@@ -352,9 +352,9 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {stats.map((stat, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm">
-                  <div className="text-2xl md:text-3xl font-bold text-green-600 mb-2">{stat.number}</div>
-                  <div className="text-gray-700 text-sm">{stat.label}</div>
+                <div key={index} className="bg-surface rounded-2xl p-6 text-center border border-border shadow-sm">
+                  <div className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{stat.number}</div>
+                  <div className="text-muted-foreground text-sm">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -370,7 +370,7 @@ const About = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{valuesHeading}</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-6">{valuesHeading}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -379,7 +379,7 @@ const About = () => {
               return (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-all duration-300"
+                  className="bg-surface rounded-2xl p-8 border border-border hover:shadow-md transition-all duration-300"
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -388,8 +388,8 @@ const About = () => {
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${value.color ?? 'from-green-600 to-sky-600'} flex items-center justify-center mb-6 shadow-inner`}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{value.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </motion.div>
               );
             })}
@@ -401,14 +401,14 @@ const About = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-6"
+            className="text-4xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           >
             {cta.heading}
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-700 mb-8"
+            className="text-lg text-muted-foreground mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.2 }}

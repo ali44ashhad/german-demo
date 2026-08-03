@@ -43,7 +43,7 @@ const Services = () => {
     : [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -56,7 +56,7 @@ const Services = () => {
             }}
           />
           {/* Unified Bluish-Green Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/60 via-cyan-600/50 to-emerald-600/60 mix-blend-multiply dark:from-sky-700/70 dark:via-cyan-800/60 dark:to-emerald-900/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -89,7 +89,7 @@ const Services = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">
               Explore What We Offer
             </h2>
 
@@ -99,20 +99,20 @@ const Services = () => {
                 return (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-2xl h-full p-6 border border-sky-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group"
+                    className="bg-surface rounded-2xl h-full p-6 border border-border shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <div className="w-14 h-14 rounded-xl bg-sky-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                    <div className="w-14 h-14 rounded-xl bg-sky-50 dark:bg-muted text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                       <Icon className="w-7 h-7" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-emerald-700 dark:text-emerald-400 transition-colors duration-300">
                       {service.title}
                     </h3>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                       {service.description}
                     </p>
                   </motion.div>
@@ -120,32 +120,32 @@ const Services = () => {
               })}
             </div>
 
-            <div className="mt-12 bg-white rounded-2xl border border-sky-100 shadow-sm p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+            <div className="mt-12 bg-surface rounded-2xl border border-border shadow-sm p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
                 <span className="bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent">
                   {t("services.shortTermVisa.title")}
                 </span>
               </h3>
 
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {t("services.shortTermVisa.intro")}
               </p>
 
-              <ul className="space-y-2 text-gray-700 text-sm mb-5 list-disc list-inside marker:text-emerald-600">
+              <ul className="space-y-2 text-muted-foreground text-sm mb-5 list-disc list-inside marker:text-emerald-600 dark:text-emerald-400">
                 {visaCategories.map((cat, idx) => (
                   <li key={`${cat}_${idx}`}>{cat}</li>
                 ))}
               </ul>
 
-              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                 {t("services.shortTermVisa.thankYou")}
               </p>
 
-              <div className="rounded-xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-emerald-50 p-5 md:p-6">
-                <div className="text-emerald-700 font-semibold mb-2 text-sm">
+              <div className="rounded-xl border border-border bg-gradient-to-br from-sky-50 via-white to-emerald-50 dark:from-slate-800/80 dark:via-slate-800/50 dark:to-emerald-950/30 p-5 md:p-6">
+                <div className="text-emerald-700 dark:text-emerald-400 font-semibold mb-2 text-sm">
                   {t("services.shortTermVisa.additionalServicesOfferedLabel")}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {t("services.shortTermVisa.partnershipText")}
                 </p>
               </div>

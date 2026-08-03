@@ -197,7 +197,7 @@ const Process = () => {
   return (
     <section
       ref={ref}
-      className="relative py-16 md:py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 overflow-hidden"
+      className="relative py-16 md:py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
@@ -211,12 +211,12 @@ const Process = () => {
 
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <Motion.div
-          className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/20 rounded-full blur-3xl"
           animate={{ scale: [1, 1.4, 1], rotate: [0, 90, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
         />
         <Motion.div
-          className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 dark:bg-emerald-900/15 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], x: [0, 50, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -230,23 +230,23 @@ const Process = () => {
           transition={{ duration: 0.7 }}
         >
           <Motion.div
-            className="inline-flex items-center gap-2 bg-green-50/50 border border-green-100 rounded-full px-5 py-2.5 mb-6"
+            className="inline-flex items-center gap-2 bg-green-50/50 dark:bg-muted border border-green-100 dark:border-border rounded-full px-5 py-2.5 mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Sparkles className="w-5 h-5 text-green-600" aria-hidden />
-            <span className="text-green-600 font-semibold text-sm sm:text-base">
+            <Sparkles className="w-5 h-5 text-green-600 dark:text-green-400" aria-hidden />
+            <span className="text-green-600 dark:text-green-400 font-semibold text-sm sm:text-base">
               {t('process.badge')}
             </span>
           </Motion.div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-gray-900 uppercase tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-foreground uppercase tracking-tight leading-tight mb-4">
             {t('process.titlePrefix')}
             <span className="block mt-1">{t('process.titleMain')}</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t('process.accordionSub')}
           </p>
         </Motion.div>

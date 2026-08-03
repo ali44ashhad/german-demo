@@ -14,7 +14,7 @@ const FlowConnector = ({ isLast = false, reducedMotion = false }) => {
         style={{ width: DOT_SIZE, height: TRACK_HEIGHT }}
       >
         <div
-          className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-sky-300 to-emerald-400 opacity-60"
+          className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-sky-300 to-emerald-400 opacity-60 dark:from-sky-500 dark:to-emerald-500 dark:opacity-80"
         />
         {!reducedMotion && (
           <motion.div

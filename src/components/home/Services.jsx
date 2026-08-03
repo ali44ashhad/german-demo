@@ -86,10 +86,10 @@
 //   };
 
 //   return (
-//     <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 overflow-hidden">
+//     <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 overflow-hidden">
 //       {/* Soft Decorative Blobs */}
-//       <div className="absolute top-6 right-12 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl animate-pulse-slow" />
-//       <div className="absolute bottom-6 left-12 w-80 h-80 bg-green-200/30 rounded-full blur-3xl animate-pulse-slower" />
+//       <div className="absolute top-6 right-12 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/20 rounded-full blur-3xl animate-pulse-slow" />
+//       <div className="absolute bottom-6 left-12 w-80 h-80 bg-green-200/30 dark:bg-emerald-900/15 rounded-full blur-3xl animate-pulse-slower" />
 
 //       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //         {/* Section Header */}
@@ -100,7 +100,7 @@
 //           transition={{ duration: 0.8 }}
 //         >
 //           <motion.div
-//             className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 border border-green-100 rounded-full px-6 py-3 mb-6"
+//             className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 border border-border rounded-full px-6 py-3 mb-6"
 //             initial={{ opacity: 0, scale: 0.95 }}
 //             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
 //             transition={{ duration: 0.6, delay: 0.15 }}
@@ -110,7 +110,7 @@
 //           </motion.div>
 
 //           <motion.h2
-//             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+//             className="text-4xl md:text-5xl font-bold text-foreground mb-4"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.6, delay: 0.25 }}
@@ -122,7 +122,7 @@
 //           </motion.h2>
           
 //           <motion.p
-//             className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
+//             className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ duration: 0.6, delay: 0.35 }}
@@ -157,7 +157,7 @@
 
 //               <Link to={service.link} className="block relative z-10" aria-label={`${service.title} — Learn more`}>
 //                 <motion.div
-//                   className="relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
+//                   className="relative bg-surface rounded-3xl p-8 border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
 //                   whileHover={{ 
 //                     y: -8,
 //                     scale: 1.01,
@@ -185,8 +185,8 @@
 //                   </motion.div>
 
 //                   <div className="flex-1">
-//                     <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
-//                     <p className="text-gray-700 mb-5 leading-relaxed">{service.description}</p>
+//                     <h3 className="text-2xl font-bold text-foreground mb-3">{service.title}</h3>
+//                     <p className="text-muted-foreground mb-5 leading-relaxed">{service.description}</p>
 
 //                     <div className="space-y-2 mb-6">
 //                       {service.features.map((feature, featureIndex) => (
@@ -198,7 +198,7 @@
 //                           transition={{ duration: 0.45, delay: service.delay + featureIndex * 0.08 }}
 //                         >
 //                           <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-//                           <span className="text-gray-700 text-sm">{feature}</span>
+//                           <span className="text-muted-foreground text-sm">{feature}</span>
 //                         </motion.div>
 //                       ))}
 //                     </div>
@@ -233,17 +233,17 @@
 //   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //   transition={{ duration: 0.7, delay: 0.6 }}
 // >
-//   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-white/60 rounded-2xl p-4 sm:p-6 border border-gray-100 shadow-sm relative">
+//   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-surface/60 rounded-2xl p-4 sm:p-6 border border-border shadow-sm relative">
     
 //     <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold">
 //       <CheckCircle className="w-6 h-6" />
 //     </div>
     
 //     <div className="text-center sm:text-left flex-1">
-//       <h3 className="text-base sm:text-lg font-bold text-gray-900">
+//       <h3 className="text-base sm:text-lg font-bold text-foreground">
 //         Need Comprehensive Support?
 //       </h3>
-//       <p className="text-sm sm:text-gray-700 mt-1 sm:mt-2">
+//       <p className="text-sm sm:text-muted-foreground mt-1 sm:mt-2">
 //         Explore all our services in detail and get personalized assistance.
 //       </p>
 //     </div>
@@ -421,10 +421,10 @@ const Services = () => {
   };
 
   return (
-    <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 overflow-hidden">
+    <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 overflow-hidden">
       {/* Soft Decorative Blobs */}
-      <div className="absolute top-6 right-12 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-6 left-12 w-80 h-80 bg-green-200/30 rounded-full blur-3xl animate-pulse-slower" />
+      <div className="absolute top-6 right-12 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/20 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-6 left-12 w-80 h-80 bg-green-200/30 dark:bg-emerald-900/15 rounded-full blur-3xl animate-pulse-slower" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -435,17 +435,17 @@ const Services = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 border border-green-100 rounded-full px-6 py-3 mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 border border-border rounded-full px-6 py-3 mb-6"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <Star className="w-5 h-5 text-green-600" />
-            <span className="text-green-700 font-semibold">{t('services.header_short') || 'Essential Services'}</span>
+            <Star className="w-5 h-5 text-green-600 dark:text-green-400" />
+            <span className="text-green-700 dark:text-green-400 font-semibold">{t('services.header_short') || 'Essential Services'}</span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.25 }}
@@ -457,7 +457,7 @@ const Services = () => {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.35 }}
@@ -494,7 +494,7 @@ const Services = () => {
 
                 <Link to={service.link ?? '#'} className="block relative z-10 h-full flex flex-col" aria-label={`${service.title} — Learn more`}>
                   <motion.div
-                    className="relative bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
+                    className="relative bg-surface rounded-3xl p-6 sm:p-8 border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col"
                     whileHover={{
                       y: -8,
                       scale: 1.01,
@@ -522,8 +522,8 @@ const Services = () => {
                     </motion.div>
 
                     <div className="flex-1 flex flex-col min-h-0">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">{service.title}</h3>
-                      <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-5 leading-relaxed flex-shrink-0">{service.description}</p>
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 sm:mb-3">{service.title}</h3>
+                      <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5 leading-relaxed flex-shrink-0">{service.description}</p>
 
                       <div className="space-y-2 mb-4 sm:mb-6 flex-1 min-h-0">
                         {(Array.isArray(service.features) ? service.features : []).map((feature, featureIndex) => (
@@ -534,8 +534,8 @@ const Services = () => {
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                             transition={{ duration: 0.45, delay: (service.delay || 0) + featureIndex * 0.08 }}
                           >
-                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700 text-xs sm:text-sm">{feature}</span>
+                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                            <span className="text-muted-foreground text-xs sm:text-sm">{feature}</span>
                           </motion.div>
                         ))}
                       </div>
@@ -567,14 +567,14 @@ const Services = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, delay: 0.6 }}
         >
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-white/60 rounded-2xl p-4 sm:p-6 border border-gray-100 shadow-sm relative">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-surface/80 rounded-2xl p-4 sm:p-6 border border-border shadow-sm relative">
             <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold">
               <CheckCircle className="w-6 h-6" />
             </div>
 
             <div className="text-center sm:text-left flex-1">
-              <h3 className="text-base sm:text-lg font-bold text-gray-900">{t('services.cta.need_support_title') || 'Need Comprehensive Support?'}</h3>
-              <p className="text-sm sm:text-gray-700 mt-1 sm:mt-2">{t('services.cta.need_support_text') || 'Explore all our services in detail and get personalized assistance.'}</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground">{t('services.cta.need_support_title') || 'Need Comprehensive Support?'}</h3>
+              <p className="text-sm text-muted-foreground mt-1 sm:mt-2">{t('services.cta.need_support_text') || 'Explore all our services in detail and get personalized assistance.'}</p>
             </div>
 
             <Link to="/services" className="mt-3 sm:mt-0 sm:ml-4 flex-shrink-0">

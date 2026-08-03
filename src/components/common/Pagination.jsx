@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 
+const pageBtnClass =
+  "w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-surface text-muted-foreground hover:bg-muted hover:border-slate-400 dark:hover:border-slate-500 transition-all shadow-sm";
+
 const Pagination = ({ pagination, currentPage, onPageChange }) => {
   // Support different pagination field names (totalUsers, totalBookings, etc.)
   const totalItems = pagination?.totalUsers || pagination?.totalBookings || pagination?.totalServices || pagination?.total || 0;
@@ -9,18 +12,18 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex items-center gap-2 bg-white rounded-2xl border border-gray-200 shadow-lg px-3 py-2">
+      <div className="flex items-center gap-2 bg-surface rounded-2xl border border-border shadow-lg dark:shadow-black/30 px-3 py-2">
         {/* Page Info */}
-        <div className="text-xs text-gray-600 font-medium hidden md:block mr-1">
-          <span className="text-gray-500">Page</span>{" "}
-          <span className="text-gray-900 font-bold">{pagination.currentPage}</span>
-          <span className="text-gray-400 mx-1">/</span>
-          <span className="text-gray-700 font-semibold">{pagination.totalPages}</span>
+        <div className="text-xs text-muted-foreground font-medium hidden md:block mr-1">
+          <span className="text-muted-foreground/80">Page</span>{" "}
+          <span className="text-foreground font-bold">{pagination.currentPage}</span>
+          <span className="text-muted-foreground/60 mx-1">/</span>
+          <span className="text-foreground/80 font-semibold">{pagination.totalPages}</span>
         </div>
 
         {pagination.totalPages > 1 && (
           <>
-            <div className="h-6 w-px bg-gray-200 hidden md:block"></div>
+            <div className="h-6 w-px bg-border hidden md:block"></div>
 
             {/* First Page Button */}
             {pagination.totalPages > 5 && currentPage > 3 && (
@@ -28,7 +31,7 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
                 onClick={() => onPageChange(1)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all shadow-sm"
+                className={pageBtnClass}
                 title="First page"
               >
                 <ChevronsLeft className="w-4 h-4" />
@@ -41,7 +44,7 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
               disabled={currentPage === 1 || pagination.totalPages === 1}
               whileHover={{ scale: currentPage !== 1 && pagination.totalPages > 1 ? 1.1 : 1 }}
               whileTap={{ scale: currentPage !== 1 && pagination.totalPages > 1 ? 0.9 : 1 }}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 hover:border-gray-400 transition-all shadow-sm"
+              className={`${pageBtnClass} disabled:opacity-40 disabled:cursor-not-allowed`}
               title="Previous page"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -70,7 +73,7 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
                       className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-bold transition-all shadow-sm ${
                         currentPage === pageNum
                           ? "bg-gradient-to-r from-green-600 to-sky-600 text-white border-2 border-transparent shadow-md scale-105"
-                          : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-gray-400"
+                          : "bg-surface text-muted-foreground border border-border hover:bg-muted hover:border-slate-400 dark:hover:border-slate-500"
                       }`}
                     >
                       {pageNum}
@@ -90,7 +93,7 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
               disabled={currentPage === pagination.totalPages || pagination.totalPages === 1}
               whileHover={{ scale: currentPage !== pagination.totalPages && pagination.totalPages > 1 ? 1.1 : 1 }}
               whileTap={{ scale: currentPage !== pagination.totalPages && pagination.totalPages > 1 ? 0.9 : 1 }}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 hover:border-gray-400 transition-all shadow-sm"
+              className={`${pageBtnClass} disabled:opacity-40 disabled:cursor-not-allowed`}
               title="Next page"
             >
               <ChevronRight className="w-4 h-4" />
@@ -102,7 +105,7 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
                 onClick={() => onPageChange(pagination.totalPages)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all shadow-sm"
+                className={pageBtnClass}
                 title="Last page"
               >
                 <ChevronsRight className="w-4 h-4" />
@@ -116,4 +119,3 @@ const Pagination = ({ pagination, currentPage, onPageChange }) => {
 };
 
 export default Pagination;
-

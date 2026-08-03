@@ -6,6 +6,7 @@ import ReactCountryFlag from "react-country-flag";
 import logo from "../../assets/logo.png";
 import { useLogoutMutation, useGetCurrentUserQuery } from "../../store/apiSlice";
 import { useTranslation } from "react-i18next";
+import ThemeToggle from "./ThemeToggle";
 
 const SubAdminHeader = () => {
   const { t, i18n } = useTranslation("common");
@@ -136,7 +137,7 @@ const SubAdminHeader = () => {
   return (
     <motion.header
       aria-label="Sub-admin navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-sky-50"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md dark:shadow-black/40" : "bg-background"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
@@ -150,13 +151,9 @@ const SubAdminHeader = () => {
                 <Link
                   to={item.href}
                   className={`font-medium transition-colors duration-300 ${
-                    isScrolled
-                      ? isActiveLink(item.href)
-                        ? "text-green-600"
-                        : "text-gray-800 hover:text-green-600"
-                      : isActiveLink(item.href)
-                      ? "text-green-700"
-                      : "text-gray-700 hover:text-green-500"
+                    isActiveLink(item.href)
+                      ? "text-green-600 dark:text-green-400"
+                      : "text-foreground/80 hover:text-green-600 dark:hover:text-green-400"
                   }`}
                 >
                   {item.name}
@@ -166,13 +163,17 @@ const SubAdminHeader = () => {
           </nav>
 
           <div className="flex items-center gap-2">
+            <div className="hidden lg:block">
+              <ThemeToggle />
+            </div>
+
             <div className="relative hidden md:block">
               <button
                 onClick={() => setActiveDropdown((prev) => (prev === "lang" ? null : "lang"))}
                 onKeyDown={(e) => handleDropdownKey(e, "lang")}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === "lang"}
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-white/90 border border-gray-200 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-white/90 border border-gray-200 text-foreground hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300 dark:bg-slate-800/90 dark:border-slate-600 dark:focus:ring-sky-700"
                 title={t("header.language_toggle", "Change language")}
               >
                 <ReactCountryFlag
@@ -188,7 +189,7 @@ const SubAdminHeader = () => {
               <AnimatePresence>
                 {activeDropdown === "lang" && (
                   <motion.div
-                    className="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                    className="absolute right-0 mt-2 w-48 bg-surface rounded-2xl border border-border shadow-2xl overflow-hidden z-50"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
@@ -199,8 +200,8 @@ const SubAdminHeader = () => {
                         <button
                           key={lang.code}
                           onClick={() => changeLanguage(lang.code)}
-                          className={`w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm flex items-center gap-3 ${
-                            lang.code === currentLang ? "font-semibold bg-gray-50" : ""
+                          className={`w-full text-left px-3 py-2 rounded-lg hover:bg-muted transition-colors text-sm flex items-center gap-3 text-foreground ${
+                            lang.code === currentLang ? "font-semibold bg-muted" : ""
                           }`}
                         >
                           <ReactCountryFlag countryCode={lang.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={lang.label} />
@@ -222,7 +223,9 @@ const SubAdminHeader = () => {
                 type="button"
                 onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                 className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform duration-300 focus:outline-none ${
-                  isScrolled ? "bg-gradient-to-r from-green-600 to-sky-600 text-white" : "bg-white/90 text-green-700 hover:scale-105"
+                  isScrolled
+                    ? "bg-gradient-to-r from-green-600 to-sky-600 text-white"
+                    : "bg-white/90 dark:bg-slate-800/90 text-green-700 dark:text-green-400 hover:scale-105"
                 }`}
                 aria-haspopup="true"
                 aria-expanded={isProfileMenuOpen}
@@ -234,20 +237,20 @@ const SubAdminHeader = () => {
               <AnimatePresence>
                 {isProfileMenuOpen && (
                   <motion.div
-                    className="absolute right-0 mt-2 w-52 bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden z-50"
+                    className="absolute right-0 mt-2 w-52 bg-surface rounded-2xl border border-border shadow-2xl overflow-hidden z-50"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.16 }}
                   >
                     <div className="p-2 flex flex-col gap-1">
-                      <div className="px-3 py-2 rounded-xl text-sm text-gray-600">
-                        <p className="font-semibold text-gray-900">{user?.name || t("subadmin.profile", "Profile")}</p>
+                      <div className="px-3 py-2 rounded-xl text-sm text-muted-foreground">
+                        <p className="font-semibold text-foreground">{user?.name || t("subadmin.profile", "Profile")}</p>
                         <p className="text-xs truncate">{user?.email}</p>
                       </div>
                       <Link
                         to="/subadmin/profile"
-                        className="px-3 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                        className="px-3 py-2 rounded-xl text-sm font-medium text-foreground/80 hover:bg-muted transition-colors"
                         onClick={() => setIsProfileMenuOpen(false)}
                       >
                         {t("header.profile", "Profile")}
@@ -256,7 +259,7 @@ const SubAdminHeader = () => {
                         type="button"
                         onClick={handleLogout}
                         disabled={isLoggingOut}
-                        className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-between disabled:opacity-60"
+                        className="px-3 py-2 rounded-xl text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 transition-colors flex items-center justify-between disabled:opacity-60"
                       >
                         {t("header.logout", "Logout")}
                         {isLoggingOut && <span className="ml-2 h-2 w-2 rounded-full bg-red-400 animate-ping" aria-hidden="true" />}
@@ -269,7 +272,9 @@ const SubAdminHeader = () => {
 
             <motion.button
               className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full focus:outline-none ${
-                isScrolled ? "bg-white text-gray-800 shadow-sm" : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
+                isScrolled
+                  ? "bg-surface text-foreground shadow-sm border border-border"
+                  : "bg-gradient-to-r from-green-600 to-sky-600 text-white shadow-md"
               }`}
               onClick={() => {
                 setIsMobileMenuOpen((prev) => !prev);
@@ -289,7 +294,7 @@ const SubAdminHeader = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-md"
+            className="lg:hidden bg-surface/95 backdrop-blur-md border-t border-border shadow-md"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -300,14 +305,18 @@ const SubAdminHeader = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-4 py-2 text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-lg text-sm transition-all"
+                  className="block px-4 py-2 text-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-gray-100">
-                <div className="text-sm font-medium px-4 py-2">{t("languages.select", "Language")}</div>
+              <div className="pt-3 border-t border-border">
+                <div className="flex items-center justify-between px-4 py-2">
+                  <span className="text-sm font-medium text-foreground">{t("header.theme", "Theme")}</span>
+                  <ThemeToggle />
+                </div>
+                <div className="text-sm font-medium px-4 py-2 text-foreground">{t("languages.select", "Language")}</div>
                 <div className="flex flex-wrap gap-2 px-4 pb-3">
                   {availableLangs.map((l) => (
                     <button
@@ -316,8 +325,10 @@ const SubAdminHeader = () => {
                         changeLanguage(l.code);
                         setIsMobileMenuOpen(false);
                       }}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm border ${
-                        currentLang === l.code ? "bg-green-50 border-green-200 font-semibold" : "bg-white border-gray-200"
+                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm border text-foreground ${
+                        currentLang === l.code
+                          ? "bg-green-50 border-green-200 font-semibold dark:bg-green-950/40 dark:border-green-800"
+                          : "bg-surface border-border"
                       }`}
                     >
                       <ReactCountryFlag countryCode={l.countryCode} svg style={{ width: "1.4em", height: "1.4em", borderRadius: 4 }} title={l.label} />
@@ -326,12 +337,12 @@ const SubAdminHeader = () => {
                   ))}
                 </div>
               </div>
-              <div className="pt-3 border-t border-gray-100">
+              <div className="pt-3 border-t border-border">
                 <button
                   type="button"
                   onClick={handleLogout}
                   disabled={isLoggingOut}
-                  className="w-full px-4 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full px-4 py-2 rounded-xl text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {t("header.logout", "Logout")}
                   {isLoggingOut && <span className="h-2 w-2 rounded-full bg-red-400 animate-ping" aria-hidden="true" />}

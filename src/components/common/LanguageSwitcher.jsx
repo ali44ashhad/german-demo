@@ -21,7 +21,7 @@ export default function LanguageSwitcher({ className = '' }) {
         i18n.changeLanguage(lang);
         if (document && document.documentElement) document.documentElement.lang = lang;
       }}
-      className={`rounded p-1 border bg-white text-sm ${className}`}
+      className={`rounded p-1 border border-border bg-surface text-foreground text-sm ${className}`}
       aria-label="Select language"
     >
       {langs.map(l => <option key={l.code} value={l.code}>{l.label}</option>)}

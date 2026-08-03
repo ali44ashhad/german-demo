@@ -25,13 +25,13 @@ function RatedListEditor({ title, items, onChange }) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h4 className="text-lg font-medium text-gray-800">{title}</h4>
+        <h4 className="text-lg font-medium text-foreground">{title}</h4>
         <button type="button" onClick={add} className="text-sm text-green-600 font-semibold hover:underline">
           + Add row
         </button>
       </div>
       {list.length === 0 ? (
-        <p className="text-sm text-gray-500">No entries yet. Use &quot;Add row&quot; to add your own.</p>
+        <p className="text-sm text-muted-foreground">No entries yet. Use &quot;Add row&quot; to add your own.</p>
       ) : null}
       <div className="space-y-2">
         {list.map((row, i) => (
@@ -41,9 +41,9 @@ function RatedListEditor({ title, items, onChange }) {
               placeholder="Label"
               value={row.label}
               onChange={(e) => update(i, { label: e.target.value })}
-              className="flex-1 min-w-[140px] rounded-lg border border-gray-200 px-3 py-2 text-sm"
+              className="flex-1 min-w-[140px] rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
             />
-            <label className="text-xs text-gray-500 whitespace-nowrap">
+            <label className="text-xs text-muted-foreground whitespace-nowrap">
               Score 1–5
               <input
                 type="number"
@@ -51,10 +51,10 @@ function RatedListEditor({ title, items, onChange }) {
                 max={5}
                 value={row.score}
                 onChange={(e) => update(i, { score: Math.min(5, Math.max(1, parseInt(e.target.value, 10) || 3)) })}
-                className="ml-1 w-16 rounded-lg border border-gray-200 px-2 py-2 text-sm"
+                className="ml-1 w-16 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-sm"
               />
             </label>
-            <button type="button" onClick={() => remove(i)} className="text-sm text-red-600 px-2 py-2">
+            <button type="button" onClick={() => remove(i)} className="text-sm text-red-600 dark:text-red-400 px-2 py-2">
               Remove
             </button>
           </div>
@@ -81,7 +81,7 @@ function BulletListEditor({ label, items, onChange, placeholder = "Bullet point"
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-700">{label}</span>
+        <span className="text-sm font-medium text-muted-foreground">{label}</span>
         <button type="button" onClick={add} className="text-xs text-green-600 font-semibold">
           + Add
         </button>
@@ -93,7 +93,7 @@ function BulletListEditor({ label, items, onChange, placeholder = "Bullet point"
             value={line}
             placeholder={placeholder}
             onChange={(e) => setLine(i, e.target.value)}
-            className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm"
+            className="flex-1 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
           />
           <button type="button" onClick={() => remove(i)} className="text-red-500 text-sm px-2">
             ×
@@ -128,7 +128,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
   return (
     <div className="md:col-span-2 grid gap-3 sm:grid-cols-2">
       <div>
-        <span className="text-xs font-medium text-gray-600 block mb-1">{startLabel}</span>
+        <span className="text-xs font-medium text-muted-foreground block mb-1">{startLabel}</span>
         <div className="flex gap-2">
           <select
             value={sm}
@@ -136,7 +136,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
               const v = e.target.value;
               onChange({ startMonth: v === "" ? undefined : parseInt(v, 10) });
             }}
-            className="flex-1 rounded-lg border border-gray-100 px-2 py-2 text-sm"
+            className="flex-1 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-sm"
           >
             {MONTH_OPTIONS.map((o) => (
               <option key={`sm-${o.value}`} value={o.value === "" ? "" : o.value}>
@@ -150,7 +150,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
               const v = e.target.value;
               onChange({ startYear: v === "" ? undefined : parseInt(v, 10) });
             }}
-            className="w-28 rounded-lg border border-gray-100 px-2 py-2 text-sm"
+            className="w-28 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-sm"
           >
             <option value="">Year</option>
             {BIO_YEAR_OPTIONS.map((y) => (
@@ -163,7 +163,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
       </div>
       {showEnd ? (
         <div>
-          <span className="text-xs font-medium text-gray-600 block mb-1">{endLabel}</span>
+          <span className="text-xs font-medium text-muted-foreground block mb-1">{endLabel}</span>
           <div className="flex gap-2">
             <select
               value={em}
@@ -171,7 +171,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
                 const v = e.target.value;
                 onChange({ endMonth: v === "" ? undefined : parseInt(v, 10) });
               }}
-              className="flex-1 rounded-lg border border-gray-100 px-2 py-2 text-sm"
+              className="flex-1 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-sm"
             >
               {MONTH_OPTIONS.map((o) => (
                 <option key={`em-${o.value}`} value={o.value === "" ? "" : o.value}>
@@ -185,7 +185,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
                 const v = e.target.value;
                 onChange({ endYear: v === "" ? undefined : parseInt(v, 10) });
               }}
-              className="w-28 rounded-lg border border-gray-100 px-2 py-2 text-sm"
+              className="w-28 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-sm"
             >
               <option value="">Year</option>
               {BIO_YEAR_OPTIONS.map((y) => (
@@ -197,7 +197,7 @@ function MonthYearRange({ startLabel = "Start", endLabel = "End", startMonth, st
           </div>
         </div>
       ) : (
-        <div className="flex items-end text-xs text-gray-500 pb-2">End date omitted while marked current.</div>
+        <div className="flex items-end text-xs text-muted-foreground pb-2">End date omitted while marked current.</div>
       )}
     </div>
   );
@@ -220,50 +220,50 @@ export function BiodataFormSection({ biodata, onChange }) {
     <div className="space-y-10">
       <section className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Professional title (CV header)</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Professional title (CV header)</label>
           <input
             type="text"
             value={b.professionalTitle || ""}
             onChange={(e) => patch({ professionalTitle: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
             placeholder="e.g. Bachelors of Mechanical Engineer"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Citizenship</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Citizenship</label>
           <input
             type="text"
             value={b.citizenship || ""}
             onChange={(e) => patch({ citizenship: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Marital status</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Marital status</label>
           <input
             type="text"
             value={b.maritalStatus || ""}
             onChange={(e) => patch({ maritalStatus: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Declaration place</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Declaration place</label>
           <input
             type="text"
             value={b.declarationPlace || ""}
             onChange={(e) => patch({ declarationPlace: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
             placeholder="City"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Signature name (footer)</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Signature name (footer)</label>
           <input
             type="text"
             value={b.signatureName || ""}
             onChange={(e) => patch({ signatureName: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
           />
         </div>
       </section>
@@ -278,10 +278,10 @@ export function BiodataFormSection({ biodata, onChange }) {
       />
 
       <section>
-        <h4 className="text-lg font-medium text-gray-800 mb-3">Education (biodata)</h4>
+        <h4 className="text-lg font-medium text-foreground mb-3">Education (biodata)</h4>
         <div className="space-y-4">
           {edu.map((row, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 p-4 space-y-3 grid md:grid-cols-2 gap-2">
+            <div key={i} className="rounded-xl border border-border p-4 space-y-3 grid md:grid-cols-2 gap-2">
               <MonthYearRange
                 startLabel="Started"
                 endLabel="Ended"
@@ -305,7 +305,7 @@ export function BiodataFormSection({ biodata, onChange }) {
                     const next = edu.map((r, j) => (j === i ? { ...r, [field]: e.target.value } : r));
                     setEdu(next);
                   }}
-                  className="rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                  className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
                 />
               ))}
               <div className="md:col-span-2">
@@ -320,7 +320,7 @@ export function BiodataFormSection({ biodata, onChange }) {
               </div>
               <button
                 type="button"
-                className="text-sm text-red-600 md:col-span-2"
+                className="text-sm text-red-600 dark:text-red-400 md:col-span-2"
                 onClick={() => setEdu(edu.filter((_, j) => j !== i))}
               >
                 Remove entry
@@ -334,10 +334,10 @@ export function BiodataFormSection({ biodata, onChange }) {
       </section>
 
       <section>
-        <h4 className="text-lg font-medium text-gray-800 mb-3">Internship / thesis</h4>
+        <h4 className="text-lg font-medium text-foreground mb-3">Internship / thesis</h4>
         <div className="space-y-4">
           {intn.map((row, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 p-4 space-y-3">
+            <div key={i} className="rounded-xl border border-border p-4 space-y-3">
               <label className="flex items-center gap-2 text-sm">
                 <input
                   type="checkbox"
@@ -384,7 +384,7 @@ export function BiodataFormSection({ biodata, onChange }) {
                       const next = intn.map((r, j) => (j === i ? { ...r, [field]: e.target.value } : r));
                       setIntn(next);
                     }}
-                    className="rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                    className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
                   />
                 ))}
               </div>
@@ -396,7 +396,7 @@ export function BiodataFormSection({ biodata, onChange }) {
                   setIntn(next);
                 }}
               />
-              <button type="button" className="text-sm text-red-600" onClick={() => setIntn(intn.filter((_, j) => j !== i))}>
+              <button type="button" className="text-sm text-red-600 dark:text-red-400" onClick={() => setIntn(intn.filter((_, j) => j !== i))}>
                 Remove
               </button>
             </div>
@@ -408,10 +408,10 @@ export function BiodataFormSection({ biodata, onChange }) {
       </section>
 
       <section>
-        <h4 className="text-lg font-medium text-gray-800 mb-3">Work experience (detailed)</h4>
+        <h4 className="text-lg font-medium text-foreground mb-3">Work experience (detailed)</h4>
         <div className="space-y-4">
           {exp.map((row, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 p-4 space-y-3">
+            <div key={i} className="rounded-xl border border-border p-4 space-y-3">
               <label className="flex items-center gap-2 text-sm">
                 <input
                   type="checkbox"
@@ -458,7 +458,7 @@ export function BiodataFormSection({ biodata, onChange }) {
                       const next = exp.map((r, j) => (j === i ? { ...r, [field]: e.target.value } : r));
                       setExp(next);
                     }}
-                    className="rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                    className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
                   />
                 ))}
               </div>
@@ -470,7 +470,7 @@ export function BiodataFormSection({ biodata, onChange }) {
                   setExp(next);
                 }}
               />
-              <button type="button" className="text-sm text-red-600" onClick={() => setExp(exp.filter((_, j) => j !== i))}>
+              <button type="button" className="text-sm text-red-600 dark:text-red-400" onClick={() => setExp(exp.filter((_, j) => j !== i))}>
                 Remove
               </button>
             </div>
@@ -575,11 +575,11 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
     <div className="space-y-8">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Gender</label>
           <select
             value={s.gender || ""}
             onChange={(e) => patch({ gender: e.target.value || undefined })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+            className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
           >
             <option value="">Select…</option>
             {GENDER_OPTIONS.map((opt) => (
@@ -592,7 +592,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
       </div>
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="block text-sm font-medium text-gray-700">Family members</label>
+          <label className="block text-sm font-medium text-muted-foreground">Family members</label>
           <button
             type="button"
             className="text-xs text-green-600 font-semibold"
@@ -602,10 +602,10 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
             + Add member
           </button>
         </div>
-        <p className="text-xs text-gray-500 mb-2">Name and occupation per row (max 15).</p>
+        <p className="text-xs text-muted-foreground mb-2">Name and occupation per row (max 15).</p>
         <div className="space-y-3">
           {famMembers.map((m, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 p-3 grid sm:grid-cols-2 gap-2">
+            <div key={i} className="rounded-xl border border-border p-3 grid sm:grid-cols-2 gap-2">
               <input
                 type="text"
                 placeholder="Name"
@@ -614,7 +614,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
                   const next = famMembers.map((row, j) => (j === i ? { ...row, name: e.target.value } : row));
                   setFamilyMembers(next);
                 }}
-                className="rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
               />
               <input
                 type="text"
@@ -624,11 +624,11 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
                   const next = famMembers.map((row, j) => (j === i ? { ...row, occupation: e.target.value } : row));
                   setFamilyMembers(next);
                 }}
-                className="rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
               />
               <button
                 type="button"
-                className="text-sm text-red-600 sm:col-span-2"
+                className="text-sm text-red-600 dark:text-red-400 sm:col-span-2"
                 onClick={() => {
                   if (famMembers.length <= 1) {
                     setFamilyMembers([{ name: "", occupation: "" }]);
@@ -645,7 +645,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
       </div>
 
       <section>
-        <h4 className="text-lg font-medium text-gray-800 mb-2">Education overview (table)</h4>
+        <h4 className="text-lg font-medium text-foreground mb-2">Education overview (table)</h4>
         <div className="space-y-3">
           {rows.map((row, i) => (
             <div key={i} className="grid md:grid-cols-5 gap-2 items-end">
@@ -659,10 +659,10 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
                     const next = rows.map((r, j) => (j === i ? { ...r, [field]: e.target.value } : r));
                     setRows(next);
                   }}
-                  className="rounded-lg border border-gray-100 px-2 py-2 text-xs"
+                  className="rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-2 py-2 text-xs"
                 />
               ))}
-              <button type="button" className="text-red-600 text-sm" onClick={() => setRows(rows.filter((_, j) => j !== i))}>
+              <button type="button" className="text-red-600 dark:text-red-400 text-sm" onClick={() => setRows(rows.filter((_, j) => j !== i))}>
                 Remove
               </button>
             </div>
@@ -674,18 +674,18 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
       </section>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Motivation for further studies</label>
+        <label className="block text-sm font-medium text-muted-foreground mb-1">Motivation for further studies</label>
         <textarea
           rows={5}
           value={s.motivationForFurtherStudies || ""}
           onChange={(e) => patch({ motivationForFurtherStudies: e.target.value })}
-          className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+          className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
         />
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Target countries (max 3)</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Target countries (max 3)</label>
           <StringListChips
             items={s.targetCountries || []}
             onRemove={removeCountry}
@@ -695,7 +695,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Target degrees</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Target degrees</label>
           <StringListChips
             items={s.targetDegrees || []}
             onRemove={removeDegree}
@@ -704,7 +704,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
           />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium text-gray-700 mb-1">Target fields of study</label>
+          <label className="block text-sm font-medium text-muted-foreground mb-1">Target fields of study</label>
           <StringListChips
             items={s.targetFieldsOfStudy || []}
             onRemove={removeFieldOfStudy}
@@ -714,15 +714,15 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
         </div>
       </div>
 
-      <section className="rounded-xl border border-gray-200 p-4 space-y-3">
-        <h4 className="font-medium text-gray-800">English proficiency</h4>
+      <section className="rounded-xl border border-border p-4 space-y-3">
+        <h4 className="font-medium text-foreground">English proficiency</h4>
         <div className="grid md:grid-cols-2 gap-3">
           <div>
-            <label className="text-xs text-gray-500">Test type</label>
+            <label className="text-xs text-muted-foreground">Test type</label>
             <select
               value={et.testType || "IELTS"}
               onChange={(e) => setEt({ testType: e.target.value })}
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
             >
               {["IELTS", "TOEFL", "PTE", "Other"].map((t) => (
                 <option key={t} value={t}>
@@ -732,53 +732,53 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
             </select>
           </div>
           <div>
-            <label className="text-xs text-gray-500">Overall</label>
+            <label className="text-xs text-muted-foreground">Overall</label>
             <input
               type="text"
               value={et.overall || ""}
               onChange={(e) => setEt({ overall: e.target.value })}
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
               placeholder="e.g. 7.5 bands"
             />
           </div>
         </div>
-        <p className="text-xs text-blue-700">IELTS: Listening, Reading, Writing, Speaking</p>
+        <p className="text-xs text-blue-700 dark:text-blue-300">IELTS: Listening, Reading, Writing, Speaking</p>
         <div className="grid md:grid-cols-2 gap-2">
           {["listening", "reading", "writing", "speaking"].map((key) => (
             <div key={key}>
-              <label className="text-xs text-gray-500 capitalize">{key}</label>
+              <label className="text-xs text-muted-foreground capitalize">{key}</label>
               <input
                 type="text"
                 value={(et.sections && et.sections[key]) || ""}
                 onChange={(e) => setEt({ sections: { [key]: e.target.value } })}
-                className="w-full rounded-lg border border-gray-100 px-3 py-2 text-sm"
+                className="w-full rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
               />
             </div>
           ))}
         </div>
         <div>
-          <label className="text-xs text-gray-500">Other / notes</label>
+          <label className="text-xs text-muted-foreground">Other / notes</label>
           <input
             type="text"
             value={et.otherNote || ""}
             onChange={(e) => setEt({ otherNote: e.target.value })}
-            className="w-full rounded-lg border border-gray-100 px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
           />
         </div>
       </section>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Additional test / certificate (GRE, GMAT, …)</label>
+        <label className="block text-sm font-medium text-muted-foreground mb-1">Additional test / certificate (GRE, GMAT, …)</label>
         <input
           type="text"
           value={s.additionalTestOrCertificate || ""}
           onChange={(e) => patch({ additionalTestOrCertificate: e.target.value })}
-          className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm"
+          className="w-full rounded-xl border border-border bg-surface text-foreground placeholder:text-muted-foreground px-4 py-2 text-sm"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Shortlisted universities (max 7)</label>
+        <label className="block text-sm font-medium text-muted-foreground mb-1">Shortlisted universities (max 7)</label>
         <StringListChips
           items={s.shortlistedUniversitiesList || []}
           onRemove={removeUni}
@@ -789,7 +789,7 @@ export function StudentInquiryFormSection({ studentInquiry, onChange }) {
       </div>
 
       <div>
-        <p className="text-sm font-medium text-gray-700 mb-2">Additional services (inquiry form)</p>
+        <p className="text-sm font-medium text-muted-foreground mb-2">Additional services (inquiry form)</p>
         <div className="space-y-2">
           {INQUIRY_SERVICES.map((opt) => (
             <label key={opt.value} className="flex items-center gap-2 text-sm">
@@ -827,7 +827,7 @@ function StringListChips({ items, onRemove, onAdd, max, placeholder = "Add item"
     <div className="space-y-2">
       <div className="flex flex-wrap gap-2">
         {items.map((t) => (
-          <span key={t} className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-sm">
+          <span key={t} className="inline-flex items-center gap-1 rounded-full bg-muted text-foreground px-3 py-1 text-sm">
             {t}
             <button type="button" className="text-red-500" onClick={() => onRemove(t)}>
               ×
@@ -847,18 +847,18 @@ function StringListChips({ items, onRemove, onAdd, max, placeholder = "Add item"
             }
           }}
           placeholder={placeholder}
-          className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm"
+          className="flex-1 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted-foreground px-3 py-2 text-sm"
         />
-        <button type="button" className="rounded-lg bg-gray-800 text-white px-3 py-2 text-sm" onClick={submit} disabled={atMax}>
+        <button type="button" className="rounded-lg bg-foreground text-background px-3 py-2 text-sm" onClick={submit} disabled={atMax}>
           Add
         </button>
       </div>
       {max != null ? (
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-muted-foreground">
           {items.length}/{max} added
         </p>
       ) : items.length > 0 ? (
-        <p className="text-xs text-gray-500">{items.length} added</p>
+        <p className="text-xs text-muted-foreground">{items.length} added</p>
       ) : null}
     </div>
   );

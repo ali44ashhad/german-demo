@@ -123,7 +123,7 @@
 //   const translatePercent = -(index * (100 / perPage));
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -135,7 +135,7 @@
 //               backgroundPosition: 'center'
 //             }}
 //           />
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
 //         </div>
 
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
@@ -159,7 +159,7 @@
 //       </section>
 
 //       {/* Stats Section */}
-//       <section className="py-12 bg-green-50/40" ref={ref}>
+//       <section className="py-12 bg-green-50/40 dark:bg-muted/50" ref={ref}>
 //         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
 //           {stats.map((s, i) => (
 //             <motion.div
@@ -169,8 +169,8 @@
 //               animate={isInView ? { opacity: 1, y: 0 } : {}}
 //               transition={{ duration: 0.6, delay: i * 0.1 }}
 //             >
-//               <div className="text-3xl font-bold text-green-600 mb-2">{s.number}</div>
-//               <div className="text-gray-700 text-sm">{s.label}</div>
+//               <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{s.number}</div>
+//               <div className="text-muted-foreground text-sm">{s.label}</div>
 //             </motion.div>
 //           ))}
 //         </div>
@@ -193,15 +193,15 @@
 //               className="p-4 md:p-6 flex-shrink-0"
 //               style={{ width: `${100 / perPage}%` }}
 //             >
-//               <article className="h-full flex flex-col justify-between bg-white rounded-2xl shadow-lg border border-gray-100 p-6 min-h-[340px]">
-//                 <blockquote className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">
+//               <article className="h-full flex flex-col justify-between bg-surface rounded-2xl shadow-lg border border-border p-6 min-h-[340px]">
+//                 <blockquote className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">
 //                   {t.text}
 //                 </blockquote>
 //                 <div className="mt-5 flex items-center gap-4">
 //                   <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
 //                   <div>
-//                     <div className="text-sm font-semibold text-slate-900">{t.name}</div>
-//                     <div className="text-xs text-slate-500">{t.meta}</div>
+//                     <div className="text-sm font-semibold text-foreground">{t.name}</div>
+//                     <div className="text-xs text-muted-foreground">{t.meta}</div>
 //                     <div className="flex mt-1">
 //                       {Array.from({ length: t.rating }).map((_, i) => (
 //                         <svg key={i} width="14" height="14" fill="#FFCA28" viewBox="0 0 20 20">
@@ -218,11 +218,11 @@
 
 //         {/* Arrows */}
 //         <div className="flex justify-center gap-4 mt-6">
-//           <button onClick={prev} className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-100">
-//             <ArrowLeft className="w-4 h-4 text-slate-700" />
+//           <button onClick={prev} className="p-2 rounded-full bg-surface border shadow-sm hover:bg-muted">
+//             <ArrowLeft className="w-4 h-4 text-muted-foreground" />
 //           </button>
-//           <button onClick={next} className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-100">
-//             <ArrowRight className="w-4 h-4 text-slate-700" />
+//           <button onClick={next} className="p-2 rounded-full bg-surface border shadow-sm hover:bg-muted">
+//             <ArrowRight className="w-4 h-4 text-muted-foreground" />
 //           </button>
 //         </div>
 
@@ -233,7 +233,7 @@
 //               key={i}
 //               onClick={() => goTo(i)}
 //               className={`w-2.5 h-2.5 rounded-full transition-all ${
-//                 i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-gray-300'
+//                 i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-muted-foreground/30'
 //               }`}
 //             />
 //           ))}
@@ -241,17 +241,17 @@
 //       </div>
 
 //       {/* CTA Section (Fully Restored) */}
-//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 mt-16">
+//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 mt-16">
 //         <div className="max-w-4xl mx-auto text-center px-6">
 //           <motion.h2
-//             className="text-4xl font-bold text-gray-900 mb-4"
+//             className="text-4xl font-bold text-foreground mb-4"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : {}}
 //           >
 //             Join Our Success Stories
 //           </motion.h2>
 //           <motion.p
-//             className="text-lg text-gray-700 mb-8 leading-relaxed"
+//             className="text-lg text-muted-foreground mb-8 leading-relaxed"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : {}}
 //             transition={{ delay: 0.2 }}
@@ -269,7 +269,7 @@
 //           </motion.button>
 
 //           {/* Last Updated Line */}
-//           <p className="mt-6 text-sm text-gray-600">
+//           <p className="mt-6 text-sm text-muted-foreground">
 //             <span className="text-yellow-500 font-semibold">
 //               Last Updated:{' '}
 //               {new Date().toLocaleDateString('en-US', {
@@ -400,7 +400,7 @@ const Reviews = () => {
   const translatePercent = -(index * (100 / perPage));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -412,7 +412,7 @@ const Reviews = () => {
               backgroundPosition: 'center'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
@@ -436,7 +436,7 @@ const Reviews = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-12 bg-green-50/40" ref={ref}>
+      <section className="py-12 bg-green-50/40 dark:bg-muted/50" ref={ref}>
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
           {stats.map((s, i) => (
             <motion.div
@@ -446,8 +446,8 @@ const Reviews = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
-              <div className="text-3xl font-bold text-green-600 mb-2">{s.number}</div>
-              <div className="text-gray-700 text-sm">{s.label}</div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{s.number}</div>
+              <div className="text-muted-foreground text-sm">{s.label}</div>
             </motion.div>
           ))}
         </div>
@@ -470,15 +470,15 @@ const Reviews = () => {
               className="p-4 md:p-6 flex-shrink-0"
               style={{ width: `${100 / perPage}%` }}
             >
-              <article className="h-full flex flex-col justify-between bg-white rounded-2xl shadow-lg border border-gray-100 p-6 min-h-[320px]">
-                <blockquote className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">
+              <article className="h-full flex flex-col justify-between bg-surface rounded-2xl shadow-lg border border-border p-6 min-h-[320px]">
+                <blockquote className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">
                   {t.text}
                 </blockquote>
                 <div className="mt-5 flex items-center gap-4">
                   <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
                   <div>
-                    <div className="text-sm font-semibold text-slate-900">{t.name}</div>
-                    <div className="text-xs text-slate-500">{t.meta}</div>
+                    <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.meta}</div>
                     <div className="flex mt-1">
                       {Array.from({ length: t.rating || 5 }).map((_, i) => (
                         <svg key={i} width="14" height="14" fill="#FFCA28" viewBox="0 0 20 20">
@@ -495,11 +495,11 @@ const Reviews = () => {
 
         {/* Arrows */}
         <div className="flex justify-center gap-4 mt-6">
-          <button onClick={prev} className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-100" aria-label="Previous review">
-            <ArrowLeft className="w-4 h-4 text-slate-700" />
+          <button onClick={prev} className="p-2 rounded-full bg-surface border shadow-sm hover:bg-muted" aria-label="Previous review">
+            <ArrowLeft className="w-4 h-4 text-muted-foreground" />
           </button>
-          <button onClick={next} className="p-2 rounded-full bg-white border shadow-sm hover:bg-gray-100" aria-label="Next review">
-            <ArrowRight className="w-4 h-4 text-slate-700" />
+          <button onClick={next} className="p-2 rounded-full bg-surface border shadow-sm hover:bg-muted" aria-label="Next review">
+            <ArrowRight className="w-4 h-4 text-muted-foreground" />
           </button>
         </div>
 
@@ -510,24 +510,24 @@ const Reviews = () => {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to review ${i + 1}`}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-gray-300'}`}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-muted-foreground/30'}`}
             />
           ))}
         </div>
       </div>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 mt-16">
+      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 mt-16">
         <div className="max-w-4xl mx-auto text-center px-6">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-4xl font-bold text-foreground mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
           >
             {cta.heading}
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-700 mb-8 leading-relaxed"
+            className="text-lg text-muted-foreground mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.12 }}
@@ -542,7 +542,7 @@ const Reviews = () => {
             {cta.button}
           </motion.button>
 
-          <p className="mt-6 text-sm text-gray-600">
+          <p className="mt-6 text-sm text-muted-foreground">
             <span className="text-yellow-500 font-semibold">Last Updated: </span>
             {new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
           </p>

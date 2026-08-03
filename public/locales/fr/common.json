@@ -5,7 +5,7 @@
       "about": "À propos",
       "team": "Équipe",
       "services": "Services",
-      "pricing": "Processus",
+      "process": "Processus",
       "coaching": "Coaching",
       "contact": "Contact"
     },
@@ -17,7 +17,10 @@
     },
     "profile": "Profil",
     "open_menu": "Ouvrir le menu",
-    "close_menu": "Fermer le menu"
+    "close_menu": "Fermer le menu",
+    "theme": "Thème",
+    "theme_to_dark": "Passer au thème sombre",
+    "theme_to_light": "Passer au thème clair"
   },
   "hero": {
     "title_line1": "Étudier en Allemagne",

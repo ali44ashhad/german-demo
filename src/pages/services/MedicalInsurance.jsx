@@ -71,7 +71,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -85,12 +85,12 @@
 //           />
 
 //           {/* Bluish overlay (kept) */}
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
 //         </div>
         
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h1 
-//             className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+//             className="text-5xl md:text-6xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.8 }}
@@ -99,7 +99,7 @@
 //           </motion.h1>
           
 //           <motion.p 
-//             className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
+//             className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.8, delay: 0.2 }}
@@ -113,7 +113,7 @@
 //       <section ref={ref} className="py-20">
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -124,10 +124,10 @@
 //             {insurancePlans.map((plan, index) => (
 //               <motion.div
 //                 key={index}
-//                 className={`bg-white rounded-2xl p-8 border-2 transition-all duration-300 ${
+//                 className={`bg-surface rounded-2xl p-8 border-2 transition-all duration-300 ${
 //                   plan.popular 
 //                     ? 'border-yellow-400 scale-105 relative shadow-lg' 
-//                     : 'border-gray-100 hover:border-sky-300'
+//                     : 'border-border hover:border-sky-300'
 //                 }`}
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -135,32 +135,32 @@
 //                 whileHover={{ y: -10 }}
 //               >
 //                 {plan.popular && (
-//                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+//                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-foreground px-4 py-1 rounded-full text-sm font-bold">
 //                     Most Popular
 //                   </div>
 //                 )}
 
 //                 <div className="text-center mb-6">
-//                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-//                   <div className="text-sky-600 font-bold text-xl mb-2">{plan.price}</div>
-//                   <p className="text-gray-600 text-sm">{plan.coverage}</p>
+//                   <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
+//                   <div className="text-sky-600 dark:text-sky-400 font-bold text-xl mb-2">{plan.price}</div>
+//                   <p className="text-muted-foreground text-sm">{plan.coverage}</p>
 //                 </div>
 
 //                 <div className="space-y-3 mb-6">
 //                   {plan.features.map((feature, featureIndex) => (
-//                     <div key={featureIndex} className="flex items-center gap-3 text-gray-700">
-//                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+//                     <div key={featureIndex} className="flex items-center gap-3 text-muted-foreground">
+//                       <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                       <span className="text-sm">{feature}</span>
 //                     </div>
 //                   ))}
 //                 </div>
 
-//                 <p className="text-green-600 text-sm text-center mb-6">Best for: {plan.bestFor}</p>
+//                 <p className="text-green-600 dark:text-green-400 text-sm text-center mb-6">Best for: {plan.bestFor}</p>
 
 //                 <motion.button
 //                   className={`w-full font-bold py-3 rounded-xl transition-all duration-300 ${
 //                     plan.popular
-//                       ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:shadow-2xl hover:shadow-yellow-500/25'
+//                       ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-foreground hover:shadow-2xl hover:shadow-yellow-500/25'
 //                       : 'bg-gradient-to-r from-green-600 to-sky-600 text-white hover:shadow-lg hover:shadow-green-600/25'
 //                   }`}
 //                   whileHover={{ scale: 1.02 }}
@@ -175,7 +175,7 @@
 //       </section>
 
 //       {/* Requirements & Providers */}
-//       <section className="py-20 bg-green-50/30">
+//       <section className="py-20 bg-green-50/30 dark:bg-muted/50">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 //             {/* Requirements */}
@@ -184,18 +184,18 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
 //               transition={{ duration: 0.8 }}
 //             >
-//               <h3 className="text-3xl font-bold text-gray-900 mb-6">German Visa Requirements</h3>
+//               <h3 className="text-3xl font-bold text-foreground mb-6">German Visa Requirements</h3>
 //               <div className="space-y-3">
 //                 {requirements.map((requirement, index) => (
 //                   <motion.div
 //                     key={index}
-//                     className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm"
+//                     className="flex items-center gap-3 bg-surface rounded-xl p-4 shadow-sm"
 //                     initial={{ opacity: 0, x: -20 }}
 //                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
 //                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
 //                   >
-//                     <FileText className="w-5 h-5 text-sky-600 flex-shrink-0" />
-//                     <span className="text-gray-700">{requirement}</span>
+//                     <FileText className="w-5 h-5 text-sky-600 dark:text-sky-400 flex-shrink-0" />
+//                     <span className="text-muted-foreground">{requirement}</span>
 //                   </motion.div>
 //                 ))}
 //               </div>
@@ -207,30 +207,30 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
 //               transition={{ duration: 0.8, delay: 0.2 }}
 //             >
-//               <h3 className="text-3xl font-bold text-gray-900 mb-6">Trusted Providers</h3>
+//               <h3 className="text-3xl font-bold text-foreground mb-6">Trusted Providers</h3>
 //               <div className="space-y-4">
 //                 {providers.map((provider, index) => (
 //                   <motion.div
 //                     key={index}
-//                     className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+//                     className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
 //                     whileHover={{ scale: 1.02 }}
 //                   >
 //                     <div className="flex justify-between items-start mb-4">
-//                       <h4 className="text-xl font-bold text-gray-900">{provider.name}</h4>
+//                       <h4 className="text-xl font-bold text-foreground">{provider.name}</h4>
 //                       <div className="flex items-center gap-1 text-yellow-400">
 //                         <Star className="w-4 h-4 fill-current" />
 //                         <span className="text-sm">{provider.rating}</span>
 //                       </div>
 //                     </div>
                     
-//                     <div className="flex items-center gap-2 text-gray-600 text-sm mb-3">
+//                     <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
 //                       <Users className="w-4 h-4" />
 //                       {provider.students} students
 //                     </div>
 
 //                     <div className="flex flex-wrap gap-2">
 //                       {provider.features.map((feature, featureIndex) => (
-//                         <span key={featureIndex} className="bg-sky-100 text-sky-600 px-2 py-1 rounded text-xs">
+//                         <span key={featureIndex} className="bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 px-2 py-1 rounded text-xs">
 //                           {feature}
 //                         </span>
 //                       ))}
@@ -247,12 +247,12 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.div
-//             className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+//             className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Get Insured for Germany</h2>
-//             <p className="text-xl text-gray-700 mb-8">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Get Insured for Germany</h2>
+//             <p className="text-xl text-muted-foreground mb-8">
 //               Complete your visa requirements with our approved health insurance plans.
 //             </p>
 //             <motion.button
@@ -407,7 +407,7 @@ export default function MedicalInsurance() {
   const restTitle = hero.title.split(" ").slice(1).join(" ");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -420,12 +420,12 @@ export default function MedicalInsurance() {
               backgroundPosition: "center"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -437,7 +437,7 @@ export default function MedicalInsurance() {
           </motion.h1>
 
           <motion.p
-            className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -451,7 +451,7 @@ export default function MedicalInsurance() {
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -462,10 +462,10 @@ export default function MedicalInsurance() {
             {insurancePlans.map((plan, index) => (
               <motion.div
                 key={index}
-                className={`bg-white rounded-2xl p-8 border-2 transition-all duration-300 ${
+                className={`bg-surface rounded-2xl p-8 border-2 transition-all duration-300 ${
                   plan.popular
                     ? "border-yellow-400 scale-105 relative shadow-lg"
-                    : "border-gray-100 hover:border-sky-300"
+                    : "border-border hover:border-sky-300"
                 }`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -479,21 +479,21 @@ export default function MedicalInsurance() {
                 )}
 
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-sky-600 font-bold text-xl mb-2">{plan.price}</div>
-                  <p className="text-gray-600 text-sm">{plan.coverage}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
+                  <div className="text-sky-600 dark:text-sky-400 font-bold text-xl mb-2">{plan.price}</div>
+                  <p className="text-muted-foreground text-sm">{plan.coverage}</p>
                 </div>
 
                 <div className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <div key={featureIndex} className="flex items-center gap-3 text-muted-foreground">
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <p className="text-green-600 text-sm text-center mb-6">
+                <p className="text-green-600 dark:text-green-400 text-sm text-center mb-6">
                   {labels.bestFor} {plan.bestFor}
                 </p>
 
@@ -521,7 +521,7 @@ export default function MedicalInsurance() {
       </section>
 
       {/* Requirements & Providers */}
-      <section className="py-20 bg-green-50/30">
+      <section className="py-20 bg-green-50/30 dark:bg-muted/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Requirements */}
@@ -530,18 +530,18 @@ export default function MedicalInsurance() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">{requirementsTitle}</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-6">{requirementsTitle}</h3>
               <div className="space-y-3">
                 {requirements.map((requirement, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm"
+                    className="flex items-center gap-3 bg-surface rounded-xl p-4 shadow-sm"
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   >
-                    <FileText className="w-5 h-5 text-sky-600 flex-shrink-0" />
-                    <span className="text-gray-700">{requirement}</span>
+                    <FileText className="w-5 h-5 text-sky-600 dark:text-sky-400 flex-shrink-0" />
+                    <span className="text-muted-foreground">{requirement}</span>
                   </motion.div>
                 ))}
               </div>
@@ -553,23 +553,23 @@ export default function MedicalInsurance() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">{providersTitle}</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-6">{providersTitle}</h3>
               <div className="space-y-4">
                 {providers.map((provider, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+                    className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="flex justify-between items-start mb-4">
-                      <h4 className="text-xl font-bold text-gray-900">{provider.name}</h4>
+                      <h4 className="text-xl font-bold text-foreground">{provider.name}</h4>
                       <div className="flex items-center gap-1 text-yellow-400">
                         <Star className="w-4 h-4 fill-current" />
                         <span className="text-sm">{provider.rating}</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 text-gray-600 text-sm mb-3">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
                       <Users className="w-4 h-4" />
                       {provider.students} students
                     </div>
@@ -578,7 +578,7 @@ export default function MedicalInsurance() {
                       {provider.features.map((feature, featureIndex) => (
                         <span
                           key={featureIndex}
-                          className="bg-sky-100 text-sky-600 px-2 py-1 rounded text-xs"
+                          className="bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 px-2 py-1 rounded text-xs"
                         >
                           {feature}
                         </span>
@@ -596,12 +596,12 @@ export default function MedicalInsurance() {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+            className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{cta.heading}</h2>
-            <p className="text-xl text-gray-700 mb-8">{cta.sub}</p>
+            <h2 className="text-4xl font-bold text-foreground mb-6">{cta.heading}</h2>
+            <p className="text-xl text-muted-foreground mb-8">{cta.sub}</p>
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}

@@ -127,12 +127,12 @@
 
 //   return (
 //     <div className="relative isolate w-screen left-1/2 -ml-[50vw] right-1/2 -mr-[50vw]">
-//       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 py-12 md:py-16">
+//       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-12 md:py-16">
 //         <div className=" mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 //           <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-6">
 //             <div>
 //               <span className="block text-green-600 text-sm font-semibold tracking-widest md:text-base">TESTIMONIALS</span>
-//               <h2 className="text-slate-900 font-extrabold text-2xl md:text-4xl leading-[1.12] max-w-3xl">
+//               <h2 className="text-foreground font-extrabold text-2xl md:text-4xl leading-[1.12] max-w-3xl">
 //                 What our students say about studying in Germany with Profiberater
 //               </h2>
 //             </div>
@@ -142,24 +142,24 @@
 //                 <button
 //                   onClick={prev}
 //                   aria-label="Previous testimonial"
-//                   className="w-11 h-11 inline-flex items-center justify-center bg-white border border-gray-200 shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
+//                   className="w-11 h-11 inline-flex items-center justify-center bg-surface border border-border shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
 //                 >
-//                   <ArrowLeft className="w-4 h-4 text-slate-900" />
+//                   <ArrowLeft className="w-4 h-4 text-foreground" />
 //                 </button>
 
 //                 <button
 //                   onClick={next}
 //                   aria-label="Next testimonial"
-//                   className="w-11 h-11 inline-flex items-center justify-center bg-white border border-gray-200 shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
+//                   className="w-11 h-11 inline-flex items-center justify-center bg-surface border border-border shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
 //                 >
-//                   <ArrowRight className="w-4 h-4 text-slate-900" />
+//                   <ArrowRight className="w-4 h-4 text-foreground" />
 //                 </button>
 //               </div>
 
 //               <button
 //                 onClick={() => setPaused((p) => !p)}
 //                 aria-pressed={paused}
-//                 className="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-md shadow border border-gray-100 text-sm font-medium focus:outline-none focus:ring-4 focus:ring-green-300/40"
+//                 className="inline-flex items-center gap-2 bg-surface px-3 py-2 rounded-md shadow border border-border text-sm font-medium focus:outline-none focus:ring-4 focus:ring-green-300/40"
 //               >
 //                 {paused ? 'Resume' : 'Pause'}
 //               </button>
@@ -186,17 +186,17 @@
 //                       role="group"
 //                       tabIndex={0}
 //                       aria-label={`Testimonial by ${t.name}`}
-//                       className="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between focus:outline-none focus:ring-4 focus:ring-green-300/40"
+//                       className="h-full bg-surface rounded-2xl shadow-md p-6 flex flex-col justify-between focus:outline-none focus:ring-4 focus:ring-green-300/40"
 //                     >
 //                       <div>
-//                         <blockquote className="text-sm md:text-base text-slate-700 leading-relaxed">{t.text}</blockquote>
+//                         <blockquote className="text-sm md:text-base text-muted-foreground leading-relaxed">{t.text}</blockquote>
 //                       </div>
 
 //                       <div className="mt-5 flex items-center gap-4">
 //                         <img alt={`${t.name} avatar`} className="w-12 h-12 rounded-full object-cover" src={t.avatar} />
 //                         <div className="flex-1">
-//                           <div className="text-sm font-bold text-slate-900">{t.name}</div>
-//                           <div className="text-xs text-slate-500 opacity-90">{t.meta}</div>
+//                           <div className="text-sm font-bold text-foreground">{t.name}</div>
+//                           <div className="text-xs text-muted-foreground opacity-90">{t.meta}</div>
 //                           <div className="flex items-center mt-1" aria-hidden="true">
 //                             {Array.from({ length: t.rating }).map((_, i) => (
 //                               <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#FFCA28" stroke="#FFCA28" className="mr-0.5" xmlns="http://www.w3.org/2000/svg">
@@ -220,17 +220,17 @@
 //                   key={i}
 //                   onClick={() => goTo(i)}
 //                   aria-label={`Go to testimonial ${i + 1}`}
-//                   className={`w-2.5 h-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-green-300/40 ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-gray-300'}`}
+//                   className={`w-2.5 h-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-green-300/40 ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-muted-foreground/30'}`}
 //                 />
 //               ))}
 //             </div>
 
 //             <div className="flex md:hidden justify-center gap-4 mt-4">
-//               <button onClick={prev} aria-label="Previous testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-white border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
-//                 <ArrowLeft className="w-4 h-4 text-slate-900" />
+//               <button onClick={prev} aria-label="Previous testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-surface border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
+//                 <ArrowLeft className="w-4 h-4 text-foreground" />
 //               </button>
-//               <button onClick={next} aria-label="Next testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-white border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
-//                 <ArrowRight className="w-4 h-4 text-slate-900" />
+//               <button onClick={next} aria-label="Next testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-surface border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
+//                 <ArrowRight className="w-4 h-4 text-foreground" />
 //               </button>
 //             </div>
 //           </div>
@@ -396,14 +396,14 @@ const SuccessStories = () => {
 
   return (
     <div className="relative isolate w-screen left-1/2 -ml-[50vw] right-1/2 -mr-[50vw]">
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 py-12 md:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-12 md:py-16">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-6">
             <div>
-              <span className="block text-green-600 text-sm font-semibold tracking-widest md:text-base">
+              <span className="block text-green-600 dark:text-green-400 text-sm font-semibold tracking-widest md:text-base">
                 {t('testimonials.label') || 'TESTIMONIALS'}
               </span>
-              <h2 className="text-slate-900 font-extrabold text-2xl md:text-4xl leading-[1.12] max-w-3xl">
+              <h2 className="text-foreground font-extrabold text-2xl md:text-4xl leading-[1.12] max-w-3xl">
                 {t('testimonials.heading') || 'What our students say about studying in Europe with Eduberater'}
               </h2>
             </div>
@@ -413,24 +413,24 @@ const SuccessStories = () => {
                 <button
                   onClick={prev}
                   aria-label="Previous testimonial"
-                  className="w-11 h-11 inline-flex items-center justify-center bg-white border border-gray-200 shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
+                  className="w-11 h-11 inline-flex items-center justify-center bg-surface border border-border shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
                 >
-                  <ArrowLeft className="w-4 h-4 text-slate-900" />
+                  <ArrowLeft className="w-4 h-4 text-foreground" />
                 </button>
 
                 <button
                   onClick={next}
                   aria-label="Next testimonial"
-                  className="w-11 h-11 inline-flex items-center justify-center bg-white border border-gray-200 shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
+                  className="w-11 h-11 inline-flex items-center justify-center bg-surface border border-border shadow-sm rounded focus:outline-none focus:ring-4 focus:ring-green-300/40"
                 >
-                  <ArrowRight className="w-4 h-4 text-slate-900" />
+                  <ArrowRight className="w-4 h-4 text-foreground" />
                 </button>
               </div>
 
               <button
                 onClick={() => setPaused((p) => !p)}
                 aria-pressed={paused}
-                className="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-md shadow border border-gray-100 text-sm font-medium focus:outline-none focus:ring-4 focus:ring-green-300/40"
+                className="inline-flex items-center gap-2 bg-surface px-3 py-2 rounded-md shadow border border-border text-sm font-medium focus:outline-none focus:ring-4 focus:ring-green-300/40"
               >
                 {paused ? (t('testimonials.resume') || 'Resume') : (t('testimonials.pause') || 'Pause')}
               </button>
@@ -457,17 +457,17 @@ const SuccessStories = () => {
                       role="group"
                       tabIndex={0}
                       aria-label={`Testimonial by ${t.name}`}
-                      className="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between focus:outline-none focus:ring-4 focus:ring-green-300/40"
+                      className="h-full bg-surface rounded-2xl shadow-md p-6 flex flex-col justify-between focus:outline-none focus:ring-4 focus:ring-green-300/40"
                     >
                       <div>
-                        <blockquote className="text-sm md:text-base text-slate-700 leading-relaxed">{t.text}</blockquote>
+                        <blockquote className="text-sm md:text-base text-muted-foreground leading-relaxed">{t.text}</blockquote>
                       </div>
 
                       <div className="mt-5 flex items-center gap-4">
                         <img alt={`${t.name} avatar`} className="w-12 h-12 rounded-full object-cover" src={t.avatar} />
                         <div className="flex-1">
-                          <div className="text-sm font-bold text-slate-900">{t.name}</div>
-                          <div className="text-xs text-slate-500 opacity-90">{t.meta}</div>
+                          <div className="text-sm font-bold text-foreground">{t.name}</div>
+                          <div className="text-xs text-muted-foreground opacity-90">{t.meta}</div>
                           <div className="flex items-center mt-1" aria-hidden="true">
                             {Array.from({ length: Number(t.rating) || 0 }).map((_, i) => (
                               <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#FFCA28" stroke="#FFCA28" className="mr-0.5" xmlns="http://www.w3.org/2000/svg">
@@ -491,17 +491,17 @@ const SuccessStories = () => {
                   key={i}
                   onClick={() => goTo(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-green-300/40 ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-gray-300'}`}
+                  className={`w-2.5 h-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-green-300/40 ${i === index ? 'bg-gradient-to-r from-green-600 to-sky-600' : 'bg-muted-foreground/30'}`}
                 />
               ))}
             </div>
 
             <div className="flex md:hidden justify-center gap-4 mt-4">
-              <button onClick={prev} aria-label="Previous testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-white border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
-                <ArrowLeft className="w-4 h-4 text-slate-900" />
+              <button onClick={prev} aria-label="Previous testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-surface border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
+                <ArrowLeft className="w-4 h-4 text-foreground" />
               </button>
-              <button onClick={next} aria-label="Next testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-white border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
-                <ArrowRight className="w-4 h-4 text-slate-900" />
+              <button onClick={next} aria-label="Next testimonial" className="w-10 h-10 inline-flex items-center justify-center bg-surface border rounded focus:outline-none focus:ring-4 focus:ring-green-300/40">
+                <ArrowRight className="w-4 h-4 text-foreground" />
               </button>
             </div>
           </div>

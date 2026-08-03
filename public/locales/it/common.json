@@ -5,7 +5,7 @@
       "about": "Chi Siamo",
       "team": "Team",
       "services": "Servizi",
-      "pricing": "Processo",
+      "process": "Processo",
       "coaching": "Coaching",
       "contact": "Contatto"
     },
@@ -17,7 +17,10 @@
     },
     "profile": "Profilo",
     "open_menu": "Apri menu",
-    "close_menu": "Chiudi menu"
+    "close_menu": "Chiudi menu",
+    "theme": "Tema",
+    "theme_to_dark": "Passa al tema scuro",
+    "theme_to_light": "Passa al tema chiaro"
   },
   "hero": {
     "title_line1": "Studiare in Germania",

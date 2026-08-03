@@ -210,58 +210,58 @@ const Bookings = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-3">
           <div className="flex items-start gap-3">
-            <User className="w-5 h-5 text-gray-400 mt-0.5" />
+            <User className="w-5 h-5 text-muted-foreground mt-0.5" />
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">User</p>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">User</p>
+              <p className="text-sm font-semibold text-foreground">
                 {booking.userId?.name || "N/A"}
               </p>
-              <p className="text-xs text-gray-600">{booking.userId?.email || ""}</p>
+              <p className="text-xs text-muted-foreground">{booking.userId?.email || ""}</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <UserCog className="w-5 h-5 text-gray-400 mt-0.5" />
+            <UserCog className="w-5 h-5 text-muted-foreground mt-0.5" />
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Sub-admin</p>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Sub-admin</p>
+              <p className="text-sm font-semibold text-foreground">
                 {booking.subAdminId?.name || "N/A"}
               </p>
-              <p className="text-xs text-gray-600">{booking.subAdminId?.email || ""}</p>
+              <p className="text-xs text-muted-foreground">{booking.subAdminId?.email || ""}</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <Package className="w-5 h-5 text-gray-400 mt-0.5" />
+            <Package className="w-5 h-5 text-muted-foreground mt-0.5" />
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Service</p>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Service</p>
+              <p className="text-sm font-semibold text-foreground">
                 {booking.serviceId?.name || "N/A"}
               </p>
               {booking.serviceId?.description && (
-                <p className="text-xs text-gray-600 mt-1">{booking.serviceId.description}</p>
+                <p className="text-xs text-muted-foreground mt-1">{booking.serviceId.description}</p>
               )}
             </div>
           </div>
         </div>
         <div className="space-y-3">
           <div className="flex items-start gap-3">
-            <Calendar className="w-5 h-5 text-gray-400 mt-0.5" />
+            <Calendar className="w-5 h-5 text-muted-foreground mt-0.5" />
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Date & Time</p>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Date & Time</p>
+              <p className="text-sm font-semibold text-foreground">
                 {formatBookingDate(booking.date)}
               </p>
       {booking.timeslot && (
-        <p className="text-xs text-gray-600">
+        <p className="text-xs text-muted-foreground">
           {formatBookingTimeRange(booking.timeslot.start, booking.timeslot.end)}
         </p>
       )}
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <DollarSign className="w-5 h-5 text-gray-400 mt-0.5" />
+            <DollarSign className="w-5 h-5 text-muted-foreground mt-0.5" />
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Amount</p>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Amount</p>
+              <p className="text-sm font-semibold text-foreground">
                 ${booking.amount?.toFixed(2) || "0.00"}
               </p>
             </div>
@@ -269,14 +269,14 @@ const Bookings = () => {
           <div className="flex items-start gap-3">
             <div className="w-5 h-5 mt-0.5"></div>
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Payment Status</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Payment Status</p>
               <span
                 className={`inline-block px-2 py-1 rounded-lg text-xs font-semibold ${
                   booking.paymentStatus === "success"
-                    ? "bg-green-100 text-green-700"
+                    ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300"
                     : booking.paymentStatus === "failed"
-                    ? "bg-red-100 text-red-700"
-                    : "bg-yellow-100 text-yellow-700"
+                    ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
+                    : "bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300"
                 }`}
               >
                 {booking.paymentStatus?.toUpperCase() || "PENDING"}
@@ -286,16 +286,16 @@ const Bookings = () => {
           <div className="flex items-start gap-3">
             <div className="w-5 h-5 mt-0.5"></div>
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide">Booking Status</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Booking Status</p>
               <span
                 className={`inline-block px-2 py-1 rounded-lg text-xs font-semibold ${
                   booking.bookingStatus === "completed"
-                    ? "bg-green-100 text-green-700"
+                    ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300"
                     : booking.bookingStatus === "cancelled"
-                    ? "bg-red-100 text-red-700"
+                    ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
                     : booking.bookingStatus === "no-show"
-                    ? "bg-orange-100 text-orange-700"
-                    : "bg-blue-100 text-blue-700"
+                    ? "bg-orange-100 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300"
+                    : "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300"
                 }`}
               >
                 {booking.bookingStatus?.toUpperCase() || "SCHEDULED"}
@@ -306,12 +306,12 @@ const Bookings = () => {
             <div className="flex items-start gap-3">
               <div className="w-5 h-5 mt-0.5"></div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">Zoom Link</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">Zoom Link</p>
                 <a
                   href={booking.zoomLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:text-blue-800 underline"
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
                 >
                   Join Meeting
                 </a>
@@ -322,12 +322,12 @@ const Bookings = () => {
             <div className="flex items-start gap-3">
               <div className="w-5 h-5 mt-0.5"></div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">Recording</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">Recording</p>
                 <a
                   href={booking.zoomRecordingLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:text-blue-800 underline"
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
                 >
                   View Recording
                 </a>
@@ -394,10 +394,10 @@ const Bookings = () => {
           <span
             className={`inline-block px-2 py-1 rounded-lg text-xs font-semibold ${
               status === "success"
-                ? "bg-green-100 text-green-700"
+                ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300"
                 : status === "failed"
-                ? "bg-red-100 text-red-700"
-                : "bg-yellow-100 text-yellow-700"
+                ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
+                : "bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300"
             }`}
           >
             {status.toUpperCase()}
@@ -414,12 +414,12 @@ const Bookings = () => {
           <span
             className={`inline-block px-2 py-1 rounded-lg text-xs font-semibold ${
               status === "completed"
-                ? "bg-green-100 text-green-700"
+                ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300"
                 : status === "cancelled"
-                ? "bg-red-100 text-red-700"
+                ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
                 : status === "no-show"
-                ? "bg-orange-100 text-orange-700"
-                : "bg-blue-100 text-blue-700"
+                ? "bg-orange-100 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300"
+                : "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300"
             }`}
           >
             {status.toUpperCase()}
@@ -430,7 +430,7 @@ const Bookings = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -492,31 +492,31 @@ const Bookings = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-surface rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
               >
-                <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                <div className="p-6 border-b border-border flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-foreground">
                     {editingBooking ? "Edit Booking" : "Create Booking"}
                   </h2>
                   <button
                     onClick={() => setIsCreateModalOpen(false)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-muted rounded-lg transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-500" />
+                    <X className="w-5 h-5 text-muted-foreground" />
                   </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         User *
                       </label>
                       <select
                         required
                         value={formData.userId}
                         onChange={(e) => setFormData({ ...formData, userId: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         <option value="">Select a user</option>
                         {users
@@ -530,14 +530,14 @@ const Bookings = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Sub-admin *
                       </label>
                       <select
                         required
                         value={formData.subAdminId}
                         onChange={(e) => setFormData({ ...formData, subAdminId: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         <option value="">Select a sub-admin</option>
                         {subadmins.map((subadmin) => (
@@ -549,14 +549,14 @@ const Bookings = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Service *
                       </label>
                       <select
                         required
                         value={formData.serviceId}
                         onChange={(e) => setFormData({ ...formData, serviceId: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
@@ -568,7 +568,7 @@ const Bookings = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Date *
                       </label>
                       <input
@@ -576,12 +576,12 @@ const Bookings = () => {
                         required
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Start Time *
                       </label>
                       <input
@@ -594,12 +594,12 @@ const Bookings = () => {
                             timeslot: { ...formData.timeslot, start: e.target.value },
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         End Time *
                       </label>
                       <input
@@ -612,12 +612,12 @@ const Bookings = () => {
                             timeslot: { ...formData.timeslot, end: e.target.value },
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Amount *
                       </label>
                       <input
@@ -626,19 +626,19 @@ const Bookings = () => {
                         required
                         value={formData.amount}
                         onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Payment Status *
                       </label>
                       <select
                         required
                         value={formData.paymentStatus}
                         onChange={(e) => setFormData({ ...formData, paymentStatus: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         <option value="pending">Pending</option>
                         <option value="success">Success</option>
@@ -648,14 +648,14 @@ const Bookings = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Booking Status *
                       </label>
                       <select
                         required
                         value={formData.bookingStatus}
                         onChange={(e) => setFormData({ ...formData, bookingStatus: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-surface border border-border text-foreground placeholder:text-muted-foreground rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:border-green-500"
                       >
                         <option value="scheduled">Scheduled</option>
                         <option value="completed">Completed</option>
@@ -669,7 +669,7 @@ const Bookings = () => {
                     <button
                       type="button"
                       onClick={() => setIsCreateModalOpen(false)}
-                      className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+                      className="flex-1 px-6 py-3 border border-border text-foreground rounded-xl font-semibold hover:bg-muted transition-colors"
                     >
                       Cancel
                     </button>

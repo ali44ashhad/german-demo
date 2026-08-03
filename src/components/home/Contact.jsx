@@ -96,16 +96,16 @@
 //   };
 
 //   return (
-//     <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 overflow-hidden">
+//     <section ref={ref} className="relative py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 overflow-hidden">
 //       {/* Animated Background */}
 //       <div className="absolute inset-0">
 //         <motion.div
-//           className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl"
+//           className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/20 rounded-full blur-3xl"
 //           animate={{ scale: [1, 1.3, 1], x: [0, 30, 0] }}
 //           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
 //         />
 //         <motion.div
-//           className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 rounded-full blur-3xl"
+//           className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 dark:bg-emerald-900/15 rounded-full blur-3xl"
 //           animate={{ scale: [1.2, 1, 1.2], y: [0, -40, 0] }}
 //           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
 //         />
@@ -130,16 +130,16 @@
 //       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //         {/* Section Header */}
 //         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.8 }}>
-//           <motion.div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 border border-green-100 rounded-full px-6 py-3 mb-6" initial={{ opacity: 0, scale: 0.8 }} animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} transition={{ duration: 0.6, delay: 0.2 }}>
+//           <motion.div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 border border-border rounded-full px-6 py-3 mb-6" initial={{ opacity: 0, scale: 0.8 }} animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }} transition={{ duration: 0.6, delay: 0.2 }}>
 //             <MessageCircle className="w-5 h-5 text-green-600" />
 //             <span className="text-green-600 font-semibold">Free Consultation</span>
 //           </motion.div>
 
-//           <motion.h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.3 }}>
+//           <motion.h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.3 }}>
 //             Start Your <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">German Journey</span> Today
 //           </motion.h2>
           
-//           <motion.p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
+//           <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
 //             Get personalized guidance from Germany education experts. Book your free profile assessment and discover your path to German universities.
 //           </motion.p>
 //         </motion.div>
@@ -147,22 +147,22 @@
 //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 //           {/* Contact Information */}
 //           <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-//             <motion.h3 className="text-3xl font-bold text-gray-900 mb-8" variants={itemVariants}>Get in Touch</motion.h3>
+//             <motion.h3 className="text-3xl font-bold text-foreground mb-8" variants={itemVariants}>Get in Touch</motion.h3>
 
 //             {/* Contact Cards */}
 //             <div className="space-y-6 mb-8">
 //               {contactInfo.map((contact, index) => (
 //                 <motion.a key={index} href={contact.link} variants={itemVariants} className="block group">
-//                   <motion.div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300" whileHover={{ y: -5, scale: 1.02 }}>
+//                   <motion.div className="bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300" whileHover={{ y: -5, scale: 1.02 }}>
 //                     <div className="flex items-center gap-4">
 //                       <motion.div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center text-white`} whileHover={{ scale: 1.05, rotate: 360 }} transition={{ duration: 0.5 }}>
 //                         <contact.icon className="w-6 h-6" />
 //                       </motion.div>
                       
 //                       <div className="flex-1">
-//                         <h4 className="text-lg font-semibold text-gray-900 mb-1">{contact.title}</h4>
+//                         <h4 className="text-lg font-semibold text-foreground mb-1">{contact.title}</h4>
 //                         <p className="text-green-600 font-medium mb-1">{contact.info}</p>
-//                         <p className="text-gray-600 text-sm">{contact.description}</p>
+//                         <p className="text-muted-foreground text-sm">{contact.description}</p>
 //                       </div>
 //                     </div>
 //                   </motion.div>
@@ -184,44 +184,44 @@
 
 //           {/* Contact Form */}
 //           <motion.div initial={{ opacity: 0, x: 50 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }} transition={{ duration: 0.8, delay: 0.4 }}>
-//             <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+//             <div className="bg-surface rounded-3xl p-8 border border-border shadow-sm">
 //               {isSubmitted ? (
 //                 <motion.div className="text-center py-12" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
 //                   <motion.div className="w-20 h-20 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-6" animate={{ scale: [1, 1.1, 1], rotate: [0, 10, 0] }} transition={{ duration: 0.5 }}>
 //                     <CheckCircle className="w-10 h-10 text-white" />
 //                   </motion.div>
-//                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h3>
-//                   <p className="text-gray-700 mb-6">We've received your message and will contact you within 2 hours.</p>
+//                   <h3 className="text-2xl font-bold text-foreground mb-4">Thank You!</h3>
+//                   <p className="text-muted-foreground mb-6">We've received your message and will contact you within 2 hours.</p>
 //                   <motion.div className="w-full bg-gray-200 rounded-full h-2" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5, ease: "linear" }}>
 //                     <div className="bg-gradient-to-r from-green-600 to-sky-600 h-2 rounded-full" />
 //                   </motion.div>
 //                 </motion.div>
 //               ) : (
 //                 <>
-//                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Free Profile Assessment</h3>
+//                   <h3 className="text-2xl font-bold text-foreground mb-6">Free Profile Assessment</h3>
                   
 //                   <form onSubmit={handleSubmit} className="space-y-6">
 //                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 //                       <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 0.5 }}>
-//                         <label className="block text-gray-700 text-sm font-medium mb-2">Full Name *</label>
-//                         <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="Enter your name" />
+//                         <label className="block text-muted-foreground text-sm font-medium mb-2">Full Name *</label>
+//                         <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="Enter your name" />
 //                       </motion.div>
 
 //                       <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 0.6 }}>
-//                         <label className="block text-gray-700 text-sm font-medium mb-2">Email Address *</label>
-//                         <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="Enter your email" />
+//                         <label className="block text-muted-foreground text-sm font-medium mb-2">Email Address *</label>
+//                         <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="Enter your email" />
 //                       </motion.div>
 //                     </div>
 
 //                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 //                       <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 0.7 }}>
-//                         <label className="block text-gray-700 text-sm font-medium mb-2">Phone Number</label>
-//                         <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="+91 98765 43210" />
+//                         <label className="block text-muted-foreground text-sm font-medium mb-2">Phone Number</label>
+//                         <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300" placeholder="+91 98765 43210" />
 //                       </motion.div>
 
 //                       <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 0.8 }}>
-//                         <label className="block text-gray-700 text-sm font-medium mb-2">Program Interest</label>
-//                         <select name="program" value={formData.program} onChange={handleChange} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-green-600 transition-all duration-300">
+//                         <label className="block text-muted-foreground text-sm font-medium mb-2">Program Interest</label>
+//                         <select name="program" value={formData.program} onChange={handleChange} className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-green-600 transition-all duration-300">
 //                           <option value="">Select program</option>
 //                           {programs.map((program, index) => (<option key={index} value={program}>{program}</option>))}
 //                         </select>
@@ -229,8 +229,8 @@
 //                     </div>
 
 //                     <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 0.9 }}>
-//                       <label className="block text-gray-700 text-sm font-medium mb-2">Your Message</label>
-//                       <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300 resize-none" placeholder="Tell us about your academic background and goals..." />
+//                       <label className="block text-muted-foreground text-sm font-medium mb-2">Your Message</label>
+//                       <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder-gray-400 focus:outline-none focus:border-green-600 transition-all duration-300 resize-none" placeholder="Tell us about your academic background and goals..." />
 //                     </motion.div>
 
 //                     <motion.button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold py-4 px-6 rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group" whileHover={!isSubmitting ? { scale: 1.02 } : {}} whileTap={!isSubmitting ? { scale: 0.98 } : {}} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5, delay: 1 }}>
@@ -370,16 +370,16 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} className="relative py-16 lg:py-20 bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <section ref={ref} className="relative py-16 lg:py-20 bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <motion.div
-          className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/20 rounded-full blur-3xl"
           animate={{ scale: [1, 1.3, 1], x: [0, 30, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-80 h-80 bg-green-200/20 dark:bg-emerald-900/15 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], y: [0, -40, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -401,10 +401,10 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h3 className="text-3xl sm:text-4xl font-bold text-foreground">
             {t('contact.get_in_touch')}
           </h3>
-          <p className="mt-3 text-gray-600 max-w-2xl">{t('contact.sub')}</p>
+          <p className="mt-3 text-muted-foreground max-w-2xl">{t('contact.sub')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -428,7 +428,7 @@ const Contact = () => {
                     aria-label={contact.title || 'contact card'}
                   >
                     <motion.div
-                      className="h-full bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-green-100 transition-all duration-300"
+                      className="h-full bg-surface rounded-2xl p-5 sm:p-6 border border-border shadow-sm hover:shadow-md hover:border-border transition-all duration-300"
                       whileHover={{ y: -2 }}
                     >
                       <div className="flex flex-col gap-4">
@@ -441,9 +441,9 @@ const Contact = () => {
                         </motion.div>
 
                         <div className="min-w-0">
-                          <h4 className="text-base font-semibold text-gray-900 mb-1">{contact.title}</h4>
+                          <h4 className="text-base font-semibold text-foreground mb-1">{contact.title}</h4>
                           <p className="text-green-600 font-medium text-sm mb-1 break-words">{contact.info}</p>
-                          <p className="text-gray-600 text-sm leading-snug">{contact.description}</p>
+                          <p className="text-muted-foreground text-sm leading-snug">{contact.description}</p>
                         </div>
                       </div>
                     </motion.div>

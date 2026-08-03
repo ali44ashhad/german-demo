@@ -123,7 +123,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -137,12 +137,12 @@
 //           />
 
 //           {/* Bluish overlay (kept) */}
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
 //         </div>
         
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h1 
-//             className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+//             className="text-5xl md:text-6xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.8 }}
@@ -184,7 +184,7 @@
 //             {services.map((service, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
+//                 className="bg-surface rounded-3xl border border-border shadow-sm overflow-hidden"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -197,25 +197,25 @@
 //                         <service.icon className="w-8 h-8 text-white" />
 //                       </div>
 //                       <div>
-//                         <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
-//                         <div className="text-green-600 font-semibold">{service.price}</div>
+//                         <h2 className="text-3xl font-bold text-foreground">{service.title}</h2>
+//                         <div className="text-green-600 dark:text-green-400 font-semibold">{service.price}</div>
 //                       </div>
 //                     </div>
 
-//                     <p className="text-gray-700 text-lg leading-relaxed">
+//                     <p className="text-muted-foreground text-lg leading-relaxed">
 //                       {service.description}
 //                     </p>
 
 //                     {/* Features */}
 //                     <div>
-//                       <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                         <Zap className="w-5 h-5 text-green-600" />
+//                       <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+//                         <Zap className="w-5 h-5 text-green-600 dark:text-green-400" />
 //                         Key Features
 //                       </h3>
 //                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 //                         {service.features.map((feature, featureIndex) => (
-//                           <div key={featureIndex} className="flex items-center gap-2 text-gray-700">
-//                             <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+//                           <div key={featureIndex} className="flex items-center gap-2 text-muted-foreground">
+//                             <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                             <span className="text-sm">{feature}</span>
 //                           </div>
 //                         ))}
@@ -224,14 +224,14 @@
 
 //                     {/* Benefits */}
 //                     <div>
-//                       <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                         <Star className="w-5 h-5 text-green-600" />
+//                       <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+//                         <Star className="w-5 h-5 text-green-600 dark:text-green-400" />
 //                         Key Benefits
 //                       </h3>
 //                       <div className="space-y-2">
 //                         {service.benefits.map((benefit, benefitIndex) => (
-//                           <div key={benefitIndex} className="bg-green-50 rounded-lg p-3">
-//                             <div className="text-green-700 text-sm font-semibold">{benefit}</div>
+//                           <div key={benefitIndex} className="bg-green-50 dark:bg-muted rounded-lg p-3">
+//                             <div className="text-green-700 dark:text-green-400 text-sm font-semibold">{benefit}</div>
 //                           </div>
 //                         ))}
 //                       </div>
@@ -241,9 +241,9 @@
 //                   {/* Right Content */}
 //                   <div className="space-y-6">
 //                     {/* Process */}
-//                     <div className="bg-green-50 rounded-2xl p-6">
-//                       <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                         <BookOpen className="w-5 h-5 text-green-600" />
+//                     <div className="bg-green-50 dark:bg-muted rounded-2xl p-6">
+//                       <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+//                         <BookOpen className="w-5 h-5 text-green-600 dark:text-green-400" />
 //                         Process Flow
 //                       </h3>
 //                       <div className="space-y-3">
@@ -252,16 +252,16 @@
 //                             <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
 //                               {stepIndex + 1}
 //                             </div>
-//                             <span className="text-gray-700">{step}</span>
+//                             <span className="text-muted-foreground">{step}</span>
 //                           </div>
 //                         ))}
 //                       </div>
 //                     </div>
 
 //                     {/* CTA */}
-//                     <div className="bg-gradient-to-r from-green-50 to-sky-50 rounded-2xl p-6 border border-green-100">
-//                       <h3 className="text-lg font-bold text-gray-900 mb-3">Ready to Get Started?</h3>
-//                       <p className="text-gray-700 text-sm mb-4">
+//                     <div className="bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 rounded-2xl p-6 border border-border">
+//                       <h3 className="text-lg font-bold text-foreground mb-3">Ready to Get Started?</h3>
+//                       <p className="text-muted-foreground text-sm mb-4">
 //                         Begin your journey with our comprehensive {service.title.toLowerCase()} services.
 //                       </p>
 //                       <Link to={service.link}>
@@ -277,13 +277,13 @@
 
 //                     {/* Quick Stats */}
 //                     <div className="grid grid-cols-2 gap-4 text-center">
-//                       <div className="bg-green-50 rounded-xl p-4">
-//                         <Users className="w-6 h-6 text-green-600 mx-auto mb-2" />
-//                         <div className="text-gray-900 font-bold text-sm">1000+ Students</div>
+//                       <div className="bg-green-50 dark:bg-muted rounded-xl p-4">
+//                         <Users className="w-6 h-6 text-green-600 dark:text-green-400 mx-auto mb-2" />
+//                         <div className="text-foreground font-bold text-sm">1000+ Students</div>
 //                       </div>
-//                       <div className="bg-green-50 rounded-xl p-4">
-//                         <Shield className="w-6 h-6 text-green-600 mx-auto mb-2" />
-//                         <div className="text-gray-900 font-bold text-sm">100% Secure</div>
+//                       <div className="bg-green-50 dark:bg-muted rounded-xl p-4">
+//                         <Shield className="w-6 h-6 text-green-600 dark:text-green-400 mx-auto mb-2" />
+//                         <div className="text-foreground font-bold text-sm">100% Secure</div>
 //                       </div>
 //                     </div>
 //                   </div>
@@ -295,15 +295,15 @@
 //       </section>
 
 //       {/* Comprehensive CTA */}
-//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50">
+//       <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.div
-//             className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+//             className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Need Multiple Services?</h2>
-//             <p className="text-xl text-gray-700 mb-8">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Need Multiple Services?</h2>
+//             <p className="text-xl text-muted-foreground mb-8">
 //               Get special package deals when you avail multiple services together. Save time and money with our bundled solutions.
 //             </p>
 //             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -316,7 +316,7 @@
 //               </motion.button>
 //               <Link to="/contact">
 //                 <motion.button
-//                   className="px-8 py-4 border-2 border-green-600 text-green-600 font-bold rounded-xl hover:bg-green-600 hover:text-white transition-all duration-300"
+//                   className="px-8 py-4 border-2 border-green-600 dark:border-green-500 text-green-600 dark:text-green-400 font-bold rounded-xl hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white transition-all duration-300"
 //                   whileHover={{ scale: 1.05 }}
 //                   whileTap={{ scale: 0.95 }}
 //                 >
@@ -544,7 +544,7 @@ const AllServices = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -557,12 +557,12 @@ const AllServices = () => {
               backgroundPosition: "center"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -605,7 +605,7 @@ const AllServices = () => {
               return (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
+                  className="bg-surface rounded-3xl border border-border shadow-sm overflow-hidden"
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -620,32 +620,32 @@ const AllServices = () => {
                           <Icon className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                          <h2 className="text-3xl font-bold text-gray-900">
+                          <h2 className="text-3xl font-bold text-foreground">
                             {service.title}
                           </h2>
-                          <div className="text-green-600 font-semibold">
+                          <div className="text-green-600 dark:text-green-400 font-semibold">
                             {service.price}
                           </div>
                         </div>
                       </div>
 
-                      <p className="text-gray-700 text-lg leading-relaxed">
+                      <p className="text-muted-foreground text-lg leading-relaxed">
                         {service.description}
                       </p>
 
                       {/* Features */}
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                          <Zap className="w-5 h-5 text-green-600" />
+                        <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                          <Zap className="w-5 h-5 text-green-600 dark:text-green-400" />
                           {card.keyFeaturesTitle}
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {service.features.map((feature, fi) => (
                             <div
                               key={fi}
-                              className="flex items-center gap-2 text-gray-700"
+                              className="flex items-center gap-2 text-muted-foreground"
                             >
-                              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
                               <span className="text-sm">{feature}</span>
                             </div>
                           ))}
@@ -654,17 +654,17 @@ const AllServices = () => {
 
                       {/* Benefits */}
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                          <Star className="w-5 h-5 text-green-600" />
+                        <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                          <Star className="w-5 h-5 text-green-600 dark:text-green-400" />
                           {card.keyBenefitsTitle}
                         </h3>
                         <div className="space-y-2">
                           {service.benefits.map((benefit, bi) => (
                             <div
                               key={bi}
-                              className="bg-green-50 rounded-lg p-3"
+                              className="bg-green-50 dark:bg-muted rounded-lg p-3"
                             >
-                              <div className="text-green-700 text-sm font-semibold">
+                              <div className="text-green-700 dark:text-green-400 text-sm font-semibold">
                                 {benefit}
                               </div>
                             </div>
@@ -676,9 +676,9 @@ const AllServices = () => {
                     {/* Right Content */}
                     <div className="space-y-6">
                       {/* Process */}
-                      <div className="bg-green-50 rounded-2xl p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                          <BookOpen className="w-5 h-5 text-green-600" />
+                      <div className="bg-green-50 dark:bg-muted rounded-2xl p-6">
+                        <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                          <BookOpen className="w-5 h-5 text-green-600 dark:text-green-400" />
                           {card.processFlowTitle}
                         </h3>
                         <div className="space-y-3">
@@ -687,18 +687,18 @@ const AllServices = () => {
                               <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                                 {si + 1}
                               </div>
-                              <span className="text-gray-700">{step}</span>
+                              <span className="text-muted-foreground">{step}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
                       {/* CTA */}
-                      <div className="bg-gradient-to-r from-green-50 to-sky-50 rounded-2xl p-6 border border-green-100">
-                        <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      <div className="bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50 rounded-2xl p-6 border border-border">
+                        <h3 className="text-lg font-bold text-foreground mb-3">
                           {card.readyCTA}
                         </h3>
-                        <p className="text-gray-700 text-sm mb-4">
+                        <p className="text-muted-foreground text-sm mb-4">
                           {card.ctaDescription.replace(
                             "{serviceTitle}",
                             service.title.toLowerCase()
@@ -717,15 +717,15 @@ const AllServices = () => {
 
                       {/* Quick Stats */}
                       <div className="grid grid-cols-2 gap-4 text-center">
-                        <div className="bg-green-50 rounded-xl p-4">
-                          <Users className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                          <div className="text-gray-900 font-bold text-sm">
+                        <div className="bg-green-50 dark:bg-muted rounded-xl p-4">
+                          <Users className="w-6 h-6 text-green-600 dark:text-green-400 mx-auto mb-2" />
+                          <div className="text-foreground font-bold text-sm">
                             {quickStats.studentsLabel}
                           </div>
                         </div>
-                        <div className="bg-green-50 rounded-xl p-4">
-                          <Shield className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                          <div className="text-gray-900 font-bold text-sm">
+                        <div className="bg-green-50 dark:bg-muted rounded-xl p-4">
+                          <Shield className="w-6 h-6 text-green-600 dark:text-green-400 mx-auto mb-2" />
+                          <div className="text-foreground font-bold text-sm">
                             {quickStats.secureLabel}
                           </div>
                         </div>
@@ -740,17 +740,17 @@ const AllServices = () => {
       </section>
 
       {/* Comprehensive CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50">
+      <section className="py-20 bg-gradient-to-r from-green-50 to-sky-50 dark:from-slate-800/80 dark:to-slate-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+            className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-foreground mb-6">
               {comprehensiveCTA.heading}
             </h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               {comprehensiveCTA.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -769,7 +769,7 @@ const AllServices = () => {
               </motion.button>
               <Link to={comprehensiveCTA.contactLink}>
                 <motion.button
-                  className="px-8 py-4 border-2 border-green-600 text-green-600 font-bold rounded-xl hover:bg-green-600 hover:text-white transition-all duration-300"
+                  className="px-8 py-4 border-2 border-green-600 dark:border-green-500 text-green-600 dark:text-green-400 font-bold rounded-xl hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -778,7 +778,7 @@ const AllServices = () => {
               </Link>
             </div>
 
-            <p className="mt-6 text-sm text-gray-600">
+            <p className="mt-6 text-sm text-muted-foreground">
               <span className="text-yellow-500 font-semibold">
                 {t("services.meta.lastUpdated", {
                   date: formattedDate,

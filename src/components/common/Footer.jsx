@@ -365,21 +365,21 @@ const Footer = () => {
   };
 
   return (
-    <footer ref={ref} className="relative bg-gradient-to-br from-slate-100 via-sky-50 to-white overflow-hidden">
+    <footer ref={ref} className="relative bg-gradient-to-br from-slate-100 via-sky-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute bottom-10 left-10 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl"
+          className="absolute bottom-10 left-10 w-64 h-64 bg-sky-200/30 dark:bg-sky-900/30 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], x: [0, -20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute top-10 right-10 w-80 h-80 bg-green-200/30 rounded-full blur-3xl"
+          className="absolute top-10 right-10 w-80 h-80 bg-green-200/30 dark:bg-green-900/25 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], y: [0, 30, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         />
 
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.08)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.08)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(14,165,233,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
@@ -394,7 +394,7 @@ const Footer = () => {
               {/* <h3 className="text-2xl font-bold text-gray-900">{footer.company || 'Eduberator'}</h3> */}
             </motion.div>
 
-            <p className="text-gray-700 mb-6 leading-relaxed">{footer.about || 'Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.'}</p>
+            <p className="text-muted-foreground mb-6 leading-relaxed">{footer.about || 'Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.'}</p>
 
             {/* Trust Badges */}
             {/* <div className="space-y-3">
@@ -415,11 +415,11 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">{footer.quick_links_title || 'Quick Links'}</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">{footer.quick_links_title || 'Quick Links'}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <Link to={link.href} className="text-gray-700 hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group">
+                  <Link to={link.href} className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group">
                     <div className="w-1 h-1 bg-green-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
                   </Link>
@@ -430,11 +430,11 @@ const Footer = () => {
 
           {/* Our Services */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">{footer.our_services_title || 'Our Services'}</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">{footer.our_services_title || 'Our Services'}</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <Link to={service.to} className="text-gray-700 hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group">
+                  <Link to={service.to} className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group">
                     <div className="w-1 h-1 bg-green-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service.name}
                   </Link>
@@ -445,11 +445,11 @@ const Footer = () => {
 
           {/* Important Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">{footer.important_links_title || 'Important Links'}</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">{footer.important_links_title || 'Important Links'}</h4>
             <ul className="space-y-3">
               {importantLinks.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <Link to={link.href} className="text-gray-700 hover:text-green-600 transition-colors duration-300 flex items-center gap-2 group">
+                  <Link to={link.href} className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group">
                     <div className="w-1 h-1 bg-green-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
                   </Link>
@@ -460,7 +460,7 @@ const Footer = () => {
         </motion.div>
 
         {/* Contact & Social Section */}
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 border-t border-gray-200" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
+        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 border-t border-border" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
           {/* Contact Info */}
           {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold text-gray-900 mb-4">{footer.get_in_touch_title || 'Get In Touch'}</h4>
@@ -499,7 +499,7 @@ const Footer = () => {
 
           {/* Newsletter - LEFT */}
 <div className="space-y-4">
-  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+  <h4 className="text-lg font-semibold text-foreground mb-4">
     {footer.newsletter_title || 'Newsletter'}
   </h4>
 
@@ -507,7 +507,7 @@ const Footer = () => {
     <input
       type="email"
       placeholder={footer.newsletter_placeholder || 'Enter your email'}
-      className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-green-600 transition-all duration-300"
+      className="flex-1 bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
     />
     <motion.button
       className="px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
@@ -528,7 +528,7 @@ const Footer = () => {
 
 {/* Social Links - RIGHT */}
 <div className="space-y-4 lg:text-right">
-  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+  <h4 className="text-lg font-semibold text-foreground mb-4">
     {footer.follow_us_title || 'Follow Us'}
   </h4>
 
@@ -541,7 +541,7 @@ const Footer = () => {
         <motion.a
           key={index}
           href={social.href || '#'}
-          className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-700 transition-all duration-300 border border-gray-100"
+          className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-all duration-300 border border-border"
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           aria-label={social.provider || `social-${index}`}
@@ -560,9 +560,9 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Bar */}
-        <motion.div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.6 }}>
+        <motion.div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.6 }}>
           {/* Copyright */}
-          <div className="text-gray-600 text-sm text-center md:text-left">
+          <div className="text-muted-foreground text-sm text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
               <span>{footer.copyright_prefix || '© 2025 Eduberator. Made with'}</span>
               <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
@@ -574,12 +574,12 @@ const Footer = () => {
 
           {/* Legal Links */}
           <div className="flex items-center gap-6 text-sm">
-            <Link to="/privacy" className="text-gray-600 hover:text-green-600 transition-colors duration-300 flex items-center gap-1">
+            <Link to="/privacy" className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 flex items-center gap-1">
               <Shield className="w-4 h-4" />
               {footer.legal?.privacy || 'Privacy Policy'}
             </Link>
-            <Link to="/terms" className="text-gray-600 hover:text-green-600 transition-colors duration-300">{footer.legal?.terms || 'Terms of Service'}</Link>
-            <Link to="/cookies" className="text-gray-600 hover:text-green-600 transition-colors duration-300">{footer.legal?.cookies || 'Cookies'}</Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300">{footer.legal?.terms || 'Terms of Service'}</Link>
+            <Link to="/cookies" className="text-muted-foreground hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300">{footer.legal?.cookies || 'Cookies'}</Link>
           </div>
 
           {/* Scroll to Top */}

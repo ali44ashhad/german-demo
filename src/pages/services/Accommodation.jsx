@@ -74,7 +74,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -88,7 +88,7 @@
 //           />
 
 //           {/* Bluish overlay preserved */}
-//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+//           <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
 //         </div>
         
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -116,7 +116,7 @@
 //       <section ref={ref} className="py-20">
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -127,7 +127,7 @@
 //             {accommodationTypes.map((accommodation, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300"
+//                 className="bg-surface rounded-2xl overflow-hidden border border-border hover:shadow-md transition-all duration-300"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -143,21 +143,21 @@
                 
 //                 <div className="p-6">
 //                   <div className="flex justify-between items-start mb-4">
-//                     <h3 className="text-2xl font-bold text-gray-900">{accommodation.type}</h3>
-//                     <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
+//                     <h3 className="text-2xl font-bold text-foreground">{accommodation.type}</h3>
+//                     <div className="bg-green-100 dark:bg-emerald-950/50 text-green-700 dark:text-green-400 dark:text-green-300 px-3 py-1 rounded-full text-sm font-bold">
 //                       {accommodation.price}
 //                     </div>
 //                   </div>
 
-//                   <p className="text-sky-600 text-sm mb-4 flex items-center gap-1">
+//                   <p className="text-sky-600 dark:text-sky-400 text-sm mb-4 flex items-center gap-1">
 //                     <Users className="w-4 h-4" />
 //                     Best for: {accommodation.bestFor}
 //                   </p>
 
 //                   <div className="space-y-2 mb-4">
 //                     {accommodation.features.map((feature, featureIndex) => (
-//                       <div key={featureIndex} className="flex items-center gap-2 text-gray-700 text-sm">
-//                         <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+//                       <div key={featureIndex} className="flex items-center gap-2 text-muted-foreground text-sm">
+//                         <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                         {feature}
 //                       </div>
 //                     ))}
@@ -178,10 +178,10 @@
 //       </section>
 
 //       {/* Cities Section */}
-//       <section className="py-20 bg-green-50/30">
+//       <section className="py-20 bg-green-50/30 dark:bg-muted/50">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -192,7 +192,7 @@
 //             {cities.map((city, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-6 border border-gray-100 text-center hover:shadow-md"
+//                 className="bg-surface rounded-2xl p-6 border border-border text-center hover:shadow-md"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
@@ -202,23 +202,23 @@
 //                   <MapPin className="w-6 h-6 text-white" />
 //                 </div>
                 
-//                 <h3 className="text-xl font-bold text-gray-900 mb-2">{city.name}</h3>
+//                 <h3 className="text-xl font-bold text-foreground mb-2">{city.name}</h3>
                 
-//                 <div className="space-y-2 text-sm text-gray-700 mb-4">
+//                 <div className="space-y-2 text-sm text-muted-foreground mb-4">
 //                   <div className="flex justify-between">
 //                     <span>Average Rent:</span>
-//                     <span className="text-sky-600">{city.averageRent}</span>
+//                     <span className="text-sky-600 dark:text-sky-400">{city.averageRent}</span>
 //                   </div>
 //                   <div className="flex justify-between">
 //                     <span>Popularity:</span>
-//                     <span className="text-green-600">{city.popularity}</span>
+//                     <span className="text-green-600 dark:text-green-400">{city.popularity}</span>
 //                   </div>
 //                 </div>
 
 //                 <div className="text-left">
-//                   <p className="text-gray-600 text-sm mb-2">Student Areas:</p>
+//                   <p className="text-muted-foreground text-sm mb-2">Student Areas:</p>
 //                   {city.studentAreas.map((area, areaIndex) => (
-//                     <div key={areaIndex} className="flex items-center gap-2 text-gray-700 text-xs mb-1">
+//                     <div key={areaIndex} className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
 //                       <div className="w-1 h-1 bg-green-600 rounded-full"></div>
 //                       {area}
 //                     </div>
@@ -234,12 +234,12 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.div
-//             className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+//             className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Need Accommodation in Germany?</h2>
-//             <p className="text-xl text-gray-700 mb-8">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Need Accommodation in Germany?</h2>
+//             <p className="text-xl text-muted-foreground mb-8">
 //               Let us help you find the perfect home for your study journey.
 //             </p>
 //             <motion.button
@@ -378,7 +378,7 @@ const Accommodation = () => {
   const cta = raw.cta && Object.keys(raw.cta).length ? raw.cta : FALLBACK.cta;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -392,7 +392,7 @@ const Accommodation = () => {
             }}
           />
 
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60"></div>
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -420,7 +420,7 @@ const Accommodation = () => {
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -431,7 +431,7 @@ const Accommodation = () => {
             {accommodationTypes.map((accommodation, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300"
+                className="bg-surface rounded-2xl overflow-hidden border border-border hover:shadow-md transition-all duration-300"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -447,21 +447,21 @@ const Accommodation = () => {
 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900">{accommodation.type}</h3>
-                    <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
+                    <h3 className="text-2xl font-bold text-foreground">{accommodation.type}</h3>
+                    <div className="bg-green-100 dark:bg-emerald-950/50 text-green-700 dark:text-green-400 dark:text-green-300 px-3 py-1 rounded-full text-sm font-bold">
                       {accommodation.price}
                     </div>
                   </div>
 
-                  <p className="text-sky-600 text-sm mb-4 flex items-center gap-1">
+                  <p className="text-sky-600 dark:text-sky-400 text-sm mb-4 flex items-center gap-1">
                     <Users className="w-4 h-4" />
                     {t("accommodation.bestForLabel", { defaultValue: "Best for:" })} {accommodation.bestFor}
                   </p>
 
                   <div className="space-y-2 mb-4">
                     {normalizeArray(accommodation.features, []).map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2 text-gray-700 text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <div key={featureIndex} className="flex items-center gap-2 text-muted-foreground text-sm">
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
                         {feature}
                       </div>
                     ))}
@@ -488,10 +488,10 @@ const Accommodation = () => {
       </section>
 
       {/* Cities Section */}
-      <section className="py-20 bg-green-50/30">
+      <section className="py-20 bg-green-50/30 dark:bg-muted/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -502,7 +502,7 @@ const Accommodation = () => {
             {cities.map((city, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 text-center hover:shadow-md"
+                className="bg-surface rounded-2xl p-6 border border-border text-center hover:shadow-md"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
@@ -512,23 +512,23 @@ const Accommodation = () => {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{city.name}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">{city.name}</h3>
 
-                <div className="space-y-2 text-sm text-gray-700 mb-4">
+                <div className="space-y-2 text-sm text-muted-foreground mb-4">
                   <div className="flex justify-between">
                     <span>{t("accommodation.averageRentLabel", { defaultValue: "Average Rent:" })}</span>
-                    <span className="text-sky-600">{city.averageRent}</span>
+                    <span className="text-sky-600 dark:text-sky-400">{city.averageRent}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>{t("accommodation.popularityLabel", { defaultValue: "Popularity:" })}</span>
-                    <span className="text-green-600">{city.popularity}</span>
+                    <span className="text-green-600 dark:text-green-400">{city.popularity}</span>
                   </div>
                 </div>
 
                 <div className="text-left">
-                  <p className="text-gray-600 text-sm mb-2">{t("accommodation.studentAreasLabel", { defaultValue: "Student Areas:" })}</p>
+                  <p className="text-muted-foreground text-sm mb-2">{t("accommodation.studentAreasLabel", { defaultValue: "Student Areas:" })}</p>
                   {normalizeArray(city.studentAreas, []).map((area, areaIndex) => (
-                    <div key={areaIndex} className="flex items-center gap-2 text-gray-700 text-xs mb-1">
+                    <div key={areaIndex} className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
                       <div className="w-1 h-1 bg-green-600 rounded-full"></div>
                       {area}
                     </div>
@@ -544,12 +544,12 @@ const Accommodation = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-white rounded-3xl p-12 border border-green-100 shadow-sm"
+            className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{cta.heading}</h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <h2 className="text-4xl font-bold text-foreground mb-6">{cta.heading}</h2>
+            <p className="text-xl text-muted-foreground mb-8">
               {cta.sub}
             </p>
             <motion.button

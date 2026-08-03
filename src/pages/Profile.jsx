@@ -584,7 +584,7 @@ const Profile = () => {
 
   if (isUserLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
         <Loader2 className="w-12 h-12 animate-spin text-green-600" />
       </div>
     );
@@ -592,10 +592,10 @@ const Profile = () => {
 
   if (isUserError || !user) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50 px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 px-4">
         <XCircle className="w-16 h-16 text-red-500 mb-4" />
-        <h1 className="text-2xl font-semibold text-gray-900 mb-2">Unable to load profile</h1>
-        <p className="text-gray-600 text-center max-w-md mb-6">
+        <h1 className="text-2xl font-semibold text-foreground mb-2">Unable to load profile</h1>
+        <p className="text-muted-foreground text-center max-w-md mb-6">
           {userError?.data?.message ||
             "We could not retrieve your profile information right now. Please try again shortly."}
         </p>
@@ -614,9 +614,9 @@ const Profile = () => {
   const hasDocuments = Boolean(user.biodataPdf || user.studentInquiryPdf || user.resumePdf);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 py-24 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-12">
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="bg-surface rounded-3xl shadow-xl border border-border overflow-hidden">
           <div className="bg-gradient-to-r from-green-600 to-sky-600 px-8 py-10 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
@@ -648,41 +648,41 @@ const Profile = () => {
                   <img
                     src={user.profileImage}
                     alt="Profile"
-                    className="w-36 h-36 rounded-full object-cover border-4 border-white shadow-lg"
+                    className="w-36 h-36 rounded-full object-cover border-4 border-surface shadow-lg"
                   />
                 </div>
               )}
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Basic Information</p>
-                <div className="bg-gray-50 rounded-2xl p-5 space-y-3">
+                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Basic Information</p>
+                <div className="bg-muted rounded-2xl p-5 space-y-3">
                   <div>
-                    <p className="text-xs uppercase text-gray-400">Name</p>
-                    <p className="text-gray-900 font-semibold">{user.name}</p>
+                    <p className="text-xs uppercase text-muted-foreground">Name</p>
+                    <p className="text-foreground font-semibold">{user.name}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase text-gray-400">Email</p>
-                    <p className="text-gray-900 font-semibold">{user.email}</p>
+                    <p className="text-xs uppercase text-muted-foreground">Email</p>
+                    <p className="text-foreground font-semibold">{user.email}</p>
                   </div>
                   {user.contactNumber && (
                     <div>
-                      <p className="text-xs uppercase text-gray-400">Mobile</p>
-                      <p className="text-gray-900 font-semibold">{user.contactNumber}</p>
+                      <p className="text-xs uppercase text-muted-foreground">Mobile</p>
+                      <p className="text-foreground font-semibold">{user.contactNumber}</p>
                     </div>
                   )}
                 </div>
               </div>
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Latest Updates</p>
-                <div className="bg-gray-50 rounded-2xl p-5 space-y-3">
+                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Latest Updates</p>
+                <div className="bg-muted rounded-2xl p-5 space-y-3">
                   <div>
-                    <p className="text-xs uppercase text-gray-400">Last Updated</p>
-                    <p className="text-gray-900 font-semibold">
+                    <p className="text-xs uppercase text-muted-foreground">Last Updated</p>
+                    <p className="text-foreground font-semibold">
                       {user.updatedAt ? new Date(user.updatedAt).toLocaleString() : "—"}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase text-gray-400">Agreed to Terms</p>
-                    <p className="text-gray-900 font-semibold">
+                    <p className="text-xs uppercase text-muted-foreground">Agreed to Terms</p>
+                    <p className="text-foreground font-semibold">
                       {user.agreedToTerms ? "Yes" : "No"}
                     </p>
                   </div>
@@ -690,24 +690,24 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="border-t border-gray-200 pt-10">
+            <div className="border-t border-border pt-10">
               <div className="space-y-4 mb-6">
                 <div>
-                  <h2 className="text-2xl font-semibold text-gray-900">
+                  <h2 className="text-2xl font-semibold text-foreground">
                     {isEditMode ? "Edit Your Profile" : "Your Profile"}
                   </h2>
                   {!isEditMode && hasDocuments && (
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-muted-foreground mt-2">
                       Your biodata and student inquiry PDFs are ready. View them below or edit your profile to update.
                     </p>
                   )}
                   {!isEditMode && !hasDocuments && (
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-muted-foreground mt-2">
                       Complete your profile to generate your documents.
                     </p>
                   )}
                   {isEditMode && (
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-muted-foreground mt-2">
                       Use the tabs for core application, biodata (CV), and student inquiry. Email cannot be changed here;
                       add your phone and address for the PDFs.
                     </p>
@@ -729,7 +729,7 @@ const Profile = () => {
                       <motion.button
                         type="button"
                         onClick={() => openPdfPreview("inquiry")}
-                        className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-green-600 bg-white px-6 py-3 text-sm font-semibold text-green-700 hover:bg-green-50 transition-all"
+                        className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-green-600 bg-surface px-6 py-3 text-sm font-semibold text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-950/30 transition-all"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -740,7 +740,7 @@ const Profile = () => {
                     <motion.button
                       type="button"
                       onClick={handleEditProfile}
-                      className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-all"
+                      className="inline-flex w-full sm:w-auto sm:flex-1 lg:flex-none items-center justify-center gap-2 rounded-xl border-2 border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-all"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -761,7 +761,7 @@ const Profile = () => {
                   }}
                   className="space-y-12"
                 >
-                <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-4">
+                <div className="flex flex-wrap gap-2 border-b border-border pb-4">
                   {[
                     { id: "core", label: "Core application" },
                     { id: "biodata", label: "Biodata (CV)" },
@@ -774,7 +774,7 @@ const Profile = () => {
                       className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
                         profileTab === tab.id
                           ? "bg-green-600 text-white shadow"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          : "bg-muted text-foreground hover:opacity-80"
                       }`}
                     >
                       {tab.label}
@@ -786,10 +786,10 @@ const Profile = () => {
                 <>
                 {/* Personal Details */}
                 <section>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Personal Details</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Personal Details</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -799,17 +799,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.name
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.name && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.name}</p>
                       )}
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Profile Image
                       </label>
                       <div className="space-y-4">
@@ -819,7 +819,7 @@ const Profile = () => {
                             <img
                               src={imagePreview}
                               alt="Profile preview"
-                              className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                              className="w-32 h-32 rounded-full object-cover border-4 border-surface shadow-lg"
                             />
                             {selectedFile && (
                               <button
@@ -836,7 +836,7 @@ const Profile = () => {
                         
                         {/* File Input */}
                         <div className="flex items-center gap-4">
-                          <label className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300 bg-white text-gray-700 font-medium cursor-pointer hover:bg-gray-50 transition-colors">
+                          <label className="flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-surface text-foreground font-medium cursor-pointer hover:bg-muted transition-colors">
                             <Upload className="w-5 h-5" />
                             {selectedFile ? "Change Image" : "Upload Image"}
                             <input
@@ -867,13 +867,13 @@ const Profile = () => {
                           )}
                         </div>
                         
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                           Supported formats: JPEG, PNG, GIF, WEBP. Max size: 5MB
                         </p>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Date of Birth <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -883,17 +883,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.dateOfBirth
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.dateOfBirth && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.dateOfBirth}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.dateOfBirth}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Country <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -903,17 +903,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.country
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.country && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.country}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.country}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         City <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -923,60 +923,60 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.city
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.city && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.city}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.city}</p>
                       )}
                     </div>
                   </div>
                 </section>
 
                 <section>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact (for PDFs)</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Contact (for PDFs)</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">Phone</label>
                       <input
                         type="text"
                         name="contactNumber"
                         value={formData.contactNumber}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40"
                         placeholder="+91 ..."
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Legal full name (inquiry)</label>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">Legal full name (inquiry)</label>
                       <input
                         type="text"
                         name="fullLegalName"
                         value={formData.fullLegalName}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Address (multiline)</label>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">Address (multiline)</label>
                       <textarea
                         name="address"
                         value={formData.address}
                         onChange={handleInputChange}
                         rows={3}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn URL</label>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">LinkedIn URL</label>
                       <input
                         type="url"
                         name="linkedInUrl"
                         value={formData.linkedInUrl}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                        className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40"
                         placeholder="https://linkedin.com/in/..."
                       />
                     </div>
@@ -985,10 +985,10 @@ const Profile = () => {
 
                 {/* Academic Details */}
                 <section>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Academic Details</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Academic Details</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Highest Qualification <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -998,17 +998,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.highestQualification
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.highestQualification && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.highestQualification}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.highestQualification}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Field of Study <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1018,17 +1018,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.fieldOfStudy
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.fieldOfStudy && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.fieldOfStudy}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.fieldOfStudy}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Graduation Year <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1040,17 +1040,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.graduationYear
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.graduationYear && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.graduationYear}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.graduationYear}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Marks / CGPA <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1060,17 +1060,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.marksOrCGPA
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.marksOrCGPA && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.marksOrCGPA}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.marksOrCGPA}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Target Degree in Germany <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1080,17 +1080,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.targetDegreeInGermany
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.targetDegreeInGermany && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.targetDegreeInGermany}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.targetDegreeInGermany}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Desired Course / Program <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1100,17 +1100,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.desiredCourseProgram
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.desiredCourseProgram && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.desiredCourseProgram}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.desiredCourseProgram}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Preferred Intake <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1121,17 +1121,17 @@ const Profile = () => {
                         placeholder="Winter / Summer"
                         className={`w-full rounded-xl border ${
                           validationErrors.preferredIntake
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.preferredIntake && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.preferredIntake}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.preferredIntake}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         English Proficiency <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1142,17 +1142,17 @@ const Profile = () => {
                         placeholder="IELTS / TOEFL / PTE"
                         className={`w-full rounded-xl border ${
                           validationErrors.englishProficiency
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.englishProficiency && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.englishProficiency}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.englishProficiency}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         German Language Level <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1163,13 +1163,13 @@ const Profile = () => {
                         placeholder="None / A1 / A2 / B1 / B2 / C1"
                         className={`w-full rounded-xl border ${
                           validationErrors.germanLanguageLevel
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.germanLanguageLevel && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.germanLanguageLevel}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.germanLanguageLevel}</p>
                       )}
                     </div>
                   </div>
@@ -1177,10 +1177,10 @@ const Profile = () => {
 
                 {/* Professional & Financial */}
                 <section>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Professional & Planning</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Professional & Planning</h3>
                   <div className="grid gap-5 md:grid-cols-2">
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Work Experience <span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -1190,17 +1190,17 @@ const Profile = () => {
                         rows={4}
                         className={`w-full rounded-xl border ${
                           validationErrors.workExperience
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.workExperience && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.workExperience}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.workExperience}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Estimated Budget <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -1210,17 +1210,17 @@ const Profile = () => {
                         onChange={handleInputChange}
                         className={`w-full rounded-xl border ${
                           validationErrors.estimatedBudget
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.estimatedBudget && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.estimatedBudget}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.estimatedBudget}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Shortlisted Universities <span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -1230,13 +1230,13 @@ const Profile = () => {
                         rows={3}
                         className={`w-full rounded-xl border ${
                           validationErrors.shortlistedUniversities
-                            ? "border-red-300"
-                            : "border-gray-200"
-                        } bg-white px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200`}
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-border"
+                        } bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40`}
                         required
                       />
                       {validationErrors.shortlistedUniversities && (
-                        <p className="mt-1 text-sm text-red-600">{validationErrors.shortlistedUniversities}</p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{validationErrors.shortlistedUniversities}</p>
                       )}
                     </div>
                   </div>
@@ -1244,21 +1244,21 @@ const Profile = () => {
 
                 {/* Assistance */}
                 <section>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Areas Where You Need Assistance</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Areas Where You Need Assistance</h3>
                   <div className="grid gap-4 md:grid-cols-3">
                     {needHelpOptions.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm hover:border-green-400 transition-colors"
+                        className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 shadow-sm hover:border-green-400 transition-colors"
                       >
                         <input
                           type="checkbox"
                           value={option.value}
                           checked={formData.needHelpWith.includes(option.value)}
                           onChange={handleCheckboxChange}
-                          className="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                          className="h-5 w-5 rounded border-border text-green-600 focus:ring-green-500"
                         />
-                        <span className="text-gray-800 text-sm font-medium">{option.label}</span>
+                        <span className="text-foreground text-sm font-medium">{option.label}</span>
                       </label>
                     ))}
                   </div>
@@ -1280,8 +1280,8 @@ const Profile = () => {
                   />
                 )}
 
-                <section className="flex items-center justify-between gap-4 bg-green-50 border border-green-200 rounded-2xl px-6 py-4">
-                  <label className="flex items-center gap-3 text-sm text-green-800 font-medium">
+                <section className="flex items-center justify-between gap-4 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 rounded-2xl px-6 py-4">
+                  <label className="flex items-center gap-3 text-sm text-green-800 dark:text-green-200 font-medium">
                     <input
                       type="checkbox"
                       checked={formData.agreedToTerms}
@@ -1290,17 +1290,17 @@ const Profile = () => {
                     />
                     I agree to share these details for a personalised experience.
                   </label>
-                  <CheckCircle className={`w-6 h-6 ${formData.agreedToTerms ? "text-green-600" : "text-green-300"}`} />
+                  <CheckCircle className={`w-6 h-6 ${formData.agreedToTerms ? "text-green-600" : "text-green-300 dark:text-green-700"}`} />
                 </section>
 
                 {errorMessage && (
-                  <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                  <div className="rounded-2xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/40 px-5 py-4 text-sm text-red-700 dark:text-red-300">
                     {errorMessage}
                   </div>
                 )}
 
                 {successMessage && (
-                  <div className="rounded-2xl border border-green-200 bg-green-50 px-5 py-4 text-sm text-green-700">
+                  <div className="rounded-2xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/40 px-5 py-4 text-sm text-green-700 dark:text-green-300">
                     {successMessage}
                   </div>
                 )}
@@ -1310,7 +1310,7 @@ const Profile = () => {
                     <button
                       type="button"
                       onClick={handleCancelEdit}
-                      className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-all"
+                      className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-all"
                       disabled={isUpdating}
                     >
                       Cancel
@@ -1321,7 +1321,7 @@ const Profile = () => {
                     onClick={() => {
                       if (user) setFormData(formStateFromUser(user));
                     }}
-                    className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-all"
+                    className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-all"
                     disabled={isUpdating}
                   >
                     Reset
@@ -1365,27 +1365,27 @@ const Profile = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl shadow-2xl max-w-md w-full"
+              className="bg-surface rounded-3xl shadow-2xl max-w-md w-full"
               role="dialog"
               aria-modal="true"
               aria-labelledby="confirm-save-title"
             >
-              <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                <h2 id="confirm-save-title" className="text-xl font-bold text-gray-900">
+              <div className="p-6 border-b border-border flex items-center justify-between">
+                <h2 id="confirm-save-title" className="text-xl font-bold text-foreground">
                   Save profile changes?
                 </h2>
                 <button
                   type="button"
                   onClick={() => setShowConfirmSubmitModal(false)}
                   disabled={isUpdating}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50"
+                  className="p-2 hover:bg-muted rounded-lg transition-colors disabled:opacity-50"
                   aria-label="Close"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-muted-foreground" />
                 </button>
               </div>
               <div className="p-6 space-y-4">
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Your profile details will be saved. Biodata and student inquiry documents may be
                   regenerated from your updated information.
                 </p>
@@ -1394,7 +1394,7 @@ const Profile = () => {
                     type="button"
                     onClick={() => setShowConfirmSubmitModal(false)}
                     disabled={isUpdating}
-                    className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors disabled:opacity-50"
+                    className="flex-1 px-6 py-3 border border-border text-foreground rounded-xl font-semibold hover:bg-muted transition-colors disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -1438,7 +1438,7 @@ const Profile = () => {
                 type="button"
                 onClick={() => setPdfActiveTab("biodata")}
                 className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${
-                  pdfActiveTab === "biodata" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
+                  pdfActiveTab === "biodata" ? "bg-green-600 text-white" : "bg-muted text-foreground"
                 }`}
               >
                 Biodata
@@ -1447,7 +1447,7 @@ const Profile = () => {
                 type="button"
                 onClick={() => setPdfActiveTab("inquiry")}
                 className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${
-                  pdfActiveTab === "inquiry" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
+                  pdfActiveTab === "inquiry" ? "bg-green-600 text-white" : "bg-muted text-foreground"
                 }`}
               >
                 Student inquiry

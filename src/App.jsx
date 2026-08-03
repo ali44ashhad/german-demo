@@ -46,7 +46,7 @@ function App() {
      <ScrollToTop/>
       {!shouldHideLayout && !isSubAdminView && <Header />}
       {!shouldHideLayout && isSubAdminView && <SubAdminHeader />}
-      <div className={shouldHideLayout ? "" : "min-h-screen"}>
+      <div className={shouldHideLayout ? "" : "min-h-screen bg-background text-foreground"}>
         <Routes> 
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
@@ -57,7 +57,7 @@ function App() {
           <Route path="/disclaimer" element={<DisclaimerAndPolicy />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<StudentJourney />} />
+          <Route path="/process" element={<StudentJourney />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/cookies" element={<CookiesPolicy />} />

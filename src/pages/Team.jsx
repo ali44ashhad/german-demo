@@ -76,7 +76,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -95,7 +95,7 @@
         
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h1 
-//             className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+//             className="text-5xl md:text-6xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.8 }}
@@ -122,48 +122,48 @@
 //             {teamMembers.map((member, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group"
+//                 className="bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300 group"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
 //                 whileHover={{ y: -10 }}
 //               >
 //                 <div className="text-center mb-6">
-//                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-green-200 transition-all duration-300">
+//                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-border transition-all duration-300">
 //                     <img 
 //                       src={member.image} 
 //                       alt={member.name}
 //                       className="w-full h-full object-cover"
 //                     />
 //                   </div>
-//                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-//                   <p className="text-green-600 font-semibold mb-2">{member.role}</p>
-//                   <p className="text-gray-600 text-sm mb-3">{member.experience}</p>
+//                   <h3 className="text-2xl font-bold text-foreground mb-2">{member.name}</h3>
+//                   <p className="text-green-600 dark:text-green-400 font-semibold mb-2">{member.role}</p>
+//                   <p className="text-muted-foreground text-sm mb-3">{member.experience}</p>
 //                 </div>
 
 //                 <div className="space-y-3">
-//                   <div className="flex items-center gap-2 text-gray-700 text-sm">
-//                     <GraduationCap className="w-4 h-4 text-green-600" />
+//                   <div className="flex items-center gap-2 text-muted-foreground text-sm">
+//                     <GraduationCap className="w-4 h-4 text-green-600 dark:text-green-400" />
 //                     <span>{member.education}</span>
 //                   </div>
                   
 //                   <div className="space-y-2">
-//                     <p className="text-gray-700 text-sm font-semibold">Specializations:</p>
+//                     <p className="text-muted-foreground text-sm font-semibold">Specializations:</p>
 //                     {member.specialization.map((spec, specIndex) => (
 //                       <div key={specIndex} className="flex items-center gap-2">
 //                         <div className="w-1 h-1 bg-green-600 rounded-full"></div>
-//                         <span className="text-gray-700 text-sm">{spec}</span>
+//                         <span className="text-muted-foreground text-sm">{spec}</span>
 //                       </div>
 //                     ))}
 //                   </div>
 //                 </div>
 
-//                 <div className="flex gap-3 mt-6 pt-6 border-t border-gray-100">
-//                   <button className="flex-1 bg-white/60 text-green-600 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 transition-all duration-300 flex items-center justify-center gap-2">
+//                 <div className="flex gap-3 mt-6 pt-6 border-t border-border">
+//                   <button className="flex-1 bg-surface/60 text-green-600 dark:text-green-400 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 dark:bg-muted transition-all duration-300 flex items-center justify-center gap-2">
 //                     <Mail className="w-4 h-4 inline" />
 //                     Contact
 //                   </button>
-//                   <button className="flex-1 bg-white/60 text-sky-600 py-2 rounded-lg text-sm font-semibold hover:bg-sky-50 transition-all duration-300 flex items-center justify-center gap-2">
+//                   <button className="flex-1 bg-surface/60 text-sky-600 dark:text-sky-400 py-2 rounded-lg text-sm font-semibold hover:bg-sky-50 dark:bg-muted transition-all duration-300 flex items-center justify-center gap-2">
 //                     <Linkedin className="w-4 h-4 inline" />
 //                     Profile
 //                   </button>
@@ -175,15 +175,15 @@
 //       </section>
 
 //       {/* Expertise Areas */}
-//       <section className="py-20 bg-white/50">
+//       <section className="py-20 bg-muted">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.div 
 //             className="text-center mb-16"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Expertise Areas</h2>
-//             <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Our Expertise Areas</h2>
+//             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
 //               Specialized guidance across diverse academic and professional fields
 //             </p>
 //           </motion.div>
@@ -192,7 +192,7 @@
 //             {expertiseAreas.map((area, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-all duration-300 text-center"
+//                 className="bg-surface rounded-2xl p-8 border border-border hover:shadow-md transition-all duration-300 text-center"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
@@ -201,8 +201,8 @@
 //                 <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
 //                   <area.icon className="w-8 h-8 text-white" />
 //                 </div>
-//                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{area.field}</h3>
-//                 <p className="text-gray-700 leading-relaxed">{area.description}</p>
+//                 <h3 className="text-2xl font-bold text-foreground mb-4">{area.field}</h3>
+//                 <p className="text-muted-foreground leading-relaxed">{area.description}</p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -213,14 +213,14 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-6"
+//             className="text-4xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           >
 //             Ready to Work With Our Experts?
 //           </motion.h2>
 //           <motion.p 
-//             className="text-xl text-gray-700 mb-8"
+//             className="text-xl text-muted-foreground mb-8"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ delay: 0.2 }}
@@ -337,7 +337,7 @@ const Team = () => {
   const cta = (rawCta && Object.keys(rawCta).length) ? rawCta : FALLBACK.cta;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -350,12 +350,12 @@ const Team = () => {
               backgroundPosition: 'center'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/30 via-blue-400/30 to-sky-700/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/30 via-blue-400/30 to-sky-700/40 dark:from-slate-900/70 dark:via-sky-950/60 dark:to-slate-950/80 mix-blend-multiply" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -382,7 +382,7 @@ const Team = () => {
             {members.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col h-full"
+                className="bg-surface rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col h-full"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -390,27 +390,27 @@ const Team = () => {
               >
                 {/* Header Section - Fixed Height */}
                 <div className="text-center mb-6 flex-shrink-0">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-green-200 transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-50 group-hover:border-border transition-all duration-300">
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[2rem]">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-3 min-h-[3rem] line-clamp-2">{member.role}</p>
-                  <p className="text-gray-600 text-sm mb-2 min-h-[1.25rem]">{member.experience}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2 min-h-[2rem]">{member.name}</h3>
+                  <p className="text-green-600 dark:text-green-400 font-semibold mb-3 min-h-[3rem] line-clamp-2">{member.role}</p>
+                  <p className="text-muted-foreground text-sm mb-2 min-h-[1.25rem]">{member.experience}</p>
                 </div>
 
                 {/* Content Section - Flexible */}
                 <div className="flex flex-col flex-grow space-y-4">
-                  <div className="flex items-start gap-2 text-gray-700 text-sm min-h-[1.5rem]">
-                    <GraduationCap className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 text-muted-foreground text-sm min-h-[1.5rem]">
+                    <GraduationCap className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                     <span className="flex-1">{member.education}</span>
                   </div>
 
                   <div className="flex-grow">
-                    <p className="text-gray-700 text-sm font-semibold mb-3">Specializations:</p>
+                    <p className="text-muted-foreground text-sm font-semibold mb-3">Specializations:</p>
                     <div className="space-y-2 min-h-[4rem]">
                       {Array.isArray(member.specialization)
                         ? member.specialization.map((spec, si) => (
-                            <div key={si} className="flex items-start gap-2 text-gray-700 text-sm">
+                            <div key={si} className="flex items-start gap-2 text-muted-foreground text-sm">
                               <div className="w-1 h-1 bg-green-600 rounded-full mt-2 flex-shrink-0" />
                               <span className="flex-1">{spec}</span>
                             </div>
@@ -420,10 +420,10 @@ const Team = () => {
                   </div>
                 </div>
 
-                {/* <div className="flex gap-3 mt-6 pt-6 border-t border-gray-100">
+                {/* <div className="flex gap-3 mt-6 pt-6 border-t border-border">
                   <a
                     href={member.contactMail ? `mailto:${member.contactMail}` : '#'}
-                    className="flex-1 bg-white/60 text-green-600 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="flex-1 bg-surface/60 text-green-600 dark:text-green-400 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 dark:bg-muted transition-all duration-300 flex items-center justify-center gap-2"
                     aria-label={`Contact ${member.name}`}
                   >
                     <Mail className="w-4 h-4 inline" />
@@ -434,7 +434,7 @@ const Team = () => {
                     href={member.linkedin || '#'}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 bg-white/60 text-sky-600 py-2 rounded-lg text-sm font-semibold hover:bg-sky-50 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="flex-1 bg-surface/60 text-sky-600 dark:text-sky-400 py-2 rounded-lg text-sm font-semibold hover:bg-sky-50 dark:bg-muted transition-all duration-300 flex items-center justify-center gap-2"
                     aria-label={`LinkedIn ${member.name}`}
                   >
                     <Linkedin className="w-4 h-4 inline" />
@@ -451,14 +451,14 @@ const Team = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-6"
+            className="text-4xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           >
             {cta.heading}
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-700 mb-8"
+            className="text-xl text-muted-foreground mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.12 }}

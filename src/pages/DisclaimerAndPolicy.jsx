@@ -56,7 +56,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -75,7 +75,7 @@
         
 //         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h1 
-//             className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+//             className="text-5xl md:text-6xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.8 }}
@@ -101,7 +101,7 @@
 //             {policies.map((policy, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+//                 className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -111,14 +111,14 @@
 //                   <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
 //                     <policy.icon className="w-6 h-6 text-white" />
 //                   </div>
-//                   <h3 className="text-2xl font-bold text-gray-900">{policy.title}</h3>
+//                   <h3 className="text-2xl font-bold text-foreground">{policy.title}</h3>
 //                 </div>
 
 //                 <div className="space-y-3">
 //                   {policy.content.map((item, itemIndex) => (
 //                     <div key={itemIndex} className="flex items-start gap-3">
-//                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-//                       <p className="text-gray-700 leading-relaxed">{item}</p>
+//                       <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+//                       <p className="text-muted-foreground leading-relaxed">{item}</p>
 //                     </div>
 //                   ))}
 //                 </div>
@@ -129,17 +129,17 @@
 //       </section>
 
 //       {/* Additional Legal Info */}
-//       <section className="py-20 bg-green-50/30">
+//       <section className="py-20 bg-green-50/30 dark:bg-muted/50">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.div
-//             className="bg-white rounded-2xl p-8 border border-green-100 shadow-sm"
+//             className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //             transition={{ duration: 0.8, delay: 0.4 }}
 //           >
-//             <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Service Understanding</h2>
+//             <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Service Understanding</h2>
             
-//             <div className="space-y-4 text-gray-700">
+//             <div className="space-y-4 text-muted-foreground">
 //               <p>
 //                 <strong>Educational Consulting Nature:</strong> Profiberater provides educational consulting and advisory services. We offer guidance, support, and expertise in the German education system but do not guarantee admissions, scholarships, or visa approvals.
 //               </p>
@@ -164,14 +164,14 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-6"
+//             className="text-4xl font-bold text-foreground mb-6"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //           >
 //             Questions About Our Policies?
 //           </motion.h2>
 //           <motion.p 
-//             className="text-xl text-gray-700 mb-8"
+//             className="text-xl text-muted-foreground mb-8"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
 //             transition={{ delay: 0.2 }}
@@ -250,7 +250,7 @@ const DisclaimerAndPolicy = () => {
   const contactButton = contact.button || '';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero Section */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -262,12 +262,12 @@ const DisclaimerAndPolicy = () => {
               backgroundPosition: 'center'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
@@ -293,7 +293,7 @@ const DisclaimerAndPolicy = () => {
             {policies.map((policy, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+                className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -303,14 +303,14 @@ const DisclaimerAndPolicy = () => {
                   <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-sky-600 rounded-xl flex items-center justify-center">
                     <policy.Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{policy.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">{policy.title}</h3>
                 </div>
 
                 <div className="space-y-3">
                   {policy.content.map((item, itemIndex) => (
                     <div key={itemIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <p className="text-gray-700 leading-relaxed">{item}</p>
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-muted-foreground leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -321,17 +321,17 @@ const DisclaimerAndPolicy = () => {
       </section>
 
       {/* Additional Legal Info */}
-      <section className="py-20 bg-green-50/30">
+      <section className="py-20 bg-green-50/30 dark:bg-muted/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="bg-white rounded-2xl p-8 border border-green-100 shadow-sm"
+            className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">{additionalTitle}</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">{additionalTitle}</h2>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-muted-foreground">
               {additionalParagraphs.map((p, i) => (
                 <p key={i} className="leading-relaxed">{p}</p>
               ))}
@@ -344,7 +344,7 @@ const DisclaimerAndPolicy = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-6"
+            className="text-4xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           >
@@ -352,7 +352,7 @@ const DisclaimerAndPolicy = () => {
           </motion.h2>
 
           <motion.p
-            className="text-xl text-gray-700 mb-8"
+            className="text-xl text-muted-foreground mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.12 }}

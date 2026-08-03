@@ -30,7 +30,7 @@ const SubAdminRoute = ({ children }) => {
 
   if (isLoading || isFetching) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         <Loader2 className="w-12 h-12 animate-spin text-green-600" />
       </div>
     );

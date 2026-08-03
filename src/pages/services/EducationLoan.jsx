@@ -83,7 +83,7 @@
 //   ];
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+//     <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
 //       {/* Hero Section */}
 //       <section className="relative py-30 overflow-hidden">
 //         <div className="absolute inset-0">
@@ -125,7 +125,7 @@
 //       <section ref={ref} className="py-20">
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.h2 
-//             className="text-4xl font-bold text-gray-900 mb-12 text-center"
+//             className="text-4xl font-bold text-foreground mb-12 text-center"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
@@ -136,29 +136,29 @@
 //             {loanTypes.map((loan, index) => (
 //               <motion.div
 //                 key={index}
-//                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+//                 className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
 //                 initial={{ opacity: 0, y: 50 }}
 //                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //                 transition={{ duration: 0.6, delay: index * 0.1 }}
 //                 whileHover={{ y: -10 }}
 //               >
 //                 <div className="text-center mb-6">
-//                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{loan.name}</h3>
+//                   <h3 className="text-2xl font-bold text-foreground mb-4">{loan.name}</h3>
                   
 //                   <div className="space-y-2 mb-4">
-//                     <div className="text-sky-600 font-bold text-xl">{loan.amount}</div>
-//                     <div className="text-green-600 font-semibold">{loan.interest}</div>
+//                     <div className="text-sky-600 dark:text-sky-400 font-bold text-xl">{loan.amount}</div>
+//                     <div className="text-green-600 dark:text-green-400 font-semibold">{loan.interest}</div>
 //                   </div>
 
-//                   <p className="text-gray-700 text-sm mb-4">
+//                   <p className="text-muted-foreground text-sm mb-4">
 //                     Eligibility: {loan.eligibility}
 //                   </p>
 //                 </div>
 
 //                 <div className="space-y-3 mb-6">
 //                   {loan.features.map((feature, featureIndex) => (
-//                     <div key={featureIndex} className="flex items-center gap-3 text-gray-700">
-//                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+//                     <div key={featureIndex} className="flex items-center gap-3 text-muted-foreground">
+//                       <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
 //                       <span className="text-sm">{feature}</span>
 //                     </div>
 //                   ))}
@@ -176,7 +176,7 @@
 //           </div>
 //         </div>
 //       </section>
-//       <section className="py-20 bg-green-50/30">
+//       <section className="py-20 bg-green-50/30 dark:bg-muted/50">
 //         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 //             {/* Lenders */}
@@ -185,28 +185,28 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
 //               transition={{ duration: 0.8 }}
 //             >
-//               <h3 className="text-3xl font-bold text-gray-900 mb-6">Partner Lenders</h3>
+//               <h3 className="text-3xl font-bold text-foreground mb-6">Partner Lenders</h3>
 //               <div className="space-y-4">
 //                 {lenders.map((lender, index) => (
 //                   <motion.div
 //                     key={index}
-//                     className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+//                     className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
 //                     whileHover={{ scale: 1.02 }}
 //                   >
-//                     <h4 className="text-xl font-bold text-gray-900 mb-3">{lender.name}</h4>
+//                     <h4 className="text-xl font-bold text-foreground mb-3">{lender.name}</h4>
                     
-//                     <div className="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-3">
+//                     <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground mb-3">
 //                       <div>
-//                         <span className="text-gray-500">Processing:</span>
-//                         <div className="text-sky-600 font-semibold">{lender.processing}</div>
+//                         <span className="text-muted-foreground">Processing:</span>
+//                         <div className="text-sky-600 dark:text-sky-400 font-semibold">{lender.processing}</div>
 //                       </div>
 //                       <div>
-//                         <span className="text-gray-500">Margin Money:</span>
-//                         <div className="text-green-600 font-semibold">{lender.margin}</div>
+//                         <span className="text-muted-foreground">Margin Money:</span>
+//                         <div className="text-green-600 dark:text-green-400 font-semibold">{lender.margin}</div>
 //                       </div>
 //                     </div>
 
-//                     <div className="text-green-600 text-sm">
+//                     <div className="text-green-600 dark:text-green-400 text-sm">
 //                       {lender.special}
 //                     </div>
 //                   </motion.div>
@@ -220,18 +220,18 @@
 //               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
 //               transition={{ duration: 0.8, delay: 0.2 }}
 //             >
-//               <h3 className="text-3xl font-bold text-gray-900 mb-6">Required Documents</h3>
+//               <h3 className="text-3xl font-bold text-foreground mb-6">Required Documents</h3>
 //               <div className="space-y-3">
 //                 {documents.map((document, index) => (
 //                   <motion.div
 //                     key={index}
-//                     className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100"
+//                     className="flex items-center gap-3 bg-surface rounded-xl p-4 border border-border"
 //                     initial={{ opacity: 0, x: 20 }}
 //                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
 //                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
 //                   >
-//                     <FileText className="w-5 h-5 text-sky-600 flex-shrink-0" />
-//                     <span className="text-gray-700">{document}</span>
+//                     <FileText className="w-5 h-5 text-sky-600 dark:text-sky-400 flex-shrink-0" />
+//                     <span className="text-muted-foreground">{document}</span>
 //                   </motion.div>
 //                 ))}
 //               </div>
@@ -250,12 +250,12 @@
 //       <section className="py-20">
 //         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 //           <motion.div
-//             className="bg-white rounded-3xl p-12 border border-orange-100 shadow-sm"
+//             className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 //           >
-//             <h2 className="text-4xl font-bold text-gray-900 mb-6">Finance Your German Dream</h2>
-//             <p className="text-xl text-gray-700 mb-8">
+//             <h2 className="text-4xl font-bold text-foreground mb-6">Finance Your German Dream</h2>
+//             <p className="text-xl text-muted-foreground mb-8">
 //               Get the best education loan for your studies in Germany with our expert guidance.
 //             </p>
 //             <motion.button
@@ -380,7 +380,7 @@ export default function EducationLoan() {
   const restTitle = hero.title.split(" ").slice(1).join(" ");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-sky-50 to-green-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950/40">
       {/* Hero */}
       <section className="relative py-30 overflow-hidden">
         <div className="absolute inset-0">
@@ -393,7 +393,7 @@ export default function EducationLoan() {
               backgroundPosition: "center"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-sky-700/70 mix-blend-multiply dark:from-sky-600/50 dark:via-blue-700/40 dark:to-sky-900/60" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -424,7 +424,7 @@ export default function EducationLoan() {
       <section ref={ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-4xl font-bold text-foreground mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
@@ -435,29 +435,29 @@ export default function EducationLoan() {
             {loanTypes.map((loan, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+                className="bg-surface rounded-2xl p-8 border border-border shadow-sm"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{loan.name}</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{loan.name}</h3>
 
                   <div className="space-y-2 mb-4">
-                    <div className="text-sky-600 font-bold text-xl">{loan.amount}</div>
-                    <div className="text-green-600 font-semibold">{loan.interest}</div>
+                    <div className="text-sky-600 dark:text-sky-400 font-bold text-xl">{loan.amount}</div>
+                    <div className="text-green-600 dark:text-green-400 font-semibold">{loan.interest}</div>
                   </div>
 
-                  <p className="text-gray-700 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4">
                     {labels.eligibility} {loan.eligibility}
                   </p>
                 </div>
 
                 <div className="space-y-3 mb-6">
                   {loan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <div key={featureIndex} className="flex items-center gap-3 text-muted-foreground">
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
@@ -483,7 +483,7 @@ export default function EducationLoan() {
       </section>
 
       {/* Lenders + Documents + EMI */}
-      <section className="py-20 bg-green-50/30">
+      <section className="py-20 bg-green-50/30 dark:bg-muted/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Lenders */}
@@ -492,28 +492,28 @@ export default function EducationLoan() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">{sections.lendersTitle}</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-6">{sections.lendersTitle}</h3>
               <div className="space-y-4">
                 {lenders.map((lender, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+                    className="bg-surface rounded-2xl p-6 border border-border shadow-sm"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">{lender.name}</h4>
+                    <h4 className="text-xl font-bold text-foreground mb-3">{lender.name}</h4>
 
-                    <div className="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-3">
+                    <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground mb-3">
                       <div>
-                        <span className="text-gray-500">{labels.processing}</span>
-                        <div className="text-sky-600 font-semibold">{lender.processing}</div>
+                        <span className="text-muted-foreground">{labels.processing}</span>
+                        <div className="text-sky-600 dark:text-sky-400 font-semibold">{lender.processing}</div>
                       </div>
                       <div>
-                        <span className="text-gray-500">{labels.marginMoney}</span>
-                        <div className="text-green-600 font-semibold">{lender.margin}</div>
+                        <span className="text-muted-foreground">{labels.marginMoney}</span>
+                        <div className="text-green-600 dark:text-green-400 font-semibold">{lender.margin}</div>
                       </div>
                     </div>
 
-                    <div className="text-green-600 text-sm">{lender.special}</div>
+                    <div className="text-green-600 dark:text-green-400 text-sm">{lender.special}</div>
                   </motion.div>
                 ))}
               </div>
@@ -525,18 +525,18 @@ export default function EducationLoan() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">{sections.documentsTitle}</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-6">{sections.documentsTitle}</h3>
               <div className="space-y-3">
                 {documents.map((document, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100"
+                    className="flex items-center gap-3 bg-surface rounded-xl p-4 border border-border"
                     initial={{ opacity: 0, x: 20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   >
-                    <FileText className="w-5 h-5 text-sky-600 flex-shrink-0" />
-                    <span className="text-gray-700">{document}</span>
+                    <FileText className="w-5 h-5 text-sky-600 dark:text-sky-400 flex-shrink-0" />
+                    <span className="text-muted-foreground">{document}</span>
                   </motion.div>
                 ))}
               </div>
@@ -553,12 +553,12 @@ export default function EducationLoan() {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            className="bg-white rounded-3xl p-12 border border-orange-100 shadow-sm"
+            className="bg-surface rounded-3xl p-12 border border-border shadow-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">{cta.heading}</h2>
-            <p className="text-xl text-gray-700 mb-8">{cta.sub}</p>
+            <h2 className="text-4xl font-bold text-foreground mb-6">{cta.heading}</h2>
+            <p className="text-xl text-muted-foreground mb-8">{cta.sub}</p>
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-green-600 to-sky-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-green-600/25 transition-all duration-300 flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
