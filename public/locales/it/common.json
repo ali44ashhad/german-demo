@@ -500,8 +500,7 @@
       "three": "Esperti Educazione Tedesca"
     },
     "quick_links_title": "Link Rapidi",
-    "our_services_title": "I Nostri Servizi",
-    "important_links_title": "Link Importanti",
+    "location_title": "Sede",
     "follow_us_title": "Seguici",
     "newsletter_title": "Newsletter",
     "contact": {
@@ -528,27 +527,7 @@
       {
         "name": "Servizi",
         "href": "/services"
-      }
-    ],
-    "services": [
-      {
-        "name": "Carta Forex & Rimesse",
-        "to": "/services/forex-card-remittances"
       },
-      {
-        "name": "Alloggio",
-        "to": "/services/accommodation"
-      },
-      {
-        "name": "Assicurazione Medica",
-        "to": "/services/medical-insurance"
-      },
-      {
-        "name": "Prestito Studio",
-        "to": "/services/education-loan"
-      }
-    ],
-    "important_links": [
       {
         "name": "Disclaimer & Policy",
         "href": "/disclaimer"
@@ -565,6 +544,10 @@
         "name": "Coaching",
         "href": "/coaching"
       }
+    ],
+    "locations": [
+      "Mumbai, India",
+      "Germania"
     ],
     "social": [
       {

@@ -500,8 +500,7 @@
       "three": "Experts en Éducation Allemande"
     },
     "quick_links_title": "Liens Rapides",
-    "our_services_title": "Nos Services",
-    "important_links_title": "Liens Importants",
+    "location_title": "Localisation",
     "follow_us_title": "Suivez-nous",
     "newsletter_title": "Newsletter",
     "contact": {
@@ -528,27 +527,7 @@
       {
         "name": "Services",
         "href": "/services"
-      }
-    ],
-    "services": [
-      {
-        "name": "Carte Forex & Transferts",
-        "to": "/services/forex-card-remittances"
       },
-      {
-        "name": "Logement",
-        "to": "/services/accommodation"
-      },
-      {
-        "name": "Assurance Médicale",
-        "to": "/services/medical-insurance"
-      },
-      {
-        "name": "Prêt Étudiant",
-        "to": "/services/education-loan"
-      }
-    ],
-    "important_links": [
       {
         "name": "Mentions Légales & Politique",
         "href": "/disclaimer"
@@ -565,6 +544,10 @@
         "name": "Coaching",
         "href": "/coaching"
       }
+    ],
+    "locations": [
+      "Mumbai, Inde",
+      "Allemagne"
     ],
     "social": [
       {

@@ -670,8 +670,7 @@
       "three": "Germany Education Experts"
     },
     "quick_links_title": "Quick Links",
-    "our_services_title": "Our Services",
-    "important_links_title": "Important Links",
+    "location_title": "Location",
     "follow_us_title": "Follow Us",
     "newsletter_title": "Newsletter",
     "contact": {
@@ -698,27 +697,7 @@
       {
         "name": "Services",
         "href": "/services"
-      }
-    ],
-    "services": [
-      {
-        "name": "Forex Card & Remittances",
-        "to": "/services/forex-card-remittances"
       },
-      {
-        "name": "Accommodation",
-        "to": "/services/accommodation"
-      },
-      {
-        "name": "Medical Insurance",
-        "to": "/services/medical-insurance"
-      },
-      {
-        "name": "Education Loan",
-        "to": "/services/education-loan"
-      }
-    ],
-    "important_links": [
       {
         "name": "Disclaimer & Policy",
         "href": "/disclaimer"
@@ -735,6 +714,10 @@
         "name": "Coaching",
         "href": "/coaching"
       }
+    ],
+    "locations": [
+      "Mumbai, India",
+      "Germany"
     ],
     "social": [
       {
