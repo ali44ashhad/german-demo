@@ -352,9 +352,9 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {stats.map((stat, index) => (
-                <div key={index} className="bg-surface rounded-2xl p-6 text-center border border-border shadow-sm">
-                  <div className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{stat.number}</div>
-                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                <div key={index} className="bg-surface rounded-2xl px-2 py-4 sm:p-6 text-center border border-border shadow-sm">
+                  <div className="text-sm sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2 leading-tight">{stat.number}</div>
+                  <div className="text-muted-foreground text-xs sm:text-sm">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
