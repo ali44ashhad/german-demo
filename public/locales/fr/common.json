@@ -450,10 +450,10 @@
     },
     "contact_cards": {
       "call": {
-        "title": "Appelez-nous",
+        "title": "Numéro WhatsApp",
         "info": "+91 98765 43210",
         "description": "Lun-Ven, 10h-18h",
-        "link": "tel:+919876543210",
+        "link": "https://wa.me/919876543210",
         "key": "call"
       },
       "email": {
@@ -739,12 +739,12 @@
     },
     "contactInfo": [
       {
-        "icon": "Phone",
-        "title": "Appelez-nous",
+        "icon": "WhatsApp",
+        "title": "Numéro WhatsApp",
         "info": "+91 98765 43210",
         "description": "Lun-Ven, 10h00 - 18h00",
         "color": "from-green-600 to-sky-600",
-        "link": "tel:+919876543210"
+        "link": "https://wa.me/919876543210"
       },
       {
         "icon": "Mail",
