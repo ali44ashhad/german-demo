@@ -279,14 +279,11 @@ import {
   ArrowUp,
   Heart,
   Shield,
-  CheckCircle,
-  Globe,
-  MessageCircle
+  Globe
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo.png';
-import { useAuthRedirect } from '../../utils/useAuthRedirect';
 
 
 const SOCIAL_ICON_MAP = {
@@ -309,7 +306,6 @@ const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
   const { t } = useTranslation('common');
-  const { requireAuth } = useAuthRedirect();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -448,43 +444,12 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
-        {/* Newsletter */}
-        <motion.div className="py-8 border-t border-border" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <div className="max-w-xl space-y-4">
-            <h4 className="text-lg font-semibold text-foreground mb-4">
-              {footer.newsletter_title || 'Newsletter'}
-            </h4>
-
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder={footer.newsletter_placeholder || 'Enter your email'}
-                className="flex-1 bg-surface border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-600 transition-all duration-300"
-              />
-              <motion.button
-                className="px-6 bg-gradient-to-r from-green-600 to-sky-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-600/25 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="subscribe"
-                onClick={(e) => {
-                  if (!requireAuth()) {
-                    e.preventDefault();
-                    return;
-                  }
-                }}
-              >
-                <MessageCircle className="w-5 h-5" />
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Bottom Bar */}
         <motion.div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: 0.6 }}>
           {/* Copyright */}
           <div className="text-muted-foreground text-sm text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
-              <span>{footer.copyright_prefix || '© 2025 Eduberator. Made with'}</span>
+              <span>{footer.copyright_prefix || '© 2025 Eduberater. Made with'}</span>
               <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
                 <Heart className="w-4 h-4 text-red-400 fill-red-400" />
               </motion.div>
