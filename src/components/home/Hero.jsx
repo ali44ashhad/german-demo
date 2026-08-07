@@ -68,7 +68,7 @@
 //           animate={{ opacity: 1, y: 0 }}
 //           transition={{ duration: 0.6, delay: 0.8 }}
 //         >
-//           Eduberator is your trusted partner for admissions to Germany's top
+//           Eduberater is your trusted partner for admissions to Germany's top
 //           universities. We handle everything online — from shortlisting to visa
 //           guidance and pre-departure support.
 //         </motion.p>
@@ -151,7 +151,7 @@ const DEFAULT = {
   title_line1: "Study in Germany",
   title_line2: "Your Smartest Investment",
   description:
-    "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
+    "Eduberater is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
   cta_register: "🚀 Register yourself and book your consultation by our professional experts.",
   stats: [
     {"text": "High rate of admission success"},

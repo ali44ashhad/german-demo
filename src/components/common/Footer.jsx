@@ -94,7 +94,7 @@
 //               <div className="w-10 h-10 bg-gradient-to-r from-green-900 to-sky-900 rounded-xl flex items-center justify-center">
 //                 <Globe className="w-6 h-6 text-white" />
 //               </div>
-//               <h3 className="text-2xl font-bold text-gray-900">Eduberator</h3>
+//               <h3 className="text-2xl font-bold text-gray-900">Eduberater</h3>
 //             </motion.div>
 
 //             <p className="text-gray-700 mb-6 leading-relaxed">Your strategic partner for German education. We transform dreams into successful admissions with proven strategies and expert guidance.</p>
@@ -231,7 +231,7 @@
 //           {/* Copyright */}
 //           <div className="text-gray-600 text-sm text-center md:text-left">
 //             <div className="flex items-center gap-2 justify-center md:justify-start">
-//               <span>© 2025 Eduberator. Made with</span>
+//               <span>© 2025 Eduberater. Made with</span>
 //               <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
 //                 <Heart className="w-4 h-4 text-red-400 fill-red-400" />
 //               </motion.div>
@@ -385,8 +385,8 @@ const Footer = () => {
               {/* <div className="w-10 h-10 bg-gradient-to-r from-green-900 to-sky-900 rounded-xl flex items-center justify-center">
                 <Globe className="w-6 h-6 text-white" />
               </div> */}
-              <img src={logo} alt="Eduberator" className="h-14 w-auto" />
-              {/* <h3 className="text-2xl font-bold text-gray-900">{footer.company || 'Eduberator'}</h3> */}
+              <img src={logo} alt="Eduberater" className="h-14 w-auto" />
+              {/* <h3 className="text-2xl font-bold text-gray-900">{footer.company || 'Eduberater'}</h3> */}
             </motion.div>
 
             <p className="text-muted-foreground mb-6 leading-relaxed">{footer.about || 'Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.'}</p>

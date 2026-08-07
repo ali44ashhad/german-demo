@@ -26,7 +26,7 @@
     "title_line1": "Study in Germany",
     "title_line2": "Your Smartest Investment",
     "subtitle": "Your Smartest Investment",
-    "description": "Eduberator is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
+    "description": "Eduberater is your trusted partner for admissions to Germany's top universities. We handle everything online — from shortlisting to visa guidance and pre-departure support.",
     "cta_register": "🚀 Register yourself and book your consultation by our professional experts.",
     "stats": [
       {
@@ -218,7 +218,7 @@
       {
         "step": 1,
         "title": "Profile Analysis & Strategy",
-        "description": "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.",
+        "description": "Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberater roadmap.",
         "features": [
           "Academic Evaluation",
           "Career Goal Mapping",
@@ -303,8 +303,8 @@
       "steps": [
         {
           "id": "approach",
-          "title": "Approach Eduberator",
-          "body": "You discover our services through Eduberator and decide to begin your study-abroad journey with us."
+          "title": "Approach Eduberater",
+          "body": "You discover our services through Eduberater and decide to begin your study-abroad journey with us."
         },
         {
           "id": "register",
@@ -662,7 +662,7 @@
     "status_sent": "Sent"
   },
   "footer": {
-    "company": "Eduberator",
+    "company": "Eduberater",
     "about": "Your strategic partner for European education. We transform dreams into successful admissions with proven strategies and expert guidance.",
     "trust": {
       "one": "99% Admission Success",

@@ -26,7 +26,7 @@
     "title_line1": "Étudier en Allemagne",
     "title_line2": "Votre Investissement Le Plus Intelligent",
     "subtitle": "Votre Investissement Le Plus Intelligent",
-    "description": "Eduberator est votre partenaire de confiance pour les admissions dans les meilleures universités allemandes. Nous gérons tout en ligne - de la sélection au guidage visa et au soutien pré-départ.",
+    "description": "Eduberater est votre partenaire de confiance pour les admissions dans les meilleures universités allemandes. Nous gérons tout en ligne - de la sélection au guidage visa et au soutien pré-départ.",
     "cta_register": "🚀 Inscrivez-vous et réservez votre consultation avec nos experts professionnels.",
     "stats": [
       {
@@ -219,7 +219,7 @@
       {
         "step": 1,
         "title": "Analyse de Profil & Stratégie",
-        "description": "Évaluation complète de votre parcours académique, objectifs et aspirations professionnelles pour créer votre feuille de route Eduberator personnalisée.",
+        "description": "Évaluation complète de votre parcours académique, objectifs et aspirations professionnelles pour créer votre feuille de route Eduberater personnalisée.",
         "features": [
           "Évaluation Académique",
           "Cartographie des Objectifs",
@@ -492,7 +492,7 @@
     "status_sent": "Envoyé"
   },
   "footer": {
-    "company": "Eduberator",
+    "company": "Eduberater",
     "about": "Votre partenaire stratégique pour l'éducation allemande. Nous transformons les rêves en admissions réussies avec des stratégies éprouvées et un guidage expert.",
     "trust": {
       "one": "99% de Réussite aux Admissions",
@@ -2188,8 +2188,8 @@
       "steps": [
         {
           "id": "approach",
-          "title": "Contacter Eduberator",
-          "body": "Vous découvrez nos services via Eduberator et décidez de commencer votre parcours d'études à l'étranger avec nous."
+          "title": "Contacter Eduberater",
+          "body": "Vous découvrez nos services via Eduberater et décidez de commencer votre parcours d'études à l'étranger avec nous."
         },
         {
           "id": "register",

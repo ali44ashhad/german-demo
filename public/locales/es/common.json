@@ -26,7 +26,7 @@
     "title_line1": "Estudiar en Alemania",
     "title_line2": "Tu Inversión Más Inteligente",
     "subtitle": "Tu Inversión Más Inteligente",
-    "description": "Eduberator es tu socio confiable para admisiones en las mejores universidades de Alemania. Gestionamos todo en línea, desde la selección hasta la orientación de visa y apoyo previo a la partida.",
+    "description": "Eduberater es tu socio confiable para admisiones en las mejores universidades de Alemania. Gestionamos todo en línea, desde la selección hasta la orientación de visa y apoyo previo a la partida.",
     "cta_register": "🚀 Regístrate y reserva tu consulta con nuestros expertos profesionales.",
     "stats": [
       {
@@ -219,7 +219,7 @@
       {
         "step": 1,
         "title": "Análisis de Perfil y Estrategia",
-        "description": "Evaluación integral de tu historial académico, metas y aspiraciones profesionales para crear tu hoja de ruta Eduberator personalizada.",
+        "description": "Evaluación integral de tu historial académico, metas y aspiraciones profesionales para crear tu hoja de ruta Eduberater personalizada.",
         "features": [
           "Evaluación Académica",
           "Mapeo de Metas Profesionales",
@@ -492,7 +492,7 @@
     "status_sent": "Enviado"
   },
   "footer": {
-    "company": "Eduberator",
+    "company": "Eduberater",
     "about": "Tu socio estratégico para educación alemana. Transformamos sueños en admisiones exitosas con estrategias probadas y orientación experta.",
     "trust": {
       "one": "99% Éxito en Admisiones",
@@ -2188,8 +2188,8 @@
       "steps": [
         {
           "id": "approach",
-          "title": "Contactar con Eduberator",
-          "body": "Descubres nuestros servicios a través de Eduberator y decides comenzar tu viaje de estudios en el extranjero con nosotros."
+          "title": "Contactar con Eduberater",
+          "body": "Descubres nuestros servicios a través de Eduberater y decides comenzar tu viaje de estudios en el extranjero con nosotros."
         },
         {
           "id": "register",

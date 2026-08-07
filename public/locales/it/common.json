@@ -26,7 +26,7 @@
     "title_line1": "Studiare in Germania",
     "title_line2": "Il Tuo Investimento Più Intelligente",
     "subtitle": "Il Tuo Investimento Più Intelligente",
-    "description": "Eduberator è il tuo partner affidabile per l'ammissione alle migliori università tedesche. Gestiamo tutto online - dalla selezione alla guida per il visto e supporto pre-partenza.",
+    "description": "Eduberater è il tuo partner affidabile per l'ammissione alle migliori università tedesche. Gestiamo tutto online - dalla selezione alla guida per il visto e supporto pre-partenza.",
     "cta_register": "🚀 Registrati e prenota la tua consulenza con i nostri esperti professionisti.",
     "stats": [
       {
@@ -219,7 +219,7 @@
       {
         "step": 1,
         "title": "Analisi Profilo & Strategia",
-        "description": "Valutazione completa del tuo background accademico, obiettivi e aspirazioni di carriera per creare la tua roadmap Eduberator personalizzata.",
+        "description": "Valutazione completa del tuo background accademico, obiettivi e aspirazioni di carriera per creare la tua roadmap Eduberater personalizzata.",
         "features": [
           "Valutazione Accademica",
           "Mappatura Obiettivi Carriera",
@@ -492,7 +492,7 @@
     "status_sent": "Inviato"
   },
   "footer": {
-    "company": "Eduberator",
+    "company": "Eduberater",
     "about": "Il tuo partner strategico per l'educazione tedesca. Trasformiamo i sogni in ammissioni di successo con strategie collaudate e guida esperta.",
     "trust": {
       "one": "99% Successo Ammissioni",
@@ -2188,8 +2188,8 @@
       "steps": [
         {
           "id": "approach",
-          "title": "Contattare Eduberator",
-          "body": "Scopri i nostri servizi tramite Eduberator e decidi di iniziare il tuo percorso di studio all'estero con noi."
+          "title": "Contattare Eduberater",
+          "body": "Scopri i nostri servizi tramite Eduberater e decidi di iniziare il tuo percorso di studio all'estero con noi."
         },
         {
           "id": "register",

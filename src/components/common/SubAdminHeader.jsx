@@ -142,7 +142,7 @@ const SubAdminHeader = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
           <Link to="/subadmin" aria-label={t("header.nav.home", "Home")}>
-            <img src={logo} alt="Eduberator" className="h-14 w-auto" />
+            <img src={logo} alt="Eduberater" className="h-14 w-auto" />
           </Link>
 
           <nav className="hidden lg:flex text-lg items-center space-x-8" role="navigation" aria-label="Sub-admin primary">

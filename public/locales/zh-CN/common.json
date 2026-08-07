@@ -26,7 +26,7 @@
     "title_line1": "留学德国",
     "title_line2": "您最明智的投资",
     "subtitle": "您最明智的投资",
-    "description": "Eduberator是您申请德国顶尖大学的可靠合作伙伴。我们全程在线处理一切事务——从选校到签证指导和行前准备。",
+    "description": "Eduberater是您申请德国顶尖大学的可靠合作伙伴。我们全程在线处理一切事务——从选校到签证指导和行前准备。",
     "cta_register": "🚀 立即注册，预约我们的专业专家咨询",
     "stats": [
       {
@@ -219,7 +219,7 @@
       {
         "step": 1,
         "title": "个人资料分析与策略制定",
-        "description": "全面评估您的学术背景、目标和职业抱负，创建个性化的Eduberator路线图。",
+        "description": "全面评估您的学术背景、目标和职业抱负，创建个性化的Eduberater路线图。",
         "features": [
           "学术评估",
           "职业目标规划",
@@ -492,7 +492,7 @@
     "status_sent": "已发送"
   },
   "footer": {
-    "company": "Eduberator",
+    "company": "Eduberater",
     "about": "您留学德国的战略合作伙伴。我们通过成熟的策略和专家指导，将梦想转化为成功的录取。",
     "trust": {
       "one": "99%录取成功率",
@@ -2188,8 +2188,8 @@
       "steps": [
         {
           "id": "approach",
-          "title": "联系 Eduberator",
-          "body": "您通过 Eduberator 了解我们的服务，并决定与我们开始留学之旅。"
+          "title": "联系 Eduberater",
+          "body": "您通过 Eduberater 了解我们的服务，并决定与我们开始留学之旅。"
         },
         {
           "id": "register",

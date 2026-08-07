@@ -77,7 +77,7 @@
 //           >
 //             Why Choose{' '}
 //             <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">
-//               Eduberator
+//               Eduberater
 //             </span>
 //           </motion.h2>
 //           <motion.p

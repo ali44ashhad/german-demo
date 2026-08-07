@@ -1,5 +1,5 @@
 /**
- * Home page process section: vertical accordion for the 4-step Eduberator roadmap.
+ * Home page process section: vertical accordion for the 4-step Eduberater roadmap.
  * Step copy comes from i18n (`process.steps`); expand/collapse is local UI state only.
  */
 import { useRef, useState } from 'react';
@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
 
 const STEP_ICONS = [UserCheck, Search, FileText, Shield];
 
-/** Brand-aligned accent colors per step (reference layout, Eduberator palette). */
+/** Brand-aligned accent colors per step (reference layout, Eduberater palette). */
 const STEP_BG_CLASSES = [
   'bg-teal-500',
   'bg-emerald-700',
@@ -31,7 +31,7 @@ const FALLBACK_STEPS = [
     step: 1,
     title: 'Profile Analysis & Strategy',
     description:
-      'Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberator roadmap.',
+      'Comprehensive assessment of your academic background, goals, and career aspirations to create your personalized Eduberater roadmap.',
     features: ['Academic Evaluation', 'Career Goal Mapping', 'ROI Analysis', 'Timeline Planning'],
   },
   {

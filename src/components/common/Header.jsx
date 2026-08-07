@@ -199,7 +199,7 @@ const Header = () => {
               aria-label={t("header.nav.home", "Home")}
               className="cursor-pointer"
             >
-              <img src={logo} alt="Eduberator" className="h-14 w-auto" />
+              <img src={logo} alt="Eduberater" className="h-14 w-auto" />
             </button>
 
             {/* Desktop Navigation */}
