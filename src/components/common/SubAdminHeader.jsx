@@ -305,7 +305,11 @@ const SubAdminHeader = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-4 py-2 text-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
+                  className={`block px-4 py-2 hover:bg-muted rounded-lg text-sm transition-all ${
+                    isActiveLink(item.href)
+                      ? "text-green-600 dark:text-green-400 font-medium"
+                      : "text-foreground hover:text-green-600 dark:hover:text-green-400"
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}

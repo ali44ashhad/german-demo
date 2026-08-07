@@ -436,7 +436,11 @@ const Header = () => {
                     {item.dropdown ? (
                       <>
                         <button
-                          className="w-full flex justify-between items-center px-4 py-2 text-foreground font-medium rounded-lg hover:bg-muted transition-all focus:outline-none"
+                          className={`w-full flex justify-between items-center px-4 py-2 font-medium rounded-lg hover:bg-muted transition-all focus:outline-none ${
+                            isActiveLink(item.href)
+                              ? "text-green-600 dark:text-green-400"
+                              : "text-foreground hover:text-green-600 dark:hover:text-green-400"
+                          }`}
                           onClick={() => setActiveDropdown((prev) => (prev === item.name ? null : item.name))}
                           aria-expanded={activeDropdown === item.name}
                         >
@@ -457,7 +461,11 @@ const Header = () => {
                                 <Link
                                   key={dropdownItem.to}
                                   to={dropdownItem.to}
-                                  className="block px-4 py-2 text-muted-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
+                                  className={`block px-4 py-2 hover:bg-muted rounded-lg text-sm transition-all ${
+                                    isActiveLink(dropdownItem.to)
+                                      ? "text-green-600 dark:text-green-400 font-medium"
+                                      : "text-muted-foreground hover:text-green-600 dark:hover:text-green-400"
+                                  }`}
                                   onClick={() => {
                                     setIsMobileMenuOpen(false);
                                     setActiveDropdown(null);
@@ -473,7 +481,11 @@ const Header = () => {
                     ) : (
                       <Link
                         to={item.href}
-                        className="block px-4 py-2 text-foreground hover:text-green-600 dark:hover:text-green-400 hover:bg-muted rounded-lg text-sm transition-all"
+                        className={`block px-4 py-2 hover:bg-muted rounded-lg text-sm transition-all ${
+                          isActiveLink(item.href)
+                            ? "text-green-600 dark:text-green-400 font-medium"
+                            : "text-foreground hover:text-green-600 dark:hover:text-green-400"
+                        }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
